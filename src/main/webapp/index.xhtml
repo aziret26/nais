@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<f:view>
+
+    <h:head>
+
+    </h:head>
+
+    <h:body>
+
+        <h:panelGroup rendered="#{userSession.logged}">
+            <h:outputText value="#{string.welcome}"/>
+            <h:form>
+                <h:commandLink value="#{string.signOut}" action="#{userController.signout()}"/>
+            </h:form>
+        </h:panelGroup>
+
+        <h:panelGroup rendered="#{!userSession.logged}">
+            <h2>#{string.needAuthorization}</h2>
+            <h:link value="#{string.signIn}" outcome="/pages/auth/signin"/>
+        </h:panelGroup>
+    </h:body>
+
+</f:view>
+
+</html>
