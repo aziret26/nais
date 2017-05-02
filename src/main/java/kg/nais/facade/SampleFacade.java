@@ -24,7 +24,7 @@ public class SampleFacade {
 
     public void delete(Object object) {
         objectDao.beginTransaction();
-        objectDao.getEntityManager().remove(object);
+        objectDao.getEntityManager().remove(objectDao.getEntityManager().contains(object) ? object : objectDao.getEntityManager().merge(object));
         objectDao.commitAndCloseTransaction();
     }
 

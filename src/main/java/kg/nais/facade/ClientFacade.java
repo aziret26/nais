@@ -25,7 +25,7 @@ public class ClientFacade {
 
     public void delete(Client client) {
         objectDao.beginTransaction();
-        objectDao.getEntityManager().remove(client);
+        objectDao.getEntityManager().remove(objectDao.getEntityManager().contains(client) ? client : objectDao.getEntityManager().merge(client));
         objectDao.commitAndCloseTransaction();
     }
 
@@ -55,19 +55,17 @@ public class ClientFacade {
         return client;
     }
 
-//    public Client findByStatus(String status){
-//        Client ms;
-//        try {
-//            objectDao.beginTransaction();
-//            ms = objectDao.getEntityManager().createNamedQuery("MemberStatus.findByMemberStatus",Client.class)
-//                    .setParameter("status",status).getSingleResult();
-//        }catch (Exception ex){
-//            ms = null;
-//        }finally {
-//            objectDao.commitAndCloseTransaction();
-//        }
-//        return ms;
-//    }
-
-
+    public Client findByStatus(String status){
+        Client ms;
+        try {
+            objectDao.beginTransaction();
+            ms = objectDao.getEntityManager().createNamedQuery("Client.findByClientStatus",Client.class)
+                    .setParameter("clientStatus",status).getSingleResult();
+        }catch (Exception ex){
+            ms = null;
+        }finally {
+            objectDao.commitAndCloseTransaction();
+        }
+        return ms;
+    }
 }

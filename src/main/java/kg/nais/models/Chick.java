@@ -9,12 +9,16 @@ import java.util.*;
  */
 @Entity
 public class Chick implements Serializable{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int chickId;
 
     @Column
     private int age;
+
+    @Column
+    private int amount;
 
     @Column
     private Calendar dob;
@@ -44,6 +48,30 @@ public class Chick implements Serializable{
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public Feed getFeed() {
+        return feed;
+    }
+
+    public void setFeed(Feed feed) {
+        this.feed = feed;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public Calendar getDob() {

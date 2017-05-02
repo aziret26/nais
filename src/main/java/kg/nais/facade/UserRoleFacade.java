@@ -29,7 +29,7 @@ public class UserRoleFacade {
 
     public void deleteUserRole(UserRole userRole) {
         objectDao.beginTransaction();
-        objectDao.getEntityManager().remove(userRole);
+        objectDao.getEntityManager().remove(objectDao.getEntityManager().contains(userRole) ? userRole : objectDao.getEntityManager().merge(userRole));
         objectDao.commitAndCloseTransaction();
     }
 

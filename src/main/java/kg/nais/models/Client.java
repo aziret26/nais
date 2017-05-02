@@ -8,8 +8,10 @@ import java.util.*;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery( name="client.findAll",
-                query = "SELECT c FROM Client c")
+        @NamedQuery(name = "Client.findAll",
+                query = "SELECT c FROM Client c"),
+        @NamedQuery(name = "Client.findByClientStatus",
+                query = "SELECT c FROM Client c WHERE c.clientStatus = :clientStatus")
 })
 public class Client {
     @Id
@@ -24,6 +26,10 @@ public class Client {
 
     @OneToMany(mappedBy = "client")
     private List<Chick> chickList = new ArrayList<Chick>();
+
+    @ManyToOne
+    @JoinColumn(name="clientStatusId")
+    private ClientStatus clientStatus;
 
     public int getId() {
         return id;

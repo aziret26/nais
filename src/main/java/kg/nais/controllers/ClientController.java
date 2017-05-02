@@ -20,6 +20,9 @@ public class ClientController {
     @ManagedProperty(value="#{userSession}")
     private UserSession userSession;
 
+    @ManagedProperty(value = "#{clientSession}")
+    private ClientSession clientSession;
+
     public Client getClient() {
         return client;
     }
@@ -28,12 +31,16 @@ public class ClientController {
         this.client = client;
     }
 
-    public kg.nais.controllers.UserSession getUserSession() {
+    public UserSession getUserSession() {
         return userSession;
     }
 
     public void setUserSession(kg.nais.controllers.UserSession userSession) {
         this.userSession = userSession;
+    }
+
+    public void setClientSession(ClientSession clientSession) {
+        this.clientSession = clientSession;
     }
 
     public String createClient(){
@@ -46,4 +53,9 @@ public class ClientController {
         return new ClientFacade().findAll();
     }
 
+    public String delete(Client client){
+        //clientSession.setCleint(client);
+        new ClientFacade().delete(client);
+        return "";
+    }
 }

@@ -21,5 +21,35 @@ public class Feed {
     @OneToMany(mappedBy = "feed")
     private List<Chick> chick = new ArrayList<Chick>();
 
+    public int getFeedId() {
+        return feedId;
+    }
 
+    public void setFeedId(int feedId) {
+        this.feedId = feedId;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Calendar getRegisteredDate() {
+        return registeredDate;
+    }
+
+    public void setRegisteredDate(Calendar registeredDate) {
+        this.registeredDate = registeredDate;
+    }
+
+    public List<Chick> getChick() {
+        return chick;
+    }
+
+    public void setChick(List<Chick> chick) {
+        this.chick = chick;
+    }
 }

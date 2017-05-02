@@ -32,7 +32,7 @@ public class UserFacade {
 
     public void deleteUser(User user) {
         userDao.beginTransaction();
-        userDao.getEntityManager().remove(user);
+        userDao.getEntityManager().remove(userDao.getEntityManager().contains(user) ? user : userDao.getEntityManager().merge(user));
         userDao.commitAndCloseTransaction();
     }
 
