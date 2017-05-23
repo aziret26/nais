@@ -12,15 +12,15 @@
     <h:body>
 
         <h:panelGroup rendered="#{userSession.logged}">
-            <h:outputText value="#{string.welcome}"/>
+            <h:outputText value="#{msgs.welcome}"/>
             <h:form>
-                <h:commandLink value="#{string.signOut}" action="#{userController.signout()}"/>
+                <h:commandLink value="#{msgs.signOut}" action="#{userController.signout()}"/>
             </h:form>
         </h:panelGroup>
 
         <h:panelGroup rendered="#{!userSession.logged}">
-            <h2>#{string.needAuthorization}</h2>
-            <h:link value="#{string.signIn}" outcome="/pages/auth/signin"/>
+            <h2>#{msgs.needAuthorization}</h2>
+            <h:link value="#{msgs.signIn}" outcome="/pages/auth/signin"/>
         </h:panelGroup>
     </h:body>
 

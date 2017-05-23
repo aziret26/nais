@@ -55,4 +55,9 @@ public class UserRole implements Serializable {
         this.userList = userList;
     }
 
+    @Override
+    public String toString() {
+        return userRole;
+    }
+
 }

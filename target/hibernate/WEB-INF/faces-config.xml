@@ -5,12 +5,11 @@
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     <application>
         <locale-config>
-            <default-locale>ru</default-locale>
-            <supported-locale>en</supported-locale>
+            <default-locale>en</default-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>strings</base-name>
-            <var>string</var>
+            <base-name>messages</base-name>
+            <var>msgs</var>
         </resource-bundle>
 
     </application>

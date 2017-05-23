@@ -7,23 +7,23 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:head>
-        <title>#{string.authorization}</title>
+        <title>#{msgs.authorization}</title>
     </h:head>
     <h:panelGroup>
         <h:panelGroup rendered="#{!userSession.logged}">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{string.login}"/>
+                    <h:outputText value="#{msgs.login}"/>
                     <h:inputText value="#{userController.user.login}"/>
 
 
-                    <h:outputText value="#{string.password}"/>
+                    <h:outputText value="#{msgs.password}"/>
                     <h:inputText value="#{userController.user.password}"/>
 
                     <h:messages errorClass="errorMessage" infoClass="infoMessage"
                                 layout="table" globalOnly="true" showDetail="false" showSummary="true"/>
 
-                    <h:commandButton value="#{string.signIn}" action="#{userController.signin}"/>
+                    <h:commandButton value="#{msgs.signIn}" action="#{userController.signin}"/>
 
 
                 </h:panelGrid>

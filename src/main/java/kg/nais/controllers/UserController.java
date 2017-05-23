@@ -4,7 +4,7 @@ import kg.nais.facade.UserFacade;
 import kg.nais.facade.UserRoleFacade;
 import kg.nais.facade.UserStatusFacade;
 import kg.nais.models.User;
-import kg.nais.models.UserStatus;
+import kg.nais.models.UserRole;
 import kg.nais.tools.Tools;
 
 import javax.annotation.PostConstruct;
@@ -102,5 +102,9 @@ public class UserController {
         List<User> userList;
         userList = new UserFacade().searchByEmailBy5(email);
         return userList;
+    }
+
+    public List<UserRole> findUserRoleList(){
+        return new UserRoleFacade().findAll();
     }
 }

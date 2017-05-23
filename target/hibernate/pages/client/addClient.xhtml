@@ -12,12 +12,12 @@
     <h:body>
         <h:form>
             <h:panelGrid columns="2">
-                <h:outputText value="#{string.name}"/>
+                <h:outputText value="#{msgs.name}"/>
                 <h:panelGroup>
                     <h:inputText value="#{clientController.name}"/>
                 </h:panelGroup>
 
-                <h:commandLink value="#{string.addClient}" action="#{clientController.addClient}"/>
+                <h:commandLink value="#{msgs.addClient}" action="#{clientController.addClient}"/>
             </h:panelGrid>
         </h:form>
     </h:body>

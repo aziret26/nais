@@ -14,10 +14,25 @@
             <h:dataTable value="#{clientController.findAll()}" var="client" border="1">
                 <h:column headerClass="table-header" footerClass="table-footer">
                     <f:facet name="header">
-                        #{string.client}
+                        #{msgs.client}
                     </f:facet>
-                    <h:commandLink value="#{client.name}"/>
+                    <h:outputText value="#{client.name}"/>
                 </h:column>
+
+                <h:column headerClass="table-header" footerClass="table-footer">
+                    <f:facet name="header">
+                        #{msgs.edit}
+                    </f:facet>
+                    <h:commandLink value="#{client.edit}"/>
+                </h:column>
+
+                <h:column headerClass="table-header" footerClass="table-footer">
+                    <f:facet name="header">
+                        #{msgs.delete}
+                    </f:facet>
+                    <h:commandLink value="#{client.delete}"/>
+                </h:column>
+
             </h:dataTable>
         </h:form>
     </h:body>
