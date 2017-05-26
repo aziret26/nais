@@ -15,9 +15,10 @@
         <ui:repeat value="#{clientController.findAllClients()}" var="client">
             <h:panelGrid columns="2">
                 <h:outputText value="#{client.name}"/>
-
             </h:panelGrid>
         </ui:repeat>
+
+        <h:link value="Добавить клиента" outcome="/pages/sdo/client/addClient"/><br/>
         <ui:remove>
             <h:form>
                 <h:dataTable value="#{clientController.findAllClients()}" var="client" border="1">

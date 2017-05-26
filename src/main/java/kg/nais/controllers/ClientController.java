@@ -62,11 +62,7 @@ public class ClientController {
     }
 
     public List<Client> findAllClients(){
-        List<Client> clientList = new ClientFacade().findAll();
-        for(Client c : clientList){
-            System.out.println(c.getClientId());
-        }
-        return clientList;
+        return new ClientFacade().findAll();
     }
 
     public String deleteClient(Client client){

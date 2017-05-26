@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="nais@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
     <root id="1"/>
     <schema id="2" parent="1" name="nais">
       <Current>1</Current>
@@ -11,5 +11,6 @@
     <schema id="5" parent="1" name="mysql"/>
     <schema id="6" parent="1" name="performance_schema"/>
     <schema id="7" parent="1" name="sys"/>
+    <schema id="8" parent="1" name="iskyan"/>
   </database-model>
 </dataSource>
