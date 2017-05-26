@@ -8,9 +8,10 @@ import java.util.Calendar;
  */
 @ManagedBean
 public class TestController {
+
     private Calendar date = Calendar.getInstance();
     private Calendar bod = Calendar.getInstance();
-    private int diff;
+    private int diff,num1,num2,sum;
 
 
     private int age;
@@ -50,5 +51,33 @@ public class TestController {
     public void calculate(){
         bod.add(Calendar.WEEK_OF_YEAR,-age);
         diff = 52 * (date.get(Calendar.YEAR) - bod.get(Calendar.YEAR) ) + (date.get(Calendar.WEEK_OF_YEAR) - bod.get(Calendar.WEEK_OF_YEAR));
+    }
+
+    public int getNum1() {
+        return num1;
+    }
+
+    public void setNum1(int num1) {
+        this.num1 = num1;
+    }
+
+    public int getNum2() {
+        return num2;
+    }
+
+    public void setNum2(int num2) {
+        this.num2 = num2;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
+    public void calc(int n1, int n2){
+        sum = n1+n2;
     }
 }

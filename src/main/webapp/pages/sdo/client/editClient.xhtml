@@ -12,10 +12,27 @@
         </f:metadata>
     </f:metadata>
     <h:head>
-        <title>Edit user</title>
+        <title>Редактировать клиента</title>
     </h:head>
     <h:body>
+        <h:link value="Главная страница" outcome="/index"/>
+        <h2>Редактировать клиента - #{clientController.clientId}</h2>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputText value="#{clientController.client.name}"/>
 
+                <h:dataTable value="#{feedController.getFeedList()}" var="feed">
+                    <h:column headerClass="table-header" footerClass="table-footer">
+                        <h:outputText value="#{feed.name}"/>
+                    </h:column>
+                    <h:column headerClass="table-header" footerClass="table-footer">
+                        <h:outputText value="#{chickController.findChickByClientFeed(feed).amount}"/>
+                    </h:column>
+                </h:dataTable>
+
+            </h:panelGrid>
+        </h:form>
+        <h:link value="Список клиентов" outcome="/pages/sdo/client/showClients"/><br/>
     </h:body>
 </f:view>
 </html>

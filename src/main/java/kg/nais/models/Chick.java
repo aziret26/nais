@@ -8,8 +8,17 @@ import java.util.*;
  * Created by b-207 on 5/1/2017.
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Chick.findAll",
+                query = "SELECT c FROM Chick c"),
+        @NamedQuery(name = "Chick.findByAgeRange",
+                query = "SELECT c FROM Chick c WHERE c.age >= :ageFrom AND c.age <= :ageTo"),
+        @NamedQuery(name = "Chick.findByFeed",
+                query = "SELECT c FROM Chick c WHERE c.feed = :feed"),
+        @NamedQuery(name = "Chick.findByClientFeed",
+                query = "SELECT c FROM Chick c WHERE c.client = :client AND c.feed = :feed")
+})
 public class Chick implements Serializable{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int chickId;

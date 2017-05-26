@@ -19,30 +19,23 @@ import static kg.nais.tools.ViewPath.*;
  */
 @ManagedBean
 @ViewScoped
-public class ClientController {
+public class ClientController extends GeneralController{
     private Client client = new Client();
-    private int clientId;
 
     @ManagedProperty(value="#{sessionController}")
     private SessionController userSession;
 
     public Client getClient() {
         if(clientId != 0){
+
             client = new ClientFacade().findById(clientId);
         }
+        System.out.println("clientId = " + getClientId());
         return client;
     }
 
     public void setClient(Client client) {
         this.client = client;
-    }
-
-    public int getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(int clientId) {
-        this.clientId = clientId;
     }
 
     public SessionController getUserSession() {

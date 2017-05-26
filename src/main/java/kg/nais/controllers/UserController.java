@@ -21,7 +21,7 @@ import static kg.nais.tools.ViewPath.*;
  */
 @ManagedBean
 @ViewScoped
-public class UserController {
+public class UserController extends GeneralController{
     private User user;
     private String activationKey;
     private int userRoleId;

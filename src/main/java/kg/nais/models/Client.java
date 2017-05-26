@@ -70,4 +70,5 @@ public class Client {
     public void setChickList(List<Chick> chickList) {
         this.chickList = chickList;
     }
+
 }
