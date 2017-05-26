@@ -10,14 +10,14 @@
         <title>Авторизация</title>
     </h:head>
     <h:panelGroup>
-        <h:panelGroup rendered="#{!userSession.logged}">
+        <h:panelGroup rendered="#{!sessionController.logged}">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="Логин"/>
+                    <h:outputText value="Логин:"/>
                     <h:inputText value="#{userController.user.login}"/>
 
 
-                    <h:outputText value="Пароль"/>
+                    <h:outputText value="Пароль:"/>
                     <h:inputText value="#{userController.user.password}"/>
 
                     <h:messages errorClass="errorMessage" infoClass="infoMessage"
@@ -28,6 +28,10 @@
 
                 </h:panelGrid>
             </h:form>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{sessionController.logged}">
+            <h1>Доступ запрещён</h1>
+            <h:link value="Главная страница" outcome="/index"/>
         </h:panelGroup>
     </h:panelGroup>
 </f:view>

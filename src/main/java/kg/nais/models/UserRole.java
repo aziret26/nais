@@ -13,7 +13,9 @@ import java.util.List;
         @NamedQuery(name="UserRole.findAll",
         query = "SELECT ur FROM UserRole ur"),
         @NamedQuery(name = "UserRole.findByRole",
-        query = "SELECT ur FROM UserRole ur WHERE ur.userRole = :userRole")
+        query = "SELECT ur FROM UserRole ur WHERE ur.userRole = :userRole"),
+        @NamedQuery(name="UserRole.findAllSimpleUsers",
+        query = "SELECT ur FROM UserRole ur WHERE ur.userRole NOT LIKE '%admin%'")
 })
 public class UserRole implements Serializable {
     @Id
@@ -55,9 +57,5 @@ public class UserRole implements Serializable {
         this.userList = userList;
     }
 
-    @Override
-    public String toString() {
-        return userRole;
-    }
 
 }

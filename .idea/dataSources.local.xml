@@ -8,8 +8,7 @@
       </database-info>
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>root</user-name>
-      <introspection-schemas>*:nais</introspection-schemas>
+      <user-name>nais</user-name>
     </data-source>
   </component>
 </project>

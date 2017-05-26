@@ -40,6 +40,13 @@ public class UserRoleFacade {
         objectDao.closeTransaction();
         return userRoleList;
     }
+    public List<UserRole> findAllSimpleUsers(){
+        objectDao.beginTransaction();
+        List<UserRole> userRoleList = objectDao.getEntityManager().
+                createNamedQuery("UserRole.findAllSimpleUsers",UserRole.class).getResultList();
+        objectDao.closeTransaction();
+        return userRoleList;
+    }
     public UserRole findById(Integer id) {
         objectDao.beginTransaction();
         UserRole userRole = objectDao.getEntityManager().find(UserRole.class, id);

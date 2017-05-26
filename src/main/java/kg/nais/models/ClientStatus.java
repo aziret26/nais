@@ -9,6 +9,12 @@ import java.util.List;
  * Created by B-207 on 5/2/2017.
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "ClientStatus.findAll",
+                query = "SELECT cs FROM ClientStatus cs"),
+        @NamedQuery(name = "ClientStatus.findByStatus",
+                query = "SELECT cs FROM ClientStatus cs WHERE cs.status = :status")
+})
 public class ClientStatus implements Serializable{
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +25,13 @@ public class ClientStatus implements Serializable{
 
     @OneToMany(mappedBy = "clientStatus")
     private List<Client> client = new ArrayList<Client>();
+
+    public ClientStatus() {
+    }
+
+    public ClientStatus(String status) {
+        this.status = status;
+    }
 
     public int getClientStatusId() {
         return clientStatusId;

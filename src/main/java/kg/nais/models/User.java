@@ -134,4 +134,17 @@ public class User implements Serializable,Validator{
         }
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
+                ", password='" + password + '\'' +
+                ", login='" + login + '\'' +
+                ", regDate=" + regDate +
+                ", userRole=" + userRole.getUserRoleId() +
+                ", userStatus=" + userStatus.getUserStatusId() +
+                '}';
+    }
 }

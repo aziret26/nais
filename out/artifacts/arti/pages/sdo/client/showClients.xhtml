@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <title>Show cleints</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable value="#{clientController.findAllClients()}" var="client" border="1">
+                <h:column headerClass="table-header" footerClass="table-footer">
+                    <f:facet name="header">
+                        Клиент
+                    </f:facet>
+                    <h:outputText value="#{client.name}"/>
+                </h:column>
+
+                <ui:remove>
+                <h:column headerClass="table-header" footerClass="table-footer">
+                    <f:facet name="header">
+                        Редактировать
+                    </f:facet>
+                    <h:commandLink value="#{client.}"/>
+                </h:column>
+
+                <h:column headerClass="table-header" footerClass="table-footer">
+                    <f:facet name="header">
+                        Удалить
+                    </f:facet>
+                    <h:commandLink value="#{client.delete}"/>
+                </h:column>
+                </ui:remove>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</f:view>
+</html>

@@ -18,10 +18,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="archive" />
         <module name="hibernate" />
+        <module name="nais" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
       <module name="hibernate" target="1.5" />
+      <module name="nais" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

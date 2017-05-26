@@ -39,6 +39,7 @@ public class ClientFacade {
         }finally {
             objectDao.commitAndCloseTransaction();
         }
+
         return objectList;
     }
 

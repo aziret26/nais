@@ -16,7 +16,7 @@ import java.util.*;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int clientId;
 
     @Column
     private String name;
@@ -31,12 +31,20 @@ public class Client {
     @JoinColumn(name="clientStatusId")
     private ClientStatus clientStatus;
 
-    public int getId() {
-        return id;
+    public int getClientId() {
+        return clientId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
+    }
+
+    public ClientStatus getClientStatus() {
+        return clientStatus;
+    }
+
+    public void setClientStatus(ClientStatus clientStatus) {
+        this.clientStatus = clientStatus;
     }
 
     public String getName() {

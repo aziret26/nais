@@ -13,53 +13,35 @@
         <h2>Регистрация</h2>
         <h:form>
             <h:panelGrid columns="2">
-                <h:outputText value="Login"/>
+                <h:outputText value="Login:"/>
                 <h:panelGroup>
-                    <h:inputText value="#{userController.user.login}" id="login"/>
+                    <h:inputText id="login" value="#{userController.user.login}"/>
                     <h:message for="login" style="color:red"/>
                 </h:panelGroup>
 
-
-
-                <h:outputText value="Last Name:"/>
+                <h:outputText value="First Name:"/>
                 <h:panelGroup>
-                    <h:inputText id="lnameInput" value="#{userController.user.lname}" required="true">
+                    <h:inputText id="fnameInput" value="#{userController.user.fname}" required="true">
                         <f:ajax event="blur">
                             <f:validateRegex pattern = "[a-zA-Z]{2,50}$" />
                             <f:validateLength minimum="2"/>
                         </f:ajax>
                     </h:inputText>
-                    <h:message for="lnameInput" style="color:red"/>
+                    <h:message for="fnameInput" style="color:red"/>
                 </h:panelGroup>
 
-                <h:outputText value="Login:"/>
+                <h:outputText value="Last Name:"/>
                 <h:panelGroup>
-                    <h:inputText id="emailInput" value="#{userController.user.login}" required="true">
-                        <f:ajax event="blur">
-                            <f:validator validatorId="emailValidator"/>
-                        </f:ajax>
+                    <h:inputText id="lnameInput" value="#{userController.user.lname}" required="true">
                     </h:inputText>
-                    <h:message for="emailInput" style="color:red" showSummary="true" showDetail="false"/>
+                    <h:message for="lnameInput" style="color:red" showSummary="true" showDetail="false"/>
                 </h:panelGroup>
 
                 <h:outputText value="Password:"/>
                 <h:panelGroup>
-                    <h:inputSecret id = "passwordInput" value = "#{userController.user.password}"
-                                   label = "password" required="true" >
-                        <f:ajax event="blur"/>
-                        <f:validateLength minimum="4" maximum="13"/>
-                        <f:validator validatorId="passwordValidator"/>
-                        <f:attribute name="confirmPassword" value="#{passValidator}"/>
+                    <h:inputSecret id="passwordInput" value = "#{userController.user.password}" required="true" >
                     </h:inputSecret>
                     <h:message for = "passwordInput" style = "color:red" />
-                </h:panelGroup>
-
-                <h:outputText value="Confirm Password:"/>
-                <h:panelGroup>
-                    <h:inputSecret id="confirmPasswordInput" binding="#{passValidator}">
-                        <f:ajax event="blur"/>
-                    </h:inputSecret>
-                    <h:message for="confirmPasswordInput" style="color:red"/>
                 </h:panelGroup>
 
                 <h:commandButton value="Submit" action="#{userController.signup}"/>
