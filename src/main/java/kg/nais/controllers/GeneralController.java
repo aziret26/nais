@@ -12,12 +12,10 @@ public class GeneralController {
     protected int clientId,feedId,chickId,userId;
 
     public int getClientId() {
-        System.out.println("getting clientId: "+clientId);
         return clientId;
     }
 
     public void setClientId(int clientId) {
-        System.out.println("setting clientId: "+clientId);
         this.clientId = clientId;
     }
 

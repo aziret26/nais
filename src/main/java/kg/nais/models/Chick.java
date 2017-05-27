@@ -16,7 +16,9 @@ import java.util.*;
         @NamedQuery(name = "Chick.findByFeed",
                 query = "SELECT c FROM Chick c WHERE c.feed = :feed"),
         @NamedQuery(name = "Chick.findByClientFeed",
-                query = "SELECT c FROM Chick c WHERE c.client = :client AND c.feed = :feed")
+                query = "SELECT c FROM Chick c WHERE c.client = :client AND c.feed = :feed"),
+        @NamedQuery(name="Chick.findByClient",
+                query = "SELECT c FROM Chick c where c.client = :client")
 })
 public class Chick implements Serializable{
     @Id
@@ -24,16 +26,13 @@ public class Chick implements Serializable{
     private int chickId;
 
     @Column
-    private int age;
+    private int age = 0;
 
     @Column
     private int amount;
 
     @Column
     private Calendar dob;
-
-    @Column
-    private Date regDate;
 
     @ManyToOne
     @JoinColumn(name = "feedId")
@@ -56,6 +55,8 @@ public class Chick implements Serializable{
     }
 
     public void setAge(int age) {
+        //System.out.println("Calendar: "+Calendar.WEEK_OF_YEAR+"\nAge: "+age);
+        dob = calculateDob(age);
         this.age = age;
     }
 
@@ -91,11 +92,10 @@ public class Chick implements Serializable{
         this.dob = dob;
     }
 
-    public Date getRegDate() {
-        return regDate;
-    }
-
-    public void setRegDate(Date regDate) {
-        this.regDate = regDate;
+    private Calendar calculateDob(int age){
+        Calendar now = Calendar.getInstance();
+        now.add(Calendar.YEAR,-(age/52));
+        now.add(Calendar.WEEK_OF_YEAR,-(age%52));
+        return now;
     }
 }

@@ -99,4 +99,17 @@ public class ChickFacade {
         return ms;
     }
 
+    public List<Chick> findByClient(Client client){
+        List<Chick> ms;
+        try {
+            objectDao.beginTransaction();
+            ms = objectDao.getEntityManager().createNamedQuery("Chick.findByClient",Chick.class)
+                    .setParameter("client",client).getResultList();
+        }catch (Exception ex){
+            ms = null;
+        }finally {
+            objectDao.commitAndCloseTransaction();
+        }
+        return ms;
+    }
 }

@@ -52,9 +52,14 @@ public class ChickController extends GeneralController{
         return new ChickFacade().findByClientFeed(new ClientFacade().findById(clientId),feed);
     }
 
-
     public Chick findChickByClientFeed(Client client,Feed feed){
         return new ChickFacade().findByClientFeed(client,feed);
+    }
+
+    public List<Chick> findChickListByClient(Client client){
+        List<Chick> chickList;
+        chickList = new ChickFacade().findByClient(client);
+        return chickList;
     }
 
 }

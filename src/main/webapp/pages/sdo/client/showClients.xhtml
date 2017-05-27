@@ -40,14 +40,17 @@
                     <h:commandLink value="#{client.name}" action="#{clientController.editClient(client.clientId)}"/>
                 </h:column>
                 <h:column headerClass="table-header" footerClass="table-footer">
-                    <h:dataTable value="#{feedController.getFeedList()}" var="feed">
-                        <h:column headerClass="table-header" footerClass="table-footer">
-                            <h:outputText value="#{feed.name}"/>
-                        </h:column>
-                        <h:column headerClass="table-header" footerClass="table-footer">
-                            <h:outputText value="#{chickController.findChickByClientFeed(client,feed).amount}"/>
-                        </h:column>
-                    </h:dataTable>
+                    <h:panelGroup rendered="#{chickController.findChickListByClient(client).size() != 0}">
+                        <h:dataTable value="#{feedController.getFeedList()}" var="feed">
+                            <h:column headerClass="table-header" footerClass="table-footer">
+                                <h:outputText value="#{feed.name}"/>
+                            </h:column>
+                            <h:column headerClass="table-header" footerClass="table-footer">
+                                <h:outputText value="#{chickController.findChickByClientFeed(client,feed).amount}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </h:panelGroup>
+                    <h:outputText value="Пусто" rendered="#{chickController.findChickListByClient(client).size()==0}"/>
                 </h:column>
             </h:dataTable>
         </h:form>

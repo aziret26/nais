@@ -2,27 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff20c5a-e16e-4a2a-9384-4b36ec171dcd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/FeedController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/GeneralController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/facade/ChickFacade.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/example/test.xhtml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/META-INF/for_postgres.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/validators/EmailValidator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/auth/signup.xhtml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/validators/EmailValidator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/for_postgres.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/auth/signup.xhtml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/META-INF/for_postgres.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/models/Chick.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/validators/EmailValidator.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ChickController.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ChickController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ClientController.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ClientController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/TestController.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/TestController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/UserController.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/ChickFacade.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/ChickFacade.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/Chick.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/Chick.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ChickController.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ChickController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ClientController.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ClientController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/TestController.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/TestController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/UserController.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/models/Chick.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/models/Chick.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/facade/ChickFacade.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/facade/ChickFacade.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/editClient.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/editClient.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/showClients.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/showClients.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/TestController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/TestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/GeneralController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/GeneralController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/facade/ChickFacade.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/facade/ChickFacade.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/models/Chick.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/models/Chick.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/addClient.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/addClient.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml" />
     </list>
@@ -48,16 +52,6 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="nais@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -68,65 +62,49 @@
       <file leaf-file-name="editClient.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="27" column="84" lean-forward="true" selection-start-line="27" selection-start-column="84" selection-end-line="27" selection-end-column="84" />
+            <state relative-caret-position="357">
+              <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="showClients.xhtml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml">
+      <file leaf-file-name="addClient.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/client/addClient.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="47" column="49" lean-forward="false" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
+            <state relative-caret-position="252">
+              <caret line="18" column="90" lean-forward="true" selection-start-line="18" selection-start-column="90" selection-end-line="18" selection-end-column="90" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/example/test.xhtml">
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d40c0401-86e2-4ebe-8b56-d607e9746acc/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state relative-caret-position="289">
+              <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChickController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java">
+      <file leaf-file-name="showUserList.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/user/showUserList.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="51" column="86" lean-forward="false" selection-start-line="51" selection-start-column="86" selection-end-line="51" selection-end-column="86" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="187">
+              <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneralController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/GeneralController.java">
+      <file leaf-file-name="Chick.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/models/Chick.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="58" lean-forward="true" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#548#549#0" expanded="true" />
-                <element signature="e#577#578#0" expanded="true" />
-                <element signature="e#618#619#0" expanded="true" />
-                <element signature="e#654#655#0" expanded="true" />
-                <element signature="e#685#686#0" expanded="true" />
-                <element signature="e#715#716#0" expanded="true" />
-                <element signature="e#758#759#0" expanded="true" />
-                <element signature="e#796#797#0" expanded="true" />
-                <element signature="e#826#827#0" expanded="true" />
-                <element signature="e#855#856#0" expanded="true" />
-                <element signature="e#896#897#0" expanded="true" />
-                <element signature="e#932#933#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-12">
+              <caret line="57" column="10" lean-forward="false" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -134,16 +112,19 @@
       <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="32" column="57" lean-forward="false" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
+            <state relative-caret-position="575">
+              <caret line="89" column="30" lean-forward="false" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
               <folding>
-                <element signature="e#960#961#0" expanded="true" />
-                <element signature="e#996#997#0" expanded="true" />
+                <element signature="e#532#539#0" expanded="true" />
+                <element signature="method#getClient#0;class#ClientController#0" expanded="false" />
+                <element signature="e#1172#1173#0" expanded="true" />
+                <element signature="e#1204#1205#0" expanded="true" />
                 <element signature="method#createClient#0;class#ClientController#0" expanded="false" />
                 <element signature="method#deleteClient#0;class#ClientController#0" expanded="false" />
-                <element signature="e#1846#1847#0" expanded="true" />
-                <element signature="e#1910#1911#0" expanded="true" />
+                <element signature="method#saveClient#0;class#ClientController#0" expanded="false" />
                 <element signature="method#deleteClient#1;class#ClientController#0" expanded="false" />
+                <element signature="e#2340#2341#0" expanded="true" />
+                <element signature="e#2379#2380#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -164,6 +145,7 @@
       <find>h:inputText</find>
       <find>object</find>
       <find>Object</find>
+      <find>clientId</find>
     </findStrings>
     <replaceStrings>
       <replace>h:outputText</replace>
@@ -211,8 +193,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditUserRest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/addClient.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/user/showUserList.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/user/userCreate.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/models/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/models/ClientStatus.java" />
@@ -220,21 +200,23 @@
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/facade/ClientStatusFacade.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/facade/FeedFacade.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/models/Feed.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d40c0401-86e2-4ebe-8b56-d607e9746acc/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChichController.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kg/nais/facade/ChickFacade.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kg/nais/models/Chick.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/FeedController.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/exmaple/test.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/TestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/GeneralController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/user/editUser.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/kg/nais/facade/ChickFacade.java" />
+        <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/user/showUserList.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/GeneralController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/kg/nais/models/Chick.java" />
+        <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/addClient.xhtml" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d40c0401-86e2-4ebe-8b56-d607e9746acc/console.sql" />
       </list>
     </option>
   </component>
@@ -501,8 +483,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -534,32 +515,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nais" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nais" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -670,14 +625,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -737,7 +684,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -787,11 +735,12 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\goent\nais\src\main\webapp\pages\sdo" />
-      <recent name="F:\goent-team\nais\src\main\webapp\pages\auth" />
-      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp\resources\img\partners" />
-      <recent name="C:\Users\PC\IdeaProjects\archive" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\goent-team\nais\src\main\java\kg\nais" />
+      <recent name="C:\Users\PC\IdeaProjects\hibernate\src\main\resources\META-INF" />
+      <recent name="C:\Users\PC\IdeaProjects\hibernate\src\main\webapp" />
+      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp\resources\css" />
+      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="kg.nais.facade" />
@@ -800,12 +749,11 @@
       <recent name="kg.infocom.archive.util.validator" />
       <recent name="kg.infocom.archive.util.converters" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\goent-team\nais\src\main\java\kg\nais" />
-      <recent name="C:\Users\PC\IdeaProjects\hibernate\src\main\resources\META-INF" />
-      <recent name="C:\Users\PC\IdeaProjects\hibernate\src\main\webapp" />
-      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp\resources\css" />
-      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\goent\nais\src\main\webapp\pages\sdo" />
+      <recent name="F:\goent-team\nais\src\main\webapp\pages\auth" />
+      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp\resources\img\partners" />
+      <recent name="C:\Users\PC\IdeaProjects\archive" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1640,7 +1588,9 @@
       <workItem from="1495786943672" duration="3092000" />
       <workItem from="1495790604775" duration="2755000" />
       <workItem from="1495795296403" duration="2375000" />
-      <workItem from="1495801287319" duration="8771000" />
+      <workItem from="1495801287319" duration="8867000" />
+      <workItem from="1495810746723" duration="15000" />
+      <workItem from="1495865299806" duration="13871000" />
     </task>
     <task id="LOCAL-00002" summary="Создание объектов;&#10;Тикет #471">
       <created>1428297461221</created>
@@ -1989,7 +1939,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="625692000" />
+    <option name="totallyTimeSpent" value="639674000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2001,7 +1951,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2012,7 +1962,7 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18976545" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18976545" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2024,11 +1974,12 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37416482" sideWeight="0.48791894" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7415254" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3129176" sideWeight="0.48791894" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22922252" sideWeight="0.50070125" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21481876" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32516703" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21908316" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18552354" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2040,7 +1991,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32516703" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277592" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
@@ -2130,7 +2080,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="22" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2141,13 +2091,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/messages_ky.properties" />
     <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/messages_ru.properties" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/validators/EmailValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/validators/PassValidator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -2189,13 +2132,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/user.createUser.xhtml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/tools/Tools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/dao/GenericDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-17">
@@ -2207,7 +2143,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="694">
           <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2222,7 +2157,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2254,7 +2188,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2269,10 +2202,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
-          <folding>
-            <element signature="method#UserFacade#0;class#UserFacade#0" expanded="false" />
-            <element signature="method#createUser#0;class#UserFacade#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2280,7 +2209,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="146" column="62" lean-forward="false" selection-start-line="146" selection-start-column="62" selection-end-line="146" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2288,7 +2216,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2296,11 +2223,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#create#0;class#ClientFacade#0" expanded="false" />
-            <element signature="method#update#0;class#ClientFacade#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2308,16 +2230,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="82" column="36" lean-forward="false" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#ClientStatusFacade#0;class#ClientStatusFacade#0" expanded="false" />
-            <element signature="method#create#0;class#ClientStatusFacade#0" expanded="false" />
-            <element signature="method#update#0;class#ClientStatusFacade#0" expanded="false" />
-            <element signature="method#delete#0;class#ClientStatusFacade#0" expanded="false" />
-            <element signature="method#findAll#0;class#ClientStatusFacade#0" expanded="false" />
-            <element signature="method#findById#0;class#ClientStatusFacade#0" expanded="false" />
-            <element signature="method#findByStatus#0;class#ClientStatusFacade#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2325,12 +2237,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="81" column="38" lean-forward="false" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
-          <folding>
-            <element signature="method#UserStatusFacade#0;class#UserStatusFacade#0" expanded="false" />
-            <element signature="method#createUserStatus#0;class#UserStatusFacade#0" expanded="false" />
-            <element signature="method#updateUserStatus#0;class#UserStatusFacade#0" expanded="false" />
-            <element signature="method#deleteUserStatus#0;class#UserStatusFacade#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2338,9 +2244,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
           <caret line="59" column="34" lean-forward="false" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2356,9 +2259,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2366,39 +2266,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="24" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d40c0401-86e2-4ebe-8b56-d607e9746acc/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/facade/ChickFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="91" column="75" lean-forward="true" selection-start-line="91" selection-start-column="75" selection-end-line="91" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/models/Chick.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2440,9 +2307,9 @@
         <state relative-caret-position="238">
           <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#371#372#0" expanded="false" />
+            <element signature="e#420#421#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2451,17 +2318,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="10" column="42" lean-forward="false" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-          <folding>
-            <element signature="method#Feed#0;class#Feed#0" expanded="false" />
-            <element signature="method#Feed#1;class#Feed#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/example/test.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -2471,77 +2334,21 @@
         <state relative-caret-position="171">
           <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
           <folding>
-            <element signature="e#1154#1155#0" expanded="true" />
-            <element signature="e#1181#1182#0" expanded="true" />
-            <element signature="e#1218#1219#0" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
-            <element signature="e#1278#1279#0" expanded="true" />
-            <element signature="e#1305#1306#0" expanded="true" />
-            <element signature="e#1342#1343#0" expanded="true" />
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1401#1402#0" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
-            <element signature="e#1462#1463#0" expanded="true" />
-            <element signature="e#1492#1493#0" expanded="true" />
-            <element signature="e#1531#1532#0" expanded="true" />
-            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1154#1155#0" expanded="false" />
+            <element signature="e#1181#1182#0" expanded="false" />
+            <element signature="e#1218#1219#0" expanded="false" />
+            <element signature="e#1250#1251#0" expanded="false" />
+            <element signature="e#1278#1279#0" expanded="false" />
+            <element signature="e#1305#1306#0" expanded="false" />
+            <element signature="e#1342#1343#0" expanded="false" />
+            <element signature="e#1374#1375#0" expanded="false" />
+            <element signature="e#1401#1402#0" expanded="false" />
+            <element signature="e#1427#1428#0" expanded="false" />
+            <element signature="e#1462#1463#0" expanded="false" />
+            <element signature="e#1492#1493#0" expanded="false" />
+            <element signature="e#1531#1532#0" expanded="false" />
+            <element signature="e#1558#1559#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="51" column="86" lean-forward="false" selection-start-line="51" selection-start-column="86" selection-end-line="51" selection-end-column="86" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="32" column="57" lean-forward="false" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
-          <folding>
-            <element signature="e#960#961#0" expanded="true" />
-            <element signature="e#996#997#0" expanded="true" />
-            <element signature="method#createClient#0;class#ClientController#0" expanded="false" />
-            <element signature="method#deleteClient#0;class#ClientController#0" expanded="false" />
-            <element signature="e#1846#1847#0" expanded="true" />
-            <element signature="e#1910#1911#0" expanded="true" />
-            <element signature="method#deleteClient#1;class#ClientController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/GeneralController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="58" lean-forward="true" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
-            <element signature="e#758#759#0" expanded="true" />
-            <element signature="e#796#797#0" expanded="true" />
-            <element signature="e#826#827#0" expanded="true" />
-            <element signature="e#855#856#0" expanded="true" />
-            <element signature="e#896#897#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/client/addClient.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2549,7 +2356,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="19" column="62" lean-forward="true" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2557,30 +2363,133 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="58" lean-forward="false" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/facade/ChickFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="113" column="5" lean-forward="false" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
+          <folding>
+            <element signature="method#create#0;class#ChickFacade#0" expanded="false" />
+            <element signature="method#update#0;class#ChickFacade#0" expanded="false" />
+            <element signature="method#delete#0;class#ChickFacade#0" expanded="false" />
+            <element signature="method#findAll#0;class#ChickFacade#0" expanded="false" />
+            <element signature="method#findById#0;class#ChickFacade#0" expanded="false" />
+            <element signature="method#findByAgeRange#0;class#ChickFacade#0" expanded="false" />
+            <element signature="method#findByFeed#0;class#ChickFacade#0" expanded="false" />
+            <element signature="method#findByClientFeed#0;class#ChickFacade#0" expanded="false" />
+            <element signature="method#findByClient#0;class#ChickFacade#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="58" column="27" lean-forward="false" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
+          <folding>
+            <element signature="method#findChickByClientFeed#0;class#ChickController#0" expanded="false" />
+            <element signature="method#findChickByClientFeed#1;class#ChickController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="45" column="68" lean-forward="true" selection-start-line="45" selection-start-column="68" selection-end-line="45" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/user/showUserList.xhtml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/validators/EmailValidator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="14" column="67" lean-forward="true" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
+        <state relative-caret-position="221">
+          <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/tools/Tools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/GeneralController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/models/Chick.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="57" column="10" lean-forward="false" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="27" column="84" lean-forward="true" selection-start-line="27" selection-start-column="84" selection-end-line="27" selection-end-column="84" />
+        <state relative-caret-position="357">
+          <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/user/showUserList.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="47" column="49" lean-forward="false" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
+        <state relative-caret-position="187">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="89" column="30" lean-forward="false" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+          <folding>
+            <element signature="e#532#539#0" expanded="true" />
+            <element signature="method#getClient#0;class#ClientController#0" expanded="false" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1204#1205#0" expanded="true" />
+            <element signature="method#createClient#0;class#ClientController#0" expanded="false" />
+            <element signature="method#deleteClient#0;class#ClientController#0" expanded="false" />
+            <element signature="method#saveClient#0;class#ClientController#0" expanded="false" />
+            <element signature="method#deleteClient#1;class#ClientController#0" expanded="false" />
+            <element signature="e#2340#2341#0" expanded="true" />
+            <element signature="e#2379#2380#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/client/addClient.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="18" column="90" lean-forward="true" selection-start-line="18" selection-start-column="90" selection-end-line="18" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d40c0401-86e2-4ebe-8b56-d607e9746acc/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
           <folding />
         </state>
       </provider>

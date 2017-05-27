@@ -26,7 +26,7 @@
                         <h:outputText value="#{feed.name}"/>
                     </h:column>
                     <h:column headerClass="table-header" footerClass="table-footer">
-                        <h:outputText value="#{chickController.findChickByClientFeed(feed).amount}"/>
+                        <h:inputText value="#{chickController.findChickByClientFeed(feed).amount}"/>
                     </h:column>
                 </h:dataTable>
 
