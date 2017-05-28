@@ -1,0 +1,78 @@
+#name {
+    border: 1px solid darkGray;
+    background: yellow;
+    padding: 5px;
+    height: 40px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+#heading {
+    padding: 5px;
+    height: 40px;
+    margin-bottom: 10px;
+    background: yellow;
+    border: 1px solid darkGray;
+    position: absolute;
+    right: 8px;
+    left: 230px;
+    top: 8px;
+}
+
+#sidebarLeft {
+    border: thin solid lightGray;
+    padding: 5px;
+    width: 200px;
+    height: 400px;
+    background: green;
+}
+
+#content {
+    padding: 5px;
+    border: thin solid lightGray;
+    background: #fefeef;
+    position: absolute;
+    right: 8px;
+    left: 230px;
+    height: 400px;
+    top: 70px;
+}
+
+.roleInfo {
+    font-size: 1em;
+    font-style: italic;
+    font-family: Palatino, serif;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.header {
+    font-size: 1.4em;
+    font-style: italic;
+    font-family: Palatino, serif;
+    text-align: center;
+}
+
+.item {
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.itemSelected {
+    padding: 5px;
+    text-align: center;
+    background: darkgreen;
+    border: thin solid lightGray;
+    text-decoration: none;
+}
+
+.welcome {
+    font-style: italic;
+    font-family: Palatino, serif;
+    margin-top: 10px;
+}
+
+.errorMessage {
+    color: red;
+}

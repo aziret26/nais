@@ -1,15 +1,10 @@
 package kg.nais.controllers;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-
 /**
  * Created by B-207 on 5/26/2017.
  */
-@ManagedBean
-@ViewScoped
 public class GeneralController {
-    protected int clientId,feedId,chickId,userId;
+    protected int clientId = 0,feedId=0,chickId=0,userId=0;
 
     public int getClientId() {
         return clientId;

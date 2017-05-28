@@ -24,9 +24,6 @@ public class Feed {
     @Column
     private int ageFrom,ageTo;
 
-    @OneToMany(mappedBy = "feed")
-    private List<Chick> chick = new ArrayList<Chick>();
-
     public Feed() {
     }
 
@@ -66,13 +63,5 @@ public class Feed {
 
     public void setAgeTo(int ageTo) {
         this.ageTo = ageTo;
-    }
-
-    public List<Chick> getChick() {
-        return chick;
-    }
-
-    public void setChick(List<Chick> chick) {
-        this.chick = chick;
     }
 }

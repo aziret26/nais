@@ -6,6 +6,11 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
+    <f:metadata>
+        <f:metadata>
+            <f:viewParam name="clientId" value="#{clientController.clientId}"/>
+        </f:metadata>
+    </f:metadata>
     <h:head>
         <title>Добавить клиента</title>
     </h:head>
@@ -14,48 +19,34 @@
         <h2>Добавить клиента</h2>
         <h:form>
             <h:panelGrid columns="2">
-                <h:outputText value="Имя"/>
-                <h:panelGroup>
-                    <h:inputText value="#{clientController.client.name}" required="true"/>
-                </h:panelGroup>
-
-                <h:dataTable value="#{clientController.chickList}" var="chick" binding="#{table}" id="table">
-                    <h:column>
-                        <f:facet name="header">
-                            Счёт
-                        </f:facet>
-                        <h:outputText value="#{table.rowIndex+1}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            Возраст(недели)
-                        </f:facet>
-                        <h:inputText value="#{chick.age}"/>
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">
-                            Количество
-                        </f:facet>
-                        <h:inputText value="#{chick.amount}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            Убрать
-                        </f:facet>
-                        <h:commandLink value="X" action="#{clientController.removeChik(chick)}">
-                            <f:ajax render="table"/>
-                        </h:commandLink>
-                </h:column>
-                </h:dataTable>
-
-                <br/>
-                <h:commandButton value="Добавить" action="#{clientController.addChick()}">
-                    <f:ajax render="table" />
-                </h:commandButton>
-                <br/>
-                <h:commandLink value="Добавить клиента" action="#{clientController.createClient()}"/>
+                Имя:
+                <h:inputText value="#{clientController.client.name}"/>
             </h:panelGrid>
+            <h:dataTable value="#{clientController.chickList}" var="chick">
+                <h:column>
+                    <f:facet name="header">Изменить</f:facet>
+                    <h:selectBooleanCheckbox value="#{chick.editable}" onclick="submit()"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Возвраст</f:facet>
+                    <h:inputText value="#{chick.age}" rendered="#{chick.editable}" size="5"/>
+                    <h:outputText value="#{chick.age}" rendered="#{not chick.editable}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Количество</f:facet>
+                    <h:inputText value="#{chick.amount}" rendered="#{chick.editable}" size="5"/>
+                    <h:outputText value="#{chick.amount}" rendered="#{not chick.editable}"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="Удалить" action="#{clientController.removeChik(chick)}" onclick="return confirm('Вы уверены что хотите удалить?')"/>
+                </h:column>
+            </h:dataTable>
+            <p><h:commandButton value="Добавить" action="#{clientController.addChick()}"/> <h:commandButton value="Сохранить" action="#{clientController.saveChick()}"/></p>
+            <br/>
+            <h:commandLink value="Добавить клиента" action="#{clientController.createClient()}"/>
+
+            <h:messages errorClass="errorMessage" infoClass="infoMessage"
+                        layout="table" globalOnly="true" showDetail="false" showSummary="true" style="color:red"/>
         </h:form>
     </h:body>
 </f:view>

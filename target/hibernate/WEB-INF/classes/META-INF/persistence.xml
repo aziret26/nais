@@ -12,12 +12,13 @@
         <class>kg.nais.models.Feed</class>
         <class>kg.nais.models.Chick</class>
         <class>kg.nais.models.Client</class>
+        <class>kg.nais.models.ClientStatus</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/nais" />
-            <property name="javax.persistence.jdbc.user" value="nais" />
-            <property name="javax.persistence.jdbc.password" value="nais" />
+            <property name="javax.persistence.jdbc.user" value="nais"/>
+            <property name="javax.persistence.jdbc.password" value="nais"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="hibernate.connection.shutdown" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="update" />

@@ -16,7 +16,6 @@ import java.util.List;
 @ManagedBean
 @ViewScoped
 public class ChickController extends GeneralController{
-
     private Chick chick;
     private List<Chick> chickList;
     private int chickId;
@@ -48,18 +47,37 @@ public class ChickController extends GeneralController{
         this.chickId = chickId;
     }
 
-    public Chick findChickByClientFeed(Feed feed){
-        return new ChickFacade().findByClientFeed(new ClientFacade().findById(clientId),feed);
-    }
+    //    public Chick findChickByClientFeed(Feed feed){
+//        return new ChickFacade().findByClientFeed(new ClientFacade().findById(clientId),feed);
+//    }
 
-    public Chick findChickByClientFeed(Client client,Feed feed){
-        return new ChickFacade().findByClientFeed(client,feed);
-    }
+//    public Chick findChickByClientFeed(Client client,Feed feed){
+//        return new ChickFacade().findByClientFeed(client,feed);
+//    }
 
     public List<Chick> findChickListByClient(Client client){
         List<Chick> chickList;
         chickList = new ChickFacade().findByClient(client);
         return chickList;
+    }
+
+    public int calculateFeed(String feedName, Client client){
+        List<Chick> chicks = new ChickFacade().findByClient(client);
+        List<Feed> feeds = new FeedController().getFeedList();
+        Feed feed = null;
+        for (Feed f : feeds) {
+            if (f.getName().equals(feedName)) {
+                feed = f;
+            }
+        }
+
+        int amount = 0;
+        for(Chick c : chicks){
+            if(c.getAge() >= feed.getAgeFrom() && c.getAge() <= feed.getAgeTo()){
+                amount += c.getAmount();
+            }
+        }
+        return amount;
     }
 
 }

@@ -22,6 +22,7 @@ import static kg.nais.tools.ViewPath.*;
 @ManagedBean
 @ViewScoped
 public class UserController extends GeneralController{
+    private User currentUser;
     private User user;
     private String activationKey;
     private int userRoleId;
@@ -50,6 +51,12 @@ public class UserController extends GeneralController{
             user = new UserFacade().findById(userId);
         }
         return user;
+    }
+
+    public User getCurrentUser() {
+        if(sessionController.isLogged())
+            currentUser = new UserFacade().findById(sessionController.getUser().getUserId());
+        return currentUser;
     }
 
     public void setUser(User user) {

@@ -13,10 +13,10 @@ import java.util.*;
                 query = "SELECT c FROM Chick c"),
         @NamedQuery(name = "Chick.findByAgeRange",
                 query = "SELECT c FROM Chick c WHERE c.age >= :ageFrom AND c.age <= :ageTo"),
-        @NamedQuery(name = "Chick.findByFeed",
-                query = "SELECT c FROM Chick c WHERE c.feed = :feed"),
-        @NamedQuery(name = "Chick.findByClientFeed",
-                query = "SELECT c FROM Chick c WHERE c.client = :client AND c.feed = :feed"),
+//        @NamedQuery(name = "Chick.findByFeed",
+//                query = "SELECT c FROM Chick c WHERE c.feed = :feed"),
+//        @NamedQuery(name = "Chick.findByClientFeed",
+//                query = "SELECT c FROM Chick c WHERE c.client = :client AND c.feed = :feed"),
         @NamedQuery(name="Chick.findByClient",
                 query = "SELECT c FROM Chick c where c.client = :client")
 })
@@ -26,7 +26,7 @@ public class Chick implements Serializable{
     private int chickId;
 
     @Column
-    private int age = 0;
+    private int age;
 
     @Column
     private int amount;
@@ -35,12 +35,11 @@ public class Chick implements Serializable{
     private Calendar dob;
 
     @ManyToOne
-    @JoinColumn(name = "feedId")
-    private Feed feed;
-
-    @ManyToOne
     @JoinColumn(name="clienId")
     private Client client;
+
+    @Transient
+    private boolean editable = true;
 
     public int getChickId() {
         return chickId;
@@ -55,7 +54,6 @@ public class Chick implements Serializable{
     }
 
     public void setAge(int age) {
-        //System.out.println("Calendar: "+Calendar.WEEK_OF_YEAR+"\nAge: "+age);
         dob = calculateDob(age);
         this.age = age;
     }
@@ -66,14 +64,6 @@ public class Chick implements Serializable{
 
     public void setAmount(int amount) {
         this.amount = amount;
-    }
-
-    public Feed getFeed() {
-        return feed;
-    }
-
-    public void setFeed(Feed feed) {
-        this.feed = feed;
     }
 
     public Client getClient() {
@@ -90,6 +80,14 @@ public class Chick implements Serializable{
 
     public void setDob(Calendar dob) {
         this.dob = dob;
+    }
+
+    public boolean isEditable() {
+        return editable;
+    }
+
+    public void setEditable(boolean editable) {
+        this.editable = editable;
     }
 
     private Calendar calculateDob(int age){

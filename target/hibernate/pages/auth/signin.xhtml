@@ -5,30 +5,30 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:head>
-        <title>#{msgs.authorization}</title>
-    </h:head>
-    <h:panelGroup>
-        <h:panelGroup rendered="#{!userSession.logged}">
+    <ui:composition template="/templates/masterLayout.xhtml">
+        <ui:define name="windowTitle">
+            #{lcls.loginTitle}
+        </ui:define>
+        <ui:define name="heading">
+            <ui:include src="/sections/layout/header.xhtml"/>
+        </ui:define>
+        <ui:define name="sidebarLeft">
+            <ui:include src="/sections/login/sidebarLeft.xhtml"/>
+        </ui:define>
+        <ui:define name="content">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{msgs.login}"/>
+                    <h:outputText value="#{lcls.loginPrompt}:"/>
                     <h:inputText value="#{userController.user.login}"/>
 
-
-                    <h:outputText value="#{msgs.password}"/>
+                    <h:outputText value="#{lcls.passwordPrompt}:"/>
                     <h:inputText value="#{userController.user.password}"/>
 
-                    <h:messages errorClass="errorMessage" infoClass="infoMessage"
-                                layout="table" globalOnly="true" showDetail="false" showSummary="true"/>
+                    <h:messages errorClass="errorMessage" infoClass="infoMessage" layout="table" globalOnly="true" showDetail="false" showSummary="true"/>
 
-                    <h:commandButton value="#{msgs.signIn}" action="#{userController.signin}"/>
-
-
+                    <h:commandButton value="#{lcls.loginButtonText}" action="#{userController.signin()}"/>
                 </h:panelGrid>
             </h:form>
-        </h:panelGroup>
-    </h:panelGroup>
-</f:view>
+        </ui:define>
+    </ui:composition>
 </html>

@@ -80,11 +80,10 @@ public class FeedFacade {
         f = new Feed("J2",4,8);         create(f);
         f = new Feed("J3",9,17);        create(f);
         f = new Feed("J4",18,35);       create(f);
-        f = new Feed("T1",35,49);       create(f);
+        f = new Feed("T1",36,49);       create(f);
         f = new Feed("T2",50,64);       create(f);
         f = new Feed("T3",65,70);       create(f);
         f = new Feed("T3+",71,500);     create(f);
-
-
     }
+
 }

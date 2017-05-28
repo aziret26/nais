@@ -16,47 +16,48 @@
     <h:body>
         <h:link value="Главная страница" outcome="/index"/>
         <h2>Список клиентов</h2>
-        <ui:remove>
-            <ui:repeat value="#{clientController.findAllClients()}" var="client">
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{client.name}"/>
-                    <h:dataTable value="#{feedController.getFeedList()}" var="feed">
-                        <h:column headerClass="table-header" footerClass="table-footer">
-                            <h:outputText value="#{feed.name}"/>
-                        </h:column>
-                        <h:column headerClass="table-header" footerClass="table-footer">
-                            <h:outputText value="#{chickController.findChickByClientFeed(client,feed)}"/>
-                        </h:column>
-                    </h:dataTable>
-                </h:panelGrid>
-            </ui:repeat>
-        </ui:remove>
         <h:form>
-            <h:dataTable value="#{clientController.findAllClients()}" var="client">
-                <h:column headerClass="table-header" footerClass="table-footer">
-                    <f:facet name="header">
-                        Клиент
-                    </f:facet>
-                    <h:commandLink value="#{client.name}" action="#{clientController.editClient(client.clientId)}"/>
+            <h:dataTable value="#{clientController.findAllClients()}" var="clients">
+                <h:column>
+                    <f:facet name="header">Клиенты</f:facet>
+                    <h:commandLink value="#{clients.name}" action="#{editClientController.editClient(clients.clientId)}"/>
                 </h:column>
-                <h:column headerClass="table-header" footerClass="table-footer">
-                    <h:panelGroup rendered="#{chickController.findChickListByClient(client).size() != 0}">
-                        <h:dataTable value="#{feedController.getFeedList()}" var="feed">
-                            <h:column headerClass="table-header" footerClass="table-footer">
-                                <h:outputText value="#{feed.name}"/>
-                            </h:column>
-                            <h:column headerClass="table-header" footerClass="table-footer">
-                                <h:outputText value="#{chickController.findChickByClientFeed(client,feed).amount}"/>
-                            </h:column>
-                        </h:dataTable>
-                    </h:panelGroup>
-                    <h:outputText value="Пусто" rendered="#{chickController.findChickListByClient(client).size()==0}"/>
+                <h:column>
+                    <f:facet name="header">J1</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('J1', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">J2</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('J2', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">J3</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('J3', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">J4</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('J4', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">T1</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('T1', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">T2</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('T2', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">T3</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('T3', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">T3+</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('T3+', clients)}"/>
                 </h:column>
             </h:dataTable>
         </h:form>
 
-        <h:link value="Добавить клиента" outcome="/pages/sdo/client/addClient"/><br/>
-
+        <h:link value="Добавить клиента" outcome="#{clientController.addClient()}"/><br/>
     </h:body>
 </f:view>
 </html>

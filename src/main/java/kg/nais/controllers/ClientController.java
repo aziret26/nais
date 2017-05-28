@@ -1,12 +1,15 @@
 package kg.nais.controllers;
 
+import kg.nais.facade.ChickFacade;
 import kg.nais.facade.ClientFacade;
 import kg.nais.facade.ClientStatusFacade;
 import kg.nais.models.Chick;
 import kg.nais.models.Client;
+import kg.nais.tools.Tools;
 
 import javax.faces.bean.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -15,11 +18,13 @@ import static kg.nais.tools.ViewPath.*;
  * Created by b-207 on 5/1/2017.
  */
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class ClientController extends GeneralController{
     private Client client = new Client();
 
-    private List<Chick> chickList = new ArrayList<Chick>();
+    private List<Chick> chickList = new ArrayList<Chick>(Arrays.asList(
+            new Chick()
+    ));
 
     @ManagedProperty(value="#{sessionController}")
     private SessionController sessionController;
@@ -44,6 +49,9 @@ public class ClientController extends GeneralController{
     }
 
     public List<Chick> getChickList() {
+        if(clientId != 0){
+            chickList = new ChickFacade().findByClient(new ClientFacade().findById(clientId));
+        }
         return chickList;
     }
 
@@ -58,36 +66,58 @@ public class ClientController extends GeneralController{
         return new ClientFacade().findById(id);
     }
 
+    public String addClient(){
+        clientId = 0;
+        return ADD_CLIENT+REDIRECT;
+    }
     public String createClient(){
+        if(client.getName().length() == 0 ||
+                client.getName().equals(" ")){
+            Tools.faceMessageWarn("Пожалуйста Введите имя клиента","");
+            return "";
+        }
         client.setRegDate(Calendar.getInstance());
         client.setClientStatus(new ClientStatusFacade().findById(1));
         new ClientFacade().create(client);
+        ChickFacade cf = new ChickFacade();
+        for(Chick c : chickList){
+            c.setClient(client);
+            cf.create(c);
+        }
         return SHOW_CLIENTS+REDIRECT;
     }
     public String deleteClient(Client client){
         new ClientFacade().delete(client);
         return "";
     }
-    public String editClient(int clientId){
-        return EDIT_CLIENT+REDIRECT+"clientId="+clientId;
-    }
-    public String saveClient(){
-        client.setChickList(chickList);
-        new ClientFacade().update(client);
-        return SHOW_CLIENTS+REDIRECT;
-    }
     public String deleteClient(int clientId){
-
+        new ClientFacade().create(new ClientFacade().findById(clientId));
         return SHOW_CLIENTS+REDIRECT;
     }
 
     public void addChick(){
+        Chick chick = new Chick();
         printList();
-        chickList.add(new Chick());
-
+        chick.setEditable(true);
+        chickList.add(chick);
     }
     public void removeChik(Chick chick){
         chickList.remove(chick);
+    }
+
+    public void saveChick() {
+        ArrayList<Integer> toRemove = new ArrayList<Integer>();
+        for(int i = 0; i < chickList.size();i++){
+            if(chickList.get(i).getAge() == 0 || chickList.get(i).getAmount() == 0){
+                //chickList.remove(chickList.g);
+                toRemove.add(i);
+                continue;
+            }
+            chickList.get(i).setEditable(false);
+        }
+        for(int i = 0;i < toRemove.size();i++){
+            chickList.remove(toRemove.get(i)+i);
+        }
     }
 
     private void printList(){

@@ -23,4 +23,40 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
+
+    <filter>
+        <filter-name>Sign In Filter</filter-name>
+        <filter-class>kg.nais.filters.SignInFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Sign In Filter</filter-name>
+        <url-pattern>/pages/auth/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>Admin Filter</filter-name>
+        <filter-class>kg.nais.filters.AdminFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Admin Filter</filter-name>
+        <url-pattern>/pages/user/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>PM Filter</filter-name>
+        <filter-class>kg.nais.filters.PMFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PM Filter</filter-name>
+        <url-pattern>/pages/pm/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>SDO Filter</filter-name>
+        <filter-class>kg.nais.filters.SDOFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SDO Filter</filter-name>
+        <url-pattern>/pages/sdo/*</url-pattern>
+    </filter-mapping>
 </web-app>

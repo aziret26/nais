@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <f:metadata>
+        <f:metadata>
+        </f:metadata>
+    </f:metadata>
+    <h:head>
+        <title>Список клиентов</title>
+    </h:head>
+    <h:body>
+        <h:link value="Главная страница" outcome="/index"/>
+        <h2>Список клиентов</h2>
+        <h:form>
+            <h:dataTable value="#{clientController.findAllClients()}" var="clients">
+                <h:column>
+                    <f:facet name="header">Клиенты</f:facet>
+                    <h:commandLink value="#{clients.name}" action="#{editClientController.editClient(clients.clientId)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">J1</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('J1', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">J2</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('J2', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">J3</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('J3', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">J4</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('J4', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">T1</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('T1', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">T2</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('T2', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">T3</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('T3', clients)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">T3+</f:facet>
+                    <h:outputText value="#{chickController.calculateFeed('T3+', clients)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
+        <h:link value="Добавить клиента" outcome="#{clientController.addClient()}"/><br/>
+    </h:body>
+</f:view>
+</html>
