@@ -2,88 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff20c5a-e16e-4a2a-9384-4b36ec171dcd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditClientController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ItemController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/filters/AdminFilter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/filters/PMFilter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/filters/SDOFilter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/filters/SignInFilter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/locales.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/locales_ky.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/locales_ru.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/nais.taglib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/item.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/sections/content.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/sections/footer.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/sections/layout/header.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/sections/layout/sidebarLeft.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/sections/layout/userInfo.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/sections/login/sidebarLeft.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/sections/metadata.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/sections/sidebar-left.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/templates/masterLayout.xhtml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/nais_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/nais_war_exploded.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ChickController.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ChickController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ClientController.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ClientController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/GeneralController.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/GeneralController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/UserController.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/ChickFacade.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/ChickFacade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/FeedFacade.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/FeedFacade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/Chick.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/Chick.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/Feed.class" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/Feed.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ChickController.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ChickController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ClientController.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ClientController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/GeneralController.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/GeneralController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/UserController.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/facade/ChickFacade.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/facade/ChickFacade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/facade/FeedFacade.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/facade/FeedFacade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/models/Chick.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/models/Chick.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kg/nais/models/Feed.class" afterPath="$PROJECT_DIR$/target/classes/kg/nais/models/Feed.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/ClientController.class" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/ClientController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/TestController.class" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/TestController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/UserController.class" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/ClientFacade.class" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/ClientFacade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/UserRoleFacade.class" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/UserRoleFacade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Chick.class" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Chick.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Client.class" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Client.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/ClientStatus.class" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/ClientStatus.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Feed.class" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Feed.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/User.class" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/UserRole.class" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/UserRole.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/nais.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/nais.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nais.iml" afterPath="$PROJECT_DIR$/nais.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/faces-config.xml" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/faces-config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/index.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/nais/index.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/auth/signin.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/nais/pages/auth/signin.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/addClient.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/addClient.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/editClient.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/editClient.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/showClients.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/showClients.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/GeneralController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/GeneralController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/facade/ChickFacade.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/facade/ChickFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/facade/FeedFacade.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/facade/FeedFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/models/Chick.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/models/Chick.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/models/Feed.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/models/Feed.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/auth/signin.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/auth/signin.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/addClient.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/addClient.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/hibernate/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/faces-config.xml" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/faces-config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/index.xhtml" afterPath="$PROJECT_DIR$/target/hibernate/index.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/hibernate/pages/auth/signin.xhtml" afterPath="$PROJECT_DIR$/target/hibernate/pages/auth/signin.xhtml" />
     </list>
     <ignored path="archive.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -123,7 +42,7 @@
     <favorites_list name="archive" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -464,6 +383,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -570,8 +491,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -584,7 +503,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -1485,6 +1404,7 @@
       <workItem from="1495967703513" duration="2896000" />
       <workItem from="1495970605946" duration="7000" />
       <workItem from="1495970631828" duration="5994000" />
+      <workItem from="1495976692733" duration="1159000" />
     </task>
     <task id="LOCAL-00002" summary="Создание объектов;&#10;Тикет #471">
       <created>1428297461221</created>
@@ -1833,7 +1753,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="669708000" />
+    <option name="totallyTimeSpent" value="670867000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1849,7 +1769,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23608018" sideWeight="0.5143923" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23608018" sideWeight="0.5170576" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32497212" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2217484" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1862,16 +1782,16 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494432" sideWeight="0.48667377" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494432" sideWeight="0.48400852" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739422" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23608018" sideWeight="0.48294243" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7415254" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23608018" sideWeight="0.48560768" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22922252" sideWeight="0.50070125" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23027718" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23294243" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18552354" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2000,7 +1920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
           <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2050,7 +1969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2115,22 +2033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
           <caret line="117" column="8" lean-forward="false" selection-start-line="117" selection-start-column="8" selection-end-line="119" selection-end-column="9" />
-          <folding>
-            <element signature="e#974#975#0" expanded="false" />
-            <element signature="e#1010#1011#0" expanded="false" />
-            <element signature="e#1065#1066#0" expanded="false" />
-            <element signature="e#1105#1106#0" expanded="false" />
-            <element signature="method#setSessionController#0;class#ClientController#0" expanded="false" />
-            <element signature="e#1520#1521#0" expanded="false" />
-            <element signature="e#1562#1563#0" expanded="false" />
-            <element signature="e#1605#1606#0" expanded="false" />
-            <element signature="e#1656#1657#0" expanded="false" />
-            <element signature="e#1697#1698#0" expanded="false" />
-            <element signature="e#1751#1752#0" expanded="false" />
-            <element signature="method#createClient#0;class#ClientController#0" expanded="false" />
-            <element signature="method#deleteClient#0;class#ClientController#0" expanded="false" />
-            <element signature="method#printList#0;class#ClientController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2147,7 +2049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="10" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2155,7 +2056,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="58" lean-forward="false" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2187,7 +2087,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2195,11 +2094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#382#383#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2207,7 +2101,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2215,7 +2108,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2246,14 +2138,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/templates/mainTemplate.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/templates/mainTemplate.xhtml" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/login/sidebarLeft.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -2262,14 +2147,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/userInfo.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="23" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/userInfo.xhtml" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/layout/userInfo.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -2278,22 +2156,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/head.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/header.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/head.xhtml" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/header.xhtml" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/layout/header.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
