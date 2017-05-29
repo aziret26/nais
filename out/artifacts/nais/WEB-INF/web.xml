@@ -23,6 +23,10 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
+    <context-param>
+        <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+        <param-value>/WEB-INF/nais.taglib.xml</param-value>
+    </context-param>
 
     <filter>
         <filter-name>Sign In Filter</filter-name>
@@ -31,6 +35,15 @@
     <filter-mapping>
         <filter-name>Sign In Filter</filter-name>
         <url-pattern>/pages/auth/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>Index Filter</filter-name>
+        <filter-class>kg.nais.filters.IndexFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Index Filter</filter-name>
+        <url-pattern>/index.xhtml</url-pattern>
     </filter-mapping>
 
     <filter>

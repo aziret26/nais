@@ -6,10 +6,10 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition>
-        <div class='#{name == item.itemSelected ? "itemSelected" : "item"}'>
+        <li class='#{name == item.itemSelected ? "itemSelected" : "item"}'>
             <h:commandLink action="#{item.changeItem(name)}">
                 <h:outputText value="#{itemName}"/>
             </h:commandLink>
-        </div>
+        </li>
     </ui:composition>
 </html>

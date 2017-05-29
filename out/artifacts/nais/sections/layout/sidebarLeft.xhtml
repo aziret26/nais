@@ -8,8 +8,30 @@
       xmlns:nais="http://corejsf.com/facelets">
     <ui:composition>
         <h:form>
-            <nais:item name="users" itemName="Users"/>
-            <nais:item name="clients" itemName="Clients"/>
+            <ul>
+                <nais:item name="/index" itemName="Главная страница"/>
+
+                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1}">
+                    <h3>Пользователи</h3>
+                <nais:item name="/pages/user/userCreate?faces-redirect=true" itemName="Добавить пользвателя"/>
+                <nais:item name="/pages/user/showUserList?faces-redirect=true" itemName="Список пользователей"/>
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
+                 userController.currentUser.userRole.userRoleId == 3 or
+                 userController.currentUser.userRole.userRoleId == 2}">
+                <h3>Клиенты</h3>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
+                 userController.currentUser.userRole.userRoleId == 3}">
+                <nais:item name="/pages/sdo/client/addClient?faces-redirect=true" itemName="Добавить клиента"/>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
+                 userController.currentUser.userRole.userRoleId == 3 or
+                 userController.currentUser.userRole.userRoleId == 2}">
+                <nais:item name="/pages/sdo/client/showClients?faces-redirect=true" itemName="Показать клиентов"/>
+                </h:panelGroup>
+            </ul>
         </h:form>
     </ui:composition>
 </html>

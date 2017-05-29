@@ -66,10 +66,6 @@ public class ClientController extends GeneralController{
         return new ClientFacade().findById(id);
     }
 
-    public String addClient(){
-        clientId = 0;
-        return ADD_CLIENT+REDIRECT;
-    }
     public String createClient(){
         if(client.getName().length() == 0 ||
                 client.getName().equals(" ")){

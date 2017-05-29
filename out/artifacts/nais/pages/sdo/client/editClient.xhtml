@@ -5,48 +5,51 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <f:metadata>
-        <f:viewParam name="clientId" value="#{editClientController.clientId}"/>
-    </f:metadata>
-    <h:head>
-        <title>Редактировать клиента</title>
-    </h:head>
-    <h:body>
-        <h:link value="Главная страница" outcome="/index"/>
-        <h2>Редактировать клиента - #{editClientController.client.clientId}</h2>
-        <h:form>
-            <h:panelGrid columns="2">
-                Имя:
-                <h:inputText value="#{editClientController.client.name}"/>
-            </h:panelGrid>
-            <h:dataTable value="#{editClientController.chickList}" var="chick">
-                <h:column>
-                    <f:facet name="header">Изменить</f:facet>
-                    <h:selectBooleanCheckbox value="#{chick.editable}" onclick="submit()"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Возвраст</f:facet>
-                    <h:inputText value="#{chick.age}" rendered="#{chick.editable}" size="5"/>
-                    <h:outputText value="#{chick.age}" rendered="#{not chick.editable}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Количество</f:facet>
-                    <h:inputText value="#{chick.amount}" rendered="#{chick.editable}" size="5"/>
-                    <h:outputText value="#{chick.amount}" rendered="#{not chick.editable}"/>
-                </h:column>
-                <h:column>
-                    <h:commandButton value="Удалить" action="#{editClientController.removeChik(chick)}" onclick="return confirm('Вы уверены что хотите удалить?')"/>
-                </h:column>
-            </h:dataTable>
-            <p><h:commandButton value="Добавить" action="#{editClientController.addChick()}"/> <h:commandButton value="Сохранить" action="#{editClientController.saveChick()}"/></p>
-            <br/>
-            <h:commandLink value="Сохранить" action="#{editClientController.saveClient()}"/>
+    <ui:composition template="/templates/masterLayout.xhtml">
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:viewParam name="clientId" value="#{editClientController.clientId}"/>
+                <f:viewParam name="userId" value="#{userController.userId}"/>
+            </f:metadata>
+        </ui:define>
+        <ui:define name="windowTitle">Редактировать клиента</ui:define>
 
-            <h:messages errorClass="errorMessage" infoClass="infoMessage"
-                        layout="table" globalOnly="true" showDetail="false" showSummary="true" style="color:red"/>
-        </h:form>
-        <h:link value="Список клиентов" outcome="/pages/sdo/client/showClients"/><br/>
-    </h:body>
-</f:view>
+        <ui:define name="sidebarLeft">
+            <ui:include src="/sections/layout/sidebarLeft.xhtml"/>
+        </ui:define>
+        <ui:define name="content">
+            <h2>Редактировать клиента - #{editClientController.clientId}</h2>
+            <h:form>
+                <h:panelGrid columns="2">
+                    Имя:
+                    <h:inputText value="#{editClientController.client.name}"/>
+                </h:panelGrid>
+                <h:dataTable value="#{editClientController.chickList}" var="chick">
+                    <h:column>
+                        <f:facet name="header">Изменить</f:facet>
+                        <h:selectBooleanCheckbox value="#{chick.editable}" onclick="submit()"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Возвраст</f:facet>
+                        <h:inputText value="#{chick.age}" rendered="#{chick.editable}" size="5"/>
+                        <h:outputText value="#{chick.age}" rendered="#{not chick.editable}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Количество</f:facet>
+                        <h:inputText value="#{chick.amount}" rendered="#{chick.editable}" size="5"/>
+                        <h:outputText value="#{chick.amount}" rendered="#{not chick.editable}"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="Удалить" action="#{editClientController.removeChik(chick)}" onclick="return confirm('Вы уверены что хотите удалить?')"/>
+                    </h:column>
+                </h:dataTable>
+                <p><h:commandButton value="Добавить" action="#{editClientController.addChick()}"/> <h:commandButton value="Сохранить" action="#{editClientController.saveChick()}"/></p>
+                <br/>
+                <h:commandLink value="Сохранить" action="#{editClientController.saveClient()}"/>
+
+                <h:messages errorClass="errorMessage" infoClass="infoMessage"
+                            layout="table" globalOnly="true" showDetail="false" showSummary="true" style="color:red"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>

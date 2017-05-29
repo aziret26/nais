@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/templates/masterLayout.xhtml">
         <ui:define name="windowTitle">
-            #{lcls.loginTitle}
+            Авторизация
         </ui:define>
         <ui:define name="heading">
             <ui:include src="/sections/layout/header.xhtml"/>
@@ -18,15 +18,15 @@
         <ui:define name="content">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{lcls.loginPrompt}:"/>
+                    <h:outputText value="Логин:"/>
                     <h:inputText value="#{userController.user.login}"/>
 
-                    <h:outputText value="#{lcls.passwordPrompt}:"/>
+                    <h:outputText value="Пароль:"/>
                     <h:inputText value="#{userController.user.password}"/>
 
                     <h:messages errorClass="errorMessage" infoClass="infoMessage" layout="table" globalOnly="true" showDetail="false" showSummary="true"/>
 
-                    <h:commandButton value="#{lcls.loginButtonText}" action="#{userController.signin()}"/>
+                    <h:commandButton value="ВОЙТИ" action="#{userController.signin()}"/>
                 </h:panelGrid>
             </h:form>
         </ui:define>

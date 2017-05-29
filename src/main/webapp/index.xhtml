@@ -3,23 +3,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
     <ui:composition template="/templates/masterLayout.xhtml">
-        <ui:define name="windowTitle">
-            #{lcls.nais}
-        </ui:define>
         <ui:define name="content">
             <h:outputText value="Добро пожаловать"/>
-
-            <h2>User</h2>
-            <h:link value="Добавить пользвателя" outcome="/pages/user/userCreate"/><br/>
-            <h:link value="Список пользователей" outcome="/pages/user/showUserList"/>
-
-            <h2>Client</h2>
-            <h:link value="Добавить клиента" outcome="/pages/sdo/client/addClient"/><br/>
-            <h:link value="Показать клиентов" outcome="/pages/sdo/client/showClients"/>
-
-            <h:form>
-                <h:commandLink value="#{lcls.logoutButtonText}" action="#{userController.signout()}"/>
-            </h:form>
         </ui:define>
     </ui:composition>
 </html>

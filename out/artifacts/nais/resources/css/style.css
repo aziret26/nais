@@ -1,3 +1,8 @@
+ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
 #name {
     border: 1px solid darkGray;
     background: yellow;
@@ -23,7 +28,7 @@
     border: thin solid lightGray;
     padding: 5px;
     width: 200px;
-    height: 400px;
+    height: 590px;
     background: green;
 }
 
@@ -34,7 +39,7 @@
     position: absolute;
     right: 8px;
     left: 230px;
-    height: 400px;
+    height: 590px;
     top: 70px;
 }
 
@@ -43,7 +48,7 @@
     font-style: italic;
     font-family: Palatino, serif;
     text-align: center;
-    margin-top: 10px;
+    margin-top: -20px;
 }
 
 .header {
@@ -57,20 +62,36 @@
     padding: 5px;
     text-align: center;
     text-decoration: none;
+    border: thin solid lightGray;
+    border-radius: 20px;
+    margin-bottom: 5px;
 }
 
+.item a{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+.item a:active{
+    color: darkgreen;
+}
 .itemSelected {
     padding: 5px;
     text-align: center;
     background: darkgreen;
     border: thin solid lightGray;
-    text-decoration: none;
+    border-radius: 20px;
+    margin-bottom: 5px;
 }
 
 .welcome {
     font-style: italic;
     font-family: Palatino, serif;
     margin-top: 10px;
+}
+
+.right {
+    float: right;
 }
 
 .errorMessage {

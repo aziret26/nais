@@ -10,16 +10,18 @@
             <h:panelGroup rendered="#{sessionController.logged}">
                 <p>
                     <h:panelGrid columns="2">
-                        <h:outputText value="#{lcls.namePrompt}"/>
-                        <h:outputText value=":#{userController.currentUser.fname}"/>
+                        <h:outputText value="Имя:"/>
+                        <h:outputText value="#{userController.currentUser.fname}"/>
 
-                        <h:outputText value="#{lcls.rolePrompt}"/>
-                        <h:outputText value=":#{userController.currentUser.userRole.userRole}"/>
+                        <h:outputText value="Роль:"/>
+                        <h:outputText value="#{userController.currentUser.userRole.userRole}" />
                     </h:panelGrid>
                 </p>
             </h:panelGroup>
             <h:panelGroup rendered="#{!sessionController.logged}">
-                <h:outputText value="Гость"/>
+                <p>
+                    <h:outputText value="Гость"/>
+                </p>
             </h:panelGroup>
         </div>
     </ui:composition>

@@ -1,6 +1,5 @@
 package kg.nais.controllers;
 
-import com.sun.org.apache.regexp.internal.RE;
 import kg.nais.facade.UserFacade;
 import kg.nais.facade.UserRoleFacade;
 import kg.nais.facade.UserStatusFacade;
@@ -129,7 +128,7 @@ public class UserController extends GeneralController{
 
     public String signout(){
         sessionController.signout();
-        return "/index";
+        return SIGN_IN + ".xhtml" + REDIRECT;
     }
 
     public String signup(){
