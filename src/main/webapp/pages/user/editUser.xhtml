@@ -58,8 +58,8 @@
                                            itemLabel="#{role.userRole}"/>
                         </h:selectOneMenu>
 
-                        <h:commandLink value="Сохранить" action="#{userController.saveUserChanges()}"/>
-                        <h:commandLink value="Удалить" action="#{userController.deleteUser()}"/>
+                        <h:commandButton value="Сохранить" action="#{userController.saveUserChanges()}"/>
+                        <h:commandButton value="Удалить" action="#{userController.deleteUser()}"/>
                     </h:panelGrid>
                     <h:messages errorClass="errorMessage" infoClass="infoMessage"
                                 layout="table" globalOnly="true" showDetail="false" showSummary="true"/>

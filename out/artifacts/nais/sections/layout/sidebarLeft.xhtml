@@ -9,7 +9,7 @@
     <ui:composition>
         <h:form>
             <ul>
-                <nais:item name="/index" itemName="Главная страница"/>
+                <nais:item name="/index?faces-redirect=true" itemName="Главная страница"/>
 
                 <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1}">
                     <h3>Пользователи</h3>

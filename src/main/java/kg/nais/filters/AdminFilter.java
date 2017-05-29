@@ -26,6 +26,7 @@ public class AdminFilter implements Filter {
         String contextPath = ((HttpServletRequest) request).getContextPath();
         if(sc == null || !sc.isLogged()) {
             ((HttpServletResponse) response).sendRedirect(contextPath + SIGN_IN+".xhtml"+REDIRECT);
+            sc = new SessionController();
         }
         int role = sc.getUser().getUserRole().getUserRoleId();
         if(role != 1) {

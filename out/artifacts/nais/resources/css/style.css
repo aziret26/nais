@@ -5,7 +5,7 @@ ul{
 }
 #name {
     border: 1px solid darkGray;
-    background: yellow;
+    background: lightgray;
     padding: 5px;
     height: 40px;
     width: 200px;
@@ -16,7 +16,7 @@ ul{
     padding: 5px;
     height: 40px;
     margin-bottom: 10px;
-    background: yellow;
+    background: darkgray;
     border: 1px solid darkGray;
     position: absolute;
     right: 8px;
@@ -29,7 +29,7 @@ ul{
     padding: 5px;
     width: 200px;
     height: 590px;
-    background: green;
+    background: grey;
 }
 
 #content {
@@ -67,18 +67,18 @@ ul{
     margin-bottom: 5px;
 }
 
-.item a{
+a {
     text-decoration: none;
-    color: black;
+    color: #fefeef;
     display: block;
 }
 .item a:active{
-    color: darkgreen;
+    color: darkcyan;
 }
 .itemSelected {
     padding: 5px;
     text-align: center;
-    background: darkgreen;
+    background: darkslateblue;
     border: thin solid lightGray;
     border-radius: 20px;
     margin-bottom: 5px;
@@ -96,4 +96,40 @@ ul{
 
 .errorMessage {
     color: red;
+}
+
+.dataTable {
+    border: thin solid black;
+}
+.dataTableHeader {
+    text-align: center;
+    font-style: italic;
+    color: Snow;
+    background: darkslategrey;
+    padding: 10px;
+}
+.dataTableFooter {
+    font-size: 0.75em;
+    text-align: center;
+    background: PowderBlue;
+}
+
+.evenRow {
+    background: lightgray;
+    text-align: center;
+}
+.oddRow {
+    background: darkgrey;
+    text-align: center;
+}
+
+.clientName {
+    height: 25px;
+    text-align: center;
+    background: slategrey;
+    padding: 5px;
+}
+
+input{
+    border-radius: 5px;
 }

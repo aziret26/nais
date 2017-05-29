@@ -38,7 +38,7 @@
                 </h:dataTable>
                 <p><h:commandButton value="Добавить" action="#{clientController.addChick()}"/> <h:commandButton value="Сохранить" action="#{clientController.saveChick()}"/></p>
                 <br/>
-                <h:commandLink value="Добавить клиента" action="#{clientController.createClient()}"/>
+                <h:commandButton value="Добавить клиента" action="#{clientController.createClient()}"/>
 
                 <h:messages errorClass="errorMessage" infoClass="infoMessage"
                             layout="table" globalOnly="true" showDetail="false" showSummary="true" style="color:red"/>

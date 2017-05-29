@@ -122,35 +122,15 @@ public class UserController extends GeneralController{
         if(user.getUserStatus() == null){
             user.setUserStatus(new UserStatusFacade().findById(1));
         }
-        new UserFacade().createUser(user);
-        return "/index";
+        UserFacade uf = new UserFacade();
+        uf.createUser(user);
+
+        return SHOW_USER_LIST + REDIRECT;
     }
 
     public String signout(){
         sessionController.signout();
         return SIGN_IN + ".xhtml" + REDIRECT;
-    }
-
-    public String signup(){
-        user.setRegDate(new Date());
-        if(sessionController.getUser().getUserRole().getUserRoleId() != 1){
-            Tools.faceMessageWarn("У вас нет привелгии на данную операцию.","");
-            return "";
-        }
-        if(userRoleId == 0){
-            Tools.faceMessageWarn("Неправильно выбрана роль пользователя.","");
-            return "";
-
-        }else{
-            user.setUserRole(new UserRoleFacade().findById(userRoleId));
-        }
-        if(user.getUserStatus() == null){
-            user.setUserStatus(new UserStatusFacade().findById(1));
-        }
-        UserFacade uf = new UserFacade();
-        uf.createUser(user);
-
-        return INDEX+REDIRECT;
     }
 
     public String saveUserChanges(){

@@ -23,9 +23,10 @@ public class IndexFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         SessionController sc = (SessionController)((HttpServletRequest) request).getSession().getAttribute("sessionController");
         String contextPath = ((HttpServletRequest) request).getContextPath();
-        if(sc == null || !sc.isLogged())
+        if(sc == null || !sc.isLogged()) {
             ((HttpServletResponse) response).sendRedirect(contextPath + SIGN_IN + ".xhtml" + REDIRECT);
-
+            sc = new SessionController();
+        }
         chain.doFilter(request, response);
     }
 

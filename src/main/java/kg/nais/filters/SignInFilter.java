@@ -23,6 +23,9 @@ public class SignInFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         SessionController sc = (SessionController)((HttpServletRequest) request).getSession().getAttribute("sessionController");
         String contextPath = ((HttpServletRequest) request).getContextPath();
+        if(sc == null){
+            sc = new SessionController();
+        }
         if(sc.isLogged())
             ((HttpServletResponse) response).sendRedirect(contextPath + INDEX + ".xhtml" + REDIRECT);
 
