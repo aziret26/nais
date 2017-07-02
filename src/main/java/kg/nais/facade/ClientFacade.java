@@ -34,9 +34,9 @@ public class ClientFacade {
         try {
             objectDao.beginTransaction();
             objectList = objectDao.getEntityManager().createNamedQuery("Client.findAll",Client.class).getResultList();
-        }catch (Exception ex){
+        } catch (Exception ex){
             objectList = null;
-        }finally {
+        } finally {
             objectDao.commitAndCloseTransaction();
         }
 
@@ -56,12 +56,12 @@ public class ClientFacade {
         return client;
     }
 
-    public Client findByStatus(String status){
-        Client ms;
+    public List<Client> findByStatus(int statusId){
+        List<Client> ms;
         try {
             objectDao.beginTransaction();
             ms = objectDao.getEntityManager().createNamedQuery("Client.findByClientStatus",Client.class)
-                    .setParameter("clientStatus",status).getSingleResult();
+                    .setParameter("clientStatusId",statusId).getResultList();
         }catch (Exception ex){
             ms = null;
         }finally {

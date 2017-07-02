@@ -5,7 +5,7 @@ ul{
 }
 #name {
     border: 1px solid darkGray;
-    background: lightgray;
+    background: #006400;
     padding: 5px;
     height: 40px;
     width: 200px;
@@ -16,7 +16,7 @@ ul{
     padding: 5px;
     height: 40px;
     margin-bottom: 10px;
-    background: darkgray;
+    background: #006400;
     border: 1px solid darkGray;
     position: absolute;
     right: 8px;
@@ -29,7 +29,7 @@ ul{
     padding: 5px;
     width: 200px;
     height: 590px;
-    background: grey;
+    background: #006400;
 }
 
 #content {
@@ -132,4 +132,8 @@ a {
 
 input{
     border-radius: 5px;
+}
+
+.addButton {
+    border-radius: 15px;
 }

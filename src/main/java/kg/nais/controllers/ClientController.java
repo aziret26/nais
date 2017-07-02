@@ -59,8 +59,14 @@ public class ClientController extends GeneralController{
         this.chickList = chickList;
     }
 
-    public List<Client> findAllClients(){
+    public List<Client> findAllClients() {
         return new ClientFacade().findAll();
+    }
+    public List<Client> findAllActiveClients() {
+        return new ClientFacade().findByStatus(1);
+    }
+    public List<Client> findAllFrozenClients() {
+        return new ClientFacade().findByStatus(2);
     }
     public Client getClientById(int id){
         return new ClientFacade().findById(id);
@@ -80,14 +86,6 @@ public class ClientController extends GeneralController{
             c.setClient(client);
             cf.create(c);
         }
-        return SHOW_CLIENTS+REDIRECT;
-    }
-    public String deleteClient(Client client){
-        new ClientFacade().delete(client);
-        return "";
-    }
-    public String deleteClient(int clientId){
-        new ClientFacade().create(new ClientFacade().findById(clientId));
         return SHOW_CLIENTS+REDIRECT;
     }
 

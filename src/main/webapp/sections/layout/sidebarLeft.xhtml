@@ -13,8 +13,12 @@
 
                 <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1}">
                     <h3>Пользователи</h3>
-                <nais:item name="/pages/user/userCreate?faces-redirect=true" itemName="Добавить пользвателя"/>
-                <nais:item name="/pages/user/showUserList?faces-redirect=true" itemName="Список пользователей"/>
+                    <nais:item name="/pages/user/userCreate?faces-redirect=true" itemName="Добавить пользвателя"/>
+                    <nais:item name="/pages/user/showUserList?faces-redirect=true" itemName="Список пользователей"/>
+
+                    <h3>Корм</h3>
+                    <nais:item name="/pages/admin/feed/addFeed?faces-redirect=true" itemName="Добавить корм"/>
+                    <nais:item name="/pages/admin/feed/showFeed?faces-redirect=true" itemName="Показать кормы"/>
                 </h:panelGroup>
 
                 <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
