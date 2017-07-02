@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+      http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+    <display-name>Hibernate Test</display-name>
+
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file>
+    </welcome-file-list>
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+        <param-value>/WEB-INF/nais.taglib.xml</param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>Sign In Filter</filter-name>
+        <filter-class>kg.nais.filters.SignInFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Sign In Filter</filter-name>
+        <url-pattern>/pages/auth/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>Index Filter</filter-name>
+        <filter-class>kg.nais.filters.IndexFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Index Filter</filter-name>
+        <url-pattern>/index.xhtml</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>Admin Filter</filter-name>
+        <filter-class>kg.nais.filters.AdminFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Admin Filter</filter-name>
+        <url-pattern>/pages/user/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>PM Filter</filter-name>
+        <filter-class>kg.nais.filters.PMFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PM Filter</filter-name>
+        <url-pattern>/pages/pm/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>SDO Filter</filter-name>
+        <filter-class>kg.nais.filters.SDOFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SDO Filter</filter-name>
+        <url-pattern>/pages/sdo/*</url-pattern>
+    </filter-mapping>
+</web-app>

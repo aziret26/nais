@@ -9,6 +9,7 @@ import kg.nais.models.Feed;
 import kg.nais.models.UserRole;
 import kg.nais.tools.Tools;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import java.util.List;
@@ -22,8 +23,13 @@ import static kg.nais.tools.ViewPath.*;
 @ViewScoped
 public class FeedController extends GeneralController {
 
-    private Feed feed;
+    private Feed feed = new Feed();
+/*
+    @PostConstruct
+    public void init(){
 
+    }
+    */
     public Feed getFeed() {
         return feed;
     }

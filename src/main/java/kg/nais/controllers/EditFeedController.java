@@ -1,13 +1,16 @@
 package kg.nais.controllers;
 
 import kg.nais.facade.FeedFacade;
+import kg.nais.facade.UserFacade;
 import kg.nais.models.Feed;
 import kg.nais.tools.Tools;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import java.util.List;
 
+import static kg.nais.tools.ViewPath.INDEX;
 import static kg.nais.tools.ViewPath.REDIRECT;
 import static kg.nais.tools.ViewPath.SHOW_FEED;
 
@@ -21,8 +24,11 @@ public class EditFeedController extends GeneralController {
 
     private Feed feed;
 
+    @ManagedProperty(value = "#{sessionController}")
+    private SessionController sessionController;
+
     public Feed getFeed() {
-        if (feedId != 0 && feedId != feed.getFeedId()) {
+        if (feed == null || feedId != 0 && feedId != feed.getFeedId()) {
             feed = new FeedFacade().findById(feedId);
         }
         return feed;
@@ -32,18 +38,28 @@ public class EditFeedController extends GeneralController {
         this.feed = feed;
     }
 
-    public String deleteFeed(Feed feed) {
-        if(userId == 0){
-            Tools.faceMessageWarn("Неправильный ID пользователя","");
-            return "?userId="+userId;
+    public void setSessionController(SessionController sessionController) {
+        this.sessionController = sessionController;
+    }
+
+    public String deleteFeed() {
+        if(sessionController.getUser() == null){
+            Tools.faceMessageWarn("Пожалуйста, авторизуйтесь.","");
+            return INDEX+REDIRECT;
         }
-        new FeedFacade().delete(feed);
+        if(new UserFacade().findById(sessionController.getUser().getUserId()).getUserRole().getUserRoleId() != 1){
+            Tools.faceMessageWarn("У вас нету прав, на данное действие.","");
+            return INDEX+REDIRECT;
+        }
+        if(feed != null) {
+            new FeedFacade().delete(feed);
+        }
         return SHOW_FEED+REDIRECT;
     }
 
     public String saveFeedChanges() {
         new FeedFacade().update(feed);
-        feedId = 0;
+        feed.setFeedId(0);
         return SHOW_FEED + REDIRECT;
     }
 

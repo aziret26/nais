@@ -2,278 +2,132 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bff20c5a-e16e-4a2a-9384-4b36ec171dcd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/nais_war.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/nais_war_exploded.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_hynnet_javax_servlet_api_3_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditFeedController.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources/d40c0401-86e2-4ebe-8b56-d607e9746acc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/beans.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/META-INF/for_postgres.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/META-INF/persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/controllers/ClientController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/controllers/ClientSession.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/controllers/SessionController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/controllers/TestController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/controllers/UserController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/controllers/UserRoleController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/dao/GenericDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/dao/ObjectDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/dao/UserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/dao/UserRoleDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/dao/UserStatusDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/facade/ClientFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/facade/SampleFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/facade/UserFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/facade/UserRoleFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/facade/UserStatusFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/models/Chick.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/models/Client.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/models/ClientStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/models/Feed.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/models/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/models/UserRole.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/models/UserStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/tools/Tools.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/tools/ViewPath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/validators/EmailValidator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/classes/kg/nais/validators/PassValidator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/faces-config.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/javax.ws.rs-api-2.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/jersey-client.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/jersey-common.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/jersey-container-servlet-core.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/jersey-container-servlet.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/jersey-server.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/jsf-api-2.2.10.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/jsf-impl-2.2.10.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/junit-jupiter-api-5.0.0-M4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/junit-platform-commons-1.0.0-M4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/mysql-connector-java-5.1.40.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/opentest4j-1.0.0-M2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/postgresql-9.3-1100-jdbc41.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/lib/primefaces-6.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/index.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/pages/auth/signin.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/pages/auth/signup.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/pages/sdo/client/addClient.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/pages/sdo/client/showClients.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/pages/user/editUser.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/pages/user/showUserList.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/pages/user/userCreate.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/arti/test.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/beans.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/META-INF/persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ChickController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ClientController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ClientSession.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/EditClientController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/FeedController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/GeneralController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/ItemController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/SessionController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/TestController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/UserController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/controllers/UserRoleController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/dao/GenericDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/dao/ObjectDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/dao/UserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/dao/UserRoleDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/dao/UserStatusDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/ChickFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/ClientFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/ClientStatusFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/FeedFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/SampleFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/UserFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/UserRoleFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/facade/UserStatusFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/filters/AdminFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/filters/IndexFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/filters/PMFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/filters/SDOFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/filters/SignInFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/Chick.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/Client.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/ClientStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/Feed.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/UserRole.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/models/UserStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/tools/Tools.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/tools/ViewPath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/classes/kg/nais/validators/PassValidator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/faces-config.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/lib/javax.servlet-api-3.1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/lib/jsf-api-2.2.10.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/lib/jsf-impl-2.2.10.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/lib/junit-jupiter-api-5.0.0-M4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/lib/junit-platform-commons-1.0.0-M4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/lib/mysql-connector-java-5.1.40.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/lib/opentest4j-1.0.0-M2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/lib/postgresql-9.3-1100-jdbc41.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/lib/primefaces-6.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/nais.taglib.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/tags/item.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/index.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/auth/signin.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/example/test.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/addClient.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/editClient.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/sdo/client/showClients.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/user/editUser.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/user/showUserList.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/pages/user/userCreate.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/resources/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/sections/layout/header.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/sections/layout/sidebarLeft.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/sections/layout/userInfo.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/sections/metadata.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/templates/masterLayout.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/nais/test.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ChickController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ClientController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ClientSession.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/EditClientController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/FeedController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/GeneralController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ItemController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/SessionController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/TestController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/UserController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/controllers/UserRoleController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/dao/GenericDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/dao/ObjectDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/dao/UserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/dao/UserRoleDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/dao/UserStatusDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/facade/ChickFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/facade/ClientFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/facade/ClientStatusFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/facade/FeedFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/facade/SampleFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/facade/UserFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/facade/UserRoleFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/facade/UserStatusFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/filters/AdminFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/filters/IndexFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/filters/PMFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/filters/SDOFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/filters/SignInFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/models/Chick.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/models/Client.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/models/ClientStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/models/Feed.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/models/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/models/UserRole.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/models/UserStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/tools/Tools.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/tools/ViewPath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kg/nais/validators/PassValidator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/beans.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/META-INF/for_postgres.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/META-INF/persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/ChickController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/ClientController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/ClientSession.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/EditClientController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/FeedController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/GeneralController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/ItemController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/SessionController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/TestController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/UserController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/UserRoleController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/UserSession.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/dao/GenericDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/dao/ObjectDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/dao/UserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/dao/UserRoleDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/dao/UserStatusDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/ChickFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/ClientFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/ClientStatusFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/FeedFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/SampleFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/UserFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/UserRoleFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/UserStatusFacade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/filters/AdminFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/filters/PMFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/filters/SDOFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/filters/SignInFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Chick.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Client.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/ClientStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Feed.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/UserRole.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/UserStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/tools/Tools.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/tools/ViewPath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/validators/EmailValidator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/validators/PassValidator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/strings.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/strings_en.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/strings_ru.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/faces-config.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/jsf-api-2.2.10.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/jsf-impl-2.2.10.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/junit-jupiter-api-5.0.0-M4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/junit-platform-commons-1.0.0-M4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/mysql-connector-java-5.1.40.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/opentest4j-1.0.0-M2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/postgresql-9.3-1100-jdbc41.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/primefaces-6.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/nais.taglib.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/tags/item.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/index.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/pages/auth/signin.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/pages/auth/signup.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/pages/client/addClient.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/pages/client/showClients.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/pages/example/test.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/pages/sdo/client/addClient.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/pages/sdo/client/editClient.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/pages/sdo/client/showClients.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/pages/user/editUser.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/pages/user/showUserList.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/pages/user/userCreate.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/resources/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/sections/content.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/sections/footer.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/sections/layout/header.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/sections/layout/sidebarLeft.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/sections/layout/userInfo.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/sections/login/sidebarLeft.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/sections/metadata.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/sections/sidebar-left.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/templates/masterLayout.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/hibernate/test.xhtml" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ChickController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ClientController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ClientSession.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/EditClientController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/EditFeedController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/FeedController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/GeneralController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/ItemController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/SessionController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/TestController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/UserController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/controllers/UserRoleController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/dao/GenericDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/dao/ObjectDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/dao/UserDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/dao/UserRoleDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/dao/UserStatusDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/facade/ChickFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/facade/ClientFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/facade/ClientStatusFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/facade/FeedFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/facade/SampleFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/facade/UserFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/facade/UserRoleFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/facade/UserStatusFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/filters/AdminFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/filters/IndexFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/filters/PMFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/filters/SDOFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/filters/SignInFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/models/Chick.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/models/Client.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/models/ClientStatus.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/models/Feed.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/models/User.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/models/UserRole.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/models/UserStatus.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/tools/Tools.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/tools/ViewPath.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/kg/nais/validators/PassValidator.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/ChickController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/ClientController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/ClientSession.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/EditClientController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/EditFeedController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/FeedController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/GeneralController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/ItemController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/SessionController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/TestController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/UserController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/controllers/UserRoleController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/dao/GenericDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/dao/ObjectDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/dao/UserDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/dao/UserRoleDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/dao/UserStatusDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/ChickFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/ClientFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/ClientStatusFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/FeedFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/SampleFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/UserFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/UserRoleFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/facade/UserStatusFacade.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/filters/AdminFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/filters/IndexFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/filters/PMFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/filters/SDOFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/filters/SignInFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Chick.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Client.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/ClientStatus.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/Feed.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/User.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/UserRole.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/models/UserStatus.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/tools/Tools.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/tools/ViewPath.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/kg/nais/validators/PassValidator.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/jsf-api-2.2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/jsf-impl-2.2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/junit-jupiter-api-5.0.0-M4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/junit-platform-commons-1.0.0-M4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/mysql-connector-java-5.1.40.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/opentest4j-1.0.0-M2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/postgresql-9.3-1100-jdbc41.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/lib/primefaces-6.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/beans.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/classes/META-INF/persistence.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/faces-config.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/nais.taglib.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/tags/item.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/WEB-INF/web.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/index.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/pages/admin/feed/addFeed.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/pages/admin/feed/editFeed.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/pages/admin/feed/showFeed.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/pages/auth/signin.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/pages/example/test.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/pages/sdo/client/addClient.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/pages/sdo/client/editClient.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/pages/sdo/client/showClients.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/pages/user/editUser.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/pages/user/showUserList.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/pages/user/userCreate.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/resources/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/sections/footer.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/sections/layout/header.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/sections/layout/sidebarLeft.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/sections/layout/userInfo.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/sections/login/sidebarLeft.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/sections/metadata.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/templates/masterLayout.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/hibernate/test.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/2ed1bc3d-929d-458c-b015-c5011aabb2c4.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/2ed1bc3d-929d-458c-b015-c5011aabb2c4.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nais.iml" afterPath="$PROJECT_DIR$/nais.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditClientController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditClientController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditFeedController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditFeedController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/FeedController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/FeedController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/facade/ClientFacade.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/facade/ClientFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/tools/ViewPath.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/tools/ViewPath.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/auth/signin.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/auth/signin.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/admin/feed/addFeed.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/feed/addFeed.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/admin/feed/editFeed.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/feed/editFeed.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/sections/layout/sidebarLeft.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/sections/layout/sidebarLeft.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/sections/metadata.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/sections/metadata.xhtml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/out/artifacts/arti/pages/sdo/client/editClient.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/feed/editFeed.xhtml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/out/artifacts/nais/sections/footer.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/feed/showFeed.xhtml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/out/artifacts/nais/sections/login/sidebarLeft.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/feed/addFeed.xhtml" />
     </list>
     <ignored path="archive.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -307,27 +161,122 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="nais@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="nais" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="archive" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="EditFeedController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditFeedController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="49" column="108" lean-forward="true" selection-start-line="49" selection-start-column="108" selection-end-line="49" selection-end-column="108" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getFeed#0;class#EditFeedController#0" expanded="false" />
+                <element signature="method#setSessionController#0;class#EditFeedController#0" expanded="false" />
+                <element signature="method#saveFeedChanges#0;class#EditFeedController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2ed1bc3d-929d-458c-b015-c5011aabb2c4/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="42" lean-forward="true" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signin.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/auth/signin.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="masterLayout.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/templates/masterLayout.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebarLeft.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/layout/sidebarLeft.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="11" column="97" lean-forward="true" selection-start-line="11" selection-start-column="97" selection-end-line="11" selection-end-column="97" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nais.taglib.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/nais.taglib.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="item.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/item.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="74" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/ItemController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FeedController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/FeedController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="56" column="57" lean-forward="true" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="57" />
+              <folding>
+                <element signature="e#1289#1290#0" expanded="true" />
+                <element signature="e#1353#1354#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -345,6 +294,7 @@
       <find>Object</find>
       <find>clientId</find>
       <find>create</find>
+      <find>info</find>
     </findStrings>
     <replaceStrings>
       <replace>h:outputText</replace>
@@ -375,7 +325,6 @@
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/locales_ky.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/sections/login/sidebarLeft.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/sections/layout/admin/sidebarLeft.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/sections/layout/pm/sidebarLeft.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/sections/layout/sdo/sidebarLeft.xhtml" />
@@ -399,7 +348,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/sections/layout/userInfo.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/auth/signin.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/sections/layout/header.xhtml" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2ed1bc3d-929d-458c-b015-c5011aabb2c4/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/facade/ClientFacade.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" />
@@ -408,14 +356,16 @@
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditClientController.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/tools/ViewPath.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/sections/layout/sidebarLeft.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/feed/showFeed.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/sections/metadata.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/FeedController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditFeedController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/feed/editFeed.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/feed/addFeed.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/feed/editFeed.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/sections/layout/sidebarLeft.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2ed1bc3d-929d-458c-b015-c5011aabb2c4/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditFeedController.java" />
       </list>
     </option>
   </component>
@@ -668,7 +618,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -682,9 +631,252 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -736,12 +928,12 @@
     <property name="Repository.Attach.Sources" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/sections/layout" />
-      <recent name="E:\goent\nais\src\main\webapp" />
-      <recent name="E:\goent\nais\src\main\webapp\pages\sdo" />
-      <recent name="F:\goent-team\nais\src\main\webapp\pages\auth" />
-      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp\resources\img\partners" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\goent-team\nais\src\main\java\kg\nais" />
+      <recent name="C:\Users\PC\IdeaProjects\hibernate\src\main\resources\META-INF" />
+      <recent name="C:\Users\PC\IdeaProjects\hibernate\src\main\webapp" />
+      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp\resources\css" />
+      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="kg.nais.facade" />
@@ -750,12 +942,12 @@
       <recent name="kg.infocom.archive.util.validator" />
       <recent name="kg.infocom.archive.util.converters" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\goent-team\nais\src\main\java\kg\nais" />
-      <recent name="C:\Users\PC\IdeaProjects\hibernate\src\main\resources\META-INF" />
-      <recent name="C:\Users\PC\IdeaProjects\hibernate\src\main\webapp" />
-      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp\resources\css" />
-      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/sections/layout" />
+      <recent name="E:\goent\nais\src\main\webapp" />
+      <recent name="E:\goent\nais\src\main\webapp\pages\sdo" />
+      <recent name="F:\goent-team\nais\src\main\webapp\pages\auth" />
+      <recent name="C:\Users\PC\IdeaProjects\archive\src\main\webapp\resources\img\partners" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1533,6 +1725,7 @@
       <workItem from="1497868984024" duration="3377000" />
       <workItem from="1498208453741" duration="6627000" />
       <workItem from="1498301951718" duration="3848000" />
+      <workItem from="1498981242115" duration="4473000" />
     </task>
     <task id="LOCAL-00002" summary="Создание объектов;&#10;Тикет #471">
       <created>1428297461221</created>
@@ -1881,7 +2074,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="714903000" />
+    <option name="totallyTimeSpent" value="719376000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1903,23 +2096,24 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15355521" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15279879" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35042736" sideWeight="0.48400852" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3502455" sideWeight="0.48400852" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739422" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7415254" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36923078" sideWeight="0.48294243" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36824876" sideWeight="0.48294243" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32649574" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22922252" sideWeight="0.50070125" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22012103" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32242227" sideWeight="0.48865354" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22239032" sideWeight="0.49850747" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18552354" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1931,7 +2125,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32307693" sideWeight="0.48865354" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277592" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1989,35 +2182,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/layout/pm/sidebarLeft.xhtml" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/nais.taglib.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/item.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/templates/masterLayout.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/ItemController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/filters/SignInFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
@@ -2097,26 +2261,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/auth/signin.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" column="51" lean-forward="false" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/layout/header.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2ed1bc3d-929d-458c-b015-c5011aabb2c4/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="20" lean-forward="true" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -2195,14 +2344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/layout/sidebarLeft.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="20" column="112" lean-forward="false" selection-start-line="20" selection-start-column="112" selection-end-line="20" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -2218,15 +2359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="16" column="79" lean-forward="false" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/facade/FeedFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="13" column="11" lean-forward="false" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2234,7 +2366,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="58" column="42" lean-forward="true" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2242,15 +2373,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="33" column="21" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="33" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/models/Feed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2266,7 +2388,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="73" lean-forward="false" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2285,7 +2406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2325,39 +2445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/feed/editFeed.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/FeedController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="44" column="38" lean-forward="true" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
-          <folding>
-            <element signature="e#666#667#0" expanded="true" />
-            <element signature="e#698#699#0" expanded="true" />
-            <element signature="e#1178#1179#0" expanded="true" />
-            <element signature="e#1242#1243#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditFeedController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="34" column="34" lean-forward="false" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#719#720#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -2374,19 +2461,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditClientController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/models/Feed.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="116" column="37" lean-forward="true" selection-start-line="116" selection-start-column="37" selection-end-line="116" selection-end-column="37" />
+        <state relative-caret-position="120">
+          <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/feed/addFeed.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+        <state relative-caret-position="157">
+          <caret line="18" column="70" lean-forward="false" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1532">
+          <caret line="116" column="37" lean-forward="true" selection-start-line="116" selection-start-column="37" selection-end-line="116" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/feed/editFeed.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="45" column="97" lean-forward="false" selection-start-line="45" selection-start-column="97" selection-end-line="45" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/facade/FeedFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/FeedController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="56" column="57" lean-forward="true" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="57" />
+          <folding>
+            <element signature="e#1289#1290#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/nais.taglib.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/item.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="74" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/ItemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="42" lean-forward="true" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/auth/signin.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/templates/masterLayout.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/sections/layout/sidebarLeft.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="97" lean-forward="true" selection-start-line="11" selection-start-column="97" selection-end-line="11" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2ed1bc3d-929d-458c-b015-c5011aabb2c4/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditFeedController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="49" column="108" lean-forward="true" selection-start-line="49" selection-start-column="108" selection-end-line="49" selection-end-column="108" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getFeed#0;class#EditFeedController#0" expanded="false" />
+            <element signature="method#setSessionController#0;class#EditFeedController#0" expanded="false" />
+            <element signature="method#saveFeedChanges#0;class#EditFeedController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
