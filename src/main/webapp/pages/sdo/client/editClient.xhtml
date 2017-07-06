@@ -24,9 +24,9 @@
                     Имя:
                     <h:inputText value="#{editClientController.client.name}"/>
                 </h:panelGrid>
-                <h:dataTable value="#{editClientController.chickList}" var="chick">
+                <h:dataTable value="#{editClientController.chickList}" var="chick" >
                     <h:column>
-                        <f:facet name="header">Изменить</f:facet>
+                        <f:facet name="header"><h:commandButton value="Изменить" action="#{editClientController.saveChick()}"/></f:facet>
                         <h:selectBooleanCheckbox value="#{chick.editable}" onclick="submit()"/>
                     </h:column>
                     <h:column>
@@ -40,13 +40,10 @@
                         <h:outputText value="#{chick.amount}" rendered="#{not chick.editable}"/>
                     </h:column>
                     <h:column>
-                        <h:commandButton value="+" action="#{editClientController.addChick()}" styleClass="addButton"/>
-                    </h:column>
-                    <h:column>
-                        <h:commandButton value="-" action="#{editClientController.removeChik(chick)}" styleClass="addButton" onclick="return confirm('Вы уверены что хотите удалить?')"/>
+                        <f:facet name="header"><h:commandButton value="Добавить" action="#{editClientController.addChick()}" styleClass="addButton"/></f:facet>
+                        <h:commandButton value="Удалить" action="#{editClientController.removeChik(chick)}" styleClass="addButton" onclick="return confirm('Вы уверены что хотите удалить?')"/>
                     </h:column>
                 </h:dataTable>
-                <p><h:commandButton value="Добавить" action="#{editClientController.addChick()}"/> <h:commandButton value="Сохранить" action="#{editClientController.saveChick()}"/></p>
                 <br/>
                 <h:commandButton value="Замарозить" action="#{editClientController.freeze(editClientController.client)}" rendered="#{not editClientController.frozen}"/>
                 <h:commandButton value="Размарозить" action="#{editClientController.active(editClientController.client)}" rendered="#{editClientController.frozen}"/>

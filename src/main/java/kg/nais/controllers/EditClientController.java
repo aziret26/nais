@@ -100,7 +100,10 @@ public class EditClientController extends GeneralController{
                 toRemove.add(i);
                 continue;
             }
-            chickList.get(i).setEditable(false);
+            if (!chickList.get(i).isEditable())
+                chickList.get(i).setEditable(true);
+            else
+                chickList.get(i).setEditable(false);
         }
         for(int i = 0;i < toRemove.size();i++){
             chickList.remove(toRemove.get(i)-i);

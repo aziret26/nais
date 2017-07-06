@@ -19,7 +19,7 @@ import static kg.nais.tools.ViewPath.*;
  */
 @ManagedBean
 @ViewScoped
-public class ClientController extends GeneralController{
+public class ClientController extends GeneralController {
     private Client client = new Client();
 
     private List<Chick> chickList = new ArrayList<Chick>(Arrays.asList(
@@ -103,14 +103,16 @@ public class ClientController extends GeneralController{
         ArrayList<Integer> toRemove = new ArrayList<Integer>();
         for(int i = 0; i < chickList.size();i++){
             if(chickList.get(i).getAge() == 0 || chickList.get(i).getAmount() == 0){
-                //chickList.remove(chickList.g);
                 toRemove.add(i);
                 continue;
             }
-            chickList.get(i).setEditable(false);
+            if (!chickList.get(i).isEditable())
+                chickList.get(i).setEditable(true);
+            else
+                chickList.get(i).setEditable(false);
         }
         for(int i = 0;i < toRemove.size();i++){
-            chickList.remove(toRemove.get(i)+i);
+            chickList.remove(toRemove.get(i)-i);
         }
     }
 

@@ -129,6 +129,9 @@ a {
     background: slategrey;
     padding: 5px;
 }
+.clientName:hover {
+    background: gray;
+}
 
 input{
     border-radius: 5px;
@@ -136,4 +139,14 @@ input{
 
 .addButton {
     border-radius: 15px;
+}
+
+.row:hover {
+    background: lightgray;
+}
+
+td {
+    text-align: center;
+    height: auto;
+    vertical-align: middle;
 }
