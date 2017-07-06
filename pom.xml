@@ -10,60 +10,67 @@
 
   <dependencies>
 
-      <!-- JavaServer Faces -->
+    <!-- JavaServer Faces -->
 
-      <dependency>
-          <groupId>com.sun.faces</groupId>
-          <artifactId>jsf-api</artifactId>
-          <version>2.2.10</version>
-      </dependency>
-      <dependency>
-          <groupId>com.sun.faces</groupId>
-          <artifactId>jsf-impl</artifactId>
-          <version>2.2.10</version>
-      </dependency>
-      <dependency>
-          <groupId>org.primefaces</groupId>
-          <artifactId>primefaces</artifactId>
-          <version>6.0</version>
-      </dependency>
+    <dependency>
+        <groupId>com.sun.faces</groupId>
+        <artifactId>jsf-api</artifactId>
+        <version>2.2.10</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.faces</groupId>
+        <artifactId>jsf-impl</artifactId>
+        <version>2.2.10</version>
+    </dependency>
+    <dependency>
+        <groupId>org.primefaces</groupId>
+        <artifactId>primefaces</artifactId>
+        <version>6.0</version>
+    </dependency>
 
-      <!-- Hibernate API -->
+    <!-- Hibernate API -->
 
-      <dependency>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-core</artifactId>
-          <version>4.3.8.Final</version>
-          <scope>provided</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-entitymanager</artifactId>
-          <version>4.3.8.Final</version>
-          <scope>provided</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-c3p0</artifactId>
-          <version>4.3.8.Final</version>
-          <scope>provided</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.postgresql</groupId>
-          <artifactId>postgresql</artifactId>
-          <version>9.3-1100-jdbc41</version>
-      </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>4.3.8.Final</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>4.3.8.Final</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-c3p0</artifactId>
+        <version>4.3.8.Final</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>9.3-1100-jdbc41</version>
+    </dependency>
 
-      <dependency>
-          <groupId>mysql</groupId>
-          <artifactId>mysql-connector-java</artifactId>
-          <version>5.1.40</version>
-      </dependency>
-      <dependency>
-          <groupId>org.junit.jupiter</groupId>
-          <artifactId>junit-jupiter-api</artifactId>
-          <version>RELEASE</version>
-      </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.40</version>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>RELEASE</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>3.0.1</version>
+        <scope>provided</scope>
+    </dependency>
 
   </dependencies>
 
