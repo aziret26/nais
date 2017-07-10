@@ -35,7 +35,7 @@ public class Chick implements Serializable{
     private Calendar dob;
 
     @ManyToOne
-    @JoinColumn(name="clienId")
+    @JoinColumn(name="clientId")
     private Client client;
 
     @Transient

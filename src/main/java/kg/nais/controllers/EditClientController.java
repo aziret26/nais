@@ -32,7 +32,7 @@ public class EditClientController extends GeneralController{
     private boolean frozen = false;
 
     public Client getClient() {
-        if(clientId != 0 && clientId != client.getClientId()){
+        if(client == null || clientId != 0 && clientId != client.getClientId()){
             client = new ClientFacade().findById(clientId);
             chickList = new ChickFacade().findByClient(new ClientFacade().findById(client.getClientId()));
         }
@@ -82,31 +82,49 @@ public class EditClientController extends GeneralController{
     }
 
     public String saveClient(){
+        saveChick();
         client.setChickList(chickList);
         new ClientFacade().update(client);
-        ChickFacade cf = new ChickFacade();
-        for(Chick c : chickList){
-            c.setClient(client);
-            cf.update(c);
-        }
-        clientId = 0;
+        client.setClientId(0);
         return SHOW_CLIENTS + REDIRECT;
     }
 
     public String saveChick() {
-        ArrayList<Integer> toRemove = new ArrayList<Integer>();
-        for(int i = 0; i < chickList.size();i++){
-            if(chickList.get(i).getAge() == 0 || chickList.get(i).getAmount() == 0){
-                toRemove.add(i);
-                continue;
+        /**
+         * list where will be stored chicks to delete
+         */
+        ArrayList<Chick> toRemove = new ArrayList<Chick>();
+
+        /**
+         * fill toRemove list with chicks with 0 values
+         * to be able to delete them later
+         */
+        for (Chick chick : chickList) {
+            if (chick.getAge() == 0 || chick.getAmount() == 0) {
+                toRemove.add(chick);
             }
-            if (!chickList.get(i).isEditable())
-                chickList.get(i).setEditable(true);
-            else
-                chickList.get(i).setEditable(false);
         }
-        for(int i = 0;i < toRemove.size();i++){
-            chickList.remove(toRemove.get(i)-i);
+
+        /**
+         * removing chicks from database
+         * as they're useless info however
+         */
+
+        ChickFacade cf = new ChickFacade();
+        for (Chick chick : toRemove) {
+            cf.delete(chick);
+            chickList.remove(chick);
+        }
+
+        /**
+         * updating rest of the chicks in database
+         */
+        for(Chick chick: chickList){
+            cf.update(chick);
+            if (!chick.isEditable())
+                chick.setEditable(true);
+            else
+                chick.setEditable(false);
         }
         return EDIT_CLIENT+REDIRECT + "clientId = " + clientId;
     }
@@ -133,5 +151,4 @@ public class EditClientController extends GeneralController{
         new ClientFacade().update(client);
         frozen = false;
     }
-
 }

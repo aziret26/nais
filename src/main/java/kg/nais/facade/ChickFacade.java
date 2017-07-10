@@ -71,34 +71,6 @@ public class ChickFacade {
         return ms;
     }
 
-//    public Chick findByFeed(Feed feed){
-//        Chick ms;
-//        try {
-//            objectDao.beginTransaction();
-//            ms = objectDao.getEntityManager().createNamedQuery("Chick.findByFeed",Chick.class)
-//                    .setParameter("feed",feed).getSingleResult();
-//        }catch (Exception ex){
-//            ms = null;
-//        }finally {
-//            objectDao.commitAndCloseTransaction();
-//        }
-//        return ms;
-//    }
-//
-//    public Chick findByClientFeed(Client client, Feed feed){
-//        Chick ms;
-//        try {
-//            objectDao.beginTransaction();
-//            ms = objectDao.getEntityManager().createNamedQuery("Chick.findByFeed",Chick.class)
-//                    .setParameter("feed",feed).getSingleResult();
-//        }catch (Exception ex){
-//            ms = null;
-//        }finally {
-//            objectDao.commitAndCloseTransaction();
-//        }
-//        return ms;
-//    }
-
     public List<Chick> findByClient(Client client){
         List<Chick> ms;
         try {
