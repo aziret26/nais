@@ -23,7 +23,7 @@ import static kg.nais.tools.ViewPath.*;
 @ViewScoped
 public class FeedController extends GeneralController {
 
-    private Feed feed = new Feed();
+    private Feed feed = new Feed(),nullFeed = null;
 /*
     @PostConstruct
     public void init(){
@@ -40,6 +40,14 @@ public class FeedController extends GeneralController {
 
     public List<Feed> getFeedList(){
         return new FeedFacade().findAll();
+    }
+
+    public Feed getNullFeed() {
+        return nullFeed;
+    }
+
+    public void setNullFeed(Feed nullFeed) {
+        this.nullFeed = nullFeed;
     }
 
     public String createFeed() {

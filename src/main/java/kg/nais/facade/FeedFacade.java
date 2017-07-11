@@ -12,7 +12,8 @@ public class FeedFacade {
     private ObjectDao objectDao = new ObjectDao();
 
     public FeedFacade() {
-        if(findAll().size() == 0){
+        List<Feed> feedList = findAll();
+        if(feedList == null || feedList.size() == 0){
             initFeedTable();
         }
     }
@@ -40,10 +41,10 @@ public class FeedFacade {
         try {
             objectDao.beginTransaction();
             objectList = objectDao.getEntityManager().createNamedQuery("Feed.findAll",Feed.class).getResultList();
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             objectList = null;
-        }finally {
-            objectDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return objectList;
     }
@@ -53,34 +54,34 @@ public class FeedFacade {
         try {
             objectDao.beginTransaction();
             feed = objectDao.getEntityManager().find(Feed.class, id);
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             feed = null;
-        }finally {
-            objectDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return feed;
     }
 
     public Feed findByName(String name){
-        Feed ms;
+        Feed feed;
         try {
             objectDao.beginTransaction();
-            ms = objectDao.getEntityManager().createNamedQuery("Feed.findByName",Feed.class)
+            feed = objectDao.getEntityManager().createNamedQuery("Feed.findByName",Feed.class)
                     .setParameter("name",name).getSingleResult();
-        }catch (Exception ex){
-            ms = null;
-        }finally {
             objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            feed = null;
+            objectDao.rollbackIfTransactionActive();
         }
-        return ms;
+        return feed;
     }
 
     private void initFeedTable(){
         Feed f = new Feed("J1",1,3);    create(f);
         f = new Feed("J2",4,8);         create(f);
-        f = new Feed("J3",9,17);        create(f);
-        f = new Feed("J4",18,35);       create(f);
-        f = new Feed("T1",36,49);       create(f);
+        f = new Feed("J3",9,16);        create(f);
+        f = new Feed("J4",17,19);       create(f);
+        f = new Feed("T1",20,49);       create(f);
         f = new Feed("T2",50,64);       create(f);
         f = new Feed("T3",65,70);       create(f);
         f = new Feed("T3+",71,500);     create(f);

@@ -3,6 +3,7 @@ package kg.nais.controllers;
 import kg.nais.facade.ChickFacade;
 import kg.nais.facade.ClientFacade;
 import kg.nais.facade.ClientStatusFacade;
+import kg.nais.facade.FeedFacade;
 import kg.nais.models.Chick;
 import kg.nais.models.Client;
 import kg.nais.models.ClientStatus;
@@ -25,9 +26,8 @@ public class EditClientController extends GeneralController{
 
     private Client client = new Client();
 
-    private List<Chick> chickList = new ArrayList<Chick>(Arrays.asList(
-            new Chick()
-    ));
+    private List<Chick> chickList = new ArrayList<Chick>(Arrays.asList(new Chick())),
+                toDeleteList = new ArrayList<Chick>();
 
     private boolean frozen = false;
 
@@ -67,6 +67,7 @@ public class EditClientController extends GeneralController{
     public String addChick(){
         Chick chick = new Chick();
         chick.setEditable(true);
+        chick.setClient(client);
         chickList.add(chick);
         return EDIT_CLIENT+REDIRECT + "clientId = " + clientId;
     }
@@ -76,32 +77,32 @@ public class EditClientController extends GeneralController{
         return EDIT_CLIENT+REDIRECT + "clientId = " + clientId;
     }
 
-    public String removeChik(Chick chick) {
+    public String removeChick(Chick chick) {
+        toDeleteList.add(chick);
         chickList.remove(chick);
         return EDIT_CLIENT+REDIRECT + "clientId = " + clientId;
     }
 
     public String saveClient(){
         saveChick();
-        client.setChickList(chickList);
         new ClientFacade().update(client);
-        client.setClientId(0);
+        /**
+         * reinitializing client data
+         */
+        toDeleteList = new ArrayList<Chick>();
+        chickList = new ArrayList<Chick>(Arrays.asList(new Chick()));
+        client = new Client();
         return SHOW_CLIENTS + REDIRECT;
     }
 
-    public String saveChick() {
-        /**
-         * list where will be stored chicks to delete
-         */
-        ArrayList<Chick> toRemove = new ArrayList<Chick>();
-
+    private void saveChick() {
         /**
          * fill toRemove list with chicks with 0 values
          * to be able to delete them later
          */
         for (Chick chick : chickList) {
             if (chick.getAge() == 0 || chick.getAmount() == 0) {
-                toRemove.add(chick);
+                toDeleteList.add(chick);
             }
         }
 
@@ -109,9 +110,8 @@ public class EditClientController extends GeneralController{
          * removing chicks from database
          * as they're useless info however
          */
-
         ChickFacade cf = new ChickFacade();
-        for (Chick chick : toRemove) {
+        for (Chick chick : toDeleteList) {
             cf.delete(chick);
             chickList.remove(chick);
         }
@@ -120,7 +120,20 @@ public class EditClientController extends GeneralController{
          * updating rest of the chicks in database
          */
         for(Chick chick: chickList){
+            if(chick.isModFeed() && chick.getSelectedFeedId() == 0)
+                chick.setModFeed(false);
+
+            if(chick.isModFeed())
+                chick.setFeed(new FeedFacade().findById(chick.getSelectedFeedId()));
+            else
+                chick.setFeed(null);
             cf.update(chick);
+        }
+    }
+
+    public String changeEditableState(){
+
+        for(Chick chick: chickList) {
             if (!chick.isEditable())
                 chick.setEditable(true);
             else

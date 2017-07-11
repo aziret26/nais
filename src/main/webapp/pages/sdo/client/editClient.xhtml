@@ -10,6 +10,7 @@
             <f:metadata>
                 <f:viewParam name="clientId" value="#{editClientController.clientId}"/>
                 <f:viewParam name="userId" value="#{userController.userId}"/>
+                <f:viewParam name="clientId" value="#{ordersController.clientId}"/>
             </f:metadata>
         </ui:define>
         <ui:define name="windowTitle">Редактировать клиента</ui:define>
@@ -22,11 +23,14 @@
             <h:form>
                 <h:panelGrid columns="2">
                     Имя:
-                    <h:inputText value="#{editClientController.client.name}"/>
+                    <h:panelGroup>
+                        <h:inputText value="#{editClientController.client.name}"/>
+                        <h:commandButton value="Заказ" action="#{ordersController.addOrder()}"/>
+                    </h:panelGroup>
                 </h:panelGrid>
                 <h:dataTable value="#{editClientController.chickList}" var="chick" >
                     <h:column>
-                        <f:facet name="header"><h:commandButton value="Изменить" action="#{editClientController.saveChick()}"/></f:facet>
+                        <f:facet name="header"><h:commandButton value="Изменить" action="#{editClientController.changeEditableState()}"/></f:facet>
                         <h:selectBooleanCheckbox value="#{chick.editable}" onclick="submit()"/>
                     </h:column>
                     <h:column>
@@ -39,9 +43,27 @@
                         <h:inputText value="#{chick.amount}" rendered="#{chick.editable}" size="5"/>
                         <h:outputText value="#{chick.amount}" rendered="#{not chick.editable}"/>
                     </h:column>
+
                     <h:column>
-                        <f:facet name="header"><h:commandButton value="Добавить" action="#{editClientController.addChick()}" styleClass="addButton"/></f:facet>
-                        <h:commandButton value="Удалить" action="#{editClientController.removeChik(chick)}" styleClass="addButton" onclick="return confirm('Вы уверены что хотите удалить?')"/>
+                        <f:facet name="header">Корм</f:facet>
+                        <h:selectBooleanCheckbox value="#{chick.modFeed}" onchange="submit()"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:panelGroup rendered="#{chick.modFeed}">
+                            <h:selectOneMenu value="#{chick.selectedFeedId}">
+                                <f:selectItem itemValue="0" itemLabel="Выбрите корм"/>
+                                <f:selectItems value="#{feedController.feedList}"
+                                               var="feed" itemValue="#{feed.feedId}"
+                                               itemLabel="#{feed.name}"/>
+                            </h:selectOneMenu>
+                        </h:panelGroup>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header"><h:commandButton value="Добавить" action="#{editClientController.addChick()}"
+                                                                styleClass="addButton"/></f:facet>
+                        <h:commandButton value="Удалить" action="#{editClientController.removeChick(chick)}"
+                                         styleClass="addButton" onclick="return confirm('Вы уверены что хотите удалить?')"/>
                     </h:column>
                 </h:dataTable>
                 <br/>

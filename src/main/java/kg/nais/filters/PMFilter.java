@@ -25,12 +25,12 @@ public class PMFilter implements Filter {
         SessionController sc = (SessionController)((HttpServletRequest) request).getSession().getAttribute("sessionController");
         String contextPath = ((HttpServletRequest) request).getContextPath();
         if(sc == null || !sc.isLogged()) {
-            ((HttpServletResponse) response).sendRedirect(contextPath + SIGN_IN + ".xhtml" + REDIRECT);
+            ((HttpServletResponse) response).sendRedirect(contextPath + SIGN_IN + REDIRECT);
             sc = new SessionController();
         }
         int role = sc.getUser().getUserRole().getUserRoleId();
         if(role == 3) {
-            ((HttpServletResponse) response).sendRedirect(contextPath + INDEX + ".xhtml" + REDIRECT);
+            ((HttpServletResponse) response).sendRedirect(contextPath + INDEX + REDIRECT);
         }
 
         chain.doFilter(request, response);

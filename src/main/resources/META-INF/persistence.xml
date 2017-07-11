@@ -6,13 +6,14 @@
 
     <persistence-unit name="hibernate" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>kg.nais.models.User</class>
-        <class>kg.nais.models.UserRole</class>
-        <class>kg.nais.models.UserStatus</class>
-        <class>kg.nais.models.Feed</class>
         <class>kg.nais.models.Chick</class>
         <class>kg.nais.models.Client</class>
         <class>kg.nais.models.ClientStatus</class>
+        <class>kg.nais.models.Feed</class>
+        <class>kg.nais.models.Orders</class>
+        <class>kg.nais.models.User</class>
+        <class>kg.nais.models.UserRole</class>
+        <class>kg.nais.models.UserStatus</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

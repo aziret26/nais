@@ -27,7 +27,7 @@ public class SignInFilter implements Filter {
             sc = new SessionController();
         }
         if(sc.isLogged())
-            ((HttpServletResponse) response).sendRedirect(contextPath + INDEX + ".xhtml" + REDIRECT);
+            ((HttpServletResponse) response).sendRedirect(contextPath + INDEX + REDIRECT);
 
         chain.doFilter(request, response);
     }

@@ -24,7 +24,7 @@ public class IndexFilter implements Filter {
         SessionController sc = (SessionController)((HttpServletRequest) request).getSession().getAttribute("sessionController");
         String contextPath = ((HttpServletRequest) request).getContextPath();
         if(sc == null || !sc.isLogged()) {
-            ((HttpServletResponse) response).sendRedirect(contextPath + SIGN_IN + ".xhtml" + REDIRECT);
+            ((HttpServletResponse) response).sendRedirect(contextPath + SIGN_IN + REDIRECT);
             sc = new SessionController();
         }
         chain.doFilter(request, response);

@@ -11,7 +11,8 @@ public class UserStatusFacade {
     private ObjectDao objectDao = new ObjectDao();
 
     public UserStatusFacade(){
-        if(findAll().size() == 0){
+        List<UserStatus> userStatusList = findAll();
+        if(userStatusList == null || userStatusList.size() == 0){
             initializeUserStatuses();
         }
     }
@@ -40,10 +41,10 @@ public class UserStatusFacade {
             objectDao.beginTransaction();
             userStatusesList = objectDao.getEntityManager().
                     createNamedQuery("UserStatus.findAll", UserStatus.class).getResultList();
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
-            userStatusesList = new ArrayList<UserStatus>();
-        }finally {
-            objectDao.closeTransaction();
+            userStatusesList = null;
+            objectDao.rollbackIfTransactionActive();
         }
         return userStatusesList;
     }
@@ -52,10 +53,11 @@ public class UserStatusFacade {
         try {
             objectDao.beginTransaction();
             userStatus = objectDao.getEntityManager().find(UserStatus.class, id);
+            objectDao.commitAndCloseTransaction();
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             userStatus = null;
-        }finally {
-            objectDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return userStatus;
     }
@@ -65,10 +67,10 @@ public class UserStatusFacade {
             objectDao.beginTransaction();
             userStatus = objectDao.getEntityManager().createNamedQuery("UserStatus.findByStatus",UserStatus.class)
                     .setParameter("userStatus",status).getSingleResult();
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             userStatus = null;
-        }finally {
-            objectDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return userStatus;
     }

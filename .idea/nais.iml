@@ -55,6 +55,7 @@
     <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.0.0-M5" level="project" />
     <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.0.0-M2" level="project" />
     <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.0.0-M5" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:3.0-alpha-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.el:el-api:2.2.1-b04" level="project" />
   </component>
 </module>

@@ -1,7 +1,7 @@
 package kg.nais.facade;
 
 
-import kg.nais.dao.UserDao;
+import kg.nais.dao.ObjectDao;
 import kg.nais.models.User;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class UserFacade {
 
-    private UserDao userDao = new UserDao();
+    private ObjectDao objectDao = new ObjectDao();
 
     public UserFacade() {
         if(findAll().size() == 0){
@@ -19,39 +19,45 @@ public class UserFacade {
     }
 
     public void createUser(User user) {
-        userDao.beginTransaction();
-        userDao.getEntityManager().persist(user);
-        userDao.commitAndCloseTransaction();
+        objectDao.beginTransaction();
+        objectDao.getEntityManager().persist(user);
+        objectDao.commitAndCloseTransaction();
     }
 
     public void updateUser(User user) {
-        userDao.beginTransaction();
-        userDao.getEntityManager().merge(user);
-        userDao.commitAndCloseTransaction();
+        objectDao.beginTransaction();
+        objectDao.getEntityManager().merge(user);
+        objectDao.commitAndCloseTransaction();
     }
 
     public void deleteUser(User user) {
-        userDao.beginTransaction();
-        userDao.getEntityManager().remove(userDao.getEntityManager().contains(user) ? user : userDao.getEntityManager().merge(user));
-        userDao.commitAndCloseTransaction();
+        objectDao.beginTransaction();
+        objectDao.getEntityManager().remove(objectDao.getEntityManager().contains(user) ? user : objectDao.getEntityManager().merge(user));
+        objectDao.commitAndCloseTransaction();
     }
 
     public User findById(Integer id) {
-        userDao.beginTransaction();
-        User user = userDao.getEntityManager().find(User.class, id);
-        userDao.commitAndCloseTransaction();
+        User user;
+        try {
+            objectDao.beginTransaction();
+            user = objectDao.getEntityManager().find(User.class, id);
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            user = null;
+            objectDao.rollbackIfTransactionActive();
+        }
         return user;
     }
 
     public List<User> findAll(){
         List<User> userList;
         try {
-            userDao.beginTransaction();
-            userList = userDao.getEntityManager().createNamedQuery("User.findAll",User.class).getResultList();
+            objectDao.beginTransaction();
+            userList = objectDao.getEntityManager().createNamedQuery("User.findAll",User.class).getResultList();
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             userList = new ArrayList<User>();
-        }finally {
-            userDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return userList;
     }
@@ -59,40 +65,42 @@ public class UserFacade {
     public User findByEmail(String email){
         User user;
         try {
-            userDao.beginTransaction();
-            user = userDao.getEntityManager().createNamedQuery("User.findByLogin", User.class)
+            objectDao.beginTransaction();
+            user = objectDao.getEntityManager().createNamedQuery("User.findByLogin", User.class)
                     .setParameter("login", email).getSingleResult();
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             user = null;
-        }finally {
-            userDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return user;
     }
+
     public User findByEmailPass(String login,String pass){
         User user;
         try {
-            userDao.beginTransaction();
-            user =userDao.getEntityManager().createNamedQuery("User.findByLoginPass", User.class)
+            objectDao.beginTransaction();
+            user =objectDao.getEntityManager().createNamedQuery("User.findByLoginPass", User.class)
                     .setParameter("login", login).setParameter("password", pass).getSingleResult();
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             user = null;
-        }finally {
-            userDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return user;
     }
+
     public List<User> searchByEmailBy5(String login){
 
         List<User> userList;
         try {
-            userDao.beginTransaction();
-            userList = userDao.getEntityManager().createNamedQuery("User.searchByLogin",User.class).
+            objectDao.beginTransaction();
+            userList = objectDao.getEntityManager().createNamedQuery("User.searchByLogin",User.class).
                     setParameter("login","%"+login+"%").setMaxResults(5).getResultList();
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             userList = new ArrayList<User>();
-        }finally {
-            userDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return userList;
     }
@@ -100,13 +108,13 @@ public class UserFacade {
     public List<User> searchByEmail(String login){
         List<User> userList;
         try {
-            userDao.beginTransaction();
-            userList = userDao.getEntityManager().createNamedQuery("User.searchByLogin",User.class).
+            objectDao.beginTransaction();
+            userList = objectDao.getEntityManager().createNamedQuery("User.searchByLogin",User.class).
                     setParameter("login","%"+login+"%").getResultList();
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             userList = new ArrayList<User>();
-        }finally {
-            userDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return userList;
     }

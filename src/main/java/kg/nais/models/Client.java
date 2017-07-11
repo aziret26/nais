@@ -32,6 +32,9 @@ public class Client {
     @JoinColumn(name="clientStatusId")
     private ClientStatus clientStatus;
 
+    @OneToMany(mappedBy = "client")
+    private List<Orders> orderList;
+
     public int getClientId() {
         return clientId;
     }
@@ -72,4 +75,11 @@ public class Client {
         this.chickList = chickList;
     }
 
+    public List<Orders> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Orders> orderList) {
+        this.orderList = orderList;
+    }
 }

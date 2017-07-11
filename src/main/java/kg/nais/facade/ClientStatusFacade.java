@@ -36,16 +36,16 @@ public class ClientStatusFacade {
     }
 
     public List<ClientStatus> findAll(){
-        List<ClientStatus> objectList;
+        List<ClientStatus> clientStatusList;
         try {
             objectDao.beginTransaction();
-            objectList = objectDao.getEntityManager().createNamedQuery("ClientStatus.findAll",ClientStatus.class).getResultList();
-        }catch (Exception ex){
-            objectList = null;
-        }finally {
+            clientStatusList = objectDao.getEntityManager().createNamedQuery("ClientStatus.findAll",ClientStatus.class).getResultList();
             objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            clientStatusList = null;
+            objectDao.rollbackIfTransactionActive();
         }
-        return objectList;
+        return clientStatusList;
     }
 
     public ClientStatus findById(Integer id) {
@@ -53,26 +53,26 @@ public class ClientStatusFacade {
         try {
             objectDao.beginTransaction();
             clientStatus = objectDao.getEntityManager().find(ClientStatus.class, id);
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             clientStatus = null;
-        }finally {
-            objectDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return clientStatus;
     }
 
     public ClientStatus findByStatus(String status){
-        ClientStatus ms;
+        ClientStatus clientStatus;
         try {
             objectDao.beginTransaction();
-            ms = objectDao.getEntityManager().createNamedQuery("ClientStatus.findByStatus",ClientStatus.class)
+            clientStatus = objectDao.getEntityManager().createNamedQuery("ClientStatus.findByStatus",ClientStatus.class)
                     .setParameter("status",status).getSingleResult();
-        }catch (Exception ex){
-            ms = null;
-        }finally {
             objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            clientStatus = null;
+            objectDao.rollbackIfTransactionActive();
         }
-        return ms;
+        return clientStatus;
     }
 
     private void initStatuses(){

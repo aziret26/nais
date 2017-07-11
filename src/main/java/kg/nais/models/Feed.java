@@ -24,8 +24,13 @@ public class Feed {
     @Column
     private int ageFrom,ageTo;
 
-    public Feed() {
-    }
+    @OneToMany(mappedBy = "feed")
+    private List<Orders> orderList;
+
+    @OneToMany(mappedBy = "feed")
+    private List<Chick> chickList;
+
+    public Feed() {}
 
     public Feed(String name, int ageFrom, int ageTo) {
         this.name = name;
@@ -63,5 +68,21 @@ public class Feed {
 
     public void setAgeTo(int ageTo) {
         this.ageTo = ageTo;
+    }
+
+    public List<Orders> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Orders> orderList) {
+        this.orderList = orderList;
+    }
+
+    public List<Chick> getChickList() {
+        return chickList;
+    }
+
+    public void setChickList(List<Chick> chickList) {
+        this.chickList = chickList;
     }
 }

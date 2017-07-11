@@ -30,17 +30,16 @@ public class ClientFacade {
     }
 
     public List<Client> findAll(){
-        List<Client> objectList;
+        List<Client> clientList;
         try {
             objectDao.beginTransaction();
-            objectList = objectDao.getEntityManager().createNamedQuery("Client.findAll",Client.class).getResultList();
-        } catch (Exception ex){
-            objectList = null;
-        } finally {
+            clientList = objectDao.getEntityManager().createNamedQuery("Client.findAll",Client.class).getResultList();
             objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            clientList = null;
+            objectDao.rollbackIfTransactionActive();
         }
-
-        return objectList;
+        return clientList;
     }
 
     public Client findById(Integer id) {
@@ -48,25 +47,25 @@ public class ClientFacade {
         try {
             objectDao.beginTransaction();
             client = objectDao.getEntityManager().find(Client.class, id);
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             client = null;
-        }finally {
-            objectDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return client;
     }
 
     public List<Client> findByStatus(int statusId){
-        List<Client> ms;
+        List<Client> clientList;
         try {
             objectDao.beginTransaction();
-            ms = objectDao.getEntityManager().createNamedQuery("Client.findByClientStatus",Client.class)
+            clientList = objectDao.getEntityManager().createNamedQuery("Client.findByClientStatus",Client.class)
                     .setParameter("clientStatusId",statusId).getResultList();
-        }catch (Exception ex){
-            ms = null;
-        }finally {
             objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            clientList = null;
+            objectDao.rollbackIfTransactionActive();
         }
-        return ms;
+        return clientList;
     }
 }

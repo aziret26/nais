@@ -32,16 +32,16 @@ public class ChickFacade {
     }
 
     public List<Chick> findAll(){
-        List<Chick> objectList;
+        List<Chick> chickList;
         try {
             objectDao.beginTransaction();
-            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findAll",Chick.class).getResultList();
-        }catch (Exception ex){
-            objectList = null;
-        }finally {
+            chickList = objectDao.getEntityManager().createNamedQuery("Chick.findAll",Chick.class).getResultList();
             objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            chickList = null;
+            objectDao.rollbackIfTransactionActive();
         }
-        return objectList;
+        return chickList;
     }
 
     public Chick findById(Integer id) {
@@ -49,39 +49,39 @@ public class ChickFacade {
         try {
             objectDao.beginTransaction();
             chick = objectDao.getEntityManager().find(Chick.class, id);
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             chick = null;
-        }finally {
-            objectDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return chick;
     }
 
     public List<Chick> findByAgeRange(int ageFrom,int ageTo){
-        List<Chick> ms;
+        List<Chick> chickList;
         try {
             objectDao.beginTransaction();
-            ms = objectDao.getEntityManager().createNamedQuery("Chick.findByAgeRange",Chick.class)
+            chickList = objectDao.getEntityManager().createNamedQuery("Chick.findByAgeRange",Chick.class)
                     .setParameter("ageFrom",ageFrom).setParameter("ageTo",ageTo).getResultList();
-        }catch (Exception ex){
-            ms = null;
-        }finally {
             objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            chickList = null;
+            objectDao.rollbackIfTransactionActive();
         }
-        return ms;
+        return chickList;
     }
 
     public List<Chick> findByClient(Client client){
-        List<Chick> ms;
+        List<Chick> chickList;
         try {
             objectDao.beginTransaction();
-            ms = objectDao.getEntityManager().createNamedQuery("Chick.findByClient",Chick.class)
+            chickList = objectDao.getEntityManager().createNamedQuery("Chick.findByClient",Chick.class)
                     .setParameter("client",client).getResultList();
-        }catch (Exception ex){
-            ms = null;
-        }finally {
             objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            chickList = null;
+            objectDao.rollbackIfTransactionActive();
         }
-        return ms;
+        return chickList;
     }
 }

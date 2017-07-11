@@ -37,6 +37,11 @@
                  userController.currentUser.userRole.userRoleId == 2}">
                 <nais:item name="/pages/sdo/client/showClients?faces-redirect=true" itemName="Показать клиентов"/>
                 </h:panelGroup>
+
+                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
+                 userController.currentUser.userRole.userRoleId == 3}">
+                    <nais:item name="/pages/pm/orders/viewOrders?faces-redirect=true" itemName="Показать заказы"/>
+                </h:panelGroup>
             </ul>
         </h:form>
     </ui:composition>

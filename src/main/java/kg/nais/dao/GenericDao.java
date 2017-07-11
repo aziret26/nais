@@ -29,6 +29,19 @@ abstract class GenericDao implements Serializable {
         closeTransaction();
     }
 
+    private void rollbackTransaction(){
+        getEntityManager().getTransaction().rollback();
+    }
+
+    private boolean isActiveTransaction(){
+        return getEntityManager().getTransaction().isActive();
+    }
+
+    public void rollbackIfTransactionActive(){
+        if(isActiveTransaction())
+            rollbackTransaction();
+    }
+
     public EntityManagerFactory getEntityManagerFactory() {
         return entityManagerFactory;
     }

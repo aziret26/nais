@@ -33,6 +33,21 @@
                         <h:outputText value="#{chick.amount}" rendered="#{not chick.editable}"/>
                     </h:column>
                     <h:column>
+                        <f:facet name="header">Корм</f:facet>
+                        <h:selectBooleanCheckbox value="#{chick.modFeed}" onchange="submit()"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:panelGroup rendered="#{chick.modFeed}">
+                            <h:selectOneMenu value="#{chick.selectedFeedId}">
+                                <f:selectItem itemValue="0" itemLabel="Выбрите корм"/>
+                                <f:selectItems value="#{feedController.feedList}"
+                                               var="feed" itemValue="#{feed.feedId}"
+                                               itemLabel="#{feed.name}"/>
+                            </h:selectOneMenu>
+                        </h:panelGroup>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header"><h:commandButton value="Добавить" action="#{clientController.addChick()}"/></f:facet>
                         <h:commandButton value="Удалить" action="#{clientController.removeChick(chick)}" onclick="return confirm('Вы уверены что хотите удалить?')"/>
                     </h:column>

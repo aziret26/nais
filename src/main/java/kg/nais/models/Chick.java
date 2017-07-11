@@ -38,6 +38,16 @@ public class Chick implements Serializable{
     @JoinColumn(name="clientId")
     private Client client;
 
+    @Column
+    private boolean modFeed = false;
+
+    @ManyToOne
+    @JoinColumn(name = "feedId")
+    private Feed feed;
+
+    @Transient
+    private int selectedFeedId = 0;
+
     @Transient
     private boolean editable = true;
 
@@ -50,11 +60,14 @@ public class Chick implements Serializable{
     }
 
     public int getAge() {
+        if(dob != null)
+            age = calculateAge(Calendar.getInstance());
         return age;
     }
 
     public void setAge(int age) {
-        dob = calculateDob(age);
+        if(age != this.age)
+            dob = calculateDob(age);
         this.age = age;
     }
 
@@ -90,10 +103,47 @@ public class Chick implements Serializable{
         this.editable = editable;
     }
 
+    public boolean isModFeed() {
+        return modFeed;
+    }
+
+    public void setModFeed(boolean modFeed) {
+        this.modFeed = modFeed;
+    }
+
+    public int getSelectedFeedId() {
+        if(selectedFeedId == 0 && feed != null){
+            selectedFeedId = feed.getFeedId();
+        }
+        return selectedFeedId;
+    }
+
+    public void setSelectedFeedId(int selectedFeedId) {
+        this.selectedFeedId = selectedFeedId;
+    }
+
+    public Feed getFeed() {
+        return feed;
+    }
+
+    public void setFeed(Feed feed) {
+        this.feed = feed;
+    }
+
     private Calendar calculateDob(int age){
         Calendar now = Calendar.getInstance();
         now.add(Calendar.YEAR,-(age/52));
         now.add(Calendar.WEEK_OF_YEAR,-(age%52));
         return now;
+    }
+
+    public int calculateAge(Calendar calendar){
+        int year = Math.max(dob.get(Calendar.YEAR),calendar.get(Calendar.YEAR)) -
+                Math.min(dob.get(Calendar.YEAR),calendar.get(Calendar.YEAR));
+        int month = Math.max(dob.get(Calendar.MONTH),calendar.get(Calendar.MONTH)) -
+                Math.min(dob.get(Calendar.MONTH),calendar.get(Calendar.MONTH));
+        int week = Math.max(dob.get(Calendar.WEEK_OF_YEAR),calendar.get(Calendar.WEEK_OF_YEAR)) -
+                Math.min(dob.get(Calendar.WEEK_OF_YEAR),calendar.get(Calendar.WEEK_OF_YEAR));
+        return 52*year+4*month+week;
     }
 }

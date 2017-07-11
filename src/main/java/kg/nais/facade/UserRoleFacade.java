@@ -2,6 +2,7 @@ package kg.nais.facade;
 
 
 import kg.nais.dao.ObjectDao;
+import kg.nais.models.User;
 import kg.nais.models.UserRole;
 
 import java.util.List;
@@ -10,7 +11,8 @@ public class UserRoleFacade {
     private ObjectDao objectDao = new ObjectDao();
 
     public UserRoleFacade(){
-        if(findAll().size() == 0){
+        List<UserRole> userRoleList = findAll();
+        if(userRoleList == null || userRoleList.size() == 0){
             initializeUserRoles();
         }
     }
@@ -34,23 +36,42 @@ public class UserRoleFacade {
     }
 
     public List<UserRole> findAll(){
-        objectDao.beginTransaction();
-        List<UserRole> userRoleList = objectDao.getEntityManager().
-                createNamedQuery("UserRole.findAll",UserRole.class).getResultList();
-        objectDao.closeTransaction();
+        List<UserRole> userRoleList;
+        try {
+            objectDao.beginTransaction();
+            userRoleList = objectDao.getEntityManager().createNamedQuery("UserRole.findAll",UserRole.class).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            userRoleList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
         return userRoleList;
     }
+
     public List<UserRole> findAllSimpleUsers(){
-        objectDao.beginTransaction();
-        List<UserRole> userRoleList = objectDao.getEntityManager().
-                createNamedQuery("UserRole.findAllSimpleUsers",UserRole.class).getResultList();
-        objectDao.closeTransaction();
+        List<UserRole> userRoleList;
+        try {
+            objectDao.beginTransaction();
+            userRoleList = objectDao.getEntityManager().
+                    createNamedQuery("UserRole.findAllSimpleUsers", UserRole.class).getResultList();
+            objectDao.closeTransaction();
+        }catch (Exception ex){
+            userRoleList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
         return userRoleList;
     }
+
     public UserRole findById(Integer id) {
-        objectDao.beginTransaction();
-        UserRole userRole = objectDao.getEntityManager().find(UserRole.class, id);
-        objectDao.commitAndCloseTransaction();
+        UserRole userRole;
+        try {
+            objectDao.beginTransaction();
+            userRole = objectDao.getEntityManager().find(UserRole.class, id);
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            userRole = null;
+            objectDao.rollbackIfTransactionActive();
+        }
         return userRole;
     }
 

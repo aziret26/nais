@@ -33,10 +33,10 @@ public class SampleFacade {
         try {
             objectDao.beginTransaction();
             objectList = objectDao.getEntityManager().createNamedQuery("Object.findAll",Object.class).getResultList();
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             objectList = null;
-        }finally {
-            objectDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return objectList;
     }
@@ -46,27 +46,13 @@ public class SampleFacade {
         try {
             objectDao.beginTransaction();
             object = objectDao.getEntityManager().find(Object.class, id);
+            objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             object = null;
-        }finally {
-            objectDao.commitAndCloseTransaction();
+            objectDao.rollbackIfTransactionActive();
         }
         return object;
     }
-
-//    public Object findByStatus(String status){
-//        Object ms;
-//        try {
-//            objectDao.beginTransaction();
-//            ms = objectDao.getEntityManager().createNamedQuery("MemberStatus.findByMemberStatus",Object.class)
-//                    .setParameter("status",status).getSingleResult();
-//        }catch (Exception ex){
-//            ms = null;
-//        }finally {
-//            objectDao.commitAndCloseTransaction();
-//        }
-//        return ms;
-//    }
 
 
 }

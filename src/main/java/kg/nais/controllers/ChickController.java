@@ -78,7 +78,11 @@ public class ChickController extends GeneralController{
 
         int amount = 0;
         for(Chick c : chicks){
-            if(c.getAge() >= feed.getAgeFrom() && c.getAge() <= feed.getAgeTo()){
+            if(c.isModFeed() && c.getFeed().getName().equals(feedName)){
+                amount += c.getAmount();
+                continue;
+            }
+            if(!c.isModFeed() && c.getAge() >= feed.getAgeFrom() && c.getAge() <= feed.getAgeTo()){
                 amount += c.getAmount();
             }
         }
