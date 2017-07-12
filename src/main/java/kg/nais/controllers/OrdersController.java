@@ -39,10 +39,15 @@ public class OrdersController extends GeneralController{
     }
 
     public List<Orders> getOrderList() {
-        if(orderList == null){
+        if(orderList == null || orderList.size() == 0){
             orderList = new OrderFacade().findAll();
         }
         return orderList;
+    }
+
+    public Orders getOrderListByClientsFeed(Client client,Feed feed) {
+        Orders o = new OrderFacade().findByClientFeed(client, feed);
+        return o != null ? o : new Orders();
     }
 
     public void setOrderList(List<Orders> orderList) {
@@ -64,6 +69,13 @@ public class OrdersController extends GeneralController{
 
     public void setSelectedFeed(int selectedFeedId) {
         this.selectedFeedId = selectedFeedId;
+    }
+
+    @Override
+    public void setClientId(int clientId) {
+        if(client == null || client.getClientId() != clientId)
+            client = new ClientFacade().findById(clientId);
+        super.setClientId(clientId);
     }
 
     public String addOrder(){
@@ -88,6 +100,14 @@ public class OrdersController extends GeneralController{
             System.out.printf("order: null\n");
         }
         order.setClient(client);
+
+        Orders tempOrder = new OrderFacade().findByClientFeed(order.getClient(),order.getFeed());
+
+        if(tempOrder != null){
+            tempOrder.setAmount(order.getAmount());
+            new OrderFacade().update(tempOrder);
+            return VIEW_ORDERS;
+        }
         if(order.getFeed() != null)
             System.out.println("selected feed: "+order.getFeed().getName() );
         else
@@ -97,10 +117,4 @@ public class OrdersController extends GeneralController{
         return VIEW_ORDERS;
     }
 
-    @Override
-    public void setClientId(int clientId) {
-        if(client == null || client.getClientId() != clientId)
-            client = new ClientFacade().findById(clientId);
-        super.setClientId(clientId);
-    }
 }

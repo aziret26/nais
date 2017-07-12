@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/templates/masterLayout.xhtml">
     <ui:define name="metadata">
@@ -17,12 +18,18 @@
         <ui:include src="/sections/layout/sidebarLeft.xhtml"/>
     </ui:define>
     <ui:define name="content">
-            <h2>Список Заказов</h2>
-            <ui:repeat value="#{ordersController.orderList}" var="order">
+        <h2>Список Заказов</h2>
+        <p:dataTable value="#{clientController.findAllActiveClients()}" var="client" styleClass="dataTable" headerClass="dataTableHeader" footerClass="dataTableFooter" columnClasses="clientName" rowClasses="oddRow, evenRow">
+            <p:column>
+                <f:facet name="header">Клиенты</f:facet>
+                <h:outputText value="#{client.name}" styleClass="row"/>
+            </p:column>
 
-
-
-            </ui:repeat>
+            <p:columns value="#{feedController.feedList}" var="feed">
+                <f:facet name="header" >#{feed.name}</f:facet>
+                <h:outputText value="#{ordersController.getOrderListByClientsFeed(client, feed).amount}"/>
+            </p:columns>
+        </p:dataTable>
     </ui:define>
 </ui:composition>
 </html>

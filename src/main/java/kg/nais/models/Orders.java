@@ -12,7 +12,9 @@ import javax.persistence.*;
         @NamedQuery(name = "Orders.findByClient",
             query = "SELECT o FROM Orders o WHERE o.client = :client"),
         @NamedQuery(name = "Orders.findByFeed",
-            query = "SELECT o FROM Orders o WHERE o.feed = :feed")
+            query = "SELECT o FROM Orders o WHERE o.feed = :feed"),
+        @NamedQuery(name = "Orders.findByClientFeed",
+                query = "SELECT o FROM Orders o WHERE o.client = :client AND o.feed = :feed")
 })
 public class Orders {
     @Id
@@ -20,7 +22,7 @@ public class Orders {
     private int orderId;
 
     @Column
-    private int amount;
+    private double amount;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
@@ -38,11 +40,13 @@ public class Orders {
         this.orderId = orderId;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
+        if(amount < 0)
+            amount = 0;
         this.amount = amount;
     }
 

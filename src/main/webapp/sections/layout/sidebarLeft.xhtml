@@ -9,7 +9,6 @@
     <ui:composition>
         <h:form>
             <ul>
-                <!--<nais:item name="/index?faces-redirect=true" itemName="Главная страница"/>-->
                 <h:commandLink action="/index?faces-redirect=true" class="item">
                     <h:outputText value="Главная страница"/>
                 </h:commandLink>
@@ -26,20 +25,17 @@
                 <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
                  userController.currentUser.userRole.userRoleId == 3 or
                  userController.currentUser.userRole.userRoleId == 2}">
-                <h3>Клиенты</h3>
+                    <h3>Клиенты</h3>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
                  userController.currentUser.userRole.userRoleId == 3}">
-                <nais:item name="/pages/sdo/client/addClient?faces-redirect=true" itemName="Добавить клиента"/>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
-                 userController.currentUser.userRole.userRoleId == 3 or
-                 userController.currentUser.userRole.userRoleId == 2}">
-                <nais:item name="/pages/sdo/client/showClients?faces-redirect=true" itemName="Показать клиентов"/>
+                    <nais:item name="/pages/sdo/client/addClient?faces-redirect=true" itemName="Добавить клиента"/>
+                    <nais:item name="/pages/sdo/client/showClients?faces-redirect=true" itemName="Показать клиентов"/>
                 </h:panelGroup>
 
                 <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
-                 userController.currentUser.userRole.userRoleId == 3}">
+                 userController.currentUser.userRole.userRoleId == 2}">
+                    <nais:item name="/pages/pm/clients/showClients?faces-redirect=true" itemName="Показать клиентов"/>
                     <nais:item name="/pages/pm/orders/viewOrders?faces-redirect=true" itemName="Показать заказы"/>
                 </h:panelGroup>
             </ul>

@@ -10,6 +10,7 @@ import kg.nais.tools.Tools;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import java.util.ArrayList;
 import java.util.List;
 
 import static kg.nais.tools.ViewPath.REDIRECT;
@@ -52,7 +53,7 @@ public class ChickController extends GeneralController{
         this.chickId = chickId;
     }
 
-    //    public Chick findChickByClientFeed(Feed feed){
+//    public Chick findChickByClientFeed(Feed feed){
 //        return new ChickFacade().findByClientFeed(new ClientFacade().findById(clientId),feed);
 //    }
 
@@ -89,4 +90,39 @@ public class ChickController extends GeneralController{
         return amount;
     }
 
+    public int calculateFeedForChick(int feedId, Client client){
+        List<Chick> chicks = new ChickFacade().findByClient(client);
+        List<Feed> feeds = new FeedController().getFeedList();
+        Feed feed = null;
+        for (Feed f : feeds) {
+            if (f.getFeedId() == feedId) {
+                feed = f;
+            }
+        }
+
+        int amount = 0;
+        for(Chick c : chicks){
+            if(c.isModFeed() && c.getFeed().getFeedId() == feedId){
+                amount += c.getAmount();
+                continue;
+            }
+            if(!c.isModFeed() && c.getAge() >= feed.getAgeFrom() && c.getAge() <= feed.getAgeTo()){
+                amount += c.getAmount();
+            }
+        }
+        return amount;
+    }
+
+    public List<Chick> getChickListForFeed(Feed feed,Client client){
+        List<Chick> resultList = new ArrayList<Chick>();
+        List<Chick> chicks = new ChickFacade().findByClient(client);
+        for (Chick c : chicks){
+            if(c.isModFeed() &&
+                    c.getAge() >= c.getFeed().getAgeFrom() &&
+                    c.getAge() <= c.getFeed().getAgeTo() ){
+                resultList.add(c);
+            }
+        }
+        return resultList;
+    }
 }

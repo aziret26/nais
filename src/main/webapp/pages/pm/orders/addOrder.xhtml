@@ -23,6 +23,7 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputText value="Вид корма:"/>
+
                     <h:selectOneMenu value="#{ordersController.selectedFeed}">
                         <f:selectItem itemValue="0" itemLabel="Вид корма"/>
                         <f:selectItems value="#{feedController.feedList}"

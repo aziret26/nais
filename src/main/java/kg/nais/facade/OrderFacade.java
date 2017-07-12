@@ -56,6 +56,7 @@ public class OrderFacade {
         }
         return orders;
     }
+
     public List<Orders> findByClient(Client client){
         List<Orders> ordersList;
         try {
@@ -68,6 +69,20 @@ public class OrderFacade {
             objectDao.rollbackIfTransactionActive();
         }
         return ordersList;
+    }
+
+    public Orders findByClientFeed(Client client, Feed feed){
+        Orders order;
+        try {
+            objectDao.beginTransaction();
+            order = objectDao.getEntityManager().createNamedQuery("Orders.findByClientFeed",Orders.class)
+                    .setParameter("client",client).setParameter("feed",feed).getSingleResult();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            order = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return order;
     }
 
     public List<Orders> findByFeed(Feed feed){

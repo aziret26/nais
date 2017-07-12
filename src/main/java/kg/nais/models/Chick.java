@@ -60,13 +60,11 @@ public class Chick implements Serializable{
     }
 
     public int getAge() {
-        if(dob != null)
-            age = calculateAge(Calendar.getInstance());
         return age;
     }
 
     public void setAge(int age) {
-        if(age != this.age)
+        if(dob == null)
             dob = calculateDob(age);
         this.age = age;
     }
@@ -108,6 +106,9 @@ public class Chick implements Serializable{
     }
 
     public void setModFeed(boolean modFeed) {
+        if(!modFeed){
+            feed = null;
+        }
         this.modFeed = modFeed;
     }
 
@@ -140,10 +141,11 @@ public class Chick implements Serializable{
     public int calculateAge(Calendar calendar){
         int year = Math.max(dob.get(Calendar.YEAR),calendar.get(Calendar.YEAR)) -
                 Math.min(dob.get(Calendar.YEAR),calendar.get(Calendar.YEAR));
-        int month = Math.max(dob.get(Calendar.MONTH),calendar.get(Calendar.MONTH)) -
-                Math.min(dob.get(Calendar.MONTH),calendar.get(Calendar.MONTH));
         int week = Math.max(dob.get(Calendar.WEEK_OF_YEAR),calendar.get(Calendar.WEEK_OF_YEAR)) -
                 Math.min(dob.get(Calendar.WEEK_OF_YEAR),calendar.get(Calendar.WEEK_OF_YEAR));
-        return 52*year+4*month+week;
+        return 52*year+week;
+    }
+    public void updateAge(){
+        age = calculateAge(Calendar.getInstance());
     }
 }
