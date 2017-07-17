@@ -18,13 +18,13 @@ import java.util.List;
 public class UserFeedNotification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int clientFeedNotificationId;
+    private int userFeedNotificationId;
 
     @Column
     private Calendar notificationDate;
 
     @ManyToOne
-    @JoinColumn(name="cleintId")
+    @JoinColumn(name="clientId")
     private Client client;
 
     @ManyToOne
@@ -50,12 +50,12 @@ public class UserFeedNotification {
         this.notificationType = notificationType;
     }
 
-    public int getClientFeedNotificationId() {
-        return clientFeedNotificationId;
+    public int getUserFeedNotificationId() {
+        return userFeedNotificationId;
     }
 
-    public void setClientFeedNotificationId(int clientFeedNotificationId) {
-        this.clientFeedNotificationId = clientFeedNotificationId;
+    public void setUserFeedNotificationId(int clientFeedNotificationId) {
+        this.userFeedNotificationId = clientFeedNotificationId;
     }
 
     public Calendar getNotificationDate() {

@@ -117,7 +117,7 @@ public class UpdateMethods {
                     continue;
                 }
                 Orders order = of.findByClientFeed(client,feed);
-                if(order != null && order.getAmount() > 1){
+                if(order != null && order.getAmount() > 0.5){
                     System.out.printf("NO NEED: client: %d | feed: %d", client.getClientId(),feed.getFeedId());
                     continue;
                 }

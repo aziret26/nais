@@ -66,7 +66,7 @@ public class NotificationController {
         NotificationSeenFacade nsf = new NotificationSeenFacade();
         User user = userController.getCurrentUser();
         for(UserFeedNotification ufn : list){
-            System.out.printf("LOOKING: client - %d | ufn - %d\n",user.getUserId(),ufn.getClientFeedNotificationId());
+            System.out.printf("LOOKING: client - %d | ufn - %d\n",user.getUserId(),ufn.getUserFeedNotificationId());
             NotificationSeen tempList = nsf.findByUserAndNotification(user,ufn);
             if(tempList == null || tempList.getNotificationSeenId() == 0){
                 nsf.create(new NotificationSeen(user,ufn));
