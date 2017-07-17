@@ -20,7 +20,6 @@ public class UserRoleController {
     private List<UserRole> simpleUserRoleList = new ArrayList<UserRole>(),
             fullUserRoleList = new ArrayList<UserRole>();
 
-
     //    public void setRoles(List<SelectItem> roles) {
 //        this.roles = roles;
 //    }

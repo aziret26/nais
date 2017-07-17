@@ -18,24 +18,6 @@ import java.util.Random;
 @ManagedBean
 @ViewScoped
 public class Tools implements Serializable {
-    /*
-    public static void killInfoSession(){
-        SessionTools.setSession("infoMessageSession", null);
-    }
-    public static final String encode(String login){
-        try{
-            return Base64.getUrlEncoder().encodeToString(login.getBytes("utf-8"));
-        }catch (UnsupportedEncodingException ex){
-            System.out.println(ex.getMessage());
-        }
-        return null;
-    }
-
-    public static final String decode(String code){
-        return new String(Base64.getUrlDecoder().decode(code));
-
-    }
-*/
     public static final void faceMessageWarn(String summary,String detail){
         FacesContext.getCurrentInstance().addMessage(
                 null,

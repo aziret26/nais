@@ -53,7 +53,7 @@ public class UserController extends GeneralController{
     }
 
     public User getCurrentUser() {
-        if(sessionController.isLogged())
+        if(sessionController != null && sessionController.isLogged())
             currentUser = new UserFacade().findById(sessionController.getUser().getUserId());
         return currentUser;
     }

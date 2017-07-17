@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="nais@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="nais">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="goent"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sys"/>
+    <table id="8" parent="2" name="Chick"/>
+    <table id="9" parent="2" name="ChickFeedConsume"/>
+    <table id="10" parent="2" name="Client"/>
+    <table id="11" parent="2" name="ClientFeedNotification"/>
+    <table id="12" parent="2" name="ClientStatus"/>
+    <table id="13" parent="2" name="Feed"/>
+    <table id="14" parent="2" name="NotificationSeen"/>
+    <table id="15" parent="2" name="NotificationType"/>
+    <table id="16" parent="2" name="Orders"/>
+    <table id="17" parent="2" name="ServiceUpdate"/>
+    <table id="18" parent="2" name="User"/>
+    <table id="19" parent="2" name="UserFeedNotification"/>
+    <table id="20" parent="2" name="UserRole"/>
+    <table id="21" parent="2" name="UserStatus"/>
+    <table id="22" parent="2" name="hibernate_sequence"/>
+    <column id="23" parent="8" name="chickId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="8" name="age">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="25" parent="8" name="amount">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="26" parent="8" name="dob">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="27" parent="8" name="modFeed">
+      <Position>5</Position>
+      <DataType>bit(1)|0</DataType>
+    </column>
+    <column id="28" parent="8" name="clientId">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="29" parent="8" name="feedId">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="30" parent="8" name="FK8sa8ndoa3m2ju32py7ln9xfi3">
+      <ColNames>clientId</ColNames>
+    </index>
+    <index id="31" parent="8" name="FKlxd2vd1fq1sa7awm14wlmcr5t">
+      <ColNames>feedId</ColNames>
+    </index>
+    <key id="32" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>chickId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="33" parent="8" name="FK8sa8ndoa3m2ju32py7ln9xfi3">
+      <ColNames>clientId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>Client</RefTableName>
+      <RefColNames>clientId</RefColNames>
+    </foreign-key>
+    <foreign-key id="34" parent="8" name="FKlxd2vd1fq1sa7awm14wlmcr5t">
+      <ColNames>feedId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>Feed</RefTableName>
+      <RefColNames>feedId</RefColNames>
+    </foreign-key>
+    <column id="35" parent="9" name="chickFeedConsumeId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="9" name="age">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="37" parent="9" name="consume">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <key id="38" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>chickFeedConsumeId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="39" parent="10" name="clientId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="40" parent="10" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="41" parent="10" name="regDate">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="42" parent="10" name="clientStatusId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="43" parent="10" name="FKo86wjqmrk8726codati3kt7gj">
+      <ColNames>clientStatusId</ColNames>
+    </index>
+    <key id="44" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>clientId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="45" parent="10" name="FKo86wjqmrk8726codati3kt7gj">
+      <ColNames>clientStatusId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>ClientStatus</RefTableName>
+      <RefColNames>clientStatusId</RefColNames>
+    </foreign-key>
+    <column id="46" parent="11" name="clientFeedNotificationId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="11" name="notificationDate">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="48" parent="11" name="cleintId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="49" parent="11" name="feedId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="50" parent="11" name="notificationTypeId">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="51" parent="11" name="FKb61rqlo70yy800uyvbriw0rh6">
+      <ColNames>feedId</ColNames>
+    </index>
+    <index id="52" parent="11" name="FKb7hsow4p2tu3y9woq41p1pq47">
+      <ColNames>cleintId</ColNames>
+    </index>
+    <index id="53" parent="11" name="FKfgu5ivbpsq3lwybhgbsv61flp">
+      <ColNames>notificationTypeId</ColNames>
+    </index>
+    <key id="54" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>clientFeedNotificationId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="55" parent="11" name="FKb7hsow4p2tu3y9woq41p1pq47">
+      <ColNames>cleintId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>Client</RefTableName>
+      <RefColNames>clientId</RefColNames>
+    </foreign-key>
+    <foreign-key id="56" parent="11" name="FKb61rqlo70yy800uyvbriw0rh6">
+      <ColNames>feedId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>Feed</RefTableName>
+      <RefColNames>feedId</RefColNames>
+    </foreign-key>
+    <foreign-key id="57" parent="11" name="FKfgu5ivbpsq3lwybhgbsv61flp">
+      <ColNames>notificationTypeId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>NotificationType</RefTableName>
+      <RefColNames>notificationTypeId</RefColNames>
+    </foreign-key>
+    <column id="58" parent="12" name="clientStatusId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="12" name="status">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="60" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>clientStatusId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="61" parent="13" name="feedId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="62" parent="13" name="ageFrom">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="63" parent="13" name="ageTo">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="64" parent="13" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="65" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>feedId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="66" parent="14" name="notificationSeenId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="67" parent="14" name="seenDate">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="68" parent="14" name="clientFeedNotificationId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="69" parent="14" name="userId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="70" parent="14" name="userFeedNotificationId">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="71" parent="14" name="FK5fjuhmipmki1ebrevfs588cu6">
+      <ColNames>userId</ColNames>
+    </index>
+    <index id="72" parent="14" name="FKndoc4skuqsmhwu5lnh3589vdf">
+      <ColNames>userFeedNotificationId</ColNames>
+    </index>
+    <index id="73" parent="14" name="FKtd1d580qhlcrh0530ygs0chpu">
+      <ColNames>clientFeedNotificationId</ColNames>
+    </index>
+    <key id="74" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>notificationSeenId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="75" parent="14" name="FKtd1d580qhlcrh0530ygs0chpu">
+      <ColNames>clientFeedNotificationId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>ClientFeedNotification</RefTableName>
+      <RefColNames>clientFeedNotificationId</RefColNames>
+    </foreign-key>
+    <foreign-key id="76" parent="14" name="FK5fjuhmipmki1ebrevfs588cu6">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>User</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <foreign-key id="77" parent="14" name="FKndoc4skuqsmhwu5lnh3589vdf">
+      <ColNames>userFeedNotificationId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>UserFeedNotification</RefTableName>
+      <RefColNames>clientFeedNotificationId</RefColNames>
+    </foreign-key>
+    <column id="78" parent="15" name="notificationTypeId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="79" parent="15" name="title">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="80" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>notificationTypeId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="81" parent="16" name="orderId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="82" parent="16" name="amount">
+      <Position>2</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="83" parent="16" name="clientId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="84" parent="16" name="feedId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="85" parent="16" name="FKhwqdyfla20xpirxma0d07vnl9">
+      <ColNames>clientId</ColNames>
+    </index>
+    <index id="86" parent="16" name="FKrf8pl1v92swj1c28jymr8n4vj">
+      <ColNames>feedId</ColNames>
+    </index>
+    <key id="87" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>orderId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="88" parent="16" name="FKhwqdyfla20xpirxma0d07vnl9">
+      <ColNames>clientId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>Client</RefTableName>
+      <RefColNames>clientId</RefColNames>
+    </foreign-key>
+    <foreign-key id="89" parent="16" name="FKrf8pl1v92swj1c28jymr8n4vj">
+      <ColNames>feedId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>Feed</RefTableName>
+      <RefColNames>feedId</RefColNames>
+    </foreign-key>
+    <column id="90" parent="17" name="serviceUpdateId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="91" parent="17" name="chicksLastUpd">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="92" parent="17" name="ordersLastUpd">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="93" parent="17" name="updateTime">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="94" parent="17" name="notificationsLasUpd">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="95" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>serviceUpdateId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="96" parent="18" name="userId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="97" parent="18" name="fname">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="98" parent="18" name="lname">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="99" parent="18" name="login">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="100" parent="18" name="password">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="101" parent="18" name="regDate">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="102" parent="18" name="userRoleId">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="103" parent="18" name="userStatusId">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="104" parent="18" name="FKdjch8j0d6c6hqbmw252o2dq7m">
+      <ColNames>userRoleId</ColNames>
+    </index>
+    <index id="105" parent="18" name="FKilvdqdo1xk173wq9efrl12rgk">
+      <ColNames>userStatusId</ColNames>
+    </index>
+    <key id="106" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="107" parent="18" name="FKdjch8j0d6c6hqbmw252o2dq7m">
+      <ColNames>userRoleId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>UserRole</RefTableName>
+      <RefColNames>userRoleId</RefColNames>
+    </foreign-key>
+    <foreign-key id="108" parent="18" name="FKilvdqdo1xk173wq9efrl12rgk">
+      <ColNames>userStatusId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>UserStatus</RefTableName>
+      <RefColNames>userStatusId</RefColNames>
+    </foreign-key>
+    <column id="109" parent="19" name="clientFeedNotificationId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="110" parent="19" name="notificationDate">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="111" parent="19" name="cleintId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="112" parent="19" name="feedId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="113" parent="19" name="notificationTypeId">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="114" parent="19" name="FK7sl6cvrwc1u7i1lqxh4ihoquj">
+      <ColNames>notificationTypeId</ColNames>
+    </index>
+    <index id="115" parent="19" name="FKm7viwi8xxhy3503c3xma3gv27">
+      <ColNames>cleintId</ColNames>
+    </index>
+    <index id="116" parent="19" name="FKnge8isq17idcvd87bpfghhh07">
+      <ColNames>feedId</ColNames>
+    </index>
+    <key id="117" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>clientFeedNotificationId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="118" parent="19" name="FKm7viwi8xxhy3503c3xma3gv27">
+      <ColNames>cleintId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>Client</RefTableName>
+      <RefColNames>clientId</RefColNames>
+    </foreign-key>
+    <foreign-key id="119" parent="19" name="FKnge8isq17idcvd87bpfghhh07">
+      <ColNames>feedId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>Feed</RefTableName>
+      <RefColNames>feedId</RefColNames>
+    </foreign-key>
+    <foreign-key id="120" parent="19" name="FK7sl6cvrwc1u7i1lqxh4ihoquj">
+      <ColNames>notificationTypeId</ColNames>
+      <RefSchemaName>nais</RefSchemaName>
+      <RefTableName>NotificationType</RefTableName>
+      <RefColNames>notificationTypeId</RefColNames>
+    </foreign-key>
+    <column id="121" parent="20" name="userRoleId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="122" parent="20" name="userRole">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="123" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userRoleId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="124" parent="21" name="userStatusId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="125" parent="21" name="userStatus">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="126" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userStatusId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="127" parent="22" name="next_val">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+  </database-model>
+</dataSource>

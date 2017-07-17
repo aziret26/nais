@@ -3,7 +3,6 @@ package kg.nais.facade;
 import kg.nais.dao.ObjectDao;
 import kg.nais.models.ChickFeedConsume;
 
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +12,7 @@ import java.util.List;
 public class ChickFeedConsumeFacade {
     private ObjectDao objectDao = new ObjectDao();
 
-    @PostConstruct
-    public void init(){
+    public ChickFeedConsumeFacade(){
         initData();
     }
 
@@ -105,11 +103,7 @@ public class ChickFeedConsumeFacade {
             }
         }
 
-        ChickFeedConsumeFacade facade = new ChickFeedConsumeFacade();
-        for(ChickFeedConsume cfc : list){
-            facade.create(cfc);
-        }
-
+        list.forEach(this::create);
 
     }
 

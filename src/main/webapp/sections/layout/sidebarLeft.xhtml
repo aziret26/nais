@@ -33,10 +33,29 @@
                     <nais:item name="/pages/sdo/client/showClients?faces-redirect=true" itemName="Показать клиентов"/>
                 </h:panelGroup>
 
-                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
-                 userController.currentUser.userRole.userRoleId == 2}">
+
+                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 2}">
                     <nais:item name="/pages/pm/clients/showClients?faces-redirect=true" itemName="Показать клиентов"/>
+                </h:panelGroup>
+
+                <h3>Заказы</h3>
+                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
+                    userController.currentUser.userRole.userRoleId == 2}">
                     <nais:item name="/pages/pm/orders/viewOrders?faces-redirect=true" itemName="Показать заказы"/>
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
+                    userController.currentUser.userRole.userRoleId == 2}">
+                    <h3>Уведомления</h3>
+                    <h:panelGroup rendered="#{notificationController.notificationCountForCurrentUser() != 0}">
+                        <nais:item name="/pages/sdo/notification/viewNotifications?faces-redirect=true"
+                           itemName="Уведомления (#{notificationController.notificationCountForCurrentUser()})"/>
+                    </h:panelGroup>
+
+                    <h:panelGroup rendered="#{notificationController.notificationCountForCurrentUser() == 0}">
+                        <nais:item name="/pages/sdo/notification/viewNotifications?faces-redirect=true"
+                                   itemName="Уведомления"/>
+                    </h:panelGroup>
                 </h:panelGroup>
             </ul>
         </h:form>

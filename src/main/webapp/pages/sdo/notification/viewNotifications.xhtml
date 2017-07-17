@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/templates/masterLayout.xhtml">
+    <ui:define name="windowTitle">Добавить клиента</ui:define>
+    <ui:define name="sidebarLeft">
+        <ui:include src="/sections/layout/sidebarLeft.xhtml"/>
+    </ui:define>
+    <ui:define name="content">
+        <h:panelGroup rendered="#{notificationController.userFeedNotificationList.size() != 0}">
+            hello
+            <h:dataTable value="#{notificationController.userFeedNotificationList}" var="notification">
+                <h:column>
+                    <f:facet name="header">Имя клиента</f:facet>
+                    <h:outputText value="#{notification.client.name}"/>
+
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Вид корма</f:facet>
+                    <h:outputText value="#{notification.feed.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Дата окончания</f:facet>
+                    <h:outputText value="#{notification.getDate()}"/>
+                </h:column>
+            </h:dataTable>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{notificationController.userFeedNotificationList.size() == 0}">
+            <h2>Нет уведомлении</h2>
+        </h:panelGroup>
+
+        count: #{notificationController.userFeedNotificationList.size()}
+    </ui:define>
+</ui:composition>
+</html>

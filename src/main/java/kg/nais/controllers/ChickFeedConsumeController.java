@@ -18,7 +18,6 @@ public class ChickFeedConsumeController {
     private List<ChickFeedConsume> chickFeedConsumeList;
 
     public ChickFeedConsumeController() {
-
         chickFeedConsumeList = new ChickFeedConsumeFacade().findAll();
     }
 

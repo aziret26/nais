@@ -1,5 +1,7 @@
 package kg.nais.models;
 
+import kg.nais.models.notification.NotificationSeen;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
@@ -10,6 +12,8 @@ import javax.faces.validator.ValidatorException;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 /**
  * Created by timur on 13-Apr-17.
  */
@@ -50,6 +54,9 @@ public class User implements Serializable,Validator{
     @ManyToOne
     @JoinColumn(name = "userStatusId")
     private UserStatus userStatus;
+
+    @OneToMany(mappedBy = "user")
+    private List<NotificationSeen> notificationSeenList;
 
     public int getUserId() {
         return userId;
@@ -134,17 +141,11 @@ public class User implements Serializable,Validator{
         }
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", fname='" + fname + '\'' +
-                ", lname='" + lname + '\'' +
-                ", password='" + password + '\'' +
-                ", login='" + login + '\'' +
-                ", regDate=" + regDate +
-                ", userRole=" + userRole.getUserRoleId() +
-                ", userStatus=" + userStatus.getUserStatusId() +
-                '}';
+    public List<NotificationSeen> getNotificationSeenList() {
+        return notificationSeenList;
+    }
+
+    public void setNotificationSeenList(List<NotificationSeen> notificationSeenList) {
+        this.notificationSeenList = notificationSeenList;
     }
 }

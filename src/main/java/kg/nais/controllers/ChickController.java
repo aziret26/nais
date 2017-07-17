@@ -117,9 +117,9 @@ public class ChickController extends GeneralController{
         List<Chick> resultList = new ArrayList<Chick>();
         List<Chick> chicks = new ChickFacade().findByClient(client);
         for (Chick c : chicks){
-            if(c.isModFeed() &&
-                    c.getAge() >= c.getFeed().getAgeFrom() &&
-                    c.getAge() <= c.getFeed().getAgeTo() ){
+            if(c.isModFeed() && c.getFeed().getFeedId() == feed.getFeedId() ||
+                    c.getAge() >= feed.getAgeFrom() &&
+                    c.getAge() <= feed.getAgeTo() ){
                 resultList.add(c);
             }
         }

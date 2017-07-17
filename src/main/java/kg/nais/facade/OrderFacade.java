@@ -31,19 +31,6 @@ public class OrderFacade {
         objectDao.commitAndCloseTransaction();
     }
 
-    public List<Orders> findAll(){
-        List<Orders> ordersList;
-        try {
-            objectDao.beginTransaction();
-            ordersList = objectDao.getEntityManager().createNamedQuery("Orders.findAll",Orders.class).getResultList();
-            objectDao.commitAndCloseTransaction();
-        }catch (Exception ex){
-            ordersList = null;
-            objectDao.rollbackIfTransactionActive();
-        }
-        return ordersList;
-    }
-
     public Orders findById(Integer id) {
         Orders orders;
         try {
@@ -55,6 +42,19 @@ public class OrderFacade {
             objectDao.rollbackIfTransactionActive();
         }
         return orders;
+    }
+
+    public List<Orders> findAll(){
+        List<Orders> ordersList;
+        try {
+            objectDao.beginTransaction();
+            ordersList = objectDao.getEntityManager().createNamedQuery("Orders.findAll",Orders.class).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            ordersList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return ordersList;
     }
 
     public List<Orders> findByClient(Client client){
@@ -98,5 +98,4 @@ public class OrderFacade {
         }
         return ordersList;
     }
-
 }

@@ -14,6 +14,12 @@
         <class>kg.nais.models.User</class>
         <class>kg.nais.models.UserRole</class>
         <class>kg.nais.models.UserStatus</class>
+        <class>kg.nais.models.ServiceUpdate</class>
+        <class>kg.nais.models.ChickFeedConsume</class>
+        <class>kg.nais.models.notification.UserFeedNotification</class>
+        <class>kg.nais.models.notification.NotificationSeen</class>
+        <class>kg.nais.models.notification.NotificationType</class>
+
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
