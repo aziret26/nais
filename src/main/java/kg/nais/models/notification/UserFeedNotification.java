@@ -13,7 +13,11 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name="UserFeedNotification.findAll",
-            query = "SELECT c FROM UserFeedNotification c")
+            query = "SELECT u FROM UserFeedNotification u"),
+        @NamedQuery(name = "UserFeedNotification.findByClientAndFeed",
+            query = "SELECT o FROM UserFeedNotification  o WHERE  o.client = :client AND o.feed = :feed"),
+        @NamedQuery(name = "UserFeedNotification.findByClient",
+                query = "SELECT o FROM UserFeedNotification  o WHERE  o.client = :client")
 })
 public class UserFeedNotification {
     @Id

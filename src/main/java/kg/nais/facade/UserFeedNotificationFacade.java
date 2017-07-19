@@ -1,6 +1,9 @@
 package kg.nais.facade;
 
 import kg.nais.dao.ObjectDao;
+import kg.nais.models.Client;
+import kg.nais.models.Feed;
+import kg.nais.models.User;
 import kg.nais.models.notification.UserFeedNotification;
 
 import java.util.List;
@@ -8,7 +11,7 @@ import java.util.List;
 /**
  * Created by azire on 4/20/2017.
  */
-public class ClientFeedNotificationFacade {
+public class UserFeedNotificationFacade {
     private ObjectDao objectDao = new ObjectDao();
 
     public void create(UserFeedNotification object) {
@@ -54,6 +57,36 @@ public class ClientFeedNotificationFacade {
     public List<UserFeedNotification> findResolved(){
         return getList("UserFeedNotification.findResolved");
     }
+    
+    public UserFeedNotification findByClientAndFeed(Client client, Feed feed){
+        UserFeedNotification objectList;
+        try {
+            objectDao.beginTransaction();
+            objectList = objectDao.getEntityManager().
+                    createNamedQuery("UserFeedNotification.findByClientAndFeed",UserFeedNotification.class).
+                    setParameter("client",client).setParameter("feed",feed).getSingleResult();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            objectList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return objectList;
+    }
+
+    public List<UserFeedNotification> findByClient(Client client){
+        List<UserFeedNotification> objectList;
+        try {
+            objectDao.beginTransaction();
+            objectList = objectDao.getEntityManager().
+                    createNamedQuery("UserFeedNotification.findByClient",UserFeedNotification.class).
+                    setParameter("client",client).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            objectList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return objectList;
+    }
 
     private List<UserFeedNotification> getList(String queryName){
         List<UserFeedNotification> objectList;
@@ -67,4 +100,5 @@ public class ClientFeedNotificationFacade {
         }
         return objectList;
     }
+
 }

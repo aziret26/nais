@@ -1,12 +1,10 @@
 package kg.nais.controllers;
 
-import kg.nais.facade.ChickFacade;
-import kg.nais.facade.ClientFacade;
-import kg.nais.facade.ClientStatusFacade;
-import kg.nais.facade.FeedFacade;
+import kg.nais.facade.*;
 import kg.nais.models.Chick;
 import kg.nais.models.Client;
 import kg.nais.models.ClientStatus;
+import kg.nais.models.Orders;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -115,20 +113,15 @@ public class EditClientController extends GeneralController{
             cf.delete(chick);
             chickList.remove(chick);
         }
-
         /**
          * updating rest of the chicks in database
          */
         for(Chick chick: chickList){
             if(chick.isModFeed() && chick.getSelectedFeedId() == 0)
                 chick.setModFeed(false);
-
-            if(chick.isModFeed())
-                chick.setFeed(new FeedFacade().findById(chick.getSelectedFeedId()));
-            else
-                chick.setFeed(null);
             cf.update(chick);
         }
+        new OrdersController().updateClientsOrderDueDate(client);
     }
 
     public String changeEditableState(){
@@ -143,10 +136,9 @@ public class EditClientController extends GeneralController{
     }
 
     public String deleteClient(Client client){
-        ChickFacade cf = new ChickFacade();
-        for(Chick ch : chickList){
-            cf.delete(ch);
-        }
+        new NotificationController().deleteNotifications(client);
+        new ChickController().deleteChicks(client);
+        new OrdersController().deleteOrders(client);
         new ClientFacade().delete(client);
         return SHOW_CLIENTS+REDIRECT;
     }

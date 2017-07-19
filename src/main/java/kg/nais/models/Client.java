@@ -1,5 +1,7 @@
 package kg.nais.models;
 
+import kg.nais.models.notification.UserFeedNotification;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -34,6 +36,9 @@ public class Client {
 
     @OneToMany(mappedBy = "client")
     private List<Orders> orderList;
+
+    @OneToMany(mappedBy = "client")
+    private List<UserFeedNotification> userFeedNotificationList;
 
     public int getClientId() {
         return clientId;
@@ -81,5 +86,13 @@ public class Client {
 
     public void setOrderList(List<Orders> orderList) {
         this.orderList = orderList;
+    }
+
+    public List<UserFeedNotification> getUserFeedNotificationList() {
+        return userFeedNotificationList;
+    }
+
+    public void setUserFeedNotificationList(List<UserFeedNotification> userFeedNotificationList) {
+        this.userFeedNotificationList = userFeedNotificationList;
     }
 }

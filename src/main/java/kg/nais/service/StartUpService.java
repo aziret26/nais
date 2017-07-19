@@ -9,8 +9,6 @@ import org.quartz.impl.StdSchedulerFactory;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
-import java.beans.Expression;
-import java.util.*;
 import java.util.Calendar;
 
 /**
@@ -53,7 +51,7 @@ public class StartUpService  implements ServletContextListener {
         if(isUpdateNeeded(now,su.getOrdersLastUpd(),su.getUpdateTime()))
             new UpdateMethods().updateOrdersData();
 
-        if(isUpdateNeeded(now,su.getNotificationsLasUpd(),su.getUpdateTime()))
+        if(isUpdateNeeded(now,su.getNotificationsLastUpd(),su.getUpdateTime()))
             new UpdateMethods().updateNotificationsList();
 
         chickUpdTrigger = createCronTrigger("chicks",cronExpression);

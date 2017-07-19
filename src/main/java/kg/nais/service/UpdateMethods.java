@@ -4,7 +4,6 @@ import kg.nais.controllers.ChickController;
 import kg.nais.controllers.ChickFeedConsumeController;
 import kg.nais.facade.*;
 import kg.nais.models.*;
-import kg.nais.models.notification.NotificationSeen;
 import kg.nais.models.notification.UserFeedNotification;
 import kg.nais.models.notification.NotificationType;
 
@@ -38,7 +37,7 @@ public class UpdateMethods {
             if(order.getAmount() == 0)
                 continue;
 
-            List<Chick> chickList = cc.getChickListForFeed(order.getFeed(),order.getClient());
+            List<Chick> chickList = cc.getChickListByClientAndFeed(order.getClient(),order.getFeed());
             double totalConsume = 0;
             for(Chick c : chickList){
                 totalConsume += (fcController.getConsumeForAge(c.getAge())*c.getAmount());
@@ -84,7 +83,7 @@ public class UpdateMethods {
         /**
          * 1. remove old notifications if they have been seen by operator
          */
-        ClientFeedNotificationFacade cfnf =new ClientFeedNotificationFacade();
+        UserFeedNotificationFacade cfnf =new UserFeedNotificationFacade();
         List<UserFeedNotification> cfnList = cfnf.findAll();
         Calendar today = Calendar.getInstance();
 
@@ -112,24 +111,34 @@ public class UpdateMethods {
         NotificationType ntInfo = new NotificationTypeFacade().findById(1);
         for(Client client : clientList){
             for (Feed feed : feedList){
-                if(cc.getChickListForFeed(feed,client).size() == 0){
-                    System.out.printf("NO CONSUME: client: %d | feed: %d", client.getClientId(),feed.getFeedId());
+                //do not notify if client doesn't need that feed
+                if(cc.getChickListByClientAndFeed(client,feed).size() == 0){
+                    System.out.printf("NO CHICKS FOR ui-%d and fid-%d\n",
+                            client.getClientId(),feed.getFeedId());
                     continue;
                 }
+
                 Orders order = of.findByClientFeed(client,feed);
+
+                //do not notify if amount of feed is enough
                 if(order != null && order.getAmount() > 0.5){
-                    System.out.printf("NO NEED: client: %d | feed: %d", client.getClientId(),feed.getFeedId());
+                    System.out.println("ORDER NOT NULL AND AMOUNT > 0.5");
                     continue;
                 }
+
+                //do not notify if in database exists this notification
+                //to avoid duplicates
+//                if(cfnf.findByClientAndFeed(client,feed) != null ) continue;
+
                 UserFeedNotification cfn =
                         new UserFeedNotification(client,feed,Calendar.getInstance(),ntInfo);
                 cfnf.create(cfn);
-                System.out.printf("NOTIFICATION: client - %s | feed - %s\n",cfn.getClient().getName(),cfn.getFeed().getName());
+                System.out.println("NOTIFICATION CREATED...");
             }
         }
 
         ServiceUpdate su = new ServiceUpdateFacade().findValid();
-        su.setNotificationsLasUpd(Calendar.getInstance());
+        su.setNotificationsLastUpd(Calendar.getInstance());
         new ServiceUpdateFacade().update(su);
     }
 }

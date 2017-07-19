@@ -3,14 +3,18 @@ package kg.nais.controllers;
 import kg.nais.facade.ClientFacade;
 import kg.nais.facade.FeedFacade;
 import kg.nais.facade.OrderFacade;
+import kg.nais.facade.UserFeedNotificationFacade;
+import kg.nais.models.Chick;
 import kg.nais.models.Client;
 import kg.nais.models.Feed;
 import kg.nais.models.Orders;
+import kg.nais.models.notification.UserFeedNotification;
 import kg.nais.tools.Tools;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static kg.nais.tools.ViewPath.*;
@@ -96,25 +100,85 @@ public class OrdersController extends GeneralController{
             return ADD_ORDER + REDIRECT + "clientId="+clientId;
         }
         order.setFeed(new FeedFacade().findById(selectedFeedId));
-        if(order == null){
-            System.out.printf("order: null\n");
-        }
         order.setClient(client);
 
+        order.setDueDate(calcOrderDueDate(order));
         Orders tempOrder = new OrderFacade().findByClientFeed(order.getClient(),order.getFeed());
 
         if(tempOrder != null){
             tempOrder.setAmount(order.getAmount());
+            tempOrder.setDueDate(calcOrderDueDate(order));
             new OrderFacade().update(tempOrder);
             return VIEW_ORDERS;
         }
-        if(order.getFeed() != null)
-            System.out.println("selected feed: "+order.getFeed().getName() );
-        else
-            System.out.println("selected feed: null");
         OrderFacade of = new OrderFacade();
         of.create(order);
+
+        //Remove notification about this cause
+        UserFeedNotification ufn = new UserFeedNotificationFacade().findByClientAndFeed(order.getClient(),order.getFeed());
+        if(ufn != null)
+            new NotificationController().removeNotification(ufn);
+
         return VIEW_ORDERS;
+    }
+
+    /**
+     * calculates the date when feed, that has been ordered, will be consumed
+     * @param o
+     * @return
+     */
+    public Calendar calcOrderDueDate(Orders o){
+        Calendar date = Calendar.getInstance();
+        List<Chick> chickList = new ChickController().getChicksByClientForFeedBelow(o.getClient(),o.getFeed());
+        ChickFeedConsumeController consumeController = new ChickFeedConsumeController();
+        ChickController cc = new ChickController();
+        double amount = o.getAmount();
+
+        System.out.printf("O.ID: %d - ",o.getOrderId());
+
+        if(chickList == null){
+            System.out.println("CHICK_LIST: NULL");
+            return null;
+        }
+        while (amount > 0.49){
+            List<Chick> list = cc.getChicksForFeed(chickList,o.getFeed());
+            for(Chick c : list){
+                System.out.printf("C.ID: %d | AGE: %d | CONSUME: %f\n",c.getChickId(),c.getAge(),consumeController.getConsumeForAge(c.getAge()));
+                double consume = consumeController.getConsumeForAge(c.getAge());
+                consume *= 0.001;
+                amount = amount - consume*c.getAmount();
+                System.out.printf("%f -= %f * %d\n",amount,consume,c.getAmount());
+                if(amount < 0.5){
+                    System.out.printf("MONTH: %d | DAY: %d",date.get(Calendar.MONTH),date.get(Calendar.DAY_OF_MONTH));
+                    return date;
+                }
+            }
+
+            chickList.forEach(new ChickController()::increaseChicksAgeByDay);
+            chickList = cc.removeChicksAboveFeed(chickList,o.getFeed());
+            if(chickList.size() == 0 && amount > 0){
+                System.out.println("RUN OUT OUT OF CHICKS");
+                return null;
+            }
+            date.add(Calendar.DAY_OF_YEAR,1);
+        }
+        System.out.printf("MONTH: %d | DAY: %d",date.get(Calendar.MONTH),date.get(Calendar.DAY_OF_MONTH));
+        return date;
+    }
+
+    public void updateClientsOrderDueDate(Client client){
+        OrderFacade of = new OrderFacade();
+        List<Orders> ordersList = of.findByClient(client);
+        for(Orders o : ordersList){
+            o.setDueDate(calcOrderDueDate(o));
+            of.update(o);
+        }
+    }
+
+    public void deleteOrders(Client client){
+        OrderFacade of = new OrderFacade();
+        List<Orders> ordersList = of.findByClient(client);
+        ordersList.forEach(of::delete);
     }
 
 }

@@ -1,6 +1,9 @@
 package kg.nais.models;
 
+import kg.nais.tools.BasicOperations;
+
 import javax.persistence.*;
+import java.util.Calendar;
 
 /**
  * Created by aziret on 7/10/17.
@@ -23,6 +26,9 @@ public class Orders {
 
     @Column
     private double amount;
+
+    @Column
+    private Calendar dueDate;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
@@ -50,6 +56,15 @@ public class Orders {
         this.amount = amount;
     }
 
+    public Calendar getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(Calendar dueDate) {
+        if(dueDate == null || !BasicOperations.isSameDate(this.dueDate,dueDate));
+            this.dueDate = dueDate;
+    }
+
     public Client getClient() {
         return client;
     }
@@ -65,5 +80,4 @@ public class Orders {
     public void setFeed(Feed feed) {
         this.feed = feed;
     }
-
 }

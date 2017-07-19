@@ -1,5 +1,7 @@
 package kg.nais.models;
 
+import kg.nais.controllers.FeedController;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
@@ -13,12 +15,16 @@ import java.util.*;
                 query = "SELECT c FROM Chick c"),
         @NamedQuery(name = "Chick.findByAgeRange",
                 query = "SELECT c FROM Chick c WHERE c.age >= :ageFrom AND c.age <= :ageTo"),
-//        @NamedQuery(name = "Chick.findByFeed",
-//                query = "SELECT c FROM Chick c WHERE c.feed = :feed"),
-//        @NamedQuery(name = "Chick.findByClientFeed",
-//                query = "SELECT c FROM Chick c WHERE c.client = :client AND c.feed = :feed"),
+        @NamedQuery(name = "Chick.findByFeed",
+                query = "SELECT c FROM Chick c WHERE c.modFeed = true AND c.feed = :feed"),
+        @NamedQuery(name = "Chick.findByClientAndFeed",
+                query = "SELECT c FROM Chick c WHERE c.client = :client AND c.feed = :feed"),
         @NamedQuery(name="Chick.findByClient",
-                query = "SELECT c FROM Chick c where c.client = :client")
+                query = "SELECT c FROM Chick c where c.client = :client"),
+        @NamedQuery(name="Chick.findForFeedBelow",
+            query = "SELECT c FROM Chick c where c.age <= :age"),
+        @NamedQuery(name="Chick.findByClientForFeedBelow",
+                query = "SELECT c FROM Chick c where c.client = :client AND c.age <= :ageTo")
 })
 public class Chick implements Serializable{
     @Id
@@ -66,6 +72,18 @@ public class Chick implements Serializable{
     public void setAge(int age) {
         if(dob == null)
             dob = calculateDob(age);
+
+        if(age == this.age)
+            return;
+
+        if(feed == null)
+            setFeed(new FeedController().getFeedForAge(age));
+        if(age > feed.getAgeTo()) {
+            setFeed(new FeedController().getFeedForAge(age));
+            setModFeed(false);
+        }
+//        System.out.printf("\nCHICK: %d | AGE: %d\n",chickId,age);
+//        System.out.println(dob);
         this.age = age;
     }
 
@@ -90,7 +108,13 @@ public class Chick implements Serializable{
     }
 
     public void setDob(Calendar dob) {
+        if(this.dob != null &&
+                this.dob.get(Calendar.DAY_OF_YEAR) == dob.get(Calendar.DAY_OF_YEAR)) {
+//            System.out.println(dob);
+            return;
+        }
         this.dob = dob;
+        setAge(calculateAge(Calendar.getInstance()));
     }
 
     public boolean isEditable() {
@@ -106,9 +130,6 @@ public class Chick implements Serializable{
     }
 
     public void setModFeed(boolean modFeed) {
-        if(!modFeed){
-            feed = null;
-        }
         this.modFeed = modFeed;
     }
 
@@ -145,7 +166,15 @@ public class Chick implements Serializable{
                 Math.min(dob.get(Calendar.WEEK_OF_YEAR),calendar.get(Calendar.WEEK_OF_YEAR));
         return 52*year+week;
     }
+
     public void updateAge(){
-        age = calculateAge(Calendar.getInstance());
+        setAge(calculateAge(Calendar.getInstance()));
+    }
+
+    public void increaseAgeByDay(){
+        Calendar c = (Calendar)dob.clone();
+        c.add(Calendar.DAY_OF_YEAR,-1);
+        setDob(c);
+        System.out.printf("_");
     }
 }

@@ -12,12 +12,10 @@
     </ui:define>
     <ui:define name="content">
         <h:panelGroup rendered="#{notificationController.userFeedNotificationList.size() != 0}">
-            hello
             <h:dataTable value="#{notificationController.userFeedNotificationList}" var="notification">
                 <h:column>
                     <f:facet name="header">Имя клиента</f:facet>
                     <h:outputText value="#{notification.client.name}"/>
-
                 </h:column>
                 <h:column>
                     <f:facet name="header">Вид корма</f:facet>
@@ -32,8 +30,6 @@
         <h:panelGroup rendered="#{notificationController.userFeedNotificationList.size() == 0}">
             <h2>Нет уведомлении</h2>
         </h:panelGroup>
-
-        count: #{notificationController.userFeedNotificationList.size()}
     </ui:define>
 </ui:composition>
 </html>

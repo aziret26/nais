@@ -71,6 +71,34 @@ public class ChickFacade {
         return chickList;
     }
 
+    public List<Chick> findByFeed(Feed feed){
+        List<Chick> objectList;
+        try {
+            objectDao.beginTransaction();
+            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findByFeed",Chick.class)
+                    .setParameter("feed",feed).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            objectList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return objectList;
+    }
+
+    public List<Chick> findByClientAndFeed(Client client, Feed feed){
+        List<Chick> objectList;
+        try {
+            objectDao.beginTransaction();
+            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findByClientAndFeed",Chick.class)
+                    .setParameter("client",client).setParameter("feed",feed).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            objectList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return objectList;
+    }
+
     public List<Chick> findByClient(Client client){
         List<Chick> chickList;
         try {
@@ -83,5 +111,32 @@ public class ChickFacade {
             objectDao.rollbackIfTransactionActive();
         }
         return chickList;
+    }
+
+    public List<Chick> findForFeedBelow(Feed feed){
+        List<Chick> objectList;
+        try {
+            objectDao.beginTransaction();
+            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findForFeedBelow",Chick.class)
+                    .setParameter("age",feed.getAgeTo()).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            objectList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return objectList;
+    }
+    public List<Chick> findChicksByClientForFeedBelow(Client client,Feed feed){
+        List<Chick> objectList;
+        try {
+            objectDao.beginTransaction();
+            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findByClientForFeedBelow",Chick.class)
+                    .setParameter("ageTo",feed.getAgeTo()).setParameter("client",client).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            objectList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return objectList;
     }
 }

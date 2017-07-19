@@ -24,7 +24,7 @@ public class ServiceUpdate implements Serializable{
     private Calendar chicksLastUpd;
 
     @Column
-    private Calendar notificationsLasUpd;
+    private Calendar notificationsLastUpd;
 
     /**
      * set time for update in hh:mm format
@@ -65,11 +65,11 @@ public class ServiceUpdate implements Serializable{
         this.updateTime = updateTime;
     }
 
-    public Calendar getNotificationsLasUpd() {
-        return notificationsLasUpd;
+    public Calendar getNotificationsLastUpd() {
+        return notificationsLastUpd;
     }
 
-    public void setNotificationsLasUpd(Calendar notificationsLasUpd) {
-        this.notificationsLasUpd = notificationsLasUpd;
+    public void setNotificationsLastUpd(Calendar notificationsLasUpd) {
+        this.notificationsLastUpd = notificationsLasUpd;
     }
 }

@@ -13,7 +13,9 @@ public class ChickFeedConsumeFacade {
     private ObjectDao objectDao = new ObjectDao();
 
     public ChickFeedConsumeFacade(){
-        initData();
+        List<ChickFeedConsume> list = findAll();
+        if(list == null || list.size() == 0)
+            initData();
     }
 
     public void create(ChickFeedConsume object) {

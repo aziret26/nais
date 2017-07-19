@@ -1,7 +1,8 @@
 package kg.nais.controllers;
 
-import kg.nais.facade.ClientFeedNotificationFacade;
+import kg.nais.facade.UserFeedNotificationFacade;
 import kg.nais.facade.NotificationSeenFacade;
+import kg.nais.models.Client;
 import kg.nais.models.User;
 import kg.nais.models.notification.NotificationSeen;
 import kg.nais.models.notification.UserFeedNotification;
@@ -39,11 +40,12 @@ public class NotificationController {
 
     public List<UserFeedNotification> getUserFeedNotificationList() {
         if(userFeedNotificationList == null || userFeedNotificationList.size() == 0) {
-            userFeedNotificationList = new ClientFeedNotificationFacade().findAll();
+            userFeedNotificationList = new UserFeedNotificationFacade().findAll();
             /**
              * mark notification as seen
              */
-            if(new NotificationSeenFacade().findAll().size() != userFeedNotificationList.size())
+            List<NotificationSeen> nsList = new NotificationSeenFacade().findAll();
+            if(nsList == null || nsList.size() != userFeedNotificationList.size())
                 markAsRead(userFeedNotificationList);
         }
         return userFeedNotificationList;
@@ -55,10 +57,11 @@ public class NotificationController {
 
     public int notificationCountForCurrentUser(){
         User user = userController.getCurrentUser();
-        ClientFeedNotificationFacade cfnf = new ClientFeedNotificationFacade();
+        UserFeedNotificationFacade cfnf = new UserFeedNotificationFacade();
         NotificationSeenFacade ncf = new NotificationSeenFacade();
         int notificationCount = cfnf.findAll().size();
-        int seenCount = ncf.findByUser(user).size();
+        List<NotificationSeen> ns = ncf.findByUser(user);
+        int seenCount = ns != null ? ns.size() : 0;
         return notificationCount - seenCount;
     }
 
@@ -72,5 +75,30 @@ public class NotificationController {
                 nsf.create(new NotificationSeen(user,ufn));
             }
         }
+    }
+
+    public void removeNotification(UserFeedNotification ufn){
+        NotificationSeenFacade nsf = new NotificationSeenFacade();
+        List<NotificationSeen> nsList = nsf.findByNotification(ufn);
+        if(nsList != null){
+            nsList.forEach(nsf::delete);
+        }
+        new UserFeedNotificationFacade().delete(ufn);
+    }
+
+    public void deleteNotifications(Client client){
+        UserFeedNotificationFacade noteFacade = new UserFeedNotificationFacade();
+        List<UserFeedNotification> ufnList = noteFacade.findByClient(client);
+        if(ufnList == null)
+            return;
+
+        //delete seen data that are related to notification
+        NotificationSeenFacade nsf = new NotificationSeenFacade();
+        for(UserFeedNotification ufn : ufnList) {
+            List<NotificationSeen> seenList = nsf.findByNotification(ufn);
+            seenList.forEach(nsf::delete);
+        }
+
+        ufnList.forEach(noteFacade::delete);
     }
 }

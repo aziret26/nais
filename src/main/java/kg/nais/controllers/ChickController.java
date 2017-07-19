@@ -53,20 +53,18 @@ public class ChickController extends GeneralController{
         this.chickId = chickId;
     }
 
-//    public Chick findChickByClientFeed(Feed feed){
-//        return new ChickFacade().findByClientFeed(new ClientFacade().findById(clientId),feed);
-//    }
-
-//    public Chick findChickByClientFeed(Client client,Feed feed){
-//        return new ChickFacade().findByClientFeed(client,feed);
-//    }
-
     public List<Chick> findChickListByClient(Client client){
         List<Chick> chickList;
         chickList = new ChickFacade().findByClient(client);
         return chickList;
     }
 
+    /**
+     * calculate amount of chick of client consuming specific chick
+     * @param feedName
+     * @param client
+     * @return
+     */
     public int calculateFeed(String feedName, Client client){
         List<Chick> chicks = new ChickFacade().findByClient(client);
         List<Feed> feeds = new FeedController().getFeedList();
@@ -113,16 +111,49 @@ public class ChickController extends GeneralController{
         return amount;
     }
 
-    public List<Chick> getChickListForFeed(Feed feed,Client client){
+    public List<Chick> getChickListByClientAndFeed(Client client, Feed feed){
+        return new ChickFacade().findByClientAndFeed(client,feed);
+    }
+
+    public List<Chick> getChicksForFeedBelow(Feed feed){
+        return new ChickFacade().findForFeedBelow(feed);
+    }
+
+    public List<Chick> getChicksByClientForFeedBelow(Client client,Feed feed){
+        return new ChickFacade().findChicksByClientForFeedBelow(client,feed);
+    }
+
+    public void increaseChicksAgeByDay(Chick chick){
+        chick.increaseAgeByDay();
+    }
+
+    public List<Chick> getChicksForFeed(List<Chick> chicks,Feed feed){
         List<Chick> resultList = new ArrayList<Chick>();
-        List<Chick> chicks = new ChickFacade().findByClient(client);
         for (Chick c : chicks){
-            if(c.isModFeed() && c.getFeed().getFeedId() == feed.getFeedId() ||
-                    c.getAge() >= feed.getAgeFrom() &&
-                    c.getAge() <= feed.getAgeTo() ){
+            if(c.getFeed().getFeedId() == feed.getFeedId())
                 resultList.add(c);
+        }
+        return  resultList;
+    }
+
+    public List<Chick> removeChicksAboveFeed(List<Chick> list,Feed feed){
+        List<Integer> toRm = new ArrayList<>();
+        for(int i = 0; i< list.size();i++){
+            if (list.get(i).getAge() > feed.getAgeTo()){
+                toRm.add(i);
             }
         }
-        return resultList;
+        for(int i = 0;i < toRm.size();i++){
+//            System.out.printf("REMOVING: CHICK-%d | AGE-%d\n",list.get(i).getChickId(),list.get(i).getAge());
+            list.remove(i);
+        }
+
+        return list;
+    }
+
+    public void deleteChicks(Client client){
+        List<Chick> list = new ChickFacade().findByClient(client);
+        ChickFacade cf = new ChickFacade();
+        list.forEach(cf::delete);
     }
 }

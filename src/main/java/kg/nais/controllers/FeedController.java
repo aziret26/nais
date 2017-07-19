@@ -65,4 +65,14 @@ public class FeedController extends GeneralController {
         return EDIT_FEED+REDIRECT + "feedId = " + feedId;
     }
 
+    public Feed getFeedForAge(int age){
+        List<Feed> feedList = new FeedFacade().findAll();
+        if(age < 0) return null;
+        for (Feed f : feedList){
+            if(f.getAgeFrom() <= age && f.getAgeTo() >= age){
+                return f;
+            }
+        }
+        return null;
+    }
 }
