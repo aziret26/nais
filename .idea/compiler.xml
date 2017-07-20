@@ -9,7 +9,7 @@
         <module name="nais" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="nais" target="1.8" />
     </bytecodeTargetLevel>
   </component>
