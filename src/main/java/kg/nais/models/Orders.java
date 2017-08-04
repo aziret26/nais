@@ -1,6 +1,6 @@
 package kg.nais.models;
 
-import kg.nais.tools.BasicOperations;
+import kg.nais.tools.BasicFunctions;
 
 import javax.persistence.*;
 import java.util.Calendar;
@@ -61,7 +61,7 @@ public class Orders {
     }
 
     public void setDueDate(Calendar dueDate) {
-        if(dueDate == null || !BasicOperations.isSameDate(this.dueDate,dueDate));
+        if(dueDate == null || !BasicFunctions.isSameDate(this.dueDate,dueDate));
             this.dueDate = dueDate;
     }
 

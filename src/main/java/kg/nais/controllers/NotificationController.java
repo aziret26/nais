@@ -1,5 +1,6 @@
 package kg.nais.controllers;
 
+import kg.nais.facade.UserFacade;
 import kg.nais.facade.UserFeedNotificationFacade;
 import kg.nais.facade.NotificationSeenFacade;
 import kg.nais.models.Client;
@@ -44,7 +45,8 @@ public class NotificationController {
             /**
              * mark notification as seen
              */
-            List<NotificationSeen> nsList = new NotificationSeenFacade().findAll();
+            User user = new UserFacade().findById(userController.getCurrentUser().getUserId());
+            List<NotificationSeen> nsList = new NotificationSeenFacade().findByUser(user);
             if(nsList == null || nsList.size() != userFeedNotificationList.size())
                 markAsRead(userFeedNotificationList);
         }
@@ -69,7 +71,6 @@ public class NotificationController {
         NotificationSeenFacade nsf = new NotificationSeenFacade();
         User user = userController.getCurrentUser();
         for(UserFeedNotification ufn : list){
-            System.out.printf("LOOKING: client - %d | ufn - %d\n",user.getUserId(),ufn.getUserFeedNotificationId());
             NotificationSeen tempList = nsf.findByUserAndNotification(user,ufn);
             if(tempList == null || tempList.getNotificationSeenId() == 0){
                 nsf.create(new NotificationSeen(user,ufn));

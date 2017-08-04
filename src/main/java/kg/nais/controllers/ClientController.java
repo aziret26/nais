@@ -26,6 +26,8 @@ public class ClientController extends GeneralController {
             new Chick()
     ));
 
+    private ChickController chickController = new ChickController();
+
     @ManagedProperty(value="#{sessionController}")
     private SessionController sessionController;
 
@@ -113,6 +115,7 @@ public class ClientController extends GeneralController {
          */
         for(Chick chick: chickList){
             chick.setClient(client);
+            chickController.updateChickFeed(chick);
             cf.create(chick);
         }
     }

@@ -24,12 +24,7 @@ import static kg.nais.tools.ViewPath.*;
 public class FeedController extends GeneralController {
 
     private Feed feed = new Feed(),nullFeed = null;
-/*
-    @PostConstruct
-    public void init(){
 
-    }
-    */
     public Feed getFeed() {
         return feed;
     }

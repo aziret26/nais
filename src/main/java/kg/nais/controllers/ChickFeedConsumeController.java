@@ -1,6 +1,7 @@
 package kg.nais.controllers;
 
 import kg.nais.facade.ChickFeedConsumeFacade;
+import kg.nais.models.Chick;
 import kg.nais.models.ChickFeedConsume;
 
 import javax.faces.bean.ManagedBean;
@@ -43,5 +44,15 @@ public class ChickFeedConsumeController {
                 return cf.getConsume();
         }
         return 0;
+    }
+
+    public double getConsumeAmount(Chick chick){
+        double result = 0;
+        for(ChickFeedConsume cfc : chickFeedConsumeList){
+            if(cfc.getAge() == chick.getAge()){
+                result = chick.getAmount()*cfc.getConsume()*0.001;
+            }
+        }
+        return result;
     }
 }

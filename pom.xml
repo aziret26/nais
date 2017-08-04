@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>kg.iaau</groupId>
-  <artifactId>hibernate</artifactId>
+  <artifactId>nais</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>Hibernate Test</name>
@@ -106,7 +106,7 @@
   </dependencies>
 
   <build>
-    <finalName>hibernate</finalName>
+    <finalName>nais</finalName>
       <plugins>
           <plugin>
               <groupId>org.apache.maven.plugins</groupId>

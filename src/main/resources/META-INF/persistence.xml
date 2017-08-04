@@ -23,7 +23,7 @@
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/nais" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/nais?autoReconnect=true&amp;useSSL=false" />
             <property name="javax.persistence.jdbc.user" value="nais"/>
             <property name="javax.persistence.jdbc.password" value="nais"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />

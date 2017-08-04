@@ -25,6 +25,7 @@ public class ChickController extends GeneralController{
     private Chick chick;
     private List<Chick> chickList;
     private int chickId;
+    private List<Feed> feedList = new FeedFacade().findAll();
 
     public Chick getChick() {
         if(chickId != 0){
@@ -123,9 +124,6 @@ public class ChickController extends GeneralController{
         return new ChickFacade().findChicksByClientForFeedBelow(client,feed);
     }
 
-    public void increaseChicksAgeByDay(Chick chick){
-        chick.increaseAgeByDay();
-    }
 
     public List<Chick> getChicksForFeed(List<Chick> chicks,Feed feed){
         List<Chick> resultList = new ArrayList<Chick>();
@@ -136,24 +134,31 @@ public class ChickController extends GeneralController{
         return  resultList;
     }
 
-    public List<Chick> removeChicksAboveFeed(List<Chick> list,Feed feed){
-        List<Integer> toRm = new ArrayList<>();
-        for(int i = 0; i< list.size();i++){
-            if (list.get(i).getAge() > feed.getAgeTo()){
-                toRm.add(i);
-            }
-        }
-        for(int i = 0;i < toRm.size();i++){
-//            System.out.printf("REMOVING: CHICK-%d | AGE-%d\n",list.get(i).getChickId(),list.get(i).getAge());
-            list.remove(i);
-        }
-
-        return list;
-    }
-
     public void deleteChicks(Client client){
         List<Chick> list = new ChickFacade().findByClient(client);
         ChickFacade cf = new ChickFacade();
         list.forEach(cf::delete);
+    }
+
+    public void increaseChicksAgeByDay(Chick chick){
+        chick.increaseAgeByDay();
+        updateChickFeed(chick);
+    }
+
+    public void updateChickFeed(Chick chick){
+        for (Feed feed : feedList){
+            if(chick.isModFeed() && chick.getFeed().getFeedId() == feed.getFeedId()
+                    && chick.getAge() > feed.getAgeTo())
+                chick.setModFeed(false);
+
+            if(chick.isModFeed() && chick.getSelectedFeedId() == feed.getFeedId()){
+                chick.setFeed(feed);
+                return;
+            }
+            if(!chick.isModFeed() && chick.getAge() >= feed.getAgeFrom() && chick.getAge() <= feed.getAgeTo()){
+                chick.setFeed(feed);
+                return;
+            }
+        }
     }
 }

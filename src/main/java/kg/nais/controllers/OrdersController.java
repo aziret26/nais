@@ -34,6 +34,10 @@ public class OrdersController extends GeneralController{
 
     private List<Orders> orderList = new ArrayList<Orders>();
 
+    public OrdersController() {
+        orderList = new OrderFacade().findAll();
+    }
+
     public Orders getOrder() {
         return order;
     }
@@ -134,35 +138,25 @@ public class OrdersController extends GeneralController{
         ChickController cc = new ChickController();
         double amount = o.getAmount();
 
-        System.out.printf("O.ID: %d - ",o.getOrderId());
-
         if(chickList == null){
-            System.out.println("CHICK_LIST: NULL");
             return null;
         }
         while (amount > 0.49){
             List<Chick> list = cc.getChicksForFeed(chickList,o.getFeed());
             for(Chick c : list){
-                System.out.printf("C.ID: %d | AGE: %d | CONSUME: %f\n",c.getChickId(),c.getAge(),consumeController.getConsumeForAge(c.getAge()));
                 double consume = consumeController.getConsumeForAge(c.getAge());
                 consume *= 0.001;
                 amount = amount - consume*c.getAmount();
-                System.out.printf("%f -= %f * %d\n",amount,consume,c.getAmount());
                 if(amount < 0.5){
-                    System.out.printf("MONTH: %d | DAY: %d",date.get(Calendar.MONTH),date.get(Calendar.DAY_OF_MONTH));
                     return date;
                 }
             }
-
             chickList.forEach(new ChickController()::increaseChicksAgeByDay);
-            chickList = cc.removeChicksAboveFeed(chickList,o.getFeed());
             if(chickList.size() == 0 && amount > 0){
-                System.out.println("RUN OUT OUT OF CHICKS");
                 return null;
             }
             date.add(Calendar.DAY_OF_YEAR,1);
         }
-        System.out.printf("MONTH: %d | DAY: %d",date.get(Calendar.MONTH),date.get(Calendar.DAY_OF_MONTH));
         return date;
     }
 
@@ -179,6 +173,15 @@ public class OrdersController extends GeneralController{
         OrderFacade of = new OrderFacade();
         List<Orders> ordersList = of.findByClient(client);
         ordersList.forEach(of::delete);
+    }
+
+    public Orders getOrderByClientAndFeed(Client client,Feed feed){
+        for(Orders order : orderList){
+            if(order.getClient().getClientId() == client.getClientId() &&
+                    order.getFeed().getFeedId() == feed.getFeedId())
+                return order;
+        }
+        return null;
     }
 
 }

@@ -76,14 +76,6 @@ public class Chick implements Serializable{
         if(age == this.age)
             return;
 
-        if(feed == null)
-            setFeed(new FeedController().getFeedForAge(age));
-        if(age > feed.getAgeTo()) {
-            setFeed(new FeedController().getFeedForAge(age));
-            setModFeed(false);
-        }
-//        System.out.printf("\nCHICK: %d | AGE: %d\n",chickId,age);
-//        System.out.println(dob);
         this.age = age;
     }
 
@@ -110,7 +102,6 @@ public class Chick implements Serializable{
     public void setDob(Calendar dob) {
         if(this.dob != null &&
                 this.dob.get(Calendar.DAY_OF_YEAR) == dob.get(Calendar.DAY_OF_YEAR)) {
-//            System.out.println(dob);
             return;
         }
         this.dob = dob;
@@ -175,6 +166,5 @@ public class Chick implements Serializable{
         Calendar c = (Calendar)dob.clone();
         c.add(Calendar.DAY_OF_YEAR,-1);
         setDob(c);
-        System.out.printf("_");
     }
 }

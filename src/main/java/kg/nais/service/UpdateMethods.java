@@ -64,10 +64,11 @@ public class UpdateMethods {
      */
     public void updateChickData(){
         ChickFacade cf = new ChickFacade();
+        ChickController chickController = new ChickController();
         List<Chick> chickList = cf.findAll();
 
         for(Chick chick : chickList){
-            chick.updateAge();
+            chickController.increaseChicksAgeByDay(chick);
             if (chick.isModFeed() &&
                     chick.getAge() > chick.getFeed().getAgeTo()){
                 chick.setModFeed(false);
@@ -90,12 +91,12 @@ public class UpdateMethods {
         if(today.get(Calendar.DAY_OF_WEEK) != 0) {
             List<UserFeedNotification> toRemoveNotificationList = new ArrayList<>();
             for(UserFeedNotification c : cfnList){
-                if(Math.abs(c.getNotificationDate().get(Calendar.DAY_OF_YEAR) - today.get(Calendar.DAY_OF_YEAR)) > 1){
+                if(Math.abs(c.getNotificationDate().get(Calendar.DAY_OF_YEAR) - today.get(Calendar.DAY_OF_YEAR)) >= 1){
                     toRemoveNotificationList.add(c);
                 }
             }
             for(UserFeedNotification ufn : toRemoveNotificationList){
-                new NotificationSeenFacade().findByNotification(ufn).forEach(new NotificationSeenFacade()::create);
+                new NotificationSeenFacade().findByNotification(ufn).forEach(new NotificationSeenFacade()::delete);
             }
             toRemoveNotificationList.forEach(cfnf::delete);
         }
@@ -113,8 +114,6 @@ public class UpdateMethods {
             for (Feed feed : feedList){
                 //do not notify if client doesn't need that feed
                 if(cc.getChickListByClientAndFeed(client,feed).size() == 0){
-                    System.out.printf("NO CHICKS FOR ui-%d and fid-%d\n",
-                            client.getClientId(),feed.getFeedId());
                     continue;
                 }
 
@@ -122,7 +121,6 @@ public class UpdateMethods {
 
                 //do not notify if amount of feed is enough
                 if(order != null && order.getAmount() > 0.5){
-                    System.out.println("ORDER NOT NULL AND AMOUNT > 0.5");
                     continue;
                 }
 
@@ -133,7 +131,6 @@ public class UpdateMethods {
                 UserFeedNotification cfn =
                         new UserFeedNotification(client,feed,Calendar.getInstance(),ntInfo);
                 cfnf.create(cfn);
-                System.out.println("NOTIFICATION CREATED...");
             }
         }
 

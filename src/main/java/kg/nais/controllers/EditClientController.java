@@ -1,10 +1,7 @@
 package kg.nais.controllers;
 
 import kg.nais.facade.*;
-import kg.nais.models.Chick;
-import kg.nais.models.Client;
-import kg.nais.models.ClientStatus;
-import kg.nais.models.Orders;
+import kg.nais.models.*;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -28,6 +25,10 @@ public class EditClientController extends GeneralController{
                 toDeleteList = new ArrayList<Chick>();
 
     private boolean frozen = false;
+
+    private ChickController chickController = new ChickController();
+
+    private List<Feed> feedList = new FeedFacade().findAll();
 
     public Client getClient() {
         if(client == null || clientId != 0 && clientId != client.getClientId()){
@@ -117,8 +118,10 @@ public class EditClientController extends GeneralController{
          * updating rest of the chicks in database
          */
         for(Chick chick: chickList){
+            System.out.printf("cId: %d | imf: %b | sId: %d\n",chick.getChickId(),chick.isModFeed(),chick.getSelectedFeedId());
             if(chick.isModFeed() && chick.getSelectedFeedId() == 0)
                 chick.setModFeed(false);
+            chickController.updateChickFeed(chick);
             cf.update(chick);
         }
         new OrdersController().updateClientsOrderDueDate(client);

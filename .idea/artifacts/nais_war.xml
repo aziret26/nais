@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="nais:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="hibernate.war">
-      <element id="artifact" artifact-name="nais:war exploded" />
-    </root>
-  </artifact>
-</component>
