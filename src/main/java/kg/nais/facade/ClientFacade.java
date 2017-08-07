@@ -30,16 +30,7 @@ public class ClientFacade {
     }
 
     public List<Client> findAll(){
-        List<Client> clientList;
-        try {
-            objectDao.beginTransaction();
-            clientList = objectDao.getEntityManager().createNamedQuery("Client.findAll",Client.class).getResultList();
-            objectDao.commitAndCloseTransaction();
-        }catch (Exception ex){
-            clientList = null;
-            objectDao.rollbackIfTransactionActive();
-        }
-        return clientList;
+        return getList("Client.findAll");
     }
 
     public Client findById(Integer id) {
@@ -67,5 +58,24 @@ public class ClientFacade {
             objectDao.rollbackIfTransactionActive();
         }
         return clientList;
+    }
+
+    public List<Client> findAllActiveClients(){
+        return getList("Client.findAllActive");
+    }
+    public List<Client> findAllFrozenClients(){
+        return getList("Client.findAllFrozen");
+    }
+    private List<Client> getList(String queryName){
+        List<Client> objectList;
+        try {
+            objectDao.beginTransaction();
+            objectList = objectDao.getEntityManager().createNamedQuery(queryName,Client.class).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            objectList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return objectList;
     }
 }

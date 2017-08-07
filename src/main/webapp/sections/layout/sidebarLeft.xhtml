@@ -35,8 +35,11 @@
                 <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 3}">
                     <nais:item name="/pages/sdo/client/showClients?faces-redirect=true" itemName="Показать клиентов"/>
                 </h:panelGroup>
-                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
-                    userController.currentUser.userRole.userRoleId == 2}">
+                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1}">
+                    <nais:item name="/pages/admin/client/showClients?faces-redirect=true" itemName="Показать клиентов"/>
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 2}">
                     <nais:item name="/pages/pm/clients/showClients?faces-redirect=true" itemName="Показать клиентов"/>
                 </h:panelGroup>
 

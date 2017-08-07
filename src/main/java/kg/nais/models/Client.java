@@ -13,7 +13,11 @@ import java.util.*;
         @NamedQuery(name = "Client.findAll",
                 query = "SELECT c FROM Client c"),
         @NamedQuery(name = "Client.findByClientStatus",
-                query = "SELECT c FROM Client c WHERE c.clientStatus.id = :clientStatusId")
+                query = "SELECT c FROM Client c WHERE c.clientStatus.id = :clientStatusId"),
+        @NamedQuery(name = "Client.findAllActive",
+                query = "SELECT c FROM Client c WHERE c.clientStatus.id = 1"),
+        @NamedQuery(name = "Client.findAllFrozen",
+                query = "SELECT c FROM Client c WHERE c.clientStatus.id = 2")
 
 })
 public class Client {

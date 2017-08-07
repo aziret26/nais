@@ -53,11 +53,11 @@ public class ClientController extends GeneralController {
 
 
     public List<Client> findAllActiveClients() {
-        return new ClientFacade().findByStatus(1);
+        return new ClientFacade().findAllActiveClients();
     }
 
     public List<Client> findAllFrozenClients() {
-        return new ClientFacade().findByStatus(2);
+        return new ClientFacade().findAllFrozenClients();
     }
 
     public String createClient(){

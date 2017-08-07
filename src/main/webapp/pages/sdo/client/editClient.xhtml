@@ -66,8 +66,8 @@
                     </h:column>
                 </h:dataTable>
                 <br/>
-                <h:commandButton value="Замарозить" action="#{editClientController.freeze(editClientController.client)}" rendered="#{not editClientController.frozen}"/>
-                <h:commandButton value="Размарозить" action="#{editClientController.active(editClientController.client)}" rendered="#{editClientController.frozen}"/>
+                <h:commandButton value="Заморозить" action="#{editClientController.freeze(editClientController.client)}" rendered="#{not editClientController.frozen}"/>
+                <h:commandButton value="Разморозить" action="#{editClientController.active(editClientController.client)}" rendered="#{editClientController.frozen}"/>
                 <h:commandButton value="Удалить" action="#{editClientController.deleteClient(editClientController.client)}"/>
                 <h:commandButton value="Сохранить" action="#{editClientController.saveClient()}"/>
 

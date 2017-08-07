@@ -54,6 +54,10 @@
         <filter-name>Admin Filter</filter-name>
         <url-pattern>/pages/user/*</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>Admin Filter</filter-name>
+        <url-pattern>/pages/admin/*</url-pattern>
+    </filter-mapping>
 
     <filter>
         <filter-name>PM Filter</filter-name>

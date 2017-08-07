@@ -87,7 +87,8 @@ public class StartUpService  implements ServletContextListener {
 
     private boolean isUpdateNeeded(Calendar now, Calendar lastUpd, String updTime) {
         return lastUpd == null ||
-                (now.get(Calendar.DAY_OF_YEAR) - lastUpd.get(Calendar.DAY_OF_YEAR)) >= 1 &&
+                (now.get(Calendar.DAY_OF_YEAR) - lastUpd.get(Calendar.DAY_OF_YEAR)) > 1 ||
+                (now.get(Calendar.DAY_OF_YEAR) - lastUpd.get(Calendar.DAY_OF_YEAR)) == 1 &&
                         isUpdateTime(now, updTime);
     }
 

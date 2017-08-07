@@ -28,9 +28,11 @@ public class AdminFilter implements Filter {
             ((HttpServletResponse) response).sendRedirect(contextPath + SIGN_IN + REDIRECT);
             sc = new SessionController();
         }
-        int role = sc.getUser().getUserRole().getUserRoleId();
-        if(role != 1) {
-            ((HttpServletResponse) response).sendRedirect(contextPath + INDEX + REDIRECT);
+        if(sc.getUser().getUserRole() != null) {
+            int role = sc.getUser().getUserRole().getUserRoleId();
+            if (role != 1) {
+                ((HttpServletResponse) response).sendRedirect(contextPath + INDEX + REDIRECT);
+            }
         }
 
         chain.doFilter(request, response);

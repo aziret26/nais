@@ -105,7 +105,7 @@ public class UpdateMethods {
          *  2.1. new notification is created only if client has ran out of some specific feed,
          *      and he still needs it yet
          */
-        List<Client> clientList = new ClientFacade().findAll();
+        List<Client> clientList = new ClientFacade().findAllActiveClients();
         List<Feed> feedList = new FeedFacade().findAll();
         ChickController cc = new ChickController();
         OrderFacade of = new OrderFacade();
