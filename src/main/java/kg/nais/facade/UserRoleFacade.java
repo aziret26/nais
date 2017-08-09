@@ -80,7 +80,7 @@ public class UserRoleFacade {
         createUserRole(ur);
         ur = new UserRole("production manager");
         createUserRole(ur);
-        ur = new UserRole("service department operator");
+        ur = new UserRole("operator");
         createUserRole(ur);
     }
 
