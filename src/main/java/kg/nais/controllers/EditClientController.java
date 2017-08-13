@@ -118,9 +118,7 @@ public class EditClientController extends GeneralController{
          * updating rest of the chicks in database
          */
         for(Chick chick: chickList){
-            System.out.printf("cId: %d | imf: %b | sId: %d\n",chick.getChickId(),chick.isModFeed(),chick.getSelectedFeedId());
-            if(chick.isModFeed() && chick.getSelectedFeedId() == 0)
-                chick.setModFeed(false);
+            chick.updateDob();
             chickController.updateChickFeed(chick);
             cf.update(chick);
         }

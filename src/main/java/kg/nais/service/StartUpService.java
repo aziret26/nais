@@ -47,7 +47,6 @@ public class StartUpService  implements ServletContextListener {
         if(isUpdateNeeded(now,su.getChicksLastUpd(),su.getUpdateTime()))
             new UpdateMethods().updateChickData();
 
-
         if(isUpdateNeeded(now,su.getOrdersLastUpd(),su.getUpdateTime()))
             new UpdateMethods().updateOrdersData();
 
@@ -55,13 +54,13 @@ public class StartUpService  implements ServletContextListener {
             new UpdateMethods().updateNotificationsList();
 
         chickUpdTrigger = createCronTrigger("chicks",cronExpression);
-        JobDetail chickUpdJob = createJob("chicks");
+        JobDetail chickUpdJob = createJob(new ChickUpdateService(),"chicks");
 
         ordersUpdTrigger = createCronTrigger("orders",cronExpression);
-        JobDetail ordersUpdJob = createJob("orders");
+        JobDetail ordersUpdJob = createJob(new OrdersUpdateService(),"orders");
 
         notificationsUpdTrigger = createCronTrigger("notifications",cronExpression);
-        JobDetail notificationsUpdJob = createJob("notifications");
+        JobDetail notificationsUpdJob = createJob(new NotificationsUpdateService(),"notifications");
 
         SchedulerFactory schfa = new StdSchedulerFactory();
         Scheduler sch = schfa.getScheduler();
@@ -108,7 +107,7 @@ public class StartUpService  implements ServletContextListener {
                 .build();
     }
 
-    private JobDetail createJob(String name){
-        return JobBuilder.newJob(OrdersUpdateService.class).withIdentity(name + "UpdJob", "service").build();
+    private JobDetail createJob(Job job,String name){
+        return JobBuilder.newJob(job.getClass()).withIdentity(name + "UpdJob", "service").build();
     }
 }

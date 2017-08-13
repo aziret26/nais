@@ -27,6 +27,17 @@ public class NotificationController {
 
     private List<UserFeedNotification> userFeedNotificationList;
 
+    private List<NotificationSeen> notificationSeenList;
+
+    public NotificationController() {
+        initObject();
+    }
+
+    private void initObject(){
+        userFeedNotificationList = new UserFeedNotificationFacade().findAll();
+        notificationSeenList = new NotificationSeenFacade().findAll();
+    }
+
     public void setUserController(UserController userController) {
         this.userController = userController;
     }
@@ -42,14 +53,19 @@ public class NotificationController {
     public List<UserFeedNotification> getUserFeedNotificationList() {
         if(userFeedNotificationList == null || userFeedNotificationList.size() == 0) {
             userFeedNotificationList = new UserFeedNotificationFacade().findAll();
-            /**
-             * mark notification as seen
-             */
-            User user = new UserFacade().findById(userController.getCurrentUser().getUserId());
-            List<NotificationSeen> nsList = new NotificationSeenFacade().findByUser(user);
-            if(nsList == null || nsList.size() != userFeedNotificationList.size())
-                markAsRead(userFeedNotificationList);
         }
+        return userFeedNotificationList;
+    }
+    public List<UserFeedNotification> getUserFeedNotificationListForCurrentUser(){
+        User user = userController.getCurrentUser();
+        if(user == null){
+            return userFeedNotificationList;
+        }
+        getUserFeedNotificationList();
+        List<NotificationSeen> nsList = new NotificationSeenFacade().findByUser(user);
+        if(nsList == null || nsList.size() != userFeedNotificationList.size())
+            markAsRead(userFeedNotificationList);
+
         return userFeedNotificationList;
     }
 
@@ -79,6 +95,10 @@ public class NotificationController {
     }
 
     public void removeNotification(UserFeedNotification ufn){
+        _removeNotification(ufn);
+        initObject();
+    }
+    private void _removeNotification(UserFeedNotification ufn){
         NotificationSeenFacade nsf = new NotificationSeenFacade();
         List<NotificationSeen> nsList = nsf.findByNotification(ufn);
         if(nsList != null){
@@ -101,5 +121,42 @@ public class NotificationController {
         }
 
         ufnList.forEach(noteFacade::delete);
+    }
+
+    public boolean isNotificationSeen(UserFeedNotification ufn){
+        if(ufn == null || notificationSeenList == null || notificationSeenList.size() == 0){
+            return false;
+        }
+        for(NotificationSeen ns : notificationSeenList){
+            if(ns.getUserFeedNotification().getUserFeedNotificationId() == ufn.getUserFeedNotificationId())
+                return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * Removes notifications from UserFeedNotification table
+     * and related to it date from NotificationSeen table
+     * @param ufnList list of UserFeedNotification to be deleted
+     */
+    public void removeNotifications(List<UserFeedNotification> ufnList){
+        _removeNotifications(ufnList);
+        initObject();
+    }
+
+    private void _removeNotifications(List<UserFeedNotification> ufnList){
+        if(ufnList == null || ufnList.size() == 0)
+            return;
+
+        NotificationSeenFacade nsf = new NotificationSeenFacade();
+        UserFeedNotificationFacade ufnf = new UserFeedNotificationFacade();
+
+        for(UserFeedNotification ufn : ufnList) {
+            nsf.findByNotification(ufn).forEach(new NotificationSeenFacade()::delete);
+        }
+
+        ufnList.forEach(ufnf::delete);
+
     }
 }

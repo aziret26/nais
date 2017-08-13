@@ -2,6 +2,7 @@ package kg.nais.service;
 
 import kg.nais.controllers.ChickController;
 import kg.nais.controllers.ChickFeedConsumeController;
+import kg.nais.controllers.NotificationController;
 import kg.nais.facade.*;
 import kg.nais.models.*;
 import kg.nais.models.notification.UserFeedNotification;
@@ -28,6 +29,7 @@ public class UpdateMethods {
      * this method should be called once a day
      */
     public void updateOrdersData(){
+        System.out.println("<Updating Orders>");
         OrderFacade of = new OrderFacade();
         ChickController cc = new ChickController();
         ChickFeedConsumeController fcController = new ChickFeedConsumeController();
@@ -52,6 +54,7 @@ public class UpdateMethods {
         ServiceUpdate su = new ServiceUpdateFacade().findValid();
         su.setOrdersLastUpd(Calendar.getInstance());
         new ServiceUpdateFacade().update(su);
+        System.out.println("</Updated Orders>");
     }
 
     /**
@@ -63,12 +66,12 @@ public class UpdateMethods {
      * this method should be called once a day
      */
     public void updateChickData(){
+        System.out.println("<Updating Chicks>");
         ChickFacade cf = new ChickFacade();
         ChickController chickController = new ChickController();
         List<Chick> chickList = cf.findAll();
-
         for(Chick chick : chickList){
-            chickController.increaseChicksAgeByDay(chick);
+            chick.updateAge();
             if (chick.isModFeed() &&
                     chick.getAge() > chick.getFeed().getAgeTo()){
                 chick.setModFeed(false);
@@ -78,28 +81,26 @@ public class UpdateMethods {
         ServiceUpdate su = new ServiceUpdateFacade().findValid();
         su.setChicksLastUpd(Calendar.getInstance());
         new ServiceUpdateFacade().update(su);
+        System.out.println("</Updated Chicks>");
     }
 
     public void updateNotificationsList(){
+        System.out.println("<Updating Notifications>");
         /**
          * 1. remove old notifications if they have been seen by operator
+         *    1.1 do not remove if nobody hasn't seen it yet
          */
-        UserFeedNotificationFacade cfnf =new UserFeedNotificationFacade();
-        List<UserFeedNotification> cfnList = cfnf.findAll();
-        Calendar today = Calendar.getInstance();
+        UserFeedNotificationFacade ufnf =new UserFeedNotificationFacade();
 
-        if(today.get(Calendar.DAY_OF_WEEK) != 0) {
-            List<UserFeedNotification> toRemoveNotificationList = new ArrayList<>();
-            for(UserFeedNotification c : cfnList){
-                if(Math.abs(c.getNotificationDate().get(Calendar.DAY_OF_YEAR) - today.get(Calendar.DAY_OF_YEAR)) >= 1){
-                    toRemoveNotificationList.add(c);
-                }
+        ArrayList<UserFeedNotification> toRemoveNotificationList = new ArrayList<>();
+        NotificationController nc = new NotificationController();
+        for(UserFeedNotification n : nc.getUserFeedNotificationList()){
+            if(nc.isNotificationSeen(n)){
+                toRemoveNotificationList.add(n);
             }
-            for(UserFeedNotification ufn : toRemoveNotificationList){
-                new NotificationSeenFacade().findByNotification(ufn).forEach(new NotificationSeenFacade()::delete);
-            }
-            toRemoveNotificationList.forEach(cfnf::delete);
         }
+        nc.removeNotifications(toRemoveNotificationList);
+
         /**
          * 2. Create new notifications
          *  2.1. new notification is created only if client has ran out of some specific feed,
@@ -126,16 +127,19 @@ public class UpdateMethods {
 
                 //do not notify if in database exists this notification
                 //to avoid duplicates
-//                if(cfnf.findByClientAndFeed(client,feed) != null ) continue;
+                if(ufnf.findByClientAndFeed(client,feed) != null ) continue;
 
                 UserFeedNotification cfn =
                         new UserFeedNotification(client,feed,Calendar.getInstance(),ntInfo);
-                cfnf.create(cfn);
+                ufnf.create(cfn);
             }
         }
 
         ServiceUpdate su = new ServiceUpdateFacade().findValid();
         su.setNotificationsLastUpd(Calendar.getInstance());
         new ServiceUpdateFacade().update(su);
+        System.out.println("</Updated Notifications>");
     }
+
+
 }

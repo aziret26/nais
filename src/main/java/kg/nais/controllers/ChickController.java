@@ -117,19 +117,24 @@ public class ChickController extends GeneralController{
     }
 
     public List<Chick> getChicksForFeedBelow(Feed feed){
-        return new ChickFacade().findForFeedBelow(feed);
+        return new ChickFacade().findChicksForFeedBelow(feed);
+    }
+
+    public List<Chick> getActiveChicksForFeedBelow(Feed feed){
+        return new ChickFacade().findActiveChicksForFeedBelow(feed);
     }
 
     public List<Chick> getChicksByClientForFeedBelow(Client client,Feed feed){
         return new ChickFacade().findChicksByClientForFeedBelow(client,feed);
     }
 
-
     public List<Chick> getChicksForFeed(List<Chick> chicks,Feed feed){
         List<Chick> resultList = new ArrayList<Chick>();
         for (Chick c : chicks){
-            if(c.getFeed().getFeedId() == feed.getFeedId())
+            if(c.getFeed().getFeedId() == feed.getFeedId()) {
+                System.out.printf("fId: %d \t cid: %d \t cAge: %d\n",feed.getFeedId(),c.getChickId(),c.getAge());
                 resultList.add(c);
+            }
         }
         return  resultList;
     }
@@ -146,6 +151,9 @@ public class ChickController extends GeneralController{
     }
 
     public void updateChickFeed(Chick chick){
+        if(chick.isModFeed() && chick.getSelectedFeedId() == 0)
+            chick.setModFeed(false);
+
         for (Feed feed : feedList){
             if(chick.isModFeed() && chick.getFeed().getFeedId() == feed.getFeedId()
                     && chick.getAge() > feed.getAgeTo())

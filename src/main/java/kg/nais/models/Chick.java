@@ -21,10 +21,14 @@ import java.util.*;
                 query = "SELECT c FROM Chick c WHERE c.client = :client AND c.feed = :feed"),
         @NamedQuery(name="Chick.findByClient",
                 query = "SELECT c FROM Chick c where c.client = :client"),
-        @NamedQuery(name="Chick.findForFeedBelow",
-            query = "SELECT c FROM Chick c where c.age <= :age"),
+        @NamedQuery(name="Chick.findChicksAgeBefore",
+                query = "SELECT c FROM Chick c where c.age <= :age"),
+        @NamedQuery(name="Chick.findActiveChicksAgeBefore",
+                query = "SELECT c FROM Chick c where c.age <= :age AND c.client.clientStatus.id=1"),
         @NamedQuery(name="Chick.findByClientForFeedBelow",
-                query = "SELECT c FROM Chick c where c.client = :client AND c.age <= :ageTo")
+                query = "SELECT c FROM Chick c where c.client = :client AND c.age <= :ageTo"),
+        @NamedQuery(name="Chick.findByActiveClientForFeedBelow",
+                query = "SELECT c FROM Chick c where c.client = :client AND c.age <= :ageTo AND c.client.clientStatus.id=1")
 })
 public class Chick implements Serializable{
     @Id
@@ -70,8 +74,6 @@ public class Chick implements Serializable{
     }
 
     public void setAge(int age) {
-        if(dob == null)
-            dob = calculateDob(age);
 
         if(age == this.age)
             return;
@@ -105,7 +107,6 @@ public class Chick implements Serializable{
             return;
         }
         this.dob = dob;
-        setAge(calculateAge(Calendar.getInstance()));
     }
 
     public boolean isEditable() {
@@ -145,26 +146,69 @@ public class Chick implements Serializable{
 
     private Calendar calculateDob(int age){
         Calendar now = Calendar.getInstance();
-        now.add(Calendar.YEAR,-(age/52));
-        now.add(Calendar.WEEK_OF_YEAR,-(age%52));
+        now.add(Calendar.WEEK_OF_YEAR,- age );
         return now;
     }
 
     public int calculateAge(Calendar calendar){
-        int year = Math.max(dob.get(Calendar.YEAR),calendar.get(Calendar.YEAR)) -
-                Math.min(dob.get(Calendar.YEAR),calendar.get(Calendar.YEAR));
-        int week = Math.max(dob.get(Calendar.WEEK_OF_YEAR),calendar.get(Calendar.WEEK_OF_YEAR)) -
-                Math.min(dob.get(Calendar.WEEK_OF_YEAR),calendar.get(Calendar.WEEK_OF_YEAR));
-        return 52*year+week;
+        if(dob.after(calendar)){
+            return -1;
+        }
+        int numOfWeeks = 0;
+        Calendar date = (Calendar) dob.clone();
+        for(int y = date.get(Calendar.YEAR); y <= calendar.get(Calendar.YEAR);y++){
+            if(date.get(Calendar.YEAR) == calendar.get(Calendar.YEAR)){
+                numOfWeeks += calendar.get(Calendar.WEEK_OF_YEAR);
+                return numOfWeeks;
+            }
+            numOfWeeks += date.getMaximum(Calendar.WEEK_OF_YEAR) - date.get(Calendar.WEEK_OF_YEAR);
+            date.set(date.get(Calendar.YEAR)+1,Calendar.JANUARY,1);
+        }
+        return numOfWeeks;
     }
 
     public void updateAge(){
         setAge(calculateAge(Calendar.getInstance()));
     }
 
+    public void updateDob(){
+        setDob(calculateDob(age));
+    }
+
     public void increaseAgeByDay(){
         Calendar c = (Calendar)dob.clone();
         c.add(Calendar.DAY_OF_YEAR,-1);
         setDob(c);
+        updateAge();
+    }
+
+    public void increaseAgeByDay(int days){
+        Calendar c = (Calendar)dob.clone();
+        c.add(Calendar.DAY_OF_YEAR, -days);
+        setDob(c);
+        updateAge();
+    }
+
+    public void decreaseAgeByDay(){
+        Calendar c = (Calendar)dob.clone();
+        c.add(Calendar.DAY_OF_YEAR,1);
+        setDob(c);
+        updateAge();
+    }
+
+    public void decreaseAgeByDay(int days){
+        Calendar c = (Calendar)dob.clone();
+        c.add(Calendar.DAY_OF_YEAR, days);
+        setDob(c);
+        updateAge();
+    }
+
+    @Override
+    public String toString() {
+        return "Chick{" +
+                "chickId=" + chickId +
+                ", age=" + age +
+                ", feed=" + feed +
+                '}';
     }
 }

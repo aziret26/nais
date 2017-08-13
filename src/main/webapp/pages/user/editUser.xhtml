@@ -31,8 +31,7 @@
                         <h:panelGroup>
                             <h:inputText id="fnameInput" value="#{userController.user.fname}" required="true">
                                 <f:ajax event="blur">
-                                    <f:validateRegex pattern = "[a-zA-Zа-яА-Я]{2,50}$" />
-                                    <f:validateLength minimum="2"/>
+                                    <f:validateLength minimum="1"/>
                                 </f:ajax>
                             </h:inputText>
                             <h:message for="fnameInput" style="color:red"/>

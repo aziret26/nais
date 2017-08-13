@@ -161,7 +161,9 @@ public class DemandController {
 
         List<Feed> feedList = new FeedFacade().findAll();
         for(Feed feed : feedList){
-            List<Chick> chickList = new ChickController().getChicksForFeedBelow(feed);
+            System.out.println("calculating for fid: "+feed.getFeedId());
+            List<Chick> chickList = new ChickController().getActiveChicksForFeedBelow(feed);
+            printChicks(chickList);
             calculateDemand(chickList,feed,tillDate);
         }
     }
@@ -171,27 +173,37 @@ public class DemandController {
         ChickFeedConsumeController consumeController = new ChickFeedConsumeController();
         ChickController chickController = new ChickController();
         Calendar now = Calendar.getInstance();
+        OrdersController ordersController = new OrdersController();
 
-        while (true){
-            List<Chick> tempList = chickController.getChicksForFeed(chickList,feed);
-            for(Chick c : tempList) {
-                Orders order = ordersController.getOrderByClientAndFeed(c.getClient(),c.getFeed());
-                if(order != null && order.getDueDate() != null && order.getDueDate().compareTo(now) > 0){
+
+        while(true){
+            System.out.println("now: "+BasicFunctions.calendarToString(now));
+            List<Chick> chickListForCurrentFeed = chickController.getChicksForFeed(chickList,feed);
+
+            for(Chick chick : chickListForCurrentFeed) {
+                if(ordersController.hasResourcesByDate(chick.getClient(),feed,now))
                     continue;
-                }
-                amount += consumeController.getConsumeAmount(c);
+                amount += consumeController.getConsumeAmount(chick);
             }
+            demandsMap.get(feed.getFeedId()).put(BasicFunctions.calendarToString(now),(int) amount);
 
-            demandsMap.get(feed.getFeedId()).put(BasicFunctions.calendarToString(now), (int)amount);
-            if(BasicFunctions.isSameDate(date,now))
+            if(BasicFunctions.isSameDate(now,date))
                 break;
-
             now.add(Calendar.DAY_OF_YEAR,1);
             chickList.forEach(chickController::increaseChicksAgeByDay);
         }
+        System.out.println("--------\n");
     }
 
     public int getDemand(int feedId,String date){
         return demandsMap.get(feedId).get(date);
+    }
+
+    private void printChicks(List<Chick> chicks){
+        System.out.println("print chick list");
+        for(Chick c: chicks){
+            System.out.printf("cid: %d \t cAge: %d \t cfid: %d \t cdob: %s",
+                    c.getChickId(),c.getAge(),c.getFeed().getFeedId(),BasicFunctions.calendarToString(c.getDob()));
+        }
     }
 }

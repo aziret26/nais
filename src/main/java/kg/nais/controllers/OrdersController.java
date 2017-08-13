@@ -9,6 +9,7 @@ import kg.nais.models.Client;
 import kg.nais.models.Feed;
 import kg.nais.models.Orders;
 import kg.nais.models.notification.UserFeedNotification;
+import kg.nais.tools.BasicFunctions;
 import kg.nais.tools.Tools;
 
 import javax.faces.bean.ManagedBean;
@@ -182,6 +183,20 @@ public class OrdersController extends GeneralController{
                 return order;
         }
         return null;
+    }
+
+    public boolean hasResourcesByDate(Client client,Feed feed,Calendar date){
+        if(orderList == null || orderList.size() == 0){
+            return false;
+        }
+        for(Orders o : orderList){
+            if(o.getClient().getClientId() == client.getClientId() &&
+                    o.getFeed().getFeedId() == feed.getFeedId() &&
+                    o.getDueDate().compareTo(date) < 0){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

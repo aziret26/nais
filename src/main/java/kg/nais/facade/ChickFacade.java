@@ -113,11 +113,11 @@ public class ChickFacade {
         return chickList;
     }
 
-    public List<Chick> findForFeedBelow(Feed feed){
+    public List<Chick> findChicksForFeedBelow(Feed feed){
         List<Chick> objectList;
         try {
             objectDao.beginTransaction();
-            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findForFeedBelow",Chick.class)
+            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findChicksAgeBefore",Chick.class)
                     .setParameter("age",feed.getAgeTo()).getResultList();
             objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
@@ -126,6 +126,21 @@ public class ChickFacade {
         }
         return objectList;
     }
+
+    public List<Chick> findActiveChicksForFeedBelow(Feed feed){
+        List<Chick> objectList;
+        try {
+            objectDao.beginTransaction();
+            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findActiveChicksAgeBefore",Chick.class)
+                    .setParameter("age",feed.getAgeTo()).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            objectList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return objectList;
+    }
+
     public List<Chick> findChicksByClientForFeedBelow(Client client,Feed feed){
         List<Chick> objectList;
         try {
@@ -139,4 +154,20 @@ public class ChickFacade {
         }
         return objectList;
     }
+
+    public List<Chick> findChicksByActiveClientForFeedBelow(Client client,Feed feed){
+        List<Chick> objectList;
+        try {
+            objectDao.beginTransaction();
+            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findByActiveClientForFeedBelow",Chick.class)
+                    .setParameter("ageTo",feed.getAgeTo()).setParameter("client",client).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            objectList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return objectList;
+    }
+
+
 }

@@ -114,6 +114,7 @@ public class ClientController extends GeneralController {
          * storing chicks in database
          */
         for(Chick chick: chickList){
+            chick.updateDob();
             chick.setClient(client);
             chickController.updateChickFeed(chick);
             cf.create(chick);
