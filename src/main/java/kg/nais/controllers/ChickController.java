@@ -132,7 +132,6 @@ public class ChickController extends GeneralController{
         List<Chick> resultList = new ArrayList<Chick>();
         for (Chick c : chicks){
             if(c.getFeed().getFeedId() == feed.getFeedId()) {
-                System.out.printf("fId: %d \t cid: %d \t cAge: %d\n",feed.getFeedId(),c.getChickId(),c.getAge());
                 resultList.add(c);
             }
         }
@@ -168,5 +167,9 @@ public class ChickController extends GeneralController{
                 return;
             }
         }
+    }
+    public void decreaseAgeByDays(Chick chick,int day){
+        chick.decreaseAgeByDays(day);
+        updateChickFeed(chick);
     }
 }

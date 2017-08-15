@@ -34,6 +34,26 @@
                     <h:outputText value="Количество в кг:"/>
                     <h:inputText value="#{ordersController.order.amount}"/>
 
+                    <h:outputText value="Дата:"/>
+                    <h:panelGroup>
+                        <h:selectOneMenu value="#{ordersController.customCalendar.year}" onchange="submit();">
+                            <f:selectItem noSelectionOption="true" itemLabel="Год"/>
+                            <f:selectItems value="#{ordersController.customCalendar.yearList}"/>
+                        </h:selectOneMenu>
+
+                        <h:selectOneMenu value="#{ordersController.customCalendar.month}" onchange="submit();"
+                                         rendered="#{ordersController.customCalendar.year != 0}">
+                            <f:selectItem noSelectionOption="true" itemLabel="Месяц"/>
+                            <f:selectItems value="#{ordersController.customCalendar.monthList}"/>
+                        </h:selectOneMenu>
+
+                        <h:selectOneMenu value="#{ordersController.customCalendar.day}"
+                                         rendered="#{ordersController.customCalendar.month != 0 and
+                                 ordersController.customCalendar.year != 0}">
+                            <f:selectItem noSelectionOption="true" itemLabel="Дата"/>
+                            <f:selectItems value="#{ordersController.customCalendar.dayList}"/>
+                        </h:selectOneMenu>
+                    </h:panelGroup>
                 </h:panelGrid>
 
                 <h:commandButton value="Добавить" action="#{ordersController.createOrder}"/>

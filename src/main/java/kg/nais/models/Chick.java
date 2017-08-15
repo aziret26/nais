@@ -154,6 +154,11 @@ public class Chick implements Serializable{
         if(dob.after(calendar)){
             return -1;
         }
+
+        if(dob.get(Calendar.YEAR) == calendar.get(Calendar.YEAR)){
+            return calendar.get(Calendar.WEEK_OF_YEAR) - dob.get(Calendar.WEEK_OF_YEAR);
+        }
+
         int numOfWeeks = 0;
         Calendar date = (Calendar) dob.clone();
         for(int y = date.get(Calendar.YEAR); y <= calendar.get(Calendar.YEAR);y++){
@@ -176,13 +181,10 @@ public class Chick implements Serializable{
     }
 
     public void increaseAgeByDay(){
-        Calendar c = (Calendar)dob.clone();
-        c.add(Calendar.DAY_OF_YEAR,-1);
-        setDob(c);
-        updateAge();
+        increaseAgeByDays(1);
     }
 
-    public void increaseAgeByDay(int days){
+    public void increaseAgeByDays(int days){
         Calendar c = (Calendar)dob.clone();
         c.add(Calendar.DAY_OF_YEAR, -days);
         setDob(c);
@@ -190,13 +192,10 @@ public class Chick implements Serializable{
     }
 
     public void decreaseAgeByDay(){
-        Calendar c = (Calendar)dob.clone();
-        c.add(Calendar.DAY_OF_YEAR,1);
-        setDob(c);
-        updateAge();
+        decreaseAgeByDays(1);
     }
 
-    public void decreaseAgeByDay(int days){
+    public void decreaseAgeByDays(int days){
         Calendar c = (Calendar)dob.clone();
         c.add(Calendar.DAY_OF_YEAR, days);
         setDob(c);

@@ -1,12 +1,11 @@
 package kg.nais.controllers;
 
-import kg.nais.facade.ChickFacade;
 import kg.nais.facade.FeedFacade;
-import kg.nais.facade.OrderFacade;
 import kg.nais.models.Chick;
 import kg.nais.models.Feed;
-import kg.nais.models.Orders;
 import kg.nais.tools.BasicFunctions;
+import kg.nais.tools.customCalendar.CustomCalendar;
+import kg.nais.tools.customCalendar.CustomCalendarFuture;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -23,11 +22,7 @@ import java.util.List;
 @ViewScoped
 public class DemandController {
     private Calendar today = Calendar.getInstance(),tillDate = Calendar.getInstance();
-    private int tillDay,tillMonth,tillYear;
-
-    private List<Integer> dayList = new ArrayList<>(),
-                    monthList = new ArrayList<>(),
-                    yearList = new ArrayList<>();
+    private CustomCalendar customCalendar;
 
     private List<String> dates = new ArrayList<>();
 
@@ -38,14 +33,7 @@ public class DemandController {
     private HashMap<Integer, HashMap<String, Integer>> demandsMap = new HashMap<>();
     @PostConstruct
     public void init(){
-        yearList = new ArrayList<>();
-        for (int i = today.get(Calendar.YEAR);i < 2030;i++){
-            getYearList().add(i);
-        }
-        setTillYear(today.get(Calendar.YEAR));
-        setTillMonth(today.get(Calendar.MONTH)+1);
-        setTillDay(today.get(Calendar.DAY_OF_MONTH));
-
+        customCalendar = new CustomCalendarFuture();
         List<Feed> feed = new FeedFacade().findAll();
         for(Feed f : feed){
             demandsMap.put(f.getFeedId(),new HashMap<>());
@@ -56,68 +44,12 @@ public class DemandController {
         init();
     }
 
-    public int getTillDay() {
-        return tillDay;
+    public CustomCalendar getCustomCalendar() {
+        return customCalendar;
     }
 
-    public void setTillDay(int tillDay) {
-        this.tillDay = tillDay;
-    }
-
-    public int getTillMonth() {
-        return tillMonth;
-    }
-
-    public void setTillMonth(int tillMonth) {
-        if(dayList.size() == 0 || tillMonth != this.tillMonth) {
-            this.tillMonth = tillMonth;
-            int from = BasicFunctions.monthDaysBegin(tillYear,tillMonth);
-            int to = BasicFunctions.monthDaysEnd(tillYear, tillMonth);
-            dayList = new ArrayList<>();
-            for (int i = from; i <= to; i++) {
-                dayList.add(i);
-            }
-        }
-    }
-
-    public int getTillYear() {
-        return tillYear;
-    }
-
-    public void setTillYear(int tillYear) {
-        if(this.tillYear != tillYear || monthList.size() == 0){
-            int from = BasicFunctions.monthBegin(tillYear);
-            int to = 12;
-            monthList = new ArrayList<>();
-            for (int i = from; i <= to; i++) {
-                monthList.add(i);
-            }
-            this.tillYear = tillYear;
-        }
-    }
-
-    public List<Integer> getDayList() {
-        return dayList;
-    }
-
-    public void setDayList(List<Integer> dayList) {
-        this.dayList = dayList;
-    }
-
-    public List<Integer> getMonthList() {
-        return monthList;
-    }
-
-    public void setMonthList(List<Integer> monthList) {
-        this.monthList = monthList;
-    }
-
-    public List<Integer> getYearList() {
-        return yearList;
-    }
-
-    public void setYearList(List<Integer> yearList) {
-        this.yearList = yearList;
+    public void setCustomCalendar(CustomCalendar customCalendar) {
+        this.customCalendar = customCalendar;
     }
 
     public Calendar getTillDate() {
@@ -145,11 +77,13 @@ public class DemandController {
     }
 
     public void processDemand(){
-        if(tillYear == 0 || tillMonth == 0 || tillDay == 0)
+        if(customCalendar.getYear() == 0 ||
+                customCalendar.getMonth() == 0 ||
+                customCalendar.getDay() == 0)
             return;
 
         dates = new ArrayList<>();
-        tillDate = BasicFunctions.createCalendar(tillYear,tillMonth,tillDay);
+        tillDate = customCalendar.createCalendar();
         Calendar now = Calendar.getInstance();
 
         while (true){
@@ -161,9 +95,9 @@ public class DemandController {
 
         List<Feed> feedList = new FeedFacade().findAll();
         for(Feed feed : feedList){
-            System.out.println("calculating for fid: "+feed.getFeedId());
             List<Chick> chickList = new ChickController().getActiveChicksForFeedBelow(feed);
-            printChicks(chickList);
+            if(chickList == null || chickList.size() == 0)
+                continue;
             calculateDemand(chickList,feed,tillDate);
         }
     }
@@ -177,7 +111,6 @@ public class DemandController {
 
 
         while(true){
-            System.out.println("now: "+BasicFunctions.calendarToString(now));
             List<Chick> chickListForCurrentFeed = chickController.getChicksForFeed(chickList,feed);
 
             for(Chick chick : chickListForCurrentFeed) {
@@ -192,18 +125,13 @@ public class DemandController {
             now.add(Calendar.DAY_OF_YEAR,1);
             chickList.forEach(chickController::increaseChicksAgeByDay);
         }
-        System.out.println("--------\n");
     }
 
     public int getDemand(int feedId,String date){
+        if(demandsMap == null ||
+                demandsMap.get(feedId) == null ||
+                demandsMap.get(feedId).get(date) == null)
+            return 0;
         return demandsMap.get(feedId).get(date);
-    }
-
-    private void printChicks(List<Chick> chicks){
-        System.out.println("print chick list");
-        for(Chick c: chicks){
-            System.out.printf("cid: %d \t cAge: %d \t cfid: %d \t cdob: %s",
-                    c.getChickId(),c.getAge(),c.getFeed().getFeedId(),BasicFunctions.calendarToString(c.getDob()));
-        }
     }
 }

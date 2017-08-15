@@ -9,7 +9,7 @@ import kg.nais.models.Client;
 import kg.nais.models.Feed;
 import kg.nais.models.Orders;
 import kg.nais.models.notification.UserFeedNotification;
-import kg.nais.tools.BasicFunctions;
+import kg.nais.tools.customCalendar.CustomCalendar;
 import kg.nais.tools.Tools;
 
 import javax.faces.bean.ManagedBean;
@@ -35,8 +35,18 @@ public class OrdersController extends GeneralController{
 
     private List<Orders> orderList = new ArrayList<Orders>();
 
+    private CustomCalendar customCalendar = new CustomCalendar();
+
     public OrdersController() {
         orderList = new OrderFacade().findAll();
+    }
+
+    public CustomCalendar getCustomCalendar() {
+        return customCalendar;
+    }
+
+    public void setCustomCalendar(CustomCalendar customCalendar) {
+        this.customCalendar = customCalendar;
     }
 
     public Orders getOrder() {
@@ -106,6 +116,9 @@ public class OrdersController extends GeneralController{
         }
         order.setFeed(new FeedFacade().findById(selectedFeedId));
         order.setClient(client);
+        if(customCalendar.past()){
+            calculateConsumptionTill(order,customCalendar);
+        }
 
         order.setDueDate(calcOrderDueDate(order));
         Orders tempOrder = new OrderFacade().findByClientFeed(order.getClient(),order.getFeed());
@@ -124,7 +137,27 @@ public class OrdersController extends GeneralController{
         if(ufn != null)
             new NotificationController().removeNotification(ufn);
 
-        return VIEW_ORDERS;
+        return VIEW_ORDERS + REDIRECT;
+    }
+
+    private void calculateConsumptionTill(Orders order,CustomCalendar customCalendar){
+        CustomCalendar now = new CustomCalendar();
+        int days = customCalendar.differenceInDays(now);
+        List<Chick> chickList = new ChickController().findChickListByClient(order.getClient());
+        ChickController cc = new ChickController();
+        ChickFeedConsumeController consumeController = new ChickFeedConsumeController();
+        for(Chick c: chickList){
+            cc.decreaseAgeByDays(c,days);
+        }
+        double consumption = 0;
+        for(int i = 0; i < days; i++){
+            List<Chick> list = cc.getChicksForFeed(chickList,order.getFeed());
+            for(Chick chick : list) {
+                consumption += consumeController.getConsumeAmount(chick);
+            }
+            chickList.forEach(cc::increaseChicksAgeByDay);
+        }
+        order.setAmount(order.getAmount() - consumption);
     }
 
     /**
@@ -147,7 +180,7 @@ public class OrdersController extends GeneralController{
             for(Chick c : list){
                 double consume = consumeController.getConsumeForAge(c.getAge());
                 consume *= 0.001;
-                amount = amount - consume*c.getAmount();
+                amount = amount - consume * c.getAmount();
                 if(amount < 0.5){
                     return date;
                 }

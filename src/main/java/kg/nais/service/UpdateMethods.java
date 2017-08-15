@@ -72,6 +72,7 @@ public class UpdateMethods {
         List<Chick> chickList = cf.findAll();
         for(Chick chick : chickList){
             chick.updateAge();
+            chickController.updateChickFeed(chick);
             if (chick.isModFeed() &&
                     chick.getAge() > chick.getFeed().getAgeTo()){
                 chick.setModFeed(false);

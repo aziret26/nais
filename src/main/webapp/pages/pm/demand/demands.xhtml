@@ -14,21 +14,22 @@
         <ui:define name="content">
 
             <h:form styleClass="col-md-8 ">
-                <h:selectOneMenu value="#{demandController.tillYear}" onchange="submit();">
-                    <f:selectItem noSelectionOption="true" itemLabel="Select year"/>
-                    <f:selectItems value="#{demandController.yearList}"/>
+                <h:selectOneMenu value="#{demandController.customCalendar.year}" onchange="submit();">
+                    <f:selectItem noSelectionOption="true" itemLabel="Год"/>
+                    <f:selectItems value="#{demandController.customCalendar.yearList}"/>
                 </h:selectOneMenu>
 
-                <h:selectOneMenu value="#{demandController.tillMonth}" onchange="submit();"
-                                 rendered="#{demandController.tillYear != 0}">
-                    <f:selectItem noSelectionOption="true" itemLabel="Select month"/>
-                    <f:selectItems value="#{demandController.monthList}"/>
+                <h:selectOneMenu value="#{demandController.customCalendar.month}" onchange="submit();"
+                                 rendered="#{demandController.customCalendar.year != 0}">
+                    <f:selectItem noSelectionOption="true" itemLabel="Месяц"/>
+                    <f:selectItems value="#{demandController.customCalendar.monthList}"/>
                 </h:selectOneMenu>
 
-                <h:selectOneMenu value="#{demandController.tillDay}" onchange="submit();"
-                                 rendered="#{demandController.tillMonth != 0 and demandController.tillYear != 0}">
-                    <f:selectItem noSelectionOption="true" itemLabel="Select day"/>
-                    <f:selectItems value="#{demandController.dayList}"/>
+                <h:selectOneMenu value="#{demandController.customCalendar.day}" onchange="submit();"
+                                 rendered="#{demandController.customCalendar.month != 0 and
+                                 demandController.customCalendar.year != 0}">
+                    <f:selectItem noSelectionOption="true" itemLabel="Дата"/>
+                    <f:selectItems value="#{demandController.customCalendar.dayList}"/>
                 </h:selectOneMenu>
                 <h:commandButton value="Расчёт" action="#{demandController.processDemand()}"/>
             </h:form>
