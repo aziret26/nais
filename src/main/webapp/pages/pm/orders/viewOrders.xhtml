@@ -19,17 +19,19 @@
     </ui:define>
     <ui:define name="content">
         <h2>Список Заказов</h2>
-        <p:dataTable value="#{clientController.findAllActiveClients()}" var="client" styleClass="dataTable" headerClass="dataTableHeader" footerClass="dataTableFooter" columnClasses="clientName" rowClasses="oddRow, evenRow">
-            <p:column>
-                <f:facet name="header">Клиенты</f:facet>
-                <h:outputText value="#{client.name}" styleClass="row"/>
-            </p:column>
+        <h:form>
+            <p:dataTable value="#{clientController.findAllActiveClients()}" var="client" styleClass="dataTable" headerClass="dataTableHeader" footerClass="dataTableFooter" columnClasses="clientName" rowClasses="oddRow, evenRow">
+                <p:column>
+                    <f:facet name="header">Клиенты</f:facet>
+                    <h:commandLink value="#{client.name}" action="#{ordersController.addOrder(client.clientId)}" styleClass="row"/>
+                </p:column>
 
-            <p:columns value="#{feedController.feedList}" var="feed">
-                <f:facet name="header" >#{feed.name}</f:facet>
-                <h:outputText value="#{ordersController.getOrderListByClientsFeed(client, feed).amount}"/>
-            </p:columns>
-        </p:dataTable>
+                <p:columns value="#{feedController.feedList}" var="feed">
+                    <f:facet name="header" >#{feed.name}</f:facet>
+                    <h:outputText value="#{ordersController.getOrderListByClientsFeed(client, feed).amount} кг."/>
+                </p:columns>
+            </p:dataTable>
+        </h:form>
     </ui:define>
 </ui:composition>
 </html>

@@ -99,6 +99,20 @@ public class ChickFacade {
         return objectList;
     }
 
+    public List<Chick> findByActiveClientAndFeed(Client client, Feed feed){
+        List<Chick> objectList;
+        try {
+            objectDao.beginTransaction();
+            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findByActiveClientAndFeed",Chick.class)
+                    .setParameter("client",client).setParameter("feed",feed).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            objectList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return objectList;
+    }
+
     public List<Chick> findByClient(Client client){
         List<Chick> chickList;
         try {

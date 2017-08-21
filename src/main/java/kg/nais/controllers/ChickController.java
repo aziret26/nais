@@ -1,20 +1,15 @@
 package kg.nais.controllers;
 
 import kg.nais.facade.ChickFacade;
-import kg.nais.facade.ClientFacade;
 import kg.nais.facade.FeedFacade;
 import kg.nais.models.Chick;
 import kg.nais.models.Client;
 import kg.nais.models.Feed;
-import kg.nais.tools.Tools;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import java.util.ArrayList;
 import java.util.List;
-
-import static kg.nais.tools.ViewPath.REDIRECT;
-import static kg.nais.tools.ViewPath.SHOW_CLIENTS;
 
 /**
  * Created by B-207 on 5/26/2017.
@@ -60,6 +55,11 @@ public class ChickController extends GeneralController{
         return chickList;
     }
 
+    public List<Chick> findChickListByActiveClientAndFeed(Client client,Feed feed){
+        List<Chick> chickList;
+        chickList = new ChickFacade().findByActiveClientAndFeed(client,feed);
+        return chickList;
+    }
     /**
      * calculate amount of chick of client consuming specific chick
      * @param feedName

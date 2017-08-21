@@ -4,6 +4,7 @@ import kg.nais.facade.*;
 import kg.nais.models.*;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,6 +28,9 @@ public class EditClientController extends GeneralController{
     private boolean frozen = false;
 
     private ChickController chickController = new ChickController();
+
+    @ManagedProperty(value = "#{sessionController}")
+    private SessionController sessionController;
 
     private List<Feed> feedList = new FeedFacade().findAll();
 
@@ -63,23 +67,27 @@ public class EditClientController extends GeneralController{
         this.frozen = frozen;
     }
 
+    public void setSessionController(SessionController sessionController) {
+        this.sessionController = sessionController;
+    }
+
     public String addChick(){
         Chick chick = new Chick();
         chick.setEditable(true);
         chick.setClient(client);
         chickList.add(chick);
-        return EDIT_CLIENT+REDIRECT + "clientId = " + clientId;
+        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId = " + clientId;
     }
 
     public String editClient(int clientId) {
         //chickList = new ChickFacade().findByClient(new ClientFacade().findById(client.getClientId()));
-        return EDIT_CLIENT+REDIRECT + "clientId = " + clientId;
+        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId = " + clientId;
     }
 
     public String removeChick(Chick chick) {
         toDeleteList.add(chick);
         chickList.remove(chick);
-        return EDIT_CLIENT+REDIRECT + "clientId = " + clientId;
+        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId = " + clientId;
     }
 
     public String saveClient(){
@@ -91,7 +99,12 @@ public class EditClientController extends GeneralController{
         toDeleteList = new ArrayList<Chick>();
         chickList = new ArrayList<Chick>(Arrays.asList(new Chick()));
         client = new Client();
-        return SHOW_CLIENTS + REDIRECT;
+        UserController userController = new UserController();
+        userController.setSessionController(sessionController);
+
+        if(userController.getCurrentUser().getUserRole().getUserRoleId() == 1)
+            return ADMIN_SHOW_CLIENTS + REDIRECT;
+        return OPERATOR_SHOW_CLIENTS + REDIRECT;
     }
 
     private void saveChick() {
@@ -133,7 +146,7 @@ public class EditClientController extends GeneralController{
             else
                 chick.setEditable(false);
         }
-        return EDIT_CLIENT+REDIRECT + "clientId = " + clientId;
+        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId = " + clientId;
     }
 
     public String deleteClient(Client client){
@@ -141,7 +154,7 @@ public class EditClientController extends GeneralController{
         new ChickController().deleteChicks(client);
         new OrdersController().deleteOrders(client);
         new ClientFacade().delete(client);
-        return SHOW_CLIENTS+REDIRECT;
+        return OPERATOR_SHOW_CLIENTS +REDIRECT;
     }
 
     public void freeze(Client client) {

@@ -1,11 +1,16 @@
 package kg.nais.controllers;
 
+import kg.nais.facade.ClientFacade;
 import kg.nais.facade.FeedFacade;
 import kg.nais.models.Chick;
+import kg.nais.models.Client;
 import kg.nais.models.Feed;
 import kg.nais.tools.BasicFunctions;
+import kg.nais.tools.Tools;
 import kg.nais.tools.customCalendar.CustomCalendar;
 import kg.nais.tools.customCalendar.CustomCalendarFuture;
+
+import static kg.nais.tools.ViewPath.*;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -20,8 +25,10 @@ import java.util.List;
  */
 @ManagedBean
 @ViewScoped
-public class DemandController {
+public class DemandController extends GeneralController{
+
     private Calendar today = Calendar.getInstance(),tillDate = Calendar.getInstance();
+
     private CustomCalendar customCalendar;
 
     private List<String> dates = new ArrayList<>();
@@ -76,11 +83,21 @@ public class DemandController {
         this.demandsMap = demandsMap;
     }
 
-    public void processDemand(){
+    @Override
+    public void setClientId(int clientId) {
+        super.setClientId(clientId);
+    }
+
+    @Override
+    public int getClientId() {
+        return super.getClientId();
+    }
+
+    private boolean isProcessable(){
         if(customCalendar.getYear() == 0 ||
                 customCalendar.getMonth() == 0 ||
                 customCalendar.getDay() == 0)
-            return;
+            return false;
 
         dates = new ArrayList<>();
         tillDate = customCalendar.createCalendar();
@@ -92,10 +109,50 @@ public class DemandController {
                 break;
             now.add(Calendar.DAY_OF_YEAR,1);
         }
+        return true;
+    }
 
+    public void processTotalDemand(){
+
+        if(!isProcessable())
+            return;
         List<Feed> feedList = new FeedFacade().findAll();
         for(Feed feed : feedList){
             List<Chick> chickList = new ChickController().getActiveChicksForFeedBelow(feed);
+            if(chickList == null || chickList.size() == 0)
+                continue;
+            calculateDemand(chickList,feed,tillDate);
+        }
+    }
+
+    public void processDemandForClient(){
+         processDemandForClient(clientId);
+    }
+
+    public void processDemandForClient(int clientId){
+        if(clientId == 0){
+            System.out.println("clientId is 0");
+            Tools.faceMessageWarn("Неправильный ID клиента","");
+            return;
+        }
+
+        Client client = new ClientFacade().findById(clientId);
+
+        processDemandForClient(client);
+    }
+
+    public void processDemandForClient(Client client){
+        if(client == null || client.getClientId() == 0){
+            System.out.println("client is NULL or client.id is 0");
+            Tools.faceMessageWarn("Неправильный ID клиента","");
+            return;
+        }
+
+        if(!isProcessable())
+            return;
+        List<Feed> feedList = new FeedFacade().findAll();
+        for(Feed feed : feedList){
+            List<Chick> chickList = new ChickController().findChickListByActiveClientAndFeed(client,feed);
             if(chickList == null || chickList.size() == 0)
                 continue;
             calculateDemand(chickList,feed,tillDate);
@@ -119,7 +176,6 @@ public class DemandController {
                 amount += consumeController.getConsumeAmount(chick);
             }
             demandsMap.get(feed.getFeedId()).put(BasicFunctions.calendarToString(now),(int) amount);
-
             if(BasicFunctions.isSameDate(now,date))
                 break;
             now.add(Calendar.DAY_OF_YEAR,1);
@@ -133,5 +189,9 @@ public class DemandController {
                 demandsMap.get(feedId).get(date) == null)
             return 0;
         return demandsMap.get(feedId).get(date);
+    }
+
+    public String demandForClient(Client client){
+        return PM_CLIENT_DEMANDS + REDIRECT + "clientId="+client.getClientId();
     }
 }

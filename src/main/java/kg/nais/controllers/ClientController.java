@@ -70,7 +70,13 @@ public class ClientController extends GeneralController {
         client.setClientStatus(new ClientStatusFacade().findById(1));
         new ClientFacade().create(client);
         saveChick();
-        return SHOW_CLIENTS+REDIRECT;
+
+        UserController userController = new UserController();
+        userController.setSessionController(sessionController);
+
+        if(userController.getCurrentUser().getUserRole().getUserRoleId() == 1)
+            return ADMIN_SHOW_CLIENTS + REDIRECT;
+        return OPERATOR_SHOW_CLIENTS +REDIRECT;
     }
 
     public void addChick(){

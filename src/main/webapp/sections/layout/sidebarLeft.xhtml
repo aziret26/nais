@@ -30,13 +30,13 @@
 
                 <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
                     userController.currentUser.userRole.userRoleId == 3}">
-                    <nais:item name="/pages/sdo/client/addClient?faces-redirect=true" itemName="Добавить клиента"/>
+                    <nais:item name="/pages/sdo/clients/addClient?faces-redirect=true" itemName="Добавить клиента"/>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 3}">
-                    <nais:item name="/pages/sdo/client/showClients?faces-redirect=true" itemName="Показать клиентов"/>
+                    <nais:item name="/pages/sdo/clients/showClients?faces-redirect=true" itemName="Показать клиентов"/>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1}">
-                    <nais:item name="/pages/admin/client/showClients?faces-redirect=true" itemName="Показать клиентов"/>
+                    <nais:item name="/pages/admin/clients/showClients?faces-redirect=true" itemName="Показать клиентов"/>
                 </h:panelGroup>
 
                 <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 2}">

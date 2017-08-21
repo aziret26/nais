@@ -22,11 +22,15 @@
                         </p:column>
                         <p:columns value="#{feedController.feedList}" var="feed">
                             <f:facet name="header" >#{feed.name}</f:facet>
-                            <h:outputText value="#{chickController.calculateFeed(feed.name, client)}"/>
+                            <h:outputText value="#{chickController.calculateFeed(feed.name, client)} шт."/>
                         </p:columns>
                         <p:column>
                             <f:facet name="header">Заказ</f:facet>
                             <h:commandButton value="Заказ" action="#{ordersController.addOrder(client.clientId)}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Треб.</f:facet>
+                            <h:commandButton value="Треб." action="${demandController.demandForClient(client)}"/>
                         </p:column>
                     </p:dataTable>
                 </h:form>
@@ -44,7 +48,7 @@
                         </p:column>
                         <p:columns value="#{feedController.feedList}" var="feed">
                             <f:facet name="header">#{feed.name}</f:facet>
-                            <h:outputText value="#{chickController.calculateFeed(feed.name, client)}"/>
+                            <h:outputText value="#{chickController.calculateFeed(feed.name, client)} шт."/>
                         </p:columns>
                     </p:dataTable>
                 </h:form>

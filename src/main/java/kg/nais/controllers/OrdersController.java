@@ -98,11 +98,11 @@ public class OrdersController extends GeneralController{
     }
 
     public String addOrder(){
-        return ADD_ORDER + REDIRECT + "clientId="+clientId;
+        return PM_ADD_ORDER + REDIRECT + "clientId="+clientId;
     }
 
     public String addOrder(int id){
-        return ADD_ORDER + REDIRECT + "clientId="+id;
+        return PM_ADD_ORDER + REDIRECT + "clientId="+id;
     }
 
     public String createOrder(){
@@ -112,7 +112,7 @@ public class OrdersController extends GeneralController{
         }
         if(selectedFeedId == 0){
             Tools.faceMessageWarn("Выберите вид корма","");
-            return ADD_ORDER + REDIRECT + "clientId="+clientId;
+            return PM_ADD_ORDER + REDIRECT + "clientId="+clientId;
         }
         order.setFeed(new FeedFacade().findById(selectedFeedId));
         order.setClient(client);
@@ -127,7 +127,7 @@ public class OrdersController extends GeneralController{
             tempOrder.setAmount(order.getAmount());
             tempOrder.setDueDate(calcOrderDueDate(order));
             new OrderFacade().update(tempOrder);
-            return VIEW_ORDERS;
+            return PM_VIEW_ORDERS + REDIRECT;
         }
         OrderFacade of = new OrderFacade();
         of.create(order);
@@ -137,7 +137,7 @@ public class OrdersController extends GeneralController{
         if(ufn != null)
             new NotificationController().removeNotification(ufn);
 
-        return VIEW_ORDERS + REDIRECT;
+        return PM_VIEW_ORDERS + REDIRECT;
     }
 
     private void calculateConsumptionTill(Orders order,CustomCalendar customCalendar){

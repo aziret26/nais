@@ -7,45 +7,55 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <ui:composition template="/templates/masterLayout.xhtml">
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:viewParam name="clientId" value="#{demandController.clientId}"/>
+            </f:metadata>
+        </ui:define>
         <ui:define name="windowTitle">Список клиентов</ui:define>
         <ui:define name="sidebarLeft">
             <ui:include src="/sections/layout/sidebarLeft.xhtml"/>
         </ui:define>
         <ui:define name="content">
-
             <h:form styleClass="col-md-8 ">
-                <h:selectOneMenu value="#{demandController.customCalendar.year}" onchange="submit();">
+                <h:selectOneMenu value="#{demandController.customCalendar.year}">
                     <f:selectItem noSelectionOption="true" itemLabel="Год"/>
                     <f:selectItems value="#{demandController.customCalendar.yearList}"/>
+                    <f:ajax render="months" event="change"/>
                 </h:selectOneMenu>
 
-                <h:selectOneMenu value="#{demandController.customCalendar.month}" onchange="submit();"
-                                 rendered="#{demandController.customCalendar.year != 0}">
+                <h:selectOneMenu value="#{demandController.customCalendar.month}"
+                                 rendered="#{demandController.customCalendar.year != 0}" id="months">
                     <f:selectItem noSelectionOption="true" itemLabel="Месяц"/>
                     <f:selectItems value="#{demandController.customCalendar.monthList}"/>
+                    <f:ajax render="days"  event="change"/>
                 </h:selectOneMenu>
 
                 <h:selectOneMenu value="#{demandController.customCalendar.day}"
                                  rendered="#{demandController.customCalendar.month != 0 and
-                                 demandController.customCalendar.year != 0}">
+                                 demandController.customCalendar.year != 0}" id="days">
                     <f:selectItem noSelectionOption="true" itemLabel="Дата"/>
                     <f:selectItems value="#{demandController.customCalendar.dayList}"/>
                     <f:ajax event="change"/>
                 </h:selectOneMenu>
-                <h:commandButton value="Расчёт" action="#{demandController.processTotalDemand()}"/>
+                <h:commandButton value="Расчёт">
+                    <f:ajax render=":demands :errorMsg" listener="#{demandController.processDemandForClient()}"/>
+                </h:commandButton>
             </h:form>
 
-            <h:panelGroup rendered="#{demandController.dates.size() > 0}" >
-                <p:dataTable value="#{demandController.dates}" var="date" id="demands">
-                    <p:column>
-                        <f:facet name="header">Дата</f:facet>
-                        <h:outputText value="#{date}" styleClass="row"/>
-                    </p:column>
-                    <p:columns value="#{feedController.feedList}" var="feed">
-                        <f:facet name="header">#{feed.name}</f:facet>
-                        <h:outputText value="#{demandController.getDemand(feed.feedId,date)} кг."/>
-                    </p:columns>
-                </p:dataTable>
+            <h:panelGroup  id="demands" name="demands">
+                <h:panelGroup rendered="#{demandController.dates.size() > 0}">
+                    <p:dataTable value="#{demandController.dates}" var="date">
+                        <p:column>
+                            <f:facet name="header">Дата</f:facet>
+                            <h:outputText value="#{date}" styleClass="row"/>
+                        </p:column>
+                        <p:columns value="#{feedController.feedList}" var="feed">
+                            <f:facet name="header">#{feed.name}</f:facet>
+                            <h:outputText value="#{demandController.getDemand(feed.feedId,date)} кг."/>
+                        </p:columns>
+                    </p:dataTable>
+                </h:panelGroup>
             </h:panelGroup>
             <h:messages errorClass="errorMessage" infoClass="infoMessage" id="errorMsg"
                         layout="table" globalOnly="true" showDetail="false" showSummary="true" styleClass="errorMessage"/>
