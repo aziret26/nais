@@ -24,8 +24,11 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
 
-    @Column
+    @Column(precision = 4, scale = 2)
     private double amount;
+
+    @Column
+    private Calendar orderDate;
 
     @Column
     private Calendar dueDate;
@@ -47,6 +50,8 @@ public class Orders {
     }
 
     public double getAmount() {
+        String format = String.format("%.3f",amount);
+        amount = Double.parseDouble(format);
         return amount;
     }
 
@@ -54,6 +59,14 @@ public class Orders {
         if(amount < 0)
             amount = 0;
         this.amount = amount;
+    }
+
+    public Calendar getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Calendar orderDate) {
+        this.orderDate = orderDate;
     }
 
     public Calendar getDueDate() {

@@ -4,7 +4,7 @@ package kg.nais.controllers;
  * Created by B-207 on 5/26/2017.
  */
 public class GeneralController {
-    protected int clientId = 0,feedId=0,chickId=0,userId=0;
+    protected int clientId = 0,feedId=0,chickId=0,userId=0,ordersHistoryId=0;
 
     public int getClientId() {
         return clientId;
@@ -36,5 +36,13 @@ public class GeneralController {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public int getOrdersHistoryId() {
+        return ordersHistoryId;
+    }
+
+    public void setOrdersHistoryId(int ordersHistoryId) {
+        this.ordersHistoryId = ordersHistoryId;
     }
 }

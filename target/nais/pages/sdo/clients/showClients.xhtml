@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/templates/masterLayout.xhtml">
+        <ui:define name="windowTitle">Список клиентов</ui:define>
+        <ui:define name="sidebarLeft">
+            <ui:include src="/sections/layout/sidebarLeft.xhtml"/>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup rendered="#{clientController.findAllActiveClients().size() != 0}">
+            <h2>Список клиентов</h2>
+                <h:form>
+                    <p:dataTable value="#{clientController.findAllActiveClients()}" var="client">
+                        <p:column>
+                            <f:facet name="header">Клиенты</f:facet>
+                            <h:commandLink value="#{client.name}" action="#{editClientController.editClient(client.clientId)}" styleClass="row"/>
+                        </p:column>
+                        <p:columns value="#{feedController.feedList}" var="feed">
+                            <f:facet name="header" >#{feed.name}</f:facet>
+                            <h:outputText value="#{chickController.calculateFeed(feed.name, client)} шт."/>
+                        </p:columns>
+                    </p:dataTable>
+                </h:form>
+            </h:panelGroup>
+
+            <h:panelGroup rendered="#{clientController.findAllFrozenClients().size() != 0}">
+            <hr/>
+
+            <h2>Список замароженных клиентов</h2>
+                <h:form>
+                    <p:dataTable value="#{clientController.findAllFrozenClients()}" var="client">
+                        <p:column>
+                            <f:facet name="header">Клиенты</f:facet>
+                            <h:commandLink value="#{client.name}" action="#{editClientController.editClient(client.clientId)}" styleClass="row"/>
+                        </p:column>
+                        <p:columns value="#{feedController.feedList}" var="feed">
+                            <f:facet name="header">#{feed.name}</f:facet>
+                            <h:outputText value="#{chickController.calculateFeed(feed.name, client)} шт."/>
+                        </p:columns>
+                    </p:dataTable>
+                </h:form>
+            </h:panelGroup>
+        </ui:define>
+    </ui:composition>
+</html>

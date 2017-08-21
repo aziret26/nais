@@ -50,6 +50,9 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private List<UserFeedNotification> userFeedNotificationList;
 
+    @OneToMany(mappedBy = "client")
+    private List<OrdersHistory> ordersHistoryList;
+
     public int getClientId() {
         return clientId;
     }
@@ -120,5 +123,13 @@ public class Client {
 
     public void setUserFeedNotificationList(List<UserFeedNotification> userFeedNotificationList) {
         this.userFeedNotificationList = userFeedNotificationList;
+    }
+
+    public List<OrdersHistory> getOrdersHistoryList() {
+        return ordersHistoryList;
+    }
+
+    public void setOrdersHistoryList(List<OrdersHistory> ordersHistoryList) {
+        this.ordersHistoryList = ordersHistoryList;
     }
 }

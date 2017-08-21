@@ -22,7 +22,8 @@ public class BasicFunctions {
     }
 
     public static String calendarToString(Calendar calendar){
-        return calendar.get(Calendar.DAY_OF_MONTH)+"-"+(calendar.get(Calendar.MONTH)+1)+"-"+calendar.get(Calendar.YEAR);
+
+        return calendar != null ? calendar.get(Calendar.DAY_OF_MONTH)+"-"+(calendar.get(Calendar.MONTH)+1)+"-"+calendar.get(Calendar.YEAR) : "null";
     }
 
     public static Calendar stringToCalendar(String date){

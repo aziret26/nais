@@ -60,6 +60,7 @@ public class ChickController extends GeneralController{
         chickList = new ChickFacade().findByActiveClientAndFeed(client,feed);
         return chickList;
     }
+
     /**
      * calculate amount of chick of client consuming specific chick
      * @param feedName
@@ -130,11 +131,16 @@ public class ChickController extends GeneralController{
 
     public List<Chick> getChicksForFeed(List<Chick> chicks,Feed feed){
         List<Chick> resultList = new ArrayList<Chick>();
+        List<Chick> overAge = new ArrayList<>();
         for (Chick c : chicks){
+            if(c.getAge() > feed.getAgeTo()){
+                overAge.add(c);
+            }else
             if(c.getFeed().getFeedId() == feed.getFeedId()) {
                 resultList.add(c);
             }
         }
+        chicks.removeAll(overAge);
         return  resultList;
     }
 
@@ -168,6 +174,7 @@ public class ChickController extends GeneralController{
             }
         }
     }
+
     public void decreaseAgeByDays(Chick chick,int day){
         chick.decreaseAgeByDays(day);
         updateChickFeed(chick);

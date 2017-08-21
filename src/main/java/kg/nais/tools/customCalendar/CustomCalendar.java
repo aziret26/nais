@@ -26,6 +26,16 @@ public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
         setDay(calendarInstance.get(Calendar.DAY_OF_MONTH));
     }
 
+    public CustomCalendar(Calendar calendar){
+        setYearList(new ArrayList<>());
+        for (int i = 2000; i < 2030; i++){
+            getYearList().add(i);
+        }
+        setYear(calendar.get(Calendar.YEAR));
+        setMonth(calendar.get(Calendar.MONTH)+1);
+        setDay(calendar.get(Calendar.DAY_OF_MONTH));
+    }
+
     public int getDay() {
         return day;
     }
@@ -215,6 +225,10 @@ public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
         return  false;
     }
 
+    public int differenceInDays(Calendar calendar){
+        return differenceInDays(new CustomCalendar(calendar));
+    }
+
     public int differenceInDays(CustomCalendar cc){
         CustomCalendar past = new CustomCalendar(), future = new CustomCalendar();
 
@@ -240,6 +254,7 @@ public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
 
         }
     }
+
     public Object clone(){
         try {
 

@@ -1,13 +1,7 @@
 package kg.nais.controllers;
 
-import kg.nais.facade.ClientFacade;
-import kg.nais.facade.FeedFacade;
-import kg.nais.facade.OrderFacade;
-import kg.nais.facade.UserFeedNotificationFacade;
-import kg.nais.models.Chick;
-import kg.nais.models.Client;
-import kg.nais.models.Feed;
-import kg.nais.models.Orders;
+import kg.nais.facade.*;
+import kg.nais.models.*;
 import kg.nais.models.notification.UserFeedNotification;
 import kg.nais.tools.customCalendar.CustomCalendar;
 import kg.nais.tools.Tools;
@@ -36,6 +30,8 @@ public class OrdersController extends GeneralController{
     private List<Orders> orderList = new ArrayList<Orders>();
 
     private CustomCalendar customCalendar = new CustomCalendar();
+
+    private OrderHistoryController orderHistoryController = new OrderHistoryController();
 
     public OrdersController() {
         orderList = new OrderFacade().findAll();
@@ -120,7 +116,12 @@ public class OrdersController extends GeneralController{
             calculateConsumptionTill(order,customCalendar);
         }
 
+        order.setOrderDate(customCalendar.createCalendar());
+
         order.setDueDate(calcOrderDueDate(order));
+
+        createHistory(order);
+
         Orders tempOrder = new OrderFacade().findByClientFeed(order.getClient(),order.getFeed());
 
         if(tempOrder != null){
@@ -178,14 +179,13 @@ public class OrdersController extends GeneralController{
         while (amount > 0.49){
             List<Chick> list = cc.getChicksForFeed(chickList,o.getFeed());
             for(Chick c : list){
-                double consume = consumeController.getConsumeForAge(c.getAge());
-                consume *= 0.001;
-                amount = amount - consume * c.getAmount();
+                amount -= consumeController.getConsumeAmount(c);
                 if(amount < 0.5){
                     return date;
                 }
             }
             chickList.forEach(new ChickController()::increaseChicksAgeByDay);
+
             if(chickList.size() == 0 && amount > 0){
                 return null;
             }
@@ -232,4 +232,25 @@ public class OrdersController extends GeneralController{
         return false;
     }
 
+    private void createHistory(Orders order){
+        OrdersHistoryFacade ohf = new OrdersHistoryFacade();
+
+        List<OrdersHistory> ordersHistoryList = ohf.findByClientAndFeed(order.getClient(),order.getFeed());
+        for(OrdersHistory oh : ordersHistoryList){
+            if(customCalendar.differenceInDays(oh.getOrderDate()) == 0){
+                oh.setDueDate(order.getDueDate());
+                oh.setAmount(order.getAmount());
+                ohf.update(oh);
+                return;
+            }
+        }
+        OrdersHistory ordersHistory = new OrdersHistory();
+        ordersHistory.setClient(order.getClient());
+        ordersHistory.setAmount(order.getAmount());
+        ordersHistory.setFeed(order.getFeed());
+        ordersHistory.setOrderDate(customCalendar.createCalendar());
+        ordersHistory.setDueDate(order.getDueDate());
+        ohf.create(ordersHistory);
+
+    }
 }

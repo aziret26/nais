@@ -37,10 +37,10 @@ public class Chick implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int chickId;
 
-    @Column
+    @Column(precision = 3)
     private int age;
 
-    @Column
+    @Column(precision = 5)
     private int amount;
 
     @Column

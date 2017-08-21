@@ -30,6 +30,10 @@ public class Feed {
     @OneToMany(mappedBy = "feed")
     private List<Chick> chickList;
 
+    @OneToMany(mappedBy = "feed")
+    private List<OrdersHistory> ordersHistoryList;
+
+
     public Feed() {}
 
     public Feed(String name, int ageFrom, int ageTo) {
@@ -84,5 +88,13 @@ public class Feed {
 
     public void setChickList(List<Chick> chickList) {
         this.chickList = chickList;
+    }
+
+    public List<OrdersHistory> getOrdersHistoryList() {
+        return ordersHistoryList;
+    }
+
+    public void setOrdersHistoryList(List<OrdersHistory> ordersHistoryList) {
+        this.ordersHistoryList = ordersHistoryList;
     }
 }
