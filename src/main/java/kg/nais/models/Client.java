@@ -31,6 +31,12 @@ public class Client {
     @Column
     private Calendar regDate;
 
+    @Column
+    private String telephone1;
+
+    @Column
+    private String telephone2;
+
     @OneToMany(mappedBy = "client")
     private List<Chick> chickList = new ArrayList<Chick>();
 
@@ -82,6 +88,22 @@ public class Client {
 
     public void setChickList(List<Chick> chickList) {
         this.chickList = chickList;
+    }
+
+    public String getTelephone1() {
+        return telephone1;
+    }
+
+    public void setTelephone1(String telephone1) {
+        this.telephone1 = telephone1;
+    }
+
+    public String getTelephone2() {
+        return telephone2;
+    }
+
+    public void setTelephone2(String telephone2) {
+        this.telephone2 = telephone2;
     }
 
     public List<Orders> getOrderList() {

@@ -22,10 +22,16 @@
             <h2>Редактировать клиента - #{editClientController.clientId}</h2>
             <h:form>
                 <h:panelGrid columns="2">
-                    Имя:
+                    <h:outputText value="Имя:"/>
                     <h:panelGroup>
                         <h:inputText value="#{editClientController.client.name}"/>
                     </h:panelGroup>
+
+                    <h:outputText value="Телефон1:"/>
+                    <h:inputText value="#{clientController.client.telephone1}"/>
+
+                    <h:outputText value="Телефон2:"/>
+                    <h:inputText value="#{clientController.client.telephone2}"/>
                 </h:panelGrid>
                 <h:dataTable value="#{editClientController.chickList}" var="chick" >
                     <h:column>

@@ -2,26 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce0691c2-dde8-4c39-91e5-42b8cd26b66f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/nais__war.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/admin/client/showClients.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/clients/showClients.xhtml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/addClient.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/addClient.xhtml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/editClient.xhtml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/showClients.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/showClients.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nais.iml" afterPath="$PROJECT_DIR$/.idea/nais.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ChickController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/DemandController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/DemandController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditClientController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditClientController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/OrdersController.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/controllers/OrdersController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/facade/ChickFacade.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/facade/ChickFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/models/Chick.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/models/Chick.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/tools/ViewPath.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/tools/ViewPath.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/pm/clients/showClients.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/pm/clients/showClients.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/pm/demand/demands.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/pm/demand/demands.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/pm/orders/viewOrders.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/pm/orders/viewOrders.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/sections/layout/header.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/sections/layout/header.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/sections/layout/sidebarLeft.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/sections/layout/sidebarLeft.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java" afterPath="$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/addClient.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/addClient.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/editClient.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/editClient.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/sdo/notification/viewNotifications.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sdo/notification/viewNotifications.xhtml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,7 +59,7 @@
       <file leaf-file-name="DemandController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/DemandController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
+            <state relative-caret-position="359">
               <caret line="194" column="79" lean-forward="false" selection-start-line="194" selection-start-column="79" selection-end-line="194" selection-end-column="79" />
               <folding>
                 <element signature="method#init#0;class#DemandController#0" expanded="false" />
@@ -92,59 +77,29 @@
       <file leaf-file-name="showClients.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/clients/showClients.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+            <state relative-caret-position="-80">
+              <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewOrders.xhtml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/pm/orders/viewOrders.xhtml">
+      <file leaf-file-name="viewNotifications.xhtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/notification/viewNotifications.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-              <folding>
-                <element signature="n#ui:define#0;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#f:metadata#0;n#ui:define#0;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#p:columns#0;n#p:dataTable#0;n#h:form#0;n#ui:define#3;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clientDemands.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/pm/demand/clientDemands.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="41" column="66" lean-forward="false" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+            <state relative-caret-position="138">
+              <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="showClients.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/pm/clients/showClients.xhtml">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+            <state relative-caret-position="81">
+              <caret line="34" column="29" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="29" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="showClients.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/showClients.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-              <folding>
-                <element signature="n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#p:dataTable#0;n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#p:column#0;n#p:dataTable#0;n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#p:columns#0;n#p:dataTable#0;n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -219,7 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/kg/nais/models/notification/UserFeedNotification.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/facade/UserFeedNotificationFacade.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/models/Orders.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/test/Test.java" />
@@ -227,7 +181,6 @@
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/converter/FeedConverter.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/client/showClients.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/client/editClient.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/facade/ClientFacade.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
@@ -238,7 +191,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/pages/user/editUser.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/user/userCreate.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/service/StartUpService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/notification/viewNotifications.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/NotificationController.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/cd701df1-730a-4fa4-8125-c942eef25d8e/console.sql" />
         <option value="dbtable:/fe464ce3/cd701df1-730a-4fa4-8125-c942eef25d8e/nais.userfeednotification" />
@@ -260,7 +212,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/sections/layout/sidebarLeft.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/sections/layout/header.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/tools/ViewPath.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/editClient.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/EditClientController.java" />
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/ClientController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/pm/demand/demands.xhtml" />
@@ -270,6 +221,10 @@
         <option value="$PROJECT_DIR$/src/main/java/kg/nais/controllers/DemandController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/clients/showClients.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/pm/clients/showClients.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/addClient.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/editClient.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/sdo/notification/viewNotifications.xhtml" />
       </list>
     </option>
   </component>
@@ -352,6 +307,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -438,11 +394,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pm" />
+              <option name="myItemId" value="sdo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="orders" />
+              <option name="myItemId" value="notification" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -472,7 +428,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pm" />
+              <option name="myItemId" value="sdo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clients" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -520,11 +510,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nais" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1259,6 +1278,7 @@
       <workItem from="1503235844227" duration="596000" />
       <workItem from="1503244148300" duration="8568000" />
       <workItem from="1503296967480" duration="1520000" />
+      <workItem from="1503299494478" duration="4880000" />
     </task>
     <servers />
   </component>
@@ -1295,7 +1315,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298746000" />
+    <option name="totallyTimeSpent" value="303626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="43" y="-4" width="1323" height="772" extended-state="6" />
@@ -1322,11 +1342,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32006127" sideWeight="0.48184568" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2027972" sideWeight="0.5092166" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22716628" sideWeight="0.49078342" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23028883" sideWeight="0.49078342" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1356,27 +1376,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/service/StartUpService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="47" column="31" lean-forward="false" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/filters/SDOFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/notification/viewNotifications.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" column="62" lean-forward="true" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/NotificationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
@@ -1562,16 +1561,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/editClient.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="65" column="31" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/pm/demand/clientDemands.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
+        <state relative-caret-position="697">
           <caret line="41" column="66" lean-forward="false" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
           <folding />
         </state>
@@ -1585,48 +1577,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/DemandController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="194" column="79" lean-forward="false" selection-start-line="194" selection-start-column="79" selection-end-line="194" selection-end-column="79" />
-          <folding>
-            <element signature="method#init#0;class#DemandController#0" expanded="false" />
-            <element signature="method#isProcessable#0;class#DemandController#0" expanded="false" />
-            <element signature="method#processTotalDemand#0;class#DemandController#0" expanded="false" />
-            <element signature="method#processDemandForClient#1;class#DemandController#0" expanded="false" />
-            <element signature="method#processDemandForClient#2;class#DemandController#0" expanded="false" />
-            <element signature="method#calculateDemand#0;class#DemandController#0" expanded="false" />
-            <element signature="method#getDemand#0;class#DemandController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/clients/showClients.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/pm/clients/showClients.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="561">
           <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/showClients.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-          <folding>
-            <element signature="n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#p:dataTable#0;n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#p:column#0;n#p:dataTable#0;n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#p:columns#0;n#p:dataTable#0;n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1640,6 +1595,75 @@
             <element signature="n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#p:columns#0;n#p:dataTable#0;n#h:form#0;n#ui:define#3;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/controllers/DemandController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="194" column="79" lean-forward="false" selection-start-line="194" selection-start-column="79" selection-end-line="194" selection-end-column="79" />
+          <folding>
+            <element signature="method#init#0;class#DemandController#0" expanded="false" />
+            <element signature="method#isProcessable#0;class#DemandController#0" expanded="false" />
+            <element signature="method#processTotalDemand#0;class#DemandController#0" expanded="false" />
+            <element signature="method#processDemandForClient#1;class#DemandController#0" expanded="false" />
+            <element signature="method#processDemandForClient#2;class#DemandController#0" expanded="false" />
+            <element signature="method#calculateDemand#0;class#DemandController#0" expanded="false" />
+            <element signature="method#getDemand#0;class#DemandController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/addClient.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="74" lean-forward="true" selection-start-line="17" selection-start-column="74" selection-end-line="23" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/editClient.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="24" column="48" lean-forward="false" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/clients/showClients.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding>
+            <element signature="n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#p:dataTable#0;n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#p:column#0;n#p:dataTable#0;n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#p:columns#0;n#p:dataTable#0;n#h:form#0;n#h:panelGroup#1;n#ui:define#2;n#ui:composition#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/clients/showClients.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-80">
+          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kg/nais/models/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="34" column="29" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sdo/notification/viewNotifications.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

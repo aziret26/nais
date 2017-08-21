@@ -12,7 +12,8 @@
     </ui:define>
     <ui:define name="content">
         <h:panelGroup rendered="#{notificationController.userFeedNotificationList.size() != 0}">
-            <h:dataTable value="#{notificationController.getUserFeedNotificationListForCurrentUser()}" var="notification">
+            <h:dataTable value="#{notificationController.getUserFeedNotificationListForCurrentUser()}"
+                         var="notification">
                 <h:column>
                     <f:facet name="header">Имя клиента</f:facet>
                     <h:outputText value="#{notification.client.name}"/>
@@ -24,6 +25,14 @@
                 <h:column>
                     <f:facet name="header">Дата окончания</f:facet>
                     <h:outputText value="#{notification.getDate()}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Телефон 1</f:facet>
+                    <h:outputText value="#{notification.client.telephone1}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Телефон 2</f:facet>
+                    <h:outputText value="#{notification.client.telephone2}"/>
                 </h:column>
             </h:dataTable>
         </h:panelGroup>

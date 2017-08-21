@@ -14,8 +14,14 @@
             <h2>Добавить клиента</h2>
             <h:form>
                 <h:panelGrid columns="2">
-                    Имя:
+                    <h:outputText value="Имя:"/>
                     <h:inputText value="#{clientController.client.name}"/>
+
+                    <h:outputText value="Телефон1:"/>
+                    <h:inputText value="#{clientController.client.telephone1}"/>
+
+                    <h:outputText value="Телефон2:"/>
+                    <h:inputText value="#{clientController.client.telephone2}"/>
                 </h:panelGrid>
                 <h:dataTable value="#{clientController.chickList}" var="chick">
                     <h:column>
