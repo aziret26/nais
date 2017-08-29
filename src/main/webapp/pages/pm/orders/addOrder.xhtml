@@ -66,29 +66,40 @@
             </h:panelGroup>
         </h:panelGroup>
 
-        <h:panelGroup styleClass="right">
-            <h:dataTable value="#{orderHistoryController.ordersHistoryList}" var="ordersHistory">
-                <h:column>
-                    <f:facet name="header">Клиент</f:facet>
-                    <h:outputText value="#{ordersHistory.client.name}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Вид корма</f:facet>
-                    <h:outputText value="#{ordersHistory.feed.name}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Кол-во</f:facet>
-                    <h:outputText value="#{ordersHistory.amount} кг."/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Дата </f:facet>
-                    <h:outputText value="#{ordersHistory.getOrderDateAsString()}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Срок</f:facet>
-                    <h:outputText value="#{ordersHistory.getDueDateAsString()}"/>
-                </h:column>
-            </h:dataTable>
+        <h:panelGroup styleClass="right" id="historyTable" name="historyTable">
+            <h:form>
+                <h:dataTable value="#{orderHistoryController.ordersHistoryList}" var="ordersHistory">
+                    <h:column>
+                        <f:facet name="header">Клиент</f:facet>
+                        <h:outputText value="#{ordersHistory.client.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Вид корма</f:facet>
+                        <h:outputText value="#{ordersHistory.feed.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Кол-во</f:facet>
+                        <h:outputText value="#{ordersHistory.amount} кг."/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Дата </f:facet>
+                        <h:outputText value="#{ordersHistory.getOrderDateAsString()}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Срок</f:facet>
+                        <h:outputText value="#{ordersHistory.getDueDateAsString()}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Удалить</f:facet>
+                        <h:commandButton value="[X]">
+                            <f:ajax render=":historyTable  :errorMsg"
+                                    listener="#{orderHistoryController.removeOrderHistory(ordersHistory)}"/>
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            <h:messages errorClass="errorMessage" infoClass="infoMessage" id="errorMsg"
+                                 layout="table" globalOnly="true" showDetail="false" showSummary="true" styleClass="errorMessage"/>
         </h:panelGroup>
     </ui:define>
 </ui:composition>

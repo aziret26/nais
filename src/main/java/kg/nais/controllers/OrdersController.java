@@ -112,7 +112,8 @@ public class OrdersController extends GeneralController{
         }
         order.setFeed(new FeedFacade().findById(selectedFeedId));
         order.setClient(client);
-        if(customCalendar.past()){
+        double amountOfFeed = order.getAmount();
+        if(customCalendar.after()){
             calculateConsumptionTill(order,customCalendar);
         }
 
@@ -120,24 +121,24 @@ public class OrdersController extends GeneralController{
 
         order.setDueDate(calcOrderDueDate(order));
 
-        createHistory(order);
+        OrdersHistory ordersHistory = createHistory(order,amountOfFeed);
 
-        Orders tempOrder = new OrderFacade().findByClientFeed(order.getClient(),order.getFeed());
+        if(orderHistoryController.isLastOrder(ordersHistory)) {
+            Orders tempOrder = new OrderFacade().findByClientFeed(order.getClient(), order.getFeed());
 
-        if(tempOrder != null){
-            tempOrder.setAmount(order.getAmount());
-            tempOrder.setDueDate(calcOrderDueDate(order));
-            new OrderFacade().update(tempOrder);
-            return PM_VIEW_ORDERS + REDIRECT;
+            if (tempOrder != null) {
+                tempOrder.setAmount(order.getAmount());
+                tempOrder.setDueDate(calcOrderDueDate(order));
+                new OrderFacade().update(tempOrder);
+                return PM_VIEW_ORDERS + REDIRECT;
+            }
+            OrderFacade of = new OrderFacade();
+            of.create(order);
+            //Remove notification about this cause
+            UserFeedNotification ufn = new UserFeedNotificationFacade().findByClientAndFeed(order.getClient(),order.getFeed());
+            if(ufn != null)
+                new NotificationController().removeNotification(ufn);
         }
-        OrderFacade of = new OrderFacade();
-        of.create(order);
-
-        //Remove notification about this cause
-        UserFeedNotification ufn = new UserFeedNotificationFacade().findByClientAndFeed(order.getClient(),order.getFeed());
-        if(ufn != null)
-            new NotificationController().removeNotification(ufn);
-
         return PM_VIEW_ORDERS + REDIRECT;
     }
 
@@ -176,17 +177,21 @@ public class OrdersController extends GeneralController{
         if(chickList == null){
             return null;
         }
+
+        CustomCalendar customDate;
         while (amount > 0.49){
-            List<Chick> list = cc.getChicksForFeed(chickList,o.getFeed());
-            for(Chick c : list){
-                amount -= consumeController.getConsumeAmount(c);
-                if(amount < 0.5){
-                    return date;
+            customDate = new CustomCalendar(date);
+            List<Chick> list = cc.getChicksForFeed(chickList, o.getFeed());
+            if(!customDate.after(order.getOrderDate())) {
+                for (Chick c : list) {
+                    amount -= consumeController.getConsumeAmount(c);
+                    if (amount < 0.5) {
+                        return date;
+                    }
                 }
             }
             chickList.forEach(new ChickController()::increaseChicksAgeByDay);
-
-            if(chickList.size() == 0 && amount > 0){
+            if (chickList.size() == 0 && amount > 0) {
                 return null;
             }
             date.add(Calendar.DAY_OF_YEAR,1);
@@ -232,25 +237,43 @@ public class OrdersController extends GeneralController{
         return false;
     }
 
-    private void createHistory(Orders order){
+    private OrdersHistory createHistory(Orders order,double amountOfFeed){
         OrdersHistoryFacade ohf = new OrdersHistoryFacade();
 
         List<OrdersHistory> ordersHistoryList = ohf.findByClientAndFeed(order.getClient(),order.getFeed());
         for(OrdersHistory oh : ordersHistoryList){
             if(customCalendar.differenceInDays(oh.getOrderDate()) == 0){
                 oh.setDueDate(order.getDueDate());
-                oh.setAmount(order.getAmount());
+                oh.setAmount(amountOfFeed);
                 ohf.update(oh);
-                return;
+                return oh;
             }
         }
         OrdersHistory ordersHistory = new OrdersHistory();
         ordersHistory.setClient(order.getClient());
-        ordersHistory.setAmount(order.getAmount());
+        ordersHistory.setAmount(amountOfFeed);
         ordersHistory.setFeed(order.getFeed());
         ordersHistory.setOrderDate(customCalendar.createCalendar());
         ordersHistory.setDueDate(order.getDueDate());
         ohf.create(ordersHistory);
+        return ordersHistory;
+    }
 
+    public boolean isAvailableOrder(Orders order){
+        CustomCalendar cc = new CustomCalendar();
+        if(order == null)
+            return false;
+        if(cc.after(order.getOrderDate()) || cc.before(order.getDueDate()))
+            return  false;
+        return true;
+    }
+
+    public boolean isAvailableOrder(Orders order, Calendar date){
+        if(order == null || date == null)
+            return false;
+        CustomCalendar cc = new CustomCalendar(date);
+        if(cc.after(order.getOrderDate()) || cc.before(order.getDueDate()))
+            return  false;
+        return true;
     }
 }

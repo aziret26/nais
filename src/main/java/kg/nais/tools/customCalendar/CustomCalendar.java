@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- * Created by azire on 8/14/2017.
+ * Created by aziret on 8/14/2017.
  */
 public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
     Calendar calendarInstance = Calendar.getInstance();
@@ -27,6 +27,8 @@ public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
     }
 
     public CustomCalendar(Calendar calendar){
+        if(calendar == null)
+            calendar = Calendar.getInstance();
         setYearList(new ArrayList<>());
         for (int i = 2000; i < 2030; i++){
             getYearList().add(i);
@@ -172,22 +174,40 @@ public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
         return calendar;
     }
 
-    public boolean past(){
+    public boolean before(){
         CustomCalendar now = new CustomCalendar();
-        return past(now);
+        return before(now);
     }
 
-    public boolean future(){
+    public boolean after(){
         CustomCalendar now = new CustomCalendar();
-        return future(now);
+        return after(now);
     }
 
-    public boolean past(CustomCalendar cc){
+    public boolean before(CustomCalendar cc){
+        if(cc == null)
+            return false;
+        return compareTo(cc) > 0;
+    }
+
+    public boolean after(CustomCalendar cc){
+        if(cc == null)
+            return false;
         return compareTo(cc) < 0;
     }
 
-    public boolean future(CustomCalendar cc){
-        return compareTo(cc) > 0;
+    public boolean before(Calendar calendar){
+        if(calendar == null)
+            return false;
+        CustomCalendar cs = new CustomCalendar(calendar);
+        return before(cs);
+    }
+
+    public boolean after(Calendar calendar){
+        if(calendar == null)
+            return false;
+        CustomCalendar cs = new CustomCalendar(calendar);
+        return after(cs);
     }
 
     /**
@@ -257,7 +277,6 @@ public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
 
     public Object clone(){
         try {
-
             CustomCalendar other = (CustomCalendar) super.clone();
             other.setDay(getDay());
             other.setMonth(getMonth());

@@ -3,10 +3,12 @@ package kg.nais.service;
 import kg.nais.controllers.ChickController;
 import kg.nais.controllers.ChickFeedConsumeController;
 import kg.nais.controllers.NotificationController;
+import kg.nais.controllers.OrdersController;
 import kg.nais.facade.*;
 import kg.nais.models.*;
 import kg.nais.models.notification.UserFeedNotification;
 import kg.nais.models.notification.NotificationType;
+import kg.nais.tools.customCalendar.CustomCalendar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,27 +33,41 @@ public class UpdateMethods {
     public void updateOrdersData(){
         System.out.println("<Updating Orders>");
         OrderFacade of = new OrderFacade();
+        OrdersController ordersController = new OrdersController();
         ChickController cc = new ChickController();
         ChickFeedConsumeController fcController = new ChickFeedConsumeController();
 
+        ServiceUpdate su = new ServiceUpdateFacade().findValid();
+        CustomCalendar cs = new CustomCalendar();
+        int days = su.getOrdersLastUpd() != null ? cs.differenceInDays(su.getOrdersLastUpd()) : 0;
+
         List<Orders> ordersList = of.findAll();
         for(Orders order : ordersList){
-            if(order.getAmount() == 0)
+            //continue if nothing left
+            if(order == null || order.getAmount() == 0)
                 continue;
 
-            List<Chick> chickList = cc.getChickListByClientAndFeed(order.getClient(),order.getFeed());
-            double totalConsume = 0;
+            int counter = 0;
+            List<Chick> chickList = cc.getChickListByClientAndFeed(order.getClient(), order.getFeed());
+
             for(Chick c : chickList){
-                totalConsume += (fcController.getConsumeForAge(c.getAge())*c.getAmount());
+                cc.decreaseAgeByDays(c,days);
             }
-            double res = (order.getAmount()-totalConsume/1000.0);
-            if(res < 0.5){
-                res = 0;
-            }
-            order.setAmount(res);
-            of.update(order);
+            do {
+                double totalConsume = 0;
+                for (Chick c : chickList) {
+                    totalConsume += (fcController.getConsumeForAge(c.getAge()) * c.getAmount());
+                }
+                double res = (order.getAmount() - totalConsume / 1000.0);
+                if (res < 0.5) {
+                    res = 0;
+                }
+                order.setAmount(res);
+                of.update(order);
+                counter++;
+            }while (counter <= days);
         }
-        ServiceUpdate su = new ServiceUpdateFacade().findValid();
+
         su.setOrdersLastUpd(Calendar.getInstance());
         new ServiceUpdateFacade().update(su);
         System.out.println("</Updated Orders>");
@@ -107,6 +123,7 @@ public class UpdateMethods {
          *  2.1. new notification is created only if client has ran out of some specific feed,
          *      and he still needs it yet
          */
+        OrdersController ordersController = new OrdersController();
         List<Client> clientList = new ClientFacade().findAllActiveClients();
         List<Feed> feedList = new FeedFacade().findAll();
         ChickController cc = new ChickController();
@@ -121,17 +138,19 @@ public class UpdateMethods {
 
                 Orders order = of.findByClientFeed(client,feed);
 
+                if(order == null)
+                    continue;
                 //do not notify if amount of feed is enough
-                if(order != null && order.getAmount() > 0.5){
+                if(ordersController.isAvailableOrder(order)){
                     continue;
                 }
 
                 //do not notify if in database exists this notification
                 //to avoid duplicates
                 if(ufnf.findByClientAndFeed(client,feed) != null ) continue;
-
+                Calendar date = order.getDueDate() != null ? order.getDueDate() : Calendar.getInstance();
                 UserFeedNotification cfn =
-                        new UserFeedNotification(client,feed,Calendar.getInstance(),ntInfo);
+                        new UserFeedNotification(client,feed,date,ntInfo);
                 ufnf.create(cfn);
             }
         }

@@ -1,8 +1,10 @@
 package kg.nais.controllers;
 
 import kg.nais.facade.ClientFacade;
+import kg.nais.facade.OrderFacade;
 import kg.nais.facade.OrdersHistoryFacade;
 import kg.nais.models.Client;
+import kg.nais.models.Orders;
 import kg.nais.models.OrdersHistory;
 
 import javax.annotation.PostConstruct;
@@ -59,5 +61,40 @@ public class OrderHistoryController extends GeneralController {
 
     public void setOrdersHistoryList(List<OrdersHistory> ordersHistoryList) {
         this.ordersHistoryList = ordersHistoryList;
+    }
+
+    public void removeOrderHistory(int orderHistoryId){
+        OrdersHistory oh = new OrdersHistoryFacade().findById(orderHistoryId);
+        removeOrderHistory(oh);
+    }
+
+    public void removeOrderHistory(OrdersHistory orderHistory){
+        OrdersHistoryFacade ohf = new OrdersHistoryFacade();
+
+        if(isLastOrder(orderHistory)){
+            OrderFacade of = new OrderFacade();
+            Orders orders = of.findByClientFeed(orderHistory.getClient(),orderHistory.getFeed());
+            of.delete(orders);
+        }
+
+        ohf.delete(orderHistory);
+    }
+
+    public boolean isLastOrder(OrdersHistory orderHistory){
+        List<OrdersHistory> historyList =
+                ohf.findByClientAndFeed(orderHistory.getClient(),orderHistory.getFeed());
+        if(historyList.size() > 0){
+            OrdersHistory lastOrder = historyList.get(0);
+            for(OrdersHistory oh : historyList){
+                if(oh.getOrderDate().after(lastOrder.getOrderDate())){
+                    lastOrder = oh;
+                }
+            }
+            if(lastOrder.getOrdersHistoryId() == orderHistory.getOrdersHistoryId()){
+                return true;
+            }
+            return false;
+        }
+        return true;
     }
 }
