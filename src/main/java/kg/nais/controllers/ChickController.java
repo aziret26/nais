@@ -160,7 +160,7 @@ public class ChickController extends GeneralController{
             chick.setModFeed(false);
 
         for (Feed feed : feedList){
-            if(chick.isModFeed() && chick.getFeed().getFeedId() == feed.getFeedId()
+            if(chick.isModFeed() && chick.getFeed() != null && chick.getFeed().getFeedId() == feed.getFeedId()
                     && chick.getAge() > feed.getAgeTo())
                 chick.setModFeed(false);
 

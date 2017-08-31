@@ -24,6 +24,13 @@ public class Tools implements Serializable {
                 new FacesMessage(FacesMessage.SEVERITY_WARN,
                         summary, detail));
     }
+     public static final void faceMessageInfo(String summary,String detail){
+            FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage(FacesMessage.SEVERITY_INFO,
+                            summary, detail));
+        }
+
 
     public static final Map<String,String> getRequestParameterMap(){
         return FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();

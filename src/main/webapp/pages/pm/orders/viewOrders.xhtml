@@ -20,18 +20,34 @@
     <ui:define name="content">
         <h2>Список Заказов</h2>
         <h:form>
-            <p:dataTable value="#{clientController.findAllActiveClients()}" var="client" styleClass="dataTable" headerClass="dataTableHeader" footerClass="dataTableFooter" columnClasses="clientName" rowClasses="oddRow, evenRow">
-                <p:column>
-                    <f:facet name="header">Клиенты</f:facet>
-                    <h:commandLink value="#{client.name}" action="#{ordersController.addOrder(client.clientId)}" styleClass="row"/>
-                </p:column>
-
-                <p:columns value="#{feedController.feedList}" var="feed">
-                    <f:facet name="header" >#{feed.name}</f:facet>
-                    <h:outputText value="#{ordersController.getOrderListByClientsFeed(client, feed).amount} кг."/>
-                </p:columns>
-            </p:dataTable>
+            <h:panelGrid columns="3">
+                <p:inputText value="#{clientController.searchNameActive}"/>
+                <h:commandButton value="Найти">
+                    <f:ajax listener="#{clientController.searchAllActiveByName()}"
+                            execute="@form"
+                            render=":activeClientsMsg :activeClientsList"/>
+                </h:commandButton>
+            </h:panelGrid>
         </h:form>
+        <h:panelGroup id="activeClientsMsg">
+            <p:messages id="messages-active" showDetail="true" closable="true" />
+        </h:panelGroup>
+
+        <h:panelGroup id="activeClientsList" name="activeClientsList">
+            <h:form>
+                <p:dataTable value="#{clientController.activeClients}" var="client" styleClass="dataTable" headerClass="dataTableHeader" footerClass="dataTableFooter" columnClasses="clientName" rowClasses="oddRow, evenRow">
+                    <p:column>
+                        <f:facet name="header">Клиенты</f:facet>
+                        <h:commandLink value="#{client.name}" action="#{ordersController.addOrder(client.clientId)}" styleClass="row"/>
+                    </p:column>
+
+                    <p:columns value="#{feedController.feedList}" var="feed">
+                        <f:facet name="header" >#{feed.name}</f:facet>
+                        <h:outputText value="#{ordersController.getOrderListByClientsFeed(client, feed).amount} кг."/>
+                    </p:columns>
+                </p:dataTable>
+            </h:form>
+        </h:panelGroup>
     </ui:define>
 </ui:composition>
 </html>

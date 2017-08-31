@@ -14,23 +14,25 @@ import java.util.*;
         @NamedQuery(name = "Chick.findAll",
                 query = "SELECT c FROM Chick c"),
         @NamedQuery(name = "Chick.findByAgeRange",
-                query = "SELECT c FROM Chick c WHERE c.age >= :ageFrom AND c.age <= :ageTo"),
+                query = "SELECT c FROM Chick c WHERE c.age >= :ageFrom AND c.age <= :ageTo ORDER BY c.age ASC"),
         @NamedQuery(name = "Chick.findByFeed",
-                query = "SELECT c FROM Chick c WHERE c.modFeed = true AND c.feed = :feed"),
+                query = "SELECT c FROM Chick c WHERE c.modFeed = true AND c.feed = :feed ORDER BY c.age ASC"),
         @NamedQuery(name = "Chick.findByClientAndFeed",
-                query = "SELECT c FROM Chick c WHERE c.client = :client AND c.feed = :feed"),
+                query = "SELECT c FROM Chick c WHERE c.client = :client AND c.feed = :feed ORDER BY c.age ASC"),
         @NamedQuery(name="Chick.findByClient",
-                query = "SELECT c FROM Chick c where c.client = :client"),
+                query = "SELECT c FROM Chick c where c.client = :client ORDER BY c.age ASC"),
         @NamedQuery(name="Chick.findByActiveClientAndFeed",
-                query = "SELECT c FROM Chick c where c.client = :client AND c.client.clientStatus.id=1 AND c.feed = :feed"),
+                query = "SELECT c FROM Chick c where c.client = :client AND " +
+                        "c.client.clientStatus.id=1 AND c.feed = :feed ORDER BY c.age ASC"),
         @NamedQuery(name="Chick.findChicksAgeBefore",
-                query = "SELECT c FROM Chick c where c.age <= :age"),
+                query = "SELECT c FROM Chick c where c.age <= :age ORDER BY c.age ASC"),
         @NamedQuery(name="Chick.findActiveChicksAgeBefore",
-                query = "SELECT c FROM Chick c where c.age <= :age AND c.client.clientStatus.id=1"),
+                query = "SELECT c FROM Chick c where c.age <= :age AND c.client.clientStatus.id=1 ORDER BY c.age ASC"),
         @NamedQuery(name="Chick.findByClientForFeedBelow",
-                query = "SELECT c FROM Chick c where c.client = :client AND c.age <= :ageTo"),
+                query = "SELECT c FROM Chick c where c.client = :client AND c.age <= :ageTo ORDER BY c.age ASC"),
         @NamedQuery(name="Chick.findByActiveClientForFeedBelow",
-                query = "SELECT c FROM Chick c where c.client = :client AND c.age <= :ageTo AND c.client.clientStatus.id=1")
+                query = "SELECT c FROM Chick c where c.client = :client AND " +
+                        "c.age <= :ageTo AND c.client.clientStatus.id=1 ORDER BY c.age ASC")
 })
 public class Chick implements Serializable{
     @Id

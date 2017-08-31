@@ -63,14 +63,40 @@ public class ClientFacade {
     public List<Client> findAllActiveClients(){
         return getList("Client.findAllActive");
     }
+
     public List<Client> findAllFrozenClients(){
         return getList("Client.findAllFrozen");
     }
+
     private List<Client> getList(String queryName){
         List<Client> objectList;
         try {
             objectDao.beginTransaction();
             objectList = objectDao.getEntityManager().createNamedQuery(queryName,Client.class).getResultList();
+            objectDao.commitAndCloseTransaction();
+        }catch (Exception ex){
+            objectList = null;
+            objectDao.rollbackIfTransactionActive();
+        }
+        return objectList;
+    }
+
+    public List<Client> searchAllActiveByName(String name){
+        return searchByName("Client.searchAllActiveByName",name);
+    }
+
+    public List<Client> searchAllFrozenByName(String name){
+        return searchByName("Client.searchAllFrozenByName",name);
+    }
+
+    private List<Client> searchByName(String query,String name){
+        name = "%"+name+"%";
+        List<Client> objectList;
+        try {
+            objectDao.beginTransaction();
+            objectList = objectDao.getEntityManager().
+                    createNamedQuery(query,Client.class)
+                    .setParameter("name",name).getResultList();
             objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             objectList = null;

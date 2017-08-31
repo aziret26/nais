@@ -7,6 +7,7 @@ import kg.nais.models.Chick;
 import kg.nais.models.Client;
 import kg.nais.tools.Tools;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,10 +29,27 @@ public class ClientController extends GeneralController {
 
     private ChickController chickController = new ChickController();
 
+    private List<Client> activeClients, frozenClients;
+
+    private ClientFacade clientFacade = new ClientFacade();
+
+    public ClientController() {
+        initObject();
+    }
+
+    @PostConstruct
+    public void initObject(){
+        ClientFacade cf = new ClientFacade();
+
+        activeClients = findAllActiveClients();
+
+        frozenClients = findAllFrozenClients() ;
+    }
+
     @ManagedProperty(value="#{sessionController}")
     private SessionController sessionController;
 
-    public Client getClient() {
+    public Client getClient () {
         return client;
     }
 
@@ -51,13 +69,50 @@ public class ClientController extends GeneralController {
         this.chickList = chickList;
     }
 
+    public List<Client> getActiveClients() {
+        return activeClients;
+    }
+
+    public void setActiveClients(List<Client> activeClients) {
+        this.activeClients = activeClients;
+    }
+
+    public List<Client> getFrozenClients() {
+        return frozenClients;
+    }
+
+    public void setFrozenClients(List<Client> frozenClients) {
+        this.frozenClients = frozenClients;
+    }
 
     public List<Client> findAllActiveClients() {
-        return new ClientFacade().findAllActiveClients();
+        return clientFacade.findAllActiveClients();
     }
 
     public List<Client> findAllFrozenClients() {
-        return new ClientFacade().findAllFrozenClients();
+        return clientFacade.findAllFrozenClients();
+    }
+
+    public List<Client> searchAllActiveByName(){
+        activeClients = clientFacade.searchAllActiveByName(searchNameActive);
+        searchPostMsg(activeClients,searchNameActive);
+        return activeClients;
+    }
+
+    public List<Client> searchAllFrozenByName(){
+        frozenClients = clientFacade.searchAllFrozenByName(searchNameFrozen);
+        searchPostMsg(frozenClients,searchNameFrozen);
+        return frozenClients;
+    }
+
+    private void searchPostMsg(List list,String text){
+        String str = "По запросу '";
+        if(list == null || list.size() == 0){
+            Tools.faceMessageInfo(str+text+"' ничего не найдено","");
+        }else{
+            if(!text.equals(""))
+                Tools.faceMessageInfo(str+text+"' найдено","");
+        }
     }
 
     public String createClient(){
@@ -109,7 +164,6 @@ public class ClientController extends GeneralController {
          * removing chicks from database
          * as they're useless info however
          */
-
         ChickFacade cf = new ChickFacade();
         for (Chick chick : toRemove) {
             cf.delete(chick);

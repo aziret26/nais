@@ -6,6 +6,8 @@ package kg.nais.controllers;
 public class GeneralController {
     protected int clientId = 0,feedId=0,chickId=0,userId=0,ordersHistoryId=0;
 
+    protected String searchNameActive="",searchNameFrozen="";
+
     public int getClientId() {
         return clientId;
     }
@@ -44,5 +46,21 @@ public class GeneralController {
 
     public void setOrdersHistoryId(int ordersHistoryId) {
         this.ordersHistoryId = ordersHistoryId;
+    }
+
+    public String getSearchNameActive() {
+        return searchNameActive;
+    }
+
+    public void setSearchNameActive(String searchNameActive) {
+        this.searchNameActive = searchNameActive.trim();
+    }
+
+    public String getSearchNameFrozen() {
+        return searchNameFrozen;
+    }
+
+    public void setSearchNameFrozen(String searchNameFrozen) {
+        this.searchNameFrozen = searchNameFrozen.trim();
     }
 }

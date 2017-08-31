@@ -11,13 +11,19 @@ import java.util.*;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Client.findAll",
-                query = "SELECT c FROM Client c"),
+                query = "SELECT c FROM Client c ORDER BY c.name ASC"),
         @NamedQuery(name = "Client.findByClientStatus",
-                query = "SELECT c FROM Client c WHERE c.clientStatus.id = :clientStatusId"),
+                query = "SELECT c FROM Client c WHERE c.clientStatus.id = :clientStatusId ORDER BY c.name ASC"),
         @NamedQuery(name = "Client.findAllActive",
-                query = "SELECT c FROM Client c WHERE c.clientStatus.id = 1"),
+                query = "SELECT c FROM Client c WHERE c.clientStatus.id = 1 ORDER BY c.name ASC"),
         @NamedQuery(name = "Client.findAllFrozen",
-                query = "SELECT c FROM Client c WHERE c.clientStatus.id = 2")
+                query = "SELECT c FROM Client c WHERE c.clientStatus.id = 2 ORDER BY c.name ASC"),
+        @NamedQuery(name = "Client.searchAllActiveByName",
+                query = "SELECT c FROM Client c WHERE c.clientStatus.id = 1 AND" +
+                        " c.name LIKE :name ORDER BY c.name ASC"),
+        @NamedQuery(name = "Client.searchAllFrozenByName",
+                query = "SELECT c FROM Client c WHERE c.clientStatus.id = 2 AND" +
+                        " c.name LIKE :name ORDER BY c.name ASC")
 
 })
 public class Client {
