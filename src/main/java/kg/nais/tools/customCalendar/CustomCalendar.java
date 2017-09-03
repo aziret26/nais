@@ -17,25 +17,35 @@ public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
             yearList = new ArrayList<>();
 
     public CustomCalendar() {
-        setYearList(new ArrayList<>());
-        for (int i = 2000; i < 2030; i++){
-            getYearList().add(i);
-        }
-        setYear(calendarInstance.get(Calendar.YEAR));
-        setMonth(calendarInstance.get(Calendar.MONTH)+1);
-        setDay(calendarInstance.get(Calendar.DAY_OF_MONTH));
+        yearList();
+        copyFromCalendar(calendarInstance);
+    }
+
+    public CustomCalendar(CustomCalendar customCalendar) {
+        yearList();
+        setDay(customCalendar.getDay());
+        setMonth(customCalendar.getMonth());
+        setYear(customCalendar.getYear());
+    }
+
+    public CustomCalendar(int year, int month,int day) {
+        calendarInstance.set(year,month-1,day);
+        yearList();
+        copyFromCalendar(calendarInstance);
     }
 
     public CustomCalendar(Calendar calendar){
         if(calendar == null)
             calendar = Calendar.getInstance();
+        yearList();
+        copyFromCalendar(calendarInstance);
+    }
+
+    private void yearList(){
         setYearList(new ArrayList<>());
         for (int i = 2000; i < 2030; i++){
             getYearList().add(i);
         }
-        setYear(calendar.get(Calendar.YEAR));
-        setMonth(calendar.get(Calendar.MONTH)+1);
-        setDay(calendar.get(Calendar.DAY_OF_MONTH));
     }
 
     public int getDay() {
@@ -174,6 +184,27 @@ public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
         return calendar;
     }
 
+    public static Calendar convertToCalendar(CustomCalendar customCalendar){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(customCalendar.getYear(),customCalendar.getMonth()-1,customCalendar.getDay());
+        return calendar;
+    }
+
+    public static CustomCalendar convertFromCalendar(Calendar calendar){
+        CustomCalendar cc = new CustomCalendar();
+        cc.setYear(calendar.get(Calendar.YEAR));
+        cc.setMonth(calendar.get(Calendar.MONTH)+1);
+        cc.setDay(calendar.get(Calendar.DAY_OF_MONTH));
+        return cc;
+    }
+
+    public CustomCalendar copyFromCalendar(Calendar calendar){
+        setYear(calendar.get(Calendar.YEAR));
+        setMonth(calendar.get(Calendar.MONTH)+1);
+        setDay(calendar.get(Calendar.DAY_OF_MONTH));
+        return this;
+    }
+
     public boolean before(){
         CustomCalendar now = new CustomCalendar();
         return before(now);
@@ -234,6 +265,37 @@ public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
         return 0;
     }
 
+    public void addYear(){
+        addYears(1);
+    }
+
+    public void addYears(int y){
+        Calendar calendar = convertToCalendar(this);
+        calendar.add(Calendar.YEAR, y);
+        copyFromCalendar(calendar);
+    }
+
+    public void addMonth(){
+        addMonths(1);
+    }
+
+    public void addMonths(int m){
+        Calendar calendar = convertToCalendar(this);
+        calendar.add(Calendar.MONTH, m);
+        copyFromCalendar(calendar);
+
+    }
+
+    public void addDay(){
+        addDays(1);
+    }
+
+    public void addDays(int d){
+        Calendar calendar = convertToCalendar(this);
+        calendar.add(Calendar.DAY_OF_YEAR, d);
+        copyFromCalendar(calendar);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(! (obj instanceof CustomCalendar)) return false;
@@ -265,13 +327,15 @@ public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
         if(past.getYear() == future.getYear() && past.getMonth() == future.getMonth()){
             return future.getDay() - past.getDay();
         }
+        difference += monthDaysEnd(past.getYear(),past.getMonth()) - past.getDay();
+        past.addMonth();
         while (true){
             if(past.getYear() == future.getYear() && past.getMonth() == future.getMonth()){
                 difference += future.getDay();
                 return difference;
             }
-
-
+            difference += past.monthDaysEnd(past.getYear(),past.getMonth());
+            past.addMonth();
         }
     }
 

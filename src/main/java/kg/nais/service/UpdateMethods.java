@@ -39,7 +39,8 @@ public class UpdateMethods {
 
         ServiceUpdate su = new ServiceUpdateFacade().findValid();
         CustomCalendar cs = new CustomCalendar();
-        int days = su.getOrdersLastUpd() != null ? cs.differenceInDays(su.getOrdersLastUpd()) : 0;
+        Calendar orderLastUpd = su.getOrdersLastUpd();
+        int days = orderLastUpd != null ? cs.differenceInDays(orderLastUpd) : 0;
 
         List<Orders> ordersList = of.findAll();
         for(Orders order : ordersList){
