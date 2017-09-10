@@ -12,13 +12,13 @@
             <h2>Добавить пользователя</h2>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="Login:"/>
+                    <h:outputText value="Логин:"/>
                     <h:panelGroup>
                         <h:inputText id="login" value="#{userController.user.login}"/>
                         <h:message for="login" style="color:red"/>
                     </h:panelGroup>
 
-                    <h:outputText value="First Name:"/>
+                    <h:outputText value="Имя:"/>
                     <h:panelGroup>
                         <h:inputText id="fnameInput" value="#{userController.user.fname}" required="true">
                             <f:ajax event="blur">
@@ -28,20 +28,20 @@
                         <h:message for="fnameInput" style="color:red"/>
                     </h:panelGroup>
 
-                    <h:outputText value="Last Name:"/>
+                    <h:outputText value="Фамилия:"/>
                     <h:panelGroup>
                         <h:inputText id="lnameInput" value="#{userController.user.lname}" required="true">
                         </h:inputText>
                         <h:message for="lnameInput" style="color:red" showSummary="true" showDetail="false"/>
                     </h:panelGroup>
 
-                    <h:outputText value="Password:"/>
+                    <h:outputText value="Пароль:"/>
                     <h:panelGroup>
                         <h:inputSecret id="passwordInput" value = "#{userController.user.password}" required="true" >
                         </h:inputSecret>
                         <h:message for = "passwordInput" style = "color:red" />
                     </h:panelGroup>
-                    <h:outputText value="User Role:"/>
+                    <h:outputText value="Роль:"/>
                     <h:selectOneMenu value="#{userController.userRoleId}">
                         <f:selectItem itemLabel="Select a role" itemValue="null"
                                       noSelectionOption="true"/>
@@ -50,7 +50,7 @@
                                        itemLabel="#{role.userRole}"/>
                     </h:selectOneMenu>
 
-                    <h:commandButton value="Submit" action="#{userController.createUser()}"/>
+                    <h:commandButton value="Создать" action="#{userController.createUser()}"/>
                 </h:panelGrid>
                 <h:messages errorClass="errorMessage" infoClass="infoMessage"
                             layout="table" globalOnly="true" showDetail="false" showSummary="true"/>

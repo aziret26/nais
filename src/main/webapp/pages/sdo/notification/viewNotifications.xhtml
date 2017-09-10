@@ -12,8 +12,7 @@
     </ui:define>
     <ui:define name="content">
         <h:panelGroup rendered="#{notificationController.userFeedNotificationList.size() != 0}">
-            <h:dataTable value="#{notificationController.getUserFeedNotificationListForCurrentUser()}"
-                         var="notification">
+            <h:dataTable value="#{notificationController.getUserFeedNotificationListForCurrentUser()}" var="notification" styleClass="dataTable" headerClass="dataTableHeader" footerClass="dataTableFooter" columnClasses="clientName" rowClasses="oddRow, evenRow">
                 <h:column>
                     <f:facet name="header">Имя клиента</f:facet>
                     <h:outputText value="#{notification.client.name}"/>
