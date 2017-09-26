@@ -27,7 +27,9 @@ public class OrdersHistoryFacade {
 
     public void delete(OrdersHistory object) {
         objectDao.beginTransaction();
-        objectDao.getEntityManager().remove(objectDao.getEntityManager().contains(object) ? object : objectDao.getEntityManager().merge(object));
+        OrdersHistory oh = objectDao.getEntityManager().contains(object) ? object : objectDao.getEntityManager().merge(object);
+        if(oh != null)
+            objectDao.getEntityManager().remove(oh);
         objectDao.commitAndCloseTransaction();
     }
 

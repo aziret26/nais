@@ -92,8 +92,9 @@
                     <h:column>
                         <f:facet name="header">Удалить</f:facet>
                         <h:commandButton value="[X]">
-                            <f:ajax render=":historyTable  :errorMsg"
-                                    listener="#{orderHistoryController.removeOrderHistory(ordersHistory)}"/>
+                            <f:ajax listener="#{orderHistoryController.removeOrderHistory(ordersHistory)}"
+                                    execute="@form"
+                                    render=":historyTable  :errorMsg"/>
                         </h:commandButton>
                     </h:column>
                 </p:dataTable>

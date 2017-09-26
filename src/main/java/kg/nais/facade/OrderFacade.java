@@ -4,6 +4,7 @@ import kg.nais.dao.ObjectDao;
 import kg.nais.models.Client;
 import kg.nais.models.Feed;
 import kg.nais.models.Orders;
+import org.hibernate.criterion.Order;
 
 import java.util.List;
 
@@ -27,7 +28,11 @@ public class OrderFacade {
 
     public void delete(Orders orders) {
         objectDao.beginTransaction();
-        objectDao.getEntityManager().remove(objectDao.getEntityManager().contains(orders) ? orders : objectDao.getEntityManager().merge(orders));
+        Orders o = objectDao.getEntityManager().contains(orders) ? orders : objectDao.getEntityManager().merge(orders);
+        if(o != null)
+            objectDao.getEntityManager().remove(o);
+
+//        objectDao.getEntityManager().remove(objectDao.getEntityManager().contains(orders) ? orders : objectDao.getEntityManager().merge(orders));
         objectDao.commitAndCloseTransaction();
     }
 

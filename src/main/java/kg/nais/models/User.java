@@ -40,9 +40,9 @@ public class User implements Serializable,Validator{
     private String fname;
     @Column
     private String lname;
-    @Column
+    @Column(nullable = false)
     private String password;
-    @Column
+    @Column(unique=true,nullable = false)
     private String login;
     @Column
     private Date regDate;

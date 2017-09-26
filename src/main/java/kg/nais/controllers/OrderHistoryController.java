@@ -69,15 +69,17 @@ public class OrderHistoryController extends GeneralController {
     }
 
     public void removeOrderHistory(OrdersHistory orderHistory){
-        OrdersHistoryFacade ohf = new OrdersHistoryFacade();
-
         if(isLastOrder(orderHistory)){
             OrderFacade of = new OrderFacade();
             Orders orders = of.findByClientFeed(orderHistory.getClient(),orderHistory.getFeed());
             of.delete(orders);
         }
+        deleteOrderHistory(orderHistory);
+    }
 
-        ohf.delete(orderHistory);
+    private void deleteOrderHistory(OrdersHistory oh){
+        ordersHistoryList.remove(oh);
+        ohf.delete(oh);
     }
 
     public boolean isLastOrder(OrdersHistory orderHistory){

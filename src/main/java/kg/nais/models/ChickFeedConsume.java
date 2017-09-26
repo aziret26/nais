@@ -15,7 +15,7 @@ public class ChickFeedConsume {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int chickFeedConsumeId;
 
-    @Column
+    @Column(unique = true,nullable = false)
     private int age;
 
     @Column

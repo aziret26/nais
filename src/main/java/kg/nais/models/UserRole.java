@@ -21,7 +21,7 @@ public class UserRole implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userRoleId;
-    @Column
+    @Column(unique = true,nullable = false)
     private String userRole;
 
     @OneToMany(mappedBy = "userRole")

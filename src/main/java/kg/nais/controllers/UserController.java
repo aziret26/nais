@@ -107,22 +107,32 @@ public class UserController extends GeneralController{
     }
 
     public String createUser(){
+        UserFacade uf = new UserFacade();
         user.setRegDate(new Date());
+        User tempUser = uf.findByEmail(user.getLogin());
         if(sessionController.getUser().getUserRole().getUserRoleId() != 1){
             Tools.faceMessageWarn("У вас нет привелгии на данную операцию.","");
             return "";
-        }
+        }else
         if(userRoleId == 0){
             Tools.faceMessageWarn("Неправильно выбрана роль пользователя.","");
             return "";
-
+        }else
+        if(tempUser != null){
+            Tools.faceMessageWarn("Пользователь с таким логином существует.","");
+            return "";
+        }else
+        if(user.getPassword().length() == 0){
+            Tools.faceMessageWarn("Пожалуйста введите пароль.","");
+            return "";
         }else{
             user.setUserRole(new UserRoleFacade().findById(userRoleId));
         }
+
+
         if(user.getUserStatus() == null){
             user.setUserStatus(new UserStatusFacade().findById(1));
         }
-        UserFacade uf = new UserFacade();
         uf.createUser(user);
 
         return SHOW_USER_LIST + REDIRECT;

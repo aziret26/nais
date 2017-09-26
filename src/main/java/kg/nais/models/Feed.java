@@ -18,7 +18,7 @@ public class Feed {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int feedId;
 
-    @Column
+    @Column(unique = true,nullable = false)
     private String name;
 
     @Column

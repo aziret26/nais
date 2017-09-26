@@ -19,7 +19,7 @@ public class UserStatus implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userStatusId;
-    @Column
+    @Column(unique = true,nullable = false)
     private String userStatus;
 
     @OneToMany(mappedBy = "userStatus")
