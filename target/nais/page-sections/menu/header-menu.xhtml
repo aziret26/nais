@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition>
+        <div class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1}">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                               role="button" aria-haspopup="true" aria-expanded="false">#{msgs.users}</a>
+                            <div class="dropdown-menu">
+                                <h:link styleClass="dropdown-item" outcome="/pages/user/userCreate">#{msgs.userAdd}</h:link>
+                                <h:link styleClass="dropdown-item" outcome="/pages/user/showUserList">#{msgs.userList}</h:link>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                               role="button" aria-haspopup="true" aria-expanded="false">#{msgs.feed}</a>
+                            <div class="dropdown-menu">
+                                <h:link styleClass="dropdown-item" outcome="/pages/admin/feed/addFeed">#{msgs.feedAdd}</h:link>
+                                <h:link styleClass="dropdown-item" outcome="/pages/admin/feed/showFeed">#{msgs.feedList}</h:link>
+                            </div>
+                        </li>
+                    </h:panelGroup>
+
+                    <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
+                            userController.currentUser.userRole.userRoleId == 3 or
+                            userController.currentUser.userRole.userRoleId == 2}">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                               role="button" aria-haspopup="true" aria-expanded="false">#{msgs.clients}</a>
+                            <div class="dropdown-menu">
+                                <h:link rendered="#{userController.currentUser.userRole.userRoleId == 1 or
+                                        userController.currentUser.userRole.userRoleId == 3}"
+                                              styleClass="dropdown-item" outcome="/pages/sdo/clients/addClient">
+                                    #{msgs.clientAdd}
+                                </h:link>
+
+                                <h:link rendered="#{userController.currentUser.userRole.userRoleId == 1}"
+                                              styleClass="dropdown-item" outcome="/pages/admin/clients/showClients">
+                                    #{msgs.clientList}
+                                </h:link>
+
+                                <h:link rendered="#{userController.currentUser.userRole.userRoleId == 2}"
+                                              styleClass="dropdown-item" outcome="/pages/pm/clients/showClients">
+                                    #{msgs.clientList}
+                                </h:link>
+
+                                <h:link rendered="#{userController.currentUser.userRole.userRoleId == 3}"
+                                              styleClass="dropdown-item" outcome="/pages/sdo/clients/showClients">
+                                    #{msgs.clientList}
+                                </h:link>
+                            </div>
+                        </li>
+                    </h:panelGroup>
+
+                    <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
+                            userController.currentUser.userRole.userRoleId == 2}">
+                        <li class="nav-item">
+                            <h:link styleClass="nav-link" outcome="/pages/pm/orders/viewOrders">#{msgs.orderList}</h:link>
+                        </li>
+
+                        <li class="nav-item">
+                            <h:link styleClass="nav-link" outcome="/pages/pm/demand/demands">#{msgs.demands}</h:link>
+                        </li>
+                    </h:panelGroup>
+
+                    <h:panelGroup rendered="#{userController.currentUser.userRole.userRoleId == 1 or
+                            userController.currentUser.userRole.userRoleId == 3}">
+                        <h:panelGroup rendered="#{notificationController.notificationCountForCurrentUser() != 0}">
+                            <li class="nav-item">
+                                <h:link styleClass="nav-link" outcome="/pages/sdo/notification/viewNotifications">#{msgs.notifications} (#{notificationController.notificationCountForCurrentUser()})</h:link>
+                            </li>
+                        </h:panelGroup>
+
+                        <h:panelGroup rendered="#{notificationController.notificationCountForCurrentUser() == 0}">
+                            <li class="nav-item">
+                                <h:link styleClass="nav-link" outcome="/pages/sdo/notification/viewNotifications">#{msgs.notifications}</h:link>
+                            </li>
+                        </h:panelGroup>
+                    </h:panelGroup>
+                </ul>
+            </div>
+        </div>
+    </ui:composition>
+</html>

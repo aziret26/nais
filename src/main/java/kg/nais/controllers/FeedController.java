@@ -57,7 +57,7 @@ public class FeedController extends GeneralController {
     }
 
     public String editFeed(int feedId) {
-        return EDIT_FEED+REDIRECT + "feedId = " + feedId;
+        return EDIT_FEED+REDIRECT + "feedId=" + feedId;
     }
 
     public Feed getFeedForAge(int age){

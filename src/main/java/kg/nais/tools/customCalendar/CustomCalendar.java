@@ -1,6 +1,6 @@
 package kg.nais.tools.customCalendar;
 
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -249,7 +249,8 @@ public class CustomCalendar implements Comparable<CustomCalendar>,Cloneable{
      * @return
      */
     @Override
-    public int compareTo(@NotNull CustomCalendar o) {
+    public int compareTo(CustomCalendar o) {
+//        public int compareTo(@NotNull CustomCalendar o) {
         if(getYear() < o.getYear()) return -1;
 
         if(getYear() > o.getYear()) return 1;
