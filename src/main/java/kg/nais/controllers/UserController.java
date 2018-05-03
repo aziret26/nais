@@ -31,6 +31,8 @@ public class UserController extends GeneralController{
         user = new User();
         if(userId != 0){
             user = new UserFacade().findById(userId);
+        }else {
+            user.setStaff(true);
         }
     }
 
@@ -80,6 +82,10 @@ public class UserController extends GeneralController{
 
     public List<User> getAllUsers(){
         return new UserFacade().findAll();
+    }
+
+    public List<User> getAllStaffUsers(){
+        return new UserFacade().findAllStaffUsers();
     }
 
     public int getUserId() {
@@ -138,7 +144,53 @@ public class UserController extends GeneralController{
         return SHOW_USER_LIST + REDIRECT;
     }
 
-    public String signout(){
+    public boolean createUser(User user){
+        UserFacade uf = new UserFacade();
+        user.setRegDate(new Date());
+        User tempUser = uf.findByEmail(user.getLogin());
+        String out = "The user is created";
+        if(user.isStaff()){
+            if(sessionController.getUser().getUserRole().getUserRoleId() != 1){
+                out = "У вас нет привелгии на данную операцию.";
+                Tools.faceMessageWarn(out,"");
+                System.out.println(out);
+                return false;
+            }else
+            if(userRoleId == 0){
+                out = "Неправильно выбрана роль пользователя.";
+                Tools.faceMessageWarn(out, "");
+                System.out.println(out);
+                return false;
+            }
+        }else{
+            if(sessionController.getUser().getUserRole().getUserRoleId() == 1 ||
+                    sessionController.getUser().getUserRole().getUserRoleId() == 2){
+
+            }else{
+                out = "У вас нет привелгии на данную операцию.";
+                Tools.faceMessageWarn(out,"");
+                System.out.println(out);
+                return false;
+            }
+        }
+        if(tempUser != null){
+            out = "Пользователь с таким логином существует.";
+            Tools.faceMessageWarn("Пользователь с таким логином существует.","");
+            System.out.println(out);
+            return false;
+        }else
+        if(user.getPassword().length() == 0){
+            out = "Пожалуйста введите пароль.";
+            Tools.faceMessageWarn("Пожалуйста введите пароль.","");
+            System.out.println(out);
+            return false;
+        }
+        System.out.println(out);
+        uf.createUser(user);
+        return true;
+    }
+
+    public String logout(){
         sessionController.signout();
         return SIGN_IN + ".xhtml" + REDIRECT;
     }

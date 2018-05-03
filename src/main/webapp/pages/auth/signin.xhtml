@@ -20,15 +20,15 @@
         <ui:define name="content">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="Логин:"/>
+                    <h:outputText value="#{msgs.username}:"/>
                     <h:inputText styleClass="form-control mb-2" value="#{userController.user.login}"/>
 
-                    <h:outputText value="Пароль:"/>
+                    <h:outputText value="#{msgs.password}:"/>
                     <h:inputSecret styleClass="form-control mb-2" value="#{userController.user.password}"/>
 
                     <h:messages errorClass="errorMessage" infoClass="infoMessage" layout="table" globalOnly="true" showDetail="false" showSummary="true"/>
 
-                    <h:commandButton styleClass="btn btn-success float-right" value="ВОЙТИ" action="#{userController.signin()}" ajax="false" />
+                    <h:commandButton styleClass="btn btn-success float-right" value="#{msgs.signIn}" action="#{userController.signin()}" ajax="false" />
                 </h:panelGrid>
             </h:form>
         </ui:define>

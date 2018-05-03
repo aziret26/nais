@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/templates/masterLayout.xhtml">
+        <ui:define name="windowTitle">Add survey data</ui:define>
+
+        <ui:define name="content">
+            <h2>Add survey data</h2>
+            <h:form styleClass=" ">
+                <div class="d-flex ">
+                    <h:selectOneMenu styleClass="custom-select m-3" value="#{clientSurveyController.surveyDate.day}" >
+                        <f:selectItem noSelectionOption="true" itemLabel="Day"/>
+                        <f:selectItems value="#{clientSurveyController.surveyDate.dayList}"/>
+                    </h:selectOneMenu>
+
+                    <h:selectOneMenu styleClass="custom-select m-3" value="#{clientSurveyController.surveyDate.month}">
+                        <f:selectItem noSelectionOption="true" itemLabel="Month"/>
+                        <f:selectItems value="#{clientSurveyController.surveyDate.monthList}"/>
+                    </h:selectOneMenu>
+
+                    <h:selectOneMenu styleClass="custom-select m-3" value="#{clientSurveyController.surveyDate.year}">
+                        <f:selectItem noSelectionOption="true" itemLabel="Year"/>
+                        <f:selectItems value="#{clientSurveyController.surveyDate.yearList}"/>
+                    </h:selectOneMenu>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

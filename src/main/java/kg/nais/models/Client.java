@@ -38,10 +38,10 @@ public class Client {
     private Calendar regDate;
 
     @Column
-    private String telephone1;
+    private int telephone1;
 
     @Column
-    private String telephone2;
+    private int telephone2;
 
     @OneToMany(mappedBy = "client")
     private List<Chick> chickList = new ArrayList<Chick>();
@@ -58,6 +58,13 @@ public class Client {
 
     @OneToMany(mappedBy = "client")
     private List<OrdersHistory> ordersHistoryList;
+
+    @OneToOne
+    @JoinColumn(name="userId")
+    private User user;
+
+    @OneToMany(mappedBy = "client")
+    private List<ClientSurvey> clientSurveyList = new ArrayList<ClientSurvey>();
 
     public int getClientId() {
         return clientId;
@@ -99,19 +106,19 @@ public class Client {
         this.chickList = chickList;
     }
 
-    public String getTelephone1() {
+    public int getTelephone1() {
         return telephone1;
     }
 
-    public void setTelephone1(String telephone1) {
+    public void setTelephone1(int telephone1) {
         this.telephone1 = telephone1;
     }
 
-    public String getTelephone2() {
+    public int getTelephone2() {
         return telephone2;
     }
 
-    public void setTelephone2(String telephone2) {
+    public void setTelephone2(int telephone2) {
         this.telephone2 = telephone2;
     }
 
@@ -137,5 +144,21 @@ public class Client {
 
     public void setOrdersHistoryList(List<OrdersHistory> ordersHistoryList) {
         this.ordersHistoryList = ordersHistoryList;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<ClientSurvey> getClientSurveyList() {
+        return clientSurveyList;
+    }
+
+    public void setClientSurveyList(List<ClientSurvey> clientSurveyList) {
+        this.clientSurveyList = clientSurveyList;
     }
 }

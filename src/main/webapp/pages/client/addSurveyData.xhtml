@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/templates/masterLayout.xhtml">
+
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:viewParam name="clientId" value="#{clientSurveyController.clientId}"/>
+            </f:metadata>
+        </ui:define>
+        <ui:define name="windowTitle">Add survey data</ui:define>
+
+        <ui:define name="content">
+            <h2>Add survey data</h2>
+            <h:form styleClass=" ">
+                <div class="d-flex ">
+                    <h:selectOneMenu styleClass="custom-select m-3" value="#{clientSurveyController.surveyDate.day}" >
+                        <f:selectItem noSelectionOption="true" itemLabel="Day"/>
+                        <f:selectItems value="#{clientSurveyController.surveyDate.dayList}"/>
+                    </h:selectOneMenu>
+
+                    <h:selectOneMenu styleClass="custom-select m-3" value="#{clientSurveyController.surveyDate.month}">
+                        <f:selectItem noSelectionOption="true" itemLabel="Month"/>
+                        <f:selectItems value="#{clientSurveyController.surveyDate.monthList}"/>
+                    </h:selectOneMenu>
+
+                    <h:selectOneMenu styleClass="custom-select m-3" value="#{clientSurveyController.surveyDate.year}">
+                        <f:selectItem noSelectionOption="true" itemLabel="Year"/>
+                        <f:selectItems value="#{clientSurveyController.surveyDate.yearList}"/>
+                    </h:selectOneMenu>
+                </div>
+                <h:panelGrid columns="3" styleClass="mb-3">
+
+                    <h:outputText value="Egg-laying:"/>
+                    <h:inputText styleClass="form-control" value="#{clientSurveyController.clientSurvey.eggLaying}"/>
+                    <h:outputText value="percentage" styleClass="text-muted pl-3"/>
+
+                    <h:outputText value="Egg weight:"/>
+                    <h:inputText styleClass="form-control" value="#{clientSurveyController.clientSurvey.eggAvgWeight}"/>
+                    <h:outputText value="average, gram" styleClass="text-muted pl-3"/>
+
+                    <h:outputText value="Chicken weight:"/>
+                    <h:inputText styleClass="form-control" value="#{clientSurveyController.clientSurvey.chickenAvgWeight}"/>
+                    <h:outputText value="average, gram" styleClass="text-muted pl-3"/>
+
+                    <h:outputText value="Feed consumption:"/>
+                    <h:inputText styleClass="form-control" value="#{clientSurveyController.clientSurvey.feedConsumption}"/>
+                    <h:outputText value="per chicken, gram/day" styleClass="text-muted pl-3"/>
+
+                </h:panelGrid>
+                <h:commandButton styleClass="btn btn-success float-right" value="Add survey data"
+                                 action="#{clientSurveyController.addSurvey()}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

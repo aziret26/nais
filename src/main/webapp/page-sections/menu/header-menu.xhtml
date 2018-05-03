@@ -41,7 +41,7 @@
                             <div class="dropdown-menu">
                                 <h:link rendered="#{userController.currentUser.userRole.userRoleId == 1 or
                                         userController.currentUser.userRole.userRoleId == 3}"
-                                              styleClass="dropdown-item" outcome="/pages/sdo/clients/addClient">
+                                              styleClass="dropdown-item" outcome="/pages/sdo/clients/registerClient">
                                     #{msgs.clientAdd}
                                 </h:link>
 
@@ -87,6 +87,19 @@
                                 <h:link styleClass="nav-link" outcome="/pages/sdo/notification/viewNotifications">#{msgs.notifications}</h:link>
                             </li>
                         </h:panelGroup>
+                    </h:panelGroup>
+
+                    <h:panelGroup>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                               role="button" aria-haspopup="true" aria-expanded="false">Survey</a>
+                            <div class="dropdown-menu">
+                                <h:link styleClass="dropdown-item" outcome="/pages/client/addSurveyData" rendered="#{userController.currentUser.client}">Add survey data</h:link>
+                                <h:link styleClass="dropdown-item" outcome="/pages/client/showUserSurveyData">Show survey data</h:link>
+                                <!--<h:link styleClass="dropdown-item" outcome="/pages/client/showSurveyData"-->
+                                        <!--rendered="#{userController.currentUser.staff}">Show survey data</h:link>-->
+                            </div>
+                        </li>
                     </h:panelGroup>
                 </ul>
             </div>

@@ -228,9 +228,10 @@ public class OrdersController extends GeneralController{
             return false;
         }
         for(Orders o : orderList){
-            if(o.getClient().getClientId() == client.getClientId() &&
-                    o.getFeed().getFeedId() == feed.getFeedId() &&
-                    o.getDueDate().compareTo(date) < 0){
+            if( o.getClient().getClientId() == client.getClientId() && (
+                    o.getDueDate() == null ||
+                    o.getFeed().getFeedId() == feed.getFeedId() && o.getDueDate().compareTo(date) < 0
+                    )){
                 return true;
             }
         }

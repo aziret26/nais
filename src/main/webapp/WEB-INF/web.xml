@@ -44,6 +44,7 @@
     <filter-mapping>
         <filter-name>Index Filter</filter-name>
         <url-pattern>/index.xhtml</url-pattern>
+        <url-pattern>/pages/client/*</url-pattern>
     </filter-mapping>
 
     <filter>

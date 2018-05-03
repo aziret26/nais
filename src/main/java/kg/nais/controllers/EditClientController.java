@@ -76,18 +76,18 @@ public class EditClientController extends GeneralController{
         chick.setEditable(true);
         chick.setClient(client);
         chickList.add(chick);
-        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId = " + clientId;
+        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId=" + clientId;
     }
 
     public String editClient(int clientId) {
         //chickList = new ChickFacade().findByClient(new ClientFacade().findById(client.getClientId()));
-        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId = " + clientId;
+        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId=" + clientId;
     }
 
     public String removeChick(Chick chick) {
         toDeleteList.add(chick);
         chickList.remove(chick);
-        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId = " + clientId;
+        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId=" + clientId;
     }
 
     public String saveClient(){
@@ -146,7 +146,7 @@ public class EditClientController extends GeneralController{
             else
                 chick.setEditable(false);
         }
-        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId = " + clientId;
+        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId=" + clientId;
     }
 
     public String deleteClient(Client client){

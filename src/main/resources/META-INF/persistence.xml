@@ -9,6 +9,7 @@
         <class>kg.nais.models.Chick</class>
         <class>kg.nais.models.Client</class>
         <class>kg.nais.models.ClientStatus</class>
+        <class>kg.nais.models.ClientSurvey</class>
         <class>kg.nais.models.Feed</class>
         <class>kg.nais.models.Orders</class>
         <class>kg.nais.models.User</class>

@@ -5,6 +5,7 @@ import kg.nais.facade.ClientFacade;
 import kg.nais.facade.ClientStatusFacade;
 import kg.nais.models.Chick;
 import kg.nais.models.Client;
+import kg.nais.models.User;
 import kg.nais.tools.Tools;
 
 import javax.annotation.PostConstruct;
@@ -22,7 +23,7 @@ import static kg.nais.tools.ViewPath.*;
 @ViewScoped
 public class ClientController extends GeneralController {
     private Client client = new Client();
-
+    private User user;
     private List<Chick> chickList = new ArrayList<Chick>(Arrays.asList(
             new Chick()
     ));
@@ -44,6 +45,8 @@ public class ClientController extends GeneralController {
         activeClients = findAllActiveClients();
 
         frozenClients = findAllFrozenClients() ;
+        user = new User();
+        user.setClient(true);
     }
 
     @ManagedProperty(value="#{sessionController}")
@@ -55,6 +58,14 @@ public class ClientController extends GeneralController {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setSessionController(kg.nais.controllers.SessionController sessionController) {
@@ -132,6 +143,25 @@ public class ClientController extends GeneralController {
         if(userController.getCurrentUser().getUserRole().getUserRoleId() == 1)
             return ADMIN_SHOW_CLIENTS + REDIRECT;
         return OPERATOR_SHOW_CLIENTS +REDIRECT;
+    }
+
+    public String registerUser(){
+        UserController userController = new UserController();
+        userController.setSessionController(sessionController);
+
+        boolean isUserCreated = userController.createUser(user);
+        if(isUserCreated){
+
+            client.setRegDate(Calendar.getInstance());
+            client.setClientStatus(new ClientStatusFacade().findById(1));
+            client.setUser(user);
+
+            new ClientFacade().create(client);
+
+            Tools.faceMessageInfo("User is successfully created","");
+            System.out.println("Client is successfully created");
+        }
+        return OPERATOR_EDIT_CLIENT +REDIRECT + "clientId=" + client.getClientId();
     }
 
     public void addChick(){

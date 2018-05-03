@@ -39,6 +39,12 @@ public class ViewPath {
 
         PM_DEMAND_FOLDER = PM_FOLDER + "demand/",
             PM_DEMANDS = PM_DEMAND_FOLDER + "demands?",
-            PM_CLIENT_DEMANDS = PM_DEMAND_FOLDER + "clientDemands?";
+            PM_CLIENT_DEMANDS = PM_DEMAND_FOLDER + "clientDemands?",
+
+    CLIENT_FOLDER = PAGES_FOLDER + "client/",
+
+        ADD_SURVEY_DATA = CLIENT_FOLDER + "addSurveyData?",
+        SHOW_USER_SURVEY_DATA = CLIENT_FOLDER + "showUserSurveyData?",
+        SHOW_SURVEY_DATA = CLIENT_FOLDER + "showSurveyData?";
     public static final String REDIRECT = "faces-redirect=true&";
 }

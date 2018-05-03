@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/masterLayout.xhtml">
+    <ui:define name="windowTitle">Добавить клиента</ui:define>
+    <ui:define name="content">
+        <h2>Add Client</h2>
+        <h:form>
+            <h:panelGrid columns="2" styleClass="mb-3">
+
+                <h:outputText value="Name:"/>
+                <h:inputText styleClass="form-control" value="#{clientController.client.name}"/>
+
+                <h:outputText value="Username:"/>
+                <h:inputText styleClass="form-control" value="#{clientController.user.login}"/>
+
+                <h:outputText value="Password:"/>
+                <h:inputSecret styleClass="form-control" value="#{clientController.user.password}"/>
+
+
+                <h:outputText value="Telephone 1:"/>
+                <h:inputText styleClass="form-control" value="#{clientController.client.telephone1}"/>
+
+                <h:outputText value="Telephone 2:"/>
+                <h:inputText styleClass="form-control" value="#{clientController.client.telephone2}"/>
+            </h:panelGrid>
+            <h:commandButton styleClass="btn btn-success float-right" value="Add Client" action="#{clientController.registerUser()}"/>
+
+        </h:form>
+        <h:messages errorClass="errorMessage" infoClass="infoMessage"
+                    layout="table" globalOnly="true" showDetail="false" showSummary="true"/>
+    </ui:define>
+</ui:composition>
+</html>

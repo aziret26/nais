@@ -50,10 +50,21 @@ public class UserFacade {
     }
 
     public List<User> findAll(){
+        return findUsers("User.findAll");
+
+    }
+
+    public List<User> findAllStaffUsers(){
+        return findUsers("User.findAllStaffUsers");
+    }
+    public List<User> findAllClientUsers(){
+        return findUsers("User.findAllClientUsers");
+    }
+    private List<User> findUsers(String query){
         List<User> userList;
         try {
             objectDao.beginTransaction();
-            userList = objectDao.getEntityManager().createNamedQuery("User.findAll",User.class).getResultList();
+            userList = objectDao.getEntityManager().createNamedQuery(query,User.class).getResultList();
             objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             userList = new ArrayList<User>();
@@ -125,6 +136,7 @@ public class UserFacade {
         user.setLname("Admin");
         user.setLogin("admin");
         user.setPassword("admin");
+        user.setStaff(true);
         user.setRegDate(new Date());
         user.setUserRole(new UserRoleFacade().findById(1));
         user.setUserStatus(new UserStatusFacade().findById(1));

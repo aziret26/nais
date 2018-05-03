@@ -30,7 +30,11 @@ import java.util.List;
         @NamedQuery(name="User.findByLoginPass",
                 query="SELECT u FROM User u WHERE u.login = :login AND u.password = :password"),
         @NamedQuery(name="User.searchByLogin",
-                query = "SELECT u FROM User u WHERE u.login LIKE :login")
+                query = "SELECT u FROM User u WHERE u.login LIKE :login"),
+        @NamedQuery(name="User.findAllStaffUsers",
+                query = "SELECT u FROM User u WHERE u.isStaff = true"),
+        @NamedQuery(name="User.findAllClientUsers",
+                query = "SELECT u FROM User u WHERE u.isClient = true")
 })
 public class User implements Serializable,Validator{
     @Id
@@ -47,6 +51,12 @@ public class User implements Serializable,Validator{
     @Column
     private Date regDate;
 
+    @Column
+    private boolean isStaff;
+
+    @Column
+    private boolean isClient;
+
     @ManyToOne
     @JoinColumn(name = "userRoleId")
     private UserRole userRole;
@@ -57,6 +67,9 @@ public class User implements Serializable,Validator{
 
     @OneToMany(mappedBy = "user")
     private List<NotificationSeen> notificationSeenList;
+
+    @OneToOne(mappedBy = "user")
+    private Client client;
 
     public int getUserId() {
         return userId;
@@ -107,6 +120,22 @@ public class User implements Serializable,Validator{
         this.regDate = regDate;
     }
 
+    public boolean isStaff() {
+        return isStaff;
+    }
+
+    public void setStaff(boolean staff) {
+        isStaff = staff;
+    }
+
+    public boolean isClient() {
+        return isClient;
+    }
+
+    public void setClient(boolean client) {
+        isClient = client;
+    }
+
     public UserRole getUserRole() {
         return userRole;
     }
@@ -147,5 +176,13 @@ public class User implements Serializable,Validator{
 
     public void setNotificationSeenList(List<NotificationSeen> notificationSeenList) {
         this.notificationSeenList = notificationSeenList;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

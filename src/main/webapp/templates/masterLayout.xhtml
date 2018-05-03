@@ -6,9 +6,6 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <ui:insert name="metadata">
-            <ui:include src="/sections/metadata.xhtml"/>
-        </ui:insert>
         <title><ui:insert name="windowTitle"/></title>
         <h:outputStylesheet library="css" name="bootstrap.min.css"/>
         <h:outputStylesheet library="css" name="dashboard.css"/>
@@ -18,20 +15,17 @@
         <div class="container">
             <div class=" flex-md-nowrap p-0 shadow  bg-theme d-flex justify-content-between align-items-center">
                 <h:link styleClass="navbar-brand col-sm-3 col-md-2 mr-0" outcome="/index">Natural Agro</h:link>
-                <ui:insert name="header-menu">
-                    <ui:include src="/page-sections/menu/header-menu.xhtml"/>
-                </ui:insert>
+                <h:panelGroup rendered="#{sessionController != null and sessionController.logged}">
+                    <ui:insert name="header-menu">
+                        <ui:include src="/page-sections/menu/header-menu.xhtml"/>
+                    </ui:insert>
+                </h:panelGroup>
                 <ul class="navbar-nav px-3">
                     <li class="nav-item text-nowrap">
-                        <h:panelGroup rendered="#{!sessionController.logged}">
-                            <p>
-                                <h:outputText value="Гость"/>
-                            </p>
-                        </h:panelGroup>
                         <h:panelGroup rendered="#{sessionController.logged}">
                             <div class="right">
                                 <h:form>
-                                    <h:commandLink value="Выйти" action="#{userController.signout()}"/>
+                                    <h:commandLink value="#{msgs.exit}" action="#{userController.logout()}"/>
                                 </h:form>
                             </div>
                         </h:panelGroup>
@@ -40,7 +34,6 @@
             </div>
             <div class="">
                 <div>
-
                     <div role="main" class="d-flex justify-content-center">
                         <div>
                             <ui:insert name="content"/>
@@ -49,7 +42,9 @@
 
                 </div>
             </div>
-            <h:outputScript library="js" name="jquery.min.js"/>
+            <ui:insert name="jquery">
+                <h:outputScript library="js" name="jquery.min.js"/>
+            </ui:insert>
             <h:outputScript library="js" name="popper.min.js"/>
             <h:outputScript library="js" name="bootstrap.min.js"/>
             <ui:debug/>
