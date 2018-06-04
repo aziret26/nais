@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <ui:composition template="/templates/masterLayout.xhtml">
-        <ui:define name="windowTitle">Add survey data</ui:define>
+        <ui:define name="windowTitle">Survey statistics</ui:define>
 
         <ui:define name="metadata">
             <f:metadata>
@@ -21,7 +21,7 @@
                     <h:form>
                         <p:dataTable value="#{clientController.activeClients}" styleClass="text-center table" var="client">
                             <p:column>
-                                <f:facet name="header">Клиенты</f:facet>
+                                <f:facet name="header">#{msgs.clientList}</f:facet>
                                 <h:link value="#{client.name}" outcome="/pages/client/showUserSurveyData.xhtml?clientId=#{client.clientId}" />
                             </p:column>
                         </p:dataTable>
@@ -31,7 +31,7 @@
 
                     <div class="flex-4">
                         <div class="text-center">
-                            <h2>Add survey data</h2>
+                            <h2>Survey statistics</h2>
                         </div>
                         <div class="d-flex justify-content-end">
                             <p:chart type="line" model="#{clientChartController.eggLayingChart}" style="height:300px;"/>

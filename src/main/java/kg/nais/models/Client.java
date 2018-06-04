@@ -38,10 +38,10 @@ public class Client {
     private Calendar regDate;
 
     @Column
-    private int telephone1;
+    private Integer telephone1;
 
     @Column
-    private int telephone2;
+    private Integer telephone2;
 
     @OneToMany(mappedBy = "client")
     private List<Chick> chickList = new ArrayList<Chick>();
@@ -106,19 +106,19 @@ public class Client {
         this.chickList = chickList;
     }
 
-    public int getTelephone1() {
+    public Integer getTelephone1() {
         return telephone1;
     }
 
-    public void setTelephone1(int telephone1) {
+    public void setTelephone1(Integer telephone1) {
         this.telephone1 = telephone1;
     }
 
-    public int getTelephone2() {
+    public Integer getTelephone2() {
         return telephone2;
     }
 
-    public void setTelephone2(int telephone2) {
+    public void setTelephone2(Integer telephone2) {
         this.telephone2 = telephone2;
     }
 

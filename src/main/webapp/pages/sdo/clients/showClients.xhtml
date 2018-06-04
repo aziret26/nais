@@ -10,7 +10,7 @@
         <ui:define name="windowTitle">Список клиентов</ui:define>
         <ui:define name="content">
             <h:panelGroup rendered="#{clientController.activeClients.size() != 0}">
-                <h2>Список клиентов</h2>
+                <h2>#{msgs.clientList}</h2>
 
                 <h:form>
                     <h:outputText value="Поиск"/>

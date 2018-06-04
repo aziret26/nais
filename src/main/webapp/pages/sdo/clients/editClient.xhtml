@@ -14,35 +14,43 @@
                 <f:viewParam name="clientId" value="#{ordersController.clientId}"/>
             </f:metadata>
         </ui:define>
-        <ui:define name="windowTitle">Edit client</ui:define>
+        <ui:define name="windowTitle">#{msgs.clientEdit}</ui:define>
 
         <ui:define name="content">
-            <h2>Edit client - #{editClientController.clientId}</h2>
+            <h:link styleClass="btn btn-outline-primary" value="#{msgs.clientList}" outcome="/pages/sdo/clients/showClients"/>
+            <div class="d-flex justify-content-between">
+                <h2>#{msgs.clientEdit}</h2>
+                <h:link styleClass="btn btn-dark" value="Edit data" outcome="/pages/sdo/clients/editClientData">
+                    <f:param name="clientId" value="#{editClientController.client.clientId}"/>
+                </h:link>
+            </div>
+
             <h:form>
                 <h:panelGrid columns="2" styleClass="mb-3">
 
                     <h:outputText value="Name:"/>
-                    <h:inputText styleClass="form-control" value="#{editClientController.client.name}"/>
+                    <h:outputText styleClass="text-right" value="#{editClientController.client.name}"/>
 
                     <h:outputText value="Telephone 1:"/>
-                    <h:inputText styleClass="form-control" value="#{editClientController.client.telephone1}"/>
+                    <h:outputText styleClass="text-right" value="#{editClientController.client.telephone1}"/>
 
-                    <h:outputText value="Telephone 2:"/>
-                    <h:inputText styleClass="form-control" value="#{editClientController.client.telephone2}"/>
+                    <h:outputText value="Telephone 2:" />
+                    <h:outputText styleClass="text-right"  value="#{editClientController.client.telephone2}" rendered="#{ editClientController.client.telephone2 != 0 }"/>
 
                 </h:panelGrid>
                 <p:dataTable value="#{editClientController.chickList}" var="chick" >
                     <p:column>
                         <f:facet name="header">
                             <p:commandButton value="Edit"
-                                             action="#{editClientController.changeEditableState()}"/>
+                                             action="#{editClientController.changeEditableState()}" >
+                            </p:commandButton>
                         </f:facet>
                         <p:selectBooleanCheckbox value="#{chick.editable}" onchange="submit()"/>
                     </p:column>
                     <p:column>
                         <f:facet name="header">Age(weeks)</f:facet>
                         <h:inputText styleClass="form-control" value="#{chick.age}" rendered="#{chick.editable}" size="5"/>
-                        <h:outputText value="#{chick.age}" rendered="#{not chick.editable}"/>
+                        <h:outputText value="#{chick.age}" rendered="#{not chick.editable}" />
                     </p:column>
                     <p:column>
                         <f:facet name="header">Amount</f:facet>
@@ -76,7 +84,7 @@
                 </p:dataTable>
                 <br/>
                 <div class="d-flex justify-content-between">
-                    <h:commandButton styleClass="btn btn-primary"  value="Freese" action="#{editClientController.freeze(editClientController.client)}" rendered="#{not editClientController.frozen}"/>
+                    <h:commandButton styleClass="btn btn-primary"  value="Freeze" action="#{editClientController.freeze(editClientController.client)}" rendered="#{not editClientController.frozen}"/>
                     <h:commandButton styleClass="btn btn-primary" value="Unfreeze" action="#{editClientController.active(editClientController.client)}" rendered="#{editClientController.frozen}"/>
                     <h:commandButton styleClass="btn btn-danger" value="Delete" action="#{editClientController.deleteClient(editClientController.client)}"
                                      onclick="return confirm('Are you sure to delete all the data related to this client?')"/>

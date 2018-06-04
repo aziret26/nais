@@ -22,13 +22,13 @@
             <h:panelGroup rendered="#{userController.user != null and userController.user.userId != 0}">
                 <h:form>
                     <h:panelGrid columns="2">
-                        <h:outputText value="Логин:"/>
+                        <h:outputText value="#{msgs.username}:"/>
                         <h:panelGroup>
                             <h:inputText class="form-control" id="login" value="#{userController.user.login}"/>
                             <h:message for="login" style="color:red"/>
                         </h:panelGroup>
 
-                        <h:outputText value="Имя:"/>
+                        <h:outputText value="#{msgs.firstName}:"/>
                         <h:panelGroup>
                             <h:inputText class="form-control" id="fnameInput" value="#{userController.user.fname}" required="true">
                                 <f:ajax event="blur">
@@ -38,18 +38,18 @@
                             <h:message for="fnameInput" style="color:red"/>
                         </h:panelGroup>
 
-                        <h:outputText value="Фамилия:"/>
+                        <h:outputText value="#{msgs.lastName}:"/>
                         <h:panelGroup>
                             <h:inputText class="form-control" id="lnameInput" value="#{userController.user.lname}" required="true"/>
                             <h:message for="lnameInput" style="color:red" showSummary="true" showDetail="false"/>
                         </h:panelGroup>
 
-                        <h:outputText value="Пароль:"/>
+                        <h:outputText value="#{msgs.password}:"/>
                         <h:panelGroup>
                             <h:inputSecret class="form-control" id="passwordInput" value = "#{userController.user.password}" />
                             <h:message for = "passwordInput" style = "color:red" />
                         </h:panelGroup>
-                        <h:outputText value="Роль:"/>
+                        <h:outputText value="#{msgs.role}:"/>
                         <h:selectOneMenu class="custom-select" value="#{userController.userRoleId}">
                             <f:selectItem itemLabel="Select a role" itemValue="0"/>
                             <f:selectItems value="#{userRoleController.simpleUserRoleList}"
@@ -57,8 +57,8 @@
                                            itemLabel="#{role.userRole}"/>
                         </h:selectOneMenu>
 
-                        <h:commandButton styleClass="btn btn-outline-danger" value="Удалить" action="#{userController.deleteUser()}"/>
-                        <h:commandButton styleClass="btn btn-success float-right"  value="Сохранить" action="#{userController.saveUserChanges()}"/>
+                        <h:commandButton styleClass="btn btn-outline-danger" value="#{msgs.delete}" action="#{userController.deleteUser()}"/>
+                        <h:commandButton styleClass="btn btn-success float-right"  value="#{msgs.update}" action="#{userController.saveUserChanges()}"/>
                     </h:panelGrid>
                     <h:messages errorClass="errorMessage" infoClass="infoMessage"
                                 layout="table" globalOnly="true" showDetail="false" showSummary="true"/>

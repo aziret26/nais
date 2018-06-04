@@ -14,13 +14,13 @@
                 <f:viewParam name="feedId" value="#{editFeedController.feedId}"/>
             </f:metadata>
         </ui:define>
-        <ui:define name="windowTitle">Редактировать корм</ui:define>
+        <ui:define name="windowTitle">#{msgs.feedEdit}</ui:define>
         <ui:define name="content">
-            <h2>Редактировать корм</h2>
+            <h2>#{msgs.feedEdit}</h2>
             <h:panelGroup>
                 <h:form>
                     <h:panelGrid columns="2">
-                        <h:outputText value="Название корма:"/>
+                        <h:outputText value="#{msgs.feedName}:"/>
                         <h:panelGroup>
                             <h:inputText styleClass="form-control" id="feed" value="#{editFeedController.feed.name}" required="true">
                                 <f:ajax event="blur">
@@ -31,20 +31,20 @@
                             <h:message for="feed" styleClass="errorMessage"/>
                         </h:panelGroup>
 
-                        <h:outputText value="Возвраст с:"/>
+                        <h:outputText value="#{msgs.ageFrom}:"/>
                         <h:panelGroup>
                             <h:inputText styleClass="form-control" id="ageFrom" value="#{editFeedController.feed.ageFrom}" required="true"/>
                             <h:message for="ageFrom" styleClass="errorMessage" showSummary="true" showDetail="false"/>
                         </h:panelGroup>
 
-                        <h:outputText value="Возвраст до:"/>
+                        <h:outputText value="#{msgs.ageTo}:"/>
                         <h:panelGroup>
                             <h:inputText styleClass="form-control" id="ageTo" value = "#{editFeedController.feed.ageTo}" required="true"/>
                             <h:message for = "ageTo" styleClass="errorMessage" />
                         </h:panelGroup>
 
-                        <h:commandButton styleClass="btn btn-outline-danger" value="Удалить" action="#{editFeedController.deleteFeed()}"/>
-                        <h:commandButton styleClass="btn btn-outline-success float-right" value="Сохранить" action="#{editFeedController.saveFeedChanges()}"/>
+                        <h:commandButton styleClass="btn btn-outline-danger" value="#{msgs.delete}" action="#{editFeedController.deleteFeed()}"/>
+                        <h:commandButton styleClass="btn btn-outline-success float-right" value="#{msgs.update}" action="#{editFeedController.saveFeedChanges()}"/>
                     </h:panelGrid>
                     <h:messages errorClass="errorMessage" infoClass="infoMessage"
                                 layout="table" globalOnly="true" showDetail="false" showSummary="true"/>

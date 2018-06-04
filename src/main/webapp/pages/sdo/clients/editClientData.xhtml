@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/masterLayout.xhtml">
+    <ui:define name="windowTitle">#{msgs.clientEditData}</ui:define>
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="clientId" value="#{editClientController.clientId}"/>
+            <f:viewParam name="userId" value="#{userController.userId}"/>
+            <f:viewParam name="clientId" value="#{ordersController.clientId}"/>
+        </f:metadata>
+    </ui:define>
+    <ui:define name="content">
+        <h:link styleClass="btn btn-outline-primary" value="#{msgs.goBack}" outcome="/pages/sdo/clients/editClient">
+            <f:param name="clientId" value="#{editClientController.client.clientId}"/>
+        </h:link>
+        <p:messages id="messages" showDetail="true" closable="true" />
+        <h2>#{msgs.clientEditData}</h2>
+        <h:form>
+            <h:panelGrid columns="2" styleClass="mb-3">
+
+                <h:outputText value="Name:"/>
+                <h:panelGroup>
+                    <h:inputText id="inputName" styleClass="form-control" value="#{editClientController.client.name}" required="true"/>
+                    <h:message for="inputName" style="color:red" />
+                </h:panelGroup>
+
+                <h:outputText value="Username:"/>
+                <h:panelGroup>
+                    <h:inputText id="inputLogin" styleClass="form-control" value="#{editClientController.client.user.login}" required="true"/>
+                    <h:message for="inputLogin" style="color:red" />
+                </h:panelGroup>
+
+                <h:outputText value="Password:"/>
+                <h:panelGroup>
+                    <h:inputSecret id="inputPassword" styleClass="form-control" value="#{editClientController.newPswd}"/>
+                    <h:message for="inputPassword" style="color:red" />
+                </h:panelGroup>
+
+
+                <h:outputText value="Telephone 1:"/>
+                <h:panelGroup>
+                    <h:inputText id="inputPhone1" styleClass="form-control" value="#{editClientController.client.telephone1}" required="true"/>
+                    <h:message for="inputPhone1" style="color:red" />
+                </h:panelGroup>
+
+                <h:outputText value="Telephone 2:"/>
+                <h:inputText styleClass="form-control" value="#{editClientController.client.telephone2}"/>
+            </h:panelGrid>
+            <h:commandButton styleClass="btn btn-success" value="Add Client" >
+                <f:ajax listener="#{editClientController.saveClientData()}" execute="@form" render="@form messages" />
+            </h:commandButton>
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+</html>

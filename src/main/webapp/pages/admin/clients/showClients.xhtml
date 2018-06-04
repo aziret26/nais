@@ -7,15 +7,15 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <ui:composition template="/templates/masterLayout.xhtml">
-        <ui:define name="windowTitle">Список клиентов</ui:define>
+        <ui:define name="windowTitle">#{msgs.clientList}</ui:define>
         <ui:define name="content">
             <h:panelGroup rendered="#{clientController.activeClients.size() != 0}">
-                <h2>Список клиентов</h2>
+                <h2>#{msgs.clientList}</h2>
                 <h:form styleClass="mb-3">
-                    <h:outputText value="Поиск"/>
+
                     <h:panelGrid columns="3">
                         <h:inputText styleClass="form-control" value="#{clientController.searchNameActive}"/>
-                        <h:commandButton styleClass="btn btn-outline-primary ml-3" value="Найти">
+                        <h:commandButton styleClass="btn btn-outline-primary ml-3" value="#{msgs.search}">
                             <f:ajax listener="#{clientController.searchAllActiveByName()}"
                                     execute="@form"
                                     render=":activeClientsMsg :activeClientsList"/>
@@ -30,7 +30,7 @@
                     <h:form>
                         <p:dataTable value="#{clientController.activeClients}" styleClass="text-center table" var="client">
                             <p:column>
-                                <f:facet name="header">Клиенты</f:facet>
+                                <f:facet name="header">#{msgs.clients}</f:facet>
                                 <h:link value="#{client.name}" outcome="#{editClientController.editClient(client.clientId)}" />
                             </p:column>
                             <p:columns value="#{feedController.feedList}" var="feed">
@@ -38,12 +38,12 @@
                                 <h:outputText value="#{chickController.calculateFeed(feed.name, client)} шт."/>
                             </p:columns>
                             <p:column>
-                                <f:facet name="header">Заказ</f:facet>
-                                <h:link styleClass="btn btn-outline-secondary" value="Заказ" outcome="#{ordersController.addOrder(client.clientId)}"/>
+                                <f:facet name="header">#{msgs.orders}</f:facet>
+                                <h:link styleClass="btn btn-outline-secondary" value="#{msgs.orders}" outcome="#{ordersController.addOrder(client.clientId)}"/>
                             </p:column>
                             <p:column>
-                                <f:facet name="header">Треб.</f:facet>
-                                <h:link styleClass="btn btn-outline-secondary" value="Треб." outcome="${demandController.demandForClient(client)}"/>
+                                <f:facet name="header">#{msgs.demands}</f:facet>
+                                <h:link styleClass="btn btn-outline-secondary" value="#{msgs.demands}" outcome="${demandController.demandForClient(client)}"/>
                             </p:column>
                         </p:dataTable>
                     </h:form>
@@ -52,7 +52,7 @@
 
             <h:panelGroup rendered="#{clientController.frozenClients.size() != 0}">
                 <hr/>
-                <h2>Список замороженных клиентов</h2>
+                <h2>Frozen clients list</h2>
                 <h:form>
                     <h:panelGrid columns="3">
                         <h:inputText styleClass="form-control" value="#{clientController.searchNameFrozen}">
@@ -72,7 +72,7 @@
                 <h:panelGroup id="frozenClientsList">
                     <p:dataTable value="#{clientController.frozenClients}" var="client">
                         <p:column>
-                            <f:facet name="header">Клиенты</f:facet>
+                            <f:facet name="header">#{msgs.clients}</f:facet>
                             <h:link value="#{client.name}" outcome="#{editClientController.editClient(client.clientId)}" />
                         </p:column>
                         <p:columns value="#{feedController.feedList}" var="feed">

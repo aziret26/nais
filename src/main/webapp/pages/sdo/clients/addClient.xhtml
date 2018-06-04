@@ -7,18 +7,18 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <ui:composition template="/templates/masterLayout.xhtml">
-        <ui:define name="windowTitle">Добавить клиента</ui:define>
+        <ui:define name="windowTitle">#{msgs.clientAdd}</ui:define>
         <ui:define name="content">
-            <h2>Данные клиента</h2>
+            <h2>#{msgs.clientAdd}</h2>
             <h:form>
                 <h:panelGrid columns="2" styleClass="mb-3">
-                    <h:outputText value="Имя:"/>
+                    <h:outputText value="Name:"/>
                     <h:inputText styleClass="form-control" value="#{clientController.client.name}"/>
 
-                    <h:outputText value="Телефон1:"/>
+                    <h:outputText value="Telephone1:"/>
                     <h:inputText styleClass="form-control" value="#{clientController.client.telephone1}"/>
 
-                    <h:outputText value="Телефон2:"/>
+                    <h:outputText value="Telephone2:"/>
                     <h:inputText styleClass="form-control" value="#{clientController.client.telephone2}"/>
                 </h:panelGrid>
                 <p:dataTable value="#{clientController.chickList}" var="chick">

@@ -88,7 +88,11 @@
                             </li>
                         </h:panelGroup>
                     </h:panelGroup>
-
+                    <h:panelGroup rendered="#{userController.currentUser.client}">
+                        <li class="nav-item " >
+                            <h:link styleClass="nav-link" outcome="/pages/client/profile">#{msgs.profile}</h:link>
+                        </li>
+                    </h:panelGroup>
                     <h:panelGroup>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"

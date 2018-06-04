@@ -7,26 +7,26 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <ui:composition template="/templates/masterLayout.xhtml">
-        <ui:define name="windowTitle">Список кормов</ui:define>
+        <ui:define name="windowTitle">#{msgs.feedList}</ui:define>
         <ui:define name="content">
-            <h2>Список кормов</h2>
+            <h2>#{msgs.feedList}</h2>
             <h:form>
                 <p:dataTable value="#{feedController.getFeedList()}" var="feed" styleClass="dataTable table text-center" headerClass="dataTableHeader" footerClass="dataTableFooter" columnClasses="clientName" rowClasses="oddRow, evenRow">
                     <p:column>
-                        <f:facet name="header">Название</f:facet>
+                        <f:facet name="header">#{msgs.name}</f:facet>
                         <h:outputText value="#{feed.name}"/>
                     </p:column>
                     <p:column>
-                        <f:facet name="header">Возвраст от</f:facet>
+                        <f:facet name="header">#{msgs.ageFrom}</f:facet>
                         <h:outputText value="#{feed.ageFrom}"/>
                     </p:column>
                     <p:column>
-                        <f:facet name="header">Возвраст до</f:facet>
+                        <f:facet name="header">#{msgs.ageTo}</f:facet>
                         <h:outputText value="#{feed.ageTo}"/>
                     </p:column>
                     <p:column>
-                        <f:facet name="header">Редактирование</f:facet>
-                        <h:link styleClass="btn btn-outline-secondary" value="Изменить" outcome="#{feedController.editFeed(feed.feedId)}"/>
+                        <f:facet name="header">#{msgs.edit}</f:facet>
+                        <h:link styleClass="btn btn-outline-secondary" value="#{msgs.edit}" outcome="#{feedController.editFeed(feed.feedId)}"/>
                     </p:column>
                 </p:dataTable>
             </h:form>

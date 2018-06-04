@@ -10,10 +10,10 @@
         <ui:define name="windowTitle">Добавить корм</ui:define>
 
         <ui:define name="content">
-            <h2>Добавить корм</h2>
+            <h2>#{msgs.feedAdd}</h2>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="Название корма:"/>
+                    <h:outputText value="#{msgs.feedName}:"/>
                     <h:panelGroup>
                         <h:inputText class="form-control" id="feed" value="#{feedController.feed.name}" required="true">
                             <f:ajax event="blur">
@@ -24,19 +24,19 @@
                         <h:message for="feed" styleClass="errorMessage"/>
                     </h:panelGroup>
 
-                    <h:outputText value="Возвраст с:"/>
+                    <h:outputText value="#{msgs.ageFrom}:"/>
                     <h:panelGroup>
                         <h:inputText class="form-control" id="ageFrom" value="#{feedController.feed.ageFrom}" required="true"/>
                         <h:message for="ageFrom" styleClass="errorMessage" showSummary="true" showDetail="false"/>
                     </h:panelGroup>
 
-                    <h:outputText value="Возвраст до:"/>
+                    <h:outputText value="#{msgs.ageTo}:"/>
                     <h:panelGroup>
                         <h:inputText class="form-control" id="ageTo" value = "#{feedController.feed.ageTo}" required="true"/>
                         <h:message for = "ageTo" styleClass="errorMessage" />
                     </h:panelGroup>
                     <div></div>
-                    <h:commandButton styleClass="btn btn-success float-right" value="Submit" action="#{feedController.createFeed()}"/>
+                    <h:commandButton styleClass="btn btn-success float-right" value="#{msgs.add}" action="#{feedController.createFeed()}"/>
                 </h:panelGrid>
                 <h:messages errorClass="errorMessage" infoClass="infoMessage"
                             layout="table" globalOnly="true" showDetail="false" showSummary="true"/>

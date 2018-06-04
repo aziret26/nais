@@ -12,17 +12,17 @@
             <f:viewParam name="clientId" value="#{orderHistoryController.clientId}"/>
         </f:metadata>
     </ui:define>
-    <ui:define name="windowTitle">Добавить Заказ</ui:define>
+    <ui:define name="windowTitle">#{msgs.orderAdd}</ui:define>
     <ui:define name="content">
         <div class="d-flex justify-content-between">
             <div>
                 <h:messages errorClass="errorMessage" infoClass="infoMessage"
                             layout="table" globalOnly="true" showDetail="false" showSummary="true"/>
                     <h:panelGroup rendered="#{ordersController.client != null}">
-                        <h2>Создать заказ</h2>
+                        <h2>#{msgs.orderAdd}</h2>
                         <h:form>
                             <h:panelGrid columns="2" cellspacing="10">
-                                <h:outputText value="Вид корма:"/>
+                                <h:outputText value="#{msgs.feedType}:"/>
 
                                 <h:selectOneMenu styleClass="custom-select mb-2" value="#{ordersController.selectedFeed}">
                                     <f:selectItem itemValue="0" itemLabel="Вид корма"/>
@@ -31,10 +31,10 @@
                                                    itemLabel="#{feed.name}"/>
                                 </h:selectOneMenu>
 
-                                <h:outputText value="Количество (кг):"/>
+                                <h:outputText value="#{msgs.amount_kg}:"/>
                                 <h:inputText styleClass="form-control mb-2" value="#{ordersController.order.amount}"/>
 
-                                <h:outputText value="Дата:"/>
+                                <h:outputText value="#{msgs.date}:"/>
 
                                 <h:panelGroup styleClass="d-flex mb-2">
                                     <h:selectOneMenu styleClass="custom-select" value="#{ordersController.customCalendar.year}">

@@ -2,7 +2,9 @@ package kg.nais.controllers;
 
 import kg.nais.facade.*;
 import kg.nais.models.*;
+import kg.nais.tools.Tools;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -21,7 +23,7 @@ import static kg.nais.tools.ViewPath.*;
 public class EditClientController extends GeneralController{
 
     private Client client = new Client();
-
+    private ClientFacade clientFacade = new ClientFacade();
     private List<Chick> chickList = new ArrayList<Chick>(Arrays.asList(new Chick())),
                 toDeleteList = new ArrayList<Chick>();
 
@@ -29,14 +31,26 @@ public class EditClientController extends GeneralController{
 
     private ChickController chickController = new ChickController();
 
+    private String newPswd = "";
+
     @ManagedProperty(value = "#{sessionController}")
     private SessionController sessionController;
+
+    @PostConstruct
+    public void init(){
+        if(sessionController.getUser().isClient())
+            setClient(clientFacade.findById(sessionController.getUser().getClient().getClientId()));
+    }
 
     private List<Feed> feedList = new FeedFacade().findAll();
 
     public Client getClient() {
         if(client == null || clientId != 0 && clientId != client.getClientId()){
             client = new ClientFacade().findById(clientId);
+            chickList = new ChickFacade().findByClient(new ClientFacade().findById(client.getClientId()));
+        }
+        if(sessionController.getUser().isClient()){
+            setClient(clientFacade.findById(sessionController.getUser().getClient().getClientId()));
             chickList = new ChickFacade().findByClient(new ClientFacade().findById(client.getClientId()));
         }
         return client;
@@ -69,6 +83,14 @@ public class EditClientController extends GeneralController{
 
     public void setSessionController(SessionController sessionController) {
         this.sessionController = sessionController;
+    }
+
+    public String getNewPswd() {
+        return newPswd;
+    }
+
+    public void setNewPswd(String newPswd) {
+        this.newPswd = newPswd;
     }
 
     public String addChick(){
@@ -169,5 +191,15 @@ public class EditClientController extends GeneralController{
         client.setClientStatus(sc);
         new ClientFacade().update(client);
         frozen = false;
+    }
+
+    public void saveClientData(){
+        User user = client.getUser();
+        if(newPswd.length() > 3){
+            user.setPassword(newPswd);
+        }
+        clientFacade.update(client);
+        new UserFacade().updateUser(user);
+        Tools.faceMessageInfo("All data successfully update","");
     }
 }

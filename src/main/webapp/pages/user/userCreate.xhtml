@@ -15,11 +15,6 @@
                     <f:facet name="header">
                         <h2>#{msgs.userAdd}</h2>
                     </f:facet>
-                    <h:outputText value="#{msgs.username}:"/>
-                    <h:panelGroup>
-                        <h:inputText class="form-control" id="login" value="#{userController.user.login}"/>
-                        <h:message for="login" style="color:red"/>
-                    </h:panelGroup>
 
                     <h:outputText value="#{msgs.firstName}:"/>
                     <h:panelGroup>
@@ -35,6 +30,12 @@
                     <h:panelGroup>
                         <h:inputText class="form-control" id="lnameInput" value="#{userController.user.lname}" required="true"/>
                         <h:message for="lnameInput" style="color:red" showSummary="true" showDetail="false"/>
+                    </h:panelGroup>
+
+                    <h:outputText value="#{msgs.username}:"/>
+                    <h:panelGroup>
+                        <h:inputText class="form-control" id="login" value="#{userController.user.login}" required="true"/>
+                        <h:message for="login" style="color:red"/>
                     </h:panelGroup>
 
                     <h:outputText value="#{msgs.password}:"/>

@@ -13,16 +13,15 @@
             <f:viewParam name="clientId" value="#{ordersController.clientId}"/>
         </f:metadata>
     </ui:define>
-    <ui:define name="windowTitle">Список заказов</ui:define>
+    <ui:define name="windowTitle">#{msgs.orderList}</ui:define>
 
     <ui:define name="content">
-        <h2>Список Заказов</h2>
+        <h2>#{msgs.orderList}</h2>
 
         <h:form styleClass="mb-3">
-            <h:outputText value="Поиск"/>
             <h:panelGrid columns="3">
                 <h:inputText styleClass="form-control" value="#{clientController.searchNameActive}"/>
-                <h:commandButton styleClass="btn btn-outline-primary ml-3" value="Найти">
+                <h:commandButton styleClass="btn btn-outline-primary ml-3" value="#{msgs.search}">
                     <f:ajax listener="#{clientController.searchAllActiveByName()}"
                             execute="@form"
                             render=":activeClientsMsg :activeClientsList"/>
@@ -39,7 +38,7 @@
                              headerClass="dataTableHeader" footerClass="dataTableFooter"
                              columnClasses="clientName" rowClasses="oddRow, evenRow">
                     <p:column>
-                        <f:facet name="header">Клиенты</f:facet>
+                        <f:facet name="header">#{msgs.clients}</f:facet>
                         <h:link value="#{client.name}" outcome="#{ordersController.addOrder(client.clientId)}"/>
                     </p:column>
 
