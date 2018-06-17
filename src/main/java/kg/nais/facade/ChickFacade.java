@@ -103,8 +103,8 @@ public class ChickFacade {
         List<Chick> objectList;
         try {
             objectDao.beginTransaction();
-            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findByActiveClientAndFeed",Chick.class)
-                    .setParameter("client",client).setParameter("feed",feed).getResultList();
+            objectList = objectDao.getEntityManager().createNamedQuery("Chick.findByActiveClientAndAgeBefore",Chick.class)
+                    .setParameter("client",client).setParameter("age",feed.getAgeTo()).getResultList();
             objectDao.commitAndCloseTransaction();
         }catch (Exception ex){
             objectList = null;

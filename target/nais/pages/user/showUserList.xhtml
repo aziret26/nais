@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/templates/masterLayout.xhtml">
+        <ui:define name="windowTitle">Список пользователей</ui:define>
+        <ui:define name="content">
+            <h2>#{msgs.userList}</h2>
+            <h:form>
+                <p:dataTable value="#{userController.getAllStaffUsers()}" var="u" styleClass="dataTable text-center"
+                             headerClass="dataTableHeader" footerClass="dataTableFooter" columnClasses="clientName"
+                             rowClasses="oddRow, evenRow">
+                    <p:column>
+                        <f:facet name="header">#{msgs.username}</f:facet>
+                        <h:outputText value="#{u.login}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">#{msgs.firstName}</f:facet>
+                        <h:outputText value="#{u.fname}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">#{msgs.lastName}</f:facet>
+                        <h:outputText value="#{u.lname}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">#{msgs.role}</f:facet>
+                        <h:outputText value="#{u.userRole.userRole}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">#{msgs.edit}</f:facet>
+                        <h:link styleClass="btn btn-outline-secondary" value="#{msgs.edit}" outcome="editUser?userId=#{u.userId}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

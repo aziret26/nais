@@ -7,6 +7,7 @@ import kg.nais.models.Client;
 import kg.nais.models.User;
 import kg.nais.models.notification.NotificationSeen;
 import kg.nais.models.notification.UserFeedNotification;
+import kg.nais.service.UpdateMethods;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -56,6 +57,7 @@ public class NotificationController {
         }
         return userFeedNotificationList;
     }
+
     public List<UserFeedNotification> getUserFeedNotificationListForCurrentUser(){
         User user = userController.getCurrentUser();
         if(user == null){
@@ -98,6 +100,7 @@ public class NotificationController {
         _removeNotification(ufn);
         initObject();
     }
+
     private void _removeNotification(UserFeedNotification ufn){
         NotificationSeenFacade nsf = new NotificationSeenFacade();
         List<NotificationSeen> nsList = nsf.findByNotification(ufn);
@@ -134,7 +137,6 @@ public class NotificationController {
         return false;
     }
 
-
     /**
      * Removes notifications from UserFeedNotification table
      * and related to it date from NotificationSeen table
@@ -158,5 +160,11 @@ public class NotificationController {
 
         ufnList.forEach(ufnf::delete);
 
+    }
+
+    public void refreshNotifications(){
+        UpdateMethods um = new UpdateMethods();
+        um.updateOrdersData();
+        um.updateNotificationsList();
     }
 }

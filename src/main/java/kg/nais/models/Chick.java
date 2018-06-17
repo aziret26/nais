@@ -24,6 +24,9 @@ import java.util.*;
         @NamedQuery(name="Chick.findByActiveClientAndFeed",
                 query = "SELECT c FROM Chick c where c.client = :client AND " +
                         "c.client.clientStatus.id=1 AND c.feed = :feed ORDER BY c.age ASC"),
+        @NamedQuery(name="Chick.findByActiveClientAndAgeBefore",
+            query = "SELECT c FROM Chick c where c.client = :client AND " +
+                "c.client.clientStatus.id=1 AND c.age <= :age ORDER BY c.age ASC"),
         @NamedQuery(name="Chick.findChicksAgeBefore",
                 query = "SELECT c FROM Chick c where c.age <= :age ORDER BY c.age ASC"),
         @NamedQuery(name="Chick.findActiveChicksAgeBefore",

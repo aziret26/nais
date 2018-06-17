@@ -50,15 +50,12 @@ public class ChickController extends GeneralController{
     }
 
     public List<Chick> findChickListByClient(Client client){
-        List<Chick> chickList;
-        chickList = new ChickFacade().findByClient(client);
-        return chickList;
+        return new ChickFacade().findByClient(client);
+
     }
 
     public List<Chick> findChickListByActiveClientAndFeed(Client client,Feed feed){
-        List<Chick> chickList;
-        chickList = new ChickFacade().findByActiveClientAndFeed(client,feed);
-        return chickList;
+        return new ChickFacade().findByActiveClientAndFeed(client,feed);
     }
 
     /**

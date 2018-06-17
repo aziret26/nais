@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/masterLayout.xhtml">
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="clientId" value="#{ordersController.clientId}"/>
+        </f:metadata>
+    </ui:define>
+    <ui:define name="windowTitle">#{msgs.orderList}</ui:define>
+
+    <ui:define name="content">
+        <h2>#{msgs.orderList}</h2>
+
+        <h:form styleClass="mb-3">
+            <h:panelGrid columns="3">
+                <h:inputText styleClass="form-control" value="#{clientController.searchNameActive}"/>
+                <h:commandButton styleClass="btn btn-outline-primary ml-3" value="#{msgs.search}">
+                    <f:ajax listener="#{clientController.searchAllActiveByName()}"
+                            execute="@form"
+                            render=":activeClientsMsg :activeClientsList"/>
+                </h:commandButton>
+            </h:panelGrid>
+        </h:form>
+        <h:panelGroup id="activeClientsMsg">
+            <p:messages id="messages-active" showDetail="true" closable="true" />
+        </h:panelGroup>
+        <hr/>
+        <h:panelGroup id="activeClientsList" name="activeClientsList">
+            <h:form>
+                <p:dataTable value="#{clientController.activeClients}" var="client" styleClass="dataTable"
+                             headerClass="dataTableHeader" footerClass="dataTableFooter"
+                             columnClasses="clientName" rowClasses="oddRow, evenRow">
+                    <p:column>
+                        <f:facet name="header">#{msgs.clients}</f:facet>
+                        <h:link value="#{client.name}" outcome="#{ordersController.addOrder(client.clientId)}"/>
+                    </p:column>
+
+                    <p:columns value="#{feedController.feedList}" var="feed">
+                        <f:facet name="header" >#{feed.name}</f:facet>
+                        <h:outputText value="#{ordersController.getOrderListByClientsFeed(client, feed).amount} кг."/>
+                    </p:columns>
+                </p:dataTable>
+            </h:form>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>
+</html>

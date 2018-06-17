@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/templates/masterLayout.xhtml">
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:viewParam name="feedId" value="#{feedController.feedId}"/>
+                <f:viewParam name="userId" value="#{userController.userId}"/>
+                <f:viewParam name="feedId" value="#{editFeedController.feedId}"/>
+            </f:metadata>
+        </ui:define>
+        <ui:define name="windowTitle">#{msgs.feedEdit}</ui:define>
+        <ui:define name="content">
+            <h2>#{msgs.feedEdit}</h2>
+            <h:panelGroup>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputText value="#{msgs.feedName}:"/>
+                        <h:panelGroup>
+                            <h:inputText styleClass="form-control" id="feed" value="#{editFeedController.feed.name}" required="true">
+                                <f:ajax event="blur">
+                                    <f:validateRegex pattern = "[a-zA-Z0-9]{2,50}$" />
+                                    <f:validateLength minimum="2"/>
+                                </f:ajax>
+                            </h:inputText>
+                            <h:message for="feed" styleClass="errorMessage"/>
+                        </h:panelGroup>
+
+                        <h:outputText value="#{msgs.ageFrom}:"/>
+                        <h:panelGroup>
+                            <h:inputText styleClass="form-control" id="ageFrom" value="#{editFeedController.feed.ageFrom}" required="true"/>
+                            <h:message for="ageFrom" styleClass="errorMessage" showSummary="true" showDetail="false"/>
+                        </h:panelGroup>
+
+                        <h:outputText value="#{msgs.ageTo}:"/>
+                        <h:panelGroup>
+                            <h:inputText styleClass="form-control" id="ageTo" value = "#{editFeedController.feed.ageTo}" required="true"/>
+                            <h:message for = "ageTo" styleClass="errorMessage" />
+                        </h:panelGroup>
+
+                        <h:commandButton styleClass="btn btn-outline-danger" value="#{msgs.delete}" action="#{editFeedController.deleteFeed()}"/>
+                        <h:commandButton styleClass="btn btn-outline-success float-right" value="#{msgs.update}" action="#{editFeedController.saveFeedChanges()}"/>
+                    </h:panelGrid>
+                    <h:messages errorClass="errorMessage" infoClass="infoMessage"
+                                layout="table" globalOnly="true" showDetail="false" showSummary="true"/>
+                </h:form>
+            </h:panelGroup>
+        </ui:define>
+    </ui:composition>
+</html>

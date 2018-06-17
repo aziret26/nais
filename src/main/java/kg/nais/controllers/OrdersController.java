@@ -224,14 +224,14 @@ public class OrdersController extends GeneralController{
     }
 
     public boolean hasResourcesByDate(Client client,Feed feed,Calendar date){
-        if(orderList == null || orderList.size() == 0){
+        if( orderList == null || orderList.size() == 0 ){
             return false;
         }
-        for(Orders o : orderList){
-            if( o.getClient().getClientId() == client.getClientId() && (
-                    o.getDueDate() == null ||
-                    o.getFeed().getFeedId() == feed.getFeedId() && o.getDueDate().compareTo(date) < 0
-                    )){
+        for( Orders o : orderList ){
+            if( o.getClient().getClientId() == client.getClientId() &&
+                o.getFeed().getFeedId() == feed.getFeedId() &&
+                ( o.getDueDate() == null ||
+                    o.getDueDate().compareTo(date) > 0 )){
                 return true;
             }
         }
@@ -262,9 +262,9 @@ public class OrdersController extends GeneralController{
 
     public boolean isAvailableOrder(Orders order){
         CustomCalendar cc = new CustomCalendar();
-        if(order == null)
+        if( order == null )
             return false;
-        if(cc.after(order.getOrderDate()) || cc.before(order.getDueDate()))
+        if( cc.before(order.getOrderDate()) || cc.after(order.getDueDate()) )
             return  false;
         return true;
     }

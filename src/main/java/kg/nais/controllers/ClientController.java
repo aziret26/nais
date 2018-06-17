@@ -52,6 +52,19 @@ public class ClientController extends GeneralController {
     @ManagedProperty(value="#{sessionController}")
     private SessionController sessionController;
 
+    @Override
+    public void setClientId(int clientId) {
+        if(clientId == 0) return;
+
+        Client tempClient = clientFacade.findById(clientId);
+
+        if(tempClient == null) return;
+
+        this.client = tempClient;
+
+        super.setClientId(clientId);
+    }
+
     public Client getClient () {
         return client;
     }

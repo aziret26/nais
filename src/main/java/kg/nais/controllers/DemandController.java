@@ -176,6 +176,9 @@ public class DemandController extends GeneralController{
                 amount += consumeController.getConsumeAmount(chick);
             }
             demandsMap.get(feed.getFeedId()).put(BasicFunctions.calendarToString(now),(int) amount);
+
+            // stops calculations when
+            // requested date is reached
             if(BasicFunctions.isSameDate(now,date))
                 break;
             now.add(Calendar.DAY_OF_YEAR,1);

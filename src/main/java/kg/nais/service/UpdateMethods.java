@@ -132,24 +132,30 @@ public class UpdateMethods {
         NotificationType ntInfo = new NotificationTypeFacade().findById(1);
         for(Client client : clientList){
             for (Feed feed : feedList){
+                System.out.printf("notify at client: %d | feed: %s\n",
+                    client.getClientId(),feed.getFeedId() );
                 //do not notify if client doesn't need that feed
-                if(cc.getChickListByClientAndFeed(client,feed).size() == 0){
+                List<Chick> chicks = cc.getChickListByClientAndFeed(client,feed);
+                if(chicks == null || chicks.size() == 0){
+                    System.out.println("no chicks\n");
                     continue;
                 }
 
                 Orders order = of.findByClientFeed(client,feed);
 
-                if(order == null)
-                    continue;
-                //do not notify if amount of feed is enough
-                if(ordersController.isAvailableOrder(order)){
-                    continue;
+                if(order != null){
+                    //do not notify if amount of feed is enough
+                    if(ordersController.isAvailableOrder(order)){
+                        System.out.println("has order\n");
+                        continue;
+                    }
+                }else{
+                    System.out.println("No orders for");
                 }
-
                 //do not notify if in database exists this notification
                 //to avoid duplicates
                 if(ufnf.findByClientAndFeed(client,feed) != null ) continue;
-                Calendar date = order.getDueDate() != null ? order.getDueDate() : Calendar.getInstance();
+                Calendar date = order != null && order.getDueDate() != null ? order.getDueDate() : Calendar.getInstance();
                 UserFeedNotification cfn =
                         new UserFeedNotification(client,feed,date,ntInfo);
                 ufnf.create(cfn);
